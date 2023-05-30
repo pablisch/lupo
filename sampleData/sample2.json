@@ -1,0 +1,2078 @@
+[
+  {
+      "id": "1523887347",
+      "stationName": "Aldgate Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 7
+  },
+  {
+      "id": "2130616111",
+      "stationName": "Brixton Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 7
+  },
+  {
+      "id": "1924610172",
+      "stationName": "Waterloo Underground Station",
+      "lineName": "Waterloo & City",
+      "timeToStation": 7
+  },
+  {
+      "id": "-1201659113",
+      "stationName": "Bank Underground Station",
+      "lineName": "Waterloo & City",
+      "timeToStation": 7
+  },
+  {
+      "id": "1915901215",
+      "stationName": "Charing Cross Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 8
+  },
+  {
+      "id": "2110736534",
+      "stationName": "Edgware Road (Bakerloo) Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 8
+  },
+  {
+      "id": "-1485336028",
+      "stationName": "Charing Cross Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 8
+  },
+  {
+      "id": "1868073119",
+      "stationName": "Elephant & Castle Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 8
+  },
+  {
+      "id": "1017004440",
+      "stationName": "Elephant & Castle Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 8
+  },
+  {
+      "id": "1453686493",
+      "stationName": "Bethnal Green Underground Station",
+      "lineName": "Central",
+      "timeToStation": 8
+  },
+  {
+      "id": "1876542428",
+      "stationName": "Baker Street Underground Station",
+      "lineName": "Circle",
+      "timeToStation": 8
+  },
+  {
+      "id": "-738942487",
+      "stationName": "Baker Street Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 8
+  },
+  {
+      "id": "1880115141",
+      "stationName": "Chalfont & Latimer Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 8
+  },
+  {
+      "id": "286440347",
+      "stationName": "Chorleywood Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 8
+  },
+  {
+      "id": "1936841416",
+      "stationName": "Angel Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 8
+  },
+  {
+      "id": "-1434759690",
+      "stationName": "Archway Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 8
+  },
+  {
+      "id": "-125708778",
+      "stationName": "Euston Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 8
+  },
+  {
+      "id": "-2092958500",
+      "stationName": "Euston Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 8
+  },
+  {
+      "id": "-1597029958",
+      "stationName": "Finsbury Park Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 8
+  },
+  {
+      "id": "-1014040871",
+      "stationName": "Brixton Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 8
+  },
+  {
+      "id": "-1193744499",
+      "stationName": "Finsbury Park Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 8
+  },
+  {
+      "id": "455589103",
+      "stationName": "Lambeth North Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 9
+  },
+  {
+      "id": "494529996",
+      "stationName": "Ealing Broadway Underground Station",
+      "lineName": "Central",
+      "timeToStation": 9
+  },
+  {
+      "id": "1005878232",
+      "stationName": "Aldgate East Underground Station",
+      "lineName": "District",
+      "timeToStation": 9
+  },
+  {
+      "id": "2124530850",
+      "stationName": "Barking Underground Station",
+      "lineName": "District",
+      "timeToStation": 9
+  },
+  {
+      "id": "85913192",
+      "stationName": "Barking Underground Station",
+      "lineName": "District",
+      "timeToStation": 9
+  },
+  {
+      "id": "1927662302",
+      "stationName": "Canning Town Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 9
+  },
+  {
+      "id": "-1078013036",
+      "stationName": "Canning Town Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 9
+  },
+  {
+      "id": "-2048136646",
+      "stationName": "Canons Park Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 9
+  },
+  {
+      "id": "-1442558475",
+      "stationName": "Archway Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 9
+  },
+  {
+      "id": "1368803484",
+      "stationName": "Vauxhall Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 9
+  },
+  {
+      "id": "388246923",
+      "stationName": "Stockwell Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 9
+  },
+  {
+      "id": "1955701110",
+      "stationName": "Stockwell Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 9
+  },
+  {
+      "id": "-1260929027",
+      "stationName": "Pimlico Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 9
+  },
+  {
+      "id": "-1382108867",
+      "stationName": "North Wembley Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 10
+  },
+  {
+      "id": "352100931",
+      "stationName": "Oxford Circus Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 10
+  },
+  {
+      "id": "84947489",
+      "stationName": "East Acton Underground Station",
+      "lineName": "Central",
+      "timeToStation": 10
+  },
+  {
+      "id": "891193921",
+      "stationName": "Epping Underground Station",
+      "lineName": "Central",
+      "timeToStation": 10
+  },
+  {
+      "id": "662098365",
+      "stationName": "Hainault Underground Station",
+      "lineName": "Central",
+      "timeToStation": 10
+  },
+  {
+      "id": "2007253378",
+      "stationName": "Greenford Underground Station",
+      "lineName": "Central",
+      "timeToStation": 10
+  },
+  {
+      "id": "-1793593746",
+      "stationName": "Dagenham East Underground Station",
+      "lineName": "District",
+      "timeToStation": 10
+  },
+  {
+      "id": "395359638",
+      "stationName": "Cannon Street Underground Station",
+      "lineName": "District",
+      "timeToStation": 10
+  },
+  {
+      "id": "-1079198498",
+      "stationName": "Blackfriars Underground Station",
+      "lineName": "District",
+      "timeToStation": 10
+  },
+  {
+      "id": "1077722765",
+      "stationName": "East Ham Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 10
+  },
+  {
+      "id": "-223686929",
+      "stationName": "Edgware Road (Circle Line) Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 10
+  },
+  {
+      "id": "1802334551",
+      "stationName": "Kilburn Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 10
+  },
+  {
+      "id": "1125896572",
+      "stationName": "Green Park Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 10
+  },
+  {
+      "id": "-738942569",
+      "stationName": "Liverpool Street Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 10
+  },
+  {
+      "id": "1026433953",
+      "stationName": "King's Cross St. Pancras Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 10
+  },
+  {
+      "id": "1813135377",
+      "stationName": "Battersea Power Station Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 10
+  },
+  {
+      "id": "-629176134",
+      "stationName": "Belsize Park Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 10
+  },
+  {
+      "id": "480311172",
+      "stationName": "Belsize Park Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 10
+  },
+  {
+      "id": "-765548192",
+      "stationName": "Arsenal Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 10
+  },
+  {
+      "id": "1261827857",
+      "stationName": "Arnos Grove Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 10
+  },
+  {
+      "id": "-9839312",
+      "stationName": "Walthamstow Central Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 10
+  },
+  {
+      "id": "564921401",
+      "stationName": "Walthamstow Central Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 10
+  },
+  {
+      "id": "1910276504",
+      "stationName": "Victoria Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 10
+  },
+  {
+      "id": "-411927804",
+      "stationName": "Walthamstow Central Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 10
+  },
+  {
+      "id": "1517175617",
+      "stationName": "Warren Street Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 10
+  },
+  {
+      "id": "-175269955",
+      "stationName": "Stonebridge Park Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 11
+  },
+  {
+      "id": "-341201610",
+      "stationName": "Holborn Underground Station",
+      "lineName": "Central",
+      "timeToStation": 11
+  },
+  {
+      "id": "-2112792040",
+      "stationName": "Hainault Underground Station",
+      "lineName": "Central",
+      "timeToStation": 11
+  },
+  {
+      "id": "-1208589556",
+      "stationName": "Gloucester Road Underground Station",
+      "lineName": "Circle",
+      "timeToStation": 11
+  },
+  {
+      "id": "-1343439491",
+      "stationName": "Gloucester Road Underground Station",
+      "lineName": "Circle",
+      "timeToStation": 11
+  },
+  {
+      "id": "-2006382795",
+      "stationName": "East Ham Underground Station",
+      "lineName": "District",
+      "timeToStation": 11
+  },
+  {
+      "id": "1321039883",
+      "stationName": "Ealing Common Underground Station",
+      "lineName": "District",
+      "timeToStation": 11
+  },
+  {
+      "id": "1151368439",
+      "stationName": "Earl's Court Underground Station",
+      "lineName": "District",
+      "timeToStation": 11
+  },
+  {
+      "id": "-2088082385",
+      "stationName": "Ealing Broadway Underground Station",
+      "lineName": "District",
+      "timeToStation": 11
+  },
+  {
+      "id": "392279532",
+      "stationName": "Earl's Court Underground Station",
+      "lineName": "District",
+      "timeToStation": 11
+  },
+  {
+      "id": "-79708172",
+      "stationName": "London Bridge Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 11
+  },
+  {
+      "id": "-79904780",
+      "stationName": "London Bridge Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 11
+  },
+  {
+      "id": "1448546399",
+      "stationName": "Brent Cross Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 11
+  },
+  {
+      "id": "-232268990",
+      "stationName": "Burnt Oak Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 11
+  },
+  {
+      "id": "-1853411367",
+      "stationName": "Burnt Oak Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 11
+  },
+  {
+      "id": "-1988507082",
+      "stationName": "Camden Town Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 11
+  },
+  {
+      "id": "-1032054781",
+      "stationName": "Waterloo Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 12
+  },
+  {
+      "id": "351511131",
+      "stationName": "Wembley Central Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 12
+  },
+  {
+      "id": "2022131781",
+      "stationName": "Willesden Junction Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 12
+  },
+  {
+      "id": "-1686005057",
+      "stationName": "Leytonstone Underground Station",
+      "lineName": "Central",
+      "timeToStation": 12
+  },
+  {
+      "id": "-131699164",
+      "stationName": "Leytonstone Underground Station",
+      "lineName": "Central",
+      "timeToStation": 12
+  },
+  {
+      "id": "-1708345265",
+      "stationName": "Lancaster Gate Underground Station",
+      "lineName": "Central",
+      "timeToStation": 12
+  },
+  {
+      "id": "500355981",
+      "stationName": "Leyton Underground Station",
+      "lineName": "Central",
+      "timeToStation": 12
+  },
+  {
+      "id": "-1602045317",
+      "stationName": "Leyton Underground Station",
+      "lineName": "Central",
+      "timeToStation": 12
+  },
+  {
+      "id": "1391712677",
+      "stationName": "Edgware Road (Circle Line) Underground Station",
+      "lineName": "District",
+      "timeToStation": 12
+  },
+  {
+      "id": "691016728",
+      "stationName": "King's Cross St. Pancras Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 12
+  },
+  {
+      "id": "879800775",
+      "stationName": "Hammersmith (H&C Line) Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 12
+  },
+  {
+      "id": "548953527",
+      "stationName": "Southwark Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 12
+  },
+  {
+      "id": "549281207",
+      "stationName": "Southwark Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 12
+  },
+  {
+      "id": "-1749470810",
+      "stationName": "North Greenwich Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 12
+  },
+  {
+      "id": "-172843218",
+      "stationName": "Queensbury Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 12
+  },
+  {
+      "id": "1272026465",
+      "stationName": "Watford Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 12
+  },
+  {
+      "id": "-597646629",
+      "stationName": "Uxbridge Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 12
+  },
+  {
+      "id": "-721313393",
+      "stationName": "Pinner Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 12
+  },
+  {
+      "id": "-1691285233",
+      "stationName": "Charing Cross Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 12
+  },
+  {
+      "id": "-2093164705",
+      "stationName": "Charing Cross Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 12
+  },
+  {
+      "id": "-2094868639",
+      "stationName": "Charing Cross Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 12
+  },
+  {
+      "id": "-222259035",
+      "stationName": "Camden Town Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 12
+  },
+  {
+      "id": "1465390141",
+      "stationName": "Chalk Farm Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 12
+  },
+  {
+      "id": "-354926957",
+      "stationName": "Camden Town Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 12
+  },
+  {
+      "id": "-1240115559",
+      "stationName": "Cockfosters Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 12
+  },
+  {
+      "id": "418169652",
+      "stationName": "Cockfosters Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 12
+  },
+  {
+      "id": "-2125448959",
+      "stationName": "Marble Arch Underground Station",
+      "lineName": "Central",
+      "timeToStation": 13
+  },
+  {
+      "id": "1816184563",
+      "stationName": "Liverpool Street Underground Station",
+      "lineName": "Central",
+      "timeToStation": 13
+  },
+  {
+      "id": "65082626",
+      "stationName": "Hornchurch Underground Station",
+      "lineName": "District",
+      "timeToStation": 13
+  },
+  {
+      "id": "-585774075",
+      "stationName": "Mansion House Underground Station",
+      "lineName": "District",
+      "timeToStation": 13
+  },
+  {
+      "id": "2033901236",
+      "stationName": "Mile End Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 13
+  },
+  {
+      "id": "546070805",
+      "stationName": "Stanmore Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 13
+  },
+  {
+      "id": "-391479400",
+      "stationName": "Stratford Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 13
+  },
+  {
+      "id": "545284373",
+      "stationName": "Stanmore Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 13
+  },
+  {
+      "id": "914204307",
+      "stationName": "Stratford Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 13
+  },
+  {
+      "id": "1393496999",
+      "stationName": "Clapham Common Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 13
+  },
+  {
+      "id": "-295976644",
+      "stationName": "Finsbury Park Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 13
+  },
+  {
+      "id": "1495837846",
+      "stationName": "Earl's Court Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 13
+  },
+  {
+      "id": "761947554",
+      "stationName": "Newbury Park Underground Station",
+      "lineName": "Central",
+      "timeToStation": 14
+  },
+  {
+      "id": "-1201423378",
+      "stationName": "Parsons Green Underground Station",
+      "lineName": "District",
+      "timeToStation": 14
+  },
+  {
+      "id": "1826266974",
+      "stationName": "Monument Underground Station",
+      "lineName": "District",
+      "timeToStation": 14
+  },
+  {
+      "id": "173733673",
+      "stationName": "Moorgate Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 14
+  },
+  {
+      "id": "-977725658",
+      "stationName": "Wembley Park Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 14
+  },
+  {
+      "id": "1288014905",
+      "stationName": "Swiss Cottage Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 14
+  },
+  {
+      "id": "-2106085853",
+      "stationName": "East Finchley Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 14
+  },
+  {
+      "id": "-51739062",
+      "stationName": "Colindale Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 14
+  },
+  {
+      "id": "-1621423433",
+      "stationName": "Colindale Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 14
+  },
+  {
+      "id": "1957467637",
+      "stationName": "Clapham South Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 14
+  },
+  {
+      "id": "1868468388",
+      "stationName": "Gloucester Road Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 14
+  },
+  {
+      "id": "-2006654016",
+      "stationName": "Redbridge Underground Station",
+      "lineName": "Central",
+      "timeToStation": 15
+  },
+  {
+      "id": "-469519458",
+      "stationName": "Oxford Circus Underground Station",
+      "lineName": "Central",
+      "timeToStation": 15
+  },
+  {
+      "id": "-208887434",
+      "stationName": "Ravenscourt Park Underground Station",
+      "lineName": "District",
+      "timeToStation": 15
+  },
+  {
+      "id": "809653535",
+      "stationName": "Richmond Underground Station",
+      "lineName": "District",
+      "timeToStation": 15
+  },
+  {
+      "id": "1484127213",
+      "stationName": "Richmond Underground Station",
+      "lineName": "District",
+      "timeToStation": 15
+  },
+  {
+      "id": "1968857033",
+      "stationName": "South Kensington Underground Station",
+      "lineName": "District",
+      "timeToStation": 15
+  },
+  {
+      "id": "-939521476",
+      "stationName": "Southfields Underground Station",
+      "lineName": "District",
+      "timeToStation": 15
+  },
+  {
+      "id": "1533593445",
+      "stationName": "West Hampstead Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 15
+  },
+  {
+      "id": "143736738",
+      "stationName": "Willesden Green Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 15
+  },
+  {
+      "id": "-2080978874",
+      "stationName": "Edgware Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 15
+  },
+  {
+      "id": "992787800",
+      "stationName": "Elephant & Castle Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 15
+  },
+  {
+      "id": "-8180552",
+      "stationName": "St. Paul's Underground Station",
+      "lineName": "Central",
+      "timeToStation": 16
+  },
+  {
+      "id": "-159223003",
+      "stationName": "Tower Hill Underground Station",
+      "lineName": "Circle",
+      "timeToStation": 16
+  },
+  {
+      "id": "893217251",
+      "stationName": "Stepney Green Underground Station",
+      "lineName": "District",
+      "timeToStation": 16
+  },
+  {
+      "id": "493567383",
+      "stationName": "Temple Underground Station",
+      "lineName": "District",
+      "timeToStation": 16
+  },
+  {
+      "id": "-1794841945",
+      "stationName": "Stamford Brook Underground Station",
+      "lineName": "District",
+      "timeToStation": 16
+  },
+  {
+      "id": "1822455720",
+      "stationName": "Euston Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 16
+  },
+  {
+      "id": "699810164",
+      "stationName": "Embankment Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 16
+  },
+  {
+      "id": "698892661",
+      "stationName": "Embankment Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 16
+  },
+  {
+      "id": "699810123",
+      "stationName": "Embankment Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 16
+  },
+  {
+      "id": "-1643006899",
+      "stationName": "Holloway Road Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 16
+  },
+  {
+      "id": "661694248",
+      "stationName": "Heathrow Terminals 2 & 3 Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 16
+  },
+  {
+      "id": "408874847",
+      "stationName": "Stratford Underground Station",
+      "lineName": "Central",
+      "timeToStation": 17
+  },
+  {
+      "id": "-586429426",
+      "stationName": "Tower Hill Underground Station",
+      "lineName": "District",
+      "timeToStation": 17
+  },
+  {
+      "id": "1720294378",
+      "stationName": "Upminster Underground Station",
+      "lineName": "District",
+      "timeToStation": 17
+  },
+  {
+      "id": "757501088",
+      "stationName": "Upminster Underground Station",
+      "lineName": "District",
+      "timeToStation": 17
+  },
+  {
+      "id": "-2007103739",
+      "stationName": "Upminster Underground Station",
+      "lineName": "District",
+      "timeToStation": 17
+  },
+  {
+      "id": "445131837",
+      "stationName": "Wood Lane Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 17
+  },
+  {
+      "id": "-1478539785",
+      "stationName": "Wood Lane Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 17
+  },
+  {
+      "id": "-1033969985",
+      "stationName": "Golders Green Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 17
+  },
+  {
+      "id": "-366723730",
+      "stationName": "Golders Green Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 17
+  },
+  {
+      "id": "1162398535",
+      "stationName": "West Ruislip Underground Station",
+      "lineName": "Central",
+      "timeToStation": 18
+  },
+  {
+      "id": "-720570827",
+      "stationName": "Wanstead Underground Station",
+      "lineName": "Central",
+      "timeToStation": 18
+  },
+  {
+      "id": "-1281525738",
+      "stationName": "White City Underground Station",
+      "lineName": "Central",
+      "timeToStation": 18
+  },
+  {
+      "id": "-2081604105",
+      "stationName": "White City Underground Station",
+      "lineName": "Central",
+      "timeToStation": 18
+  },
+  {
+      "id": "-830324",
+      "stationName": "Paddington Underground Station",
+      "lineName": "Circle",
+      "timeToStation": 18
+  },
+  {
+      "id": "756845742",
+      "stationName": "West Ham Underground Station",
+      "lineName": "District",
+      "timeToStation": 18
+  },
+  {
+      "id": "-1163082412",
+      "stationName": "Bow Road Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 18
+  },
+  {
+      "id": "-1537776901",
+      "stationName": "Baker Street Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 18
+  },
+  {
+      "id": "1796239703",
+      "stationName": "Kilburn Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 18
+  },
+  {
+      "id": "-1646524297",
+      "stationName": "Green Park Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 18
+  },
+  {
+      "id": "-430170581",
+      "stationName": "Westminster Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 18
+  },
+  {
+      "id": "-998115166",
+      "stationName": "St. John's Wood Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 18
+  },
+  {
+      "id": "-1352708268",
+      "stationName": "Hampstead Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 18
+  },
+  {
+      "id": "1099355067",
+      "stationName": "Hampstead Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 18
+  },
+  {
+      "id": "2136149674",
+      "stationName": "Goodge Street Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 18
+  },
+  {
+      "id": "975062677",
+      "stationName": "King's Cross St. Pancras Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 18
+  },
+  {
+      "id": "681164304",
+      "stationName": "Ickenham Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 18
+  },
+  {
+      "id": "-802425620",
+      "stationName": "White City Underground Station",
+      "lineName": "Central",
+      "timeToStation": 19
+  },
+  {
+      "id": "2101253574",
+      "stationName": "Westbourne Park Underground Station",
+      "lineName": "Circle",
+      "timeToStation": 19
+  },
+  {
+      "id": "110965897",
+      "stationName": "Barbican Underground Station",
+      "lineName": "Circle",
+      "timeToStation": 19
+  },
+  {
+      "id": "-636213546",
+      "stationName": "Finchley Road Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 19
+  },
+  {
+      "id": "-309297920",
+      "stationName": "Bermondsey Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 19
+  },
+  {
+      "id": "-98451547",
+      "stationName": "Swiss Cottage Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 19
+  },
+  {
+      "id": "1126158716",
+      "stationName": "Green Park Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 19
+  },
+  {
+      "id": "-1645333255",
+      "stationName": "Stanmore Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 19
+  },
+  {
+      "id": "244621774",
+      "stationName": "High Barnet Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 19
+  },
+  {
+      "id": "-1279145928",
+      "stationName": "High Barnet Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 19
+  },
+  {
+      "id": "-1215466486",
+      "stationName": "Leicester Square Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 19
+  },
+  {
+      "id": "-1871911589",
+      "stationName": "Wimbledon Underground Station",
+      "lineName": "District",
+      "timeToStation": 20
+  },
+  {
+      "id": "892621567",
+      "stationName": "Wimbledon Underground Station",
+      "lineName": "District",
+      "timeToStation": 20
+  },
+  {
+      "id": "1317107765",
+      "stationName": "Wimbledon Underground Station",
+      "lineName": "District",
+      "timeToStation": 20
+  },
+  {
+      "id": "892687102",
+      "stationName": "Wimbledon Underground Station",
+      "lineName": "District",
+      "timeToStation": 20
+  },
+  {
+      "id": "1732946151",
+      "stationName": "Kennington Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 20
+  },
+  {
+      "id": "1163507335",
+      "stationName": "Highgate Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 20
+  },
+  {
+      "id": "1966601058",
+      "stationName": "Highgate Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 20
+  },
+  {
+      "id": "-1213041654",
+      "stationName": "Leicester Square Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 20
+  },
+  {
+      "id": "-1869557607",
+      "stationName": "Uxbridge Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 20
+  },
+  {
+      "id": "1767827730",
+      "stationName": "Southgate Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 20
+  },
+  {
+      "id": "-659685831",
+      "stationName": "Manor House Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 20
+  },
+  {
+      "id": "-1869557607",
+      "stationName": "Uxbridge Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 20
+  },
+  {
+      "id": "-1869557607",
+      "stationName": "Uxbridge Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 20
+  },
+  {
+      "id": "1465838853",
+      "stationName": "Kennington Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 21
+  },
+  {
+      "id": "82191389",
+      "stationName": "Kennington Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 21
+  },
+  {
+      "id": "-992091054",
+      "stationName": "Kentish Town Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 21
+  },
+  {
+      "id": "1710331874",
+      "stationName": "South Harrow Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 21
+  },
+  {
+      "id": "1510001115",
+      "stationName": "Northfields Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 21
+  },
+  {
+      "id": "-524999732",
+      "stationName": "King's Cross St. Pancras Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 22
+  },
+  {
+      "id": "245291465",
+      "stationName": "Leicester Square Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 22
+  },
+  {
+      "id": "440039741",
+      "stationName": "Kentish Town Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 22
+  },
+  {
+      "id": "1045544609",
+      "stationName": "King's Cross St. Pancras Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 22
+  },
+  {
+      "id": "488166404",
+      "stationName": "Holland Park Underground Station",
+      "lineName": "Central",
+      "timeToStation": 23
+  },
+  {
+      "id": "-2073872421",
+      "stationName": "Chigwell Underground Station",
+      "lineName": "Central",
+      "timeToStation": 23
+  },
+  {
+      "id": "-85912630",
+      "stationName": "Marble Arch Underground Station",
+      "lineName": "Central",
+      "timeToStation": 23
+  },
+  {
+      "id": "-206636838",
+      "stationName": "West Ruislip Underground Station",
+      "lineName": "Central",
+      "timeToStation": 23
+  },
+  {
+      "id": "1567750450",
+      "stationName": "Upney Underground Station",
+      "lineName": "District",
+      "timeToStation": 23
+  },
+  {
+      "id": "1950234987",
+      "stationName": "Cannon Street Underground Station",
+      "lineName": "District",
+      "timeToStation": 23
+  },
+  {
+      "id": "-204254558",
+      "stationName": "West Brompton Underground Station",
+      "lineName": "District",
+      "timeToStation": 23
+  },
+  {
+      "id": "2011772123",
+      "stationName": "Great Portland Street Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 23
+  },
+  {
+      "id": "354541217",
+      "stationName": "Liverpool Street Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 23
+  },
+  {
+      "id": "-128505995",
+      "stationName": "Hillingdon Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 23
+  },
+  {
+      "id": "-746086279",
+      "stationName": "Northwood Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 23
+  },
+  {
+      "id": "-1010057057",
+      "stationName": "Leicester Square Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 23
+  },
+  {
+      "id": "-51870134",
+      "stationName": "London Bridge Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 23
+  },
+  {
+      "id": "1377113056",
+      "stationName": "London Bridge Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 23
+  },
+  {
+      "id": "-1692092698",
+      "stationName": "Hammersmith (Dist&Picc Line) Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 23
+  },
+  {
+      "id": "-1350265239",
+      "stationName": "Russell Square Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 23
+  },
+  {
+      "id": "-2110189411",
+      "stationName": "Piccadilly Circus Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 23
+  },
+  {
+      "id": "-726082945",
+      "stationName": "King's Cross St. Pancras Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 23
+  },
+  {
+      "id": "1927957026",
+      "stationName": "Harrow & Wealdstone Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 24
+  },
+  {
+      "id": "861777124",
+      "stationName": "Regent's Park Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 24
+  },
+  {
+      "id": "84029914",
+      "stationName": "Holborn Underground Station",
+      "lineName": "Central",
+      "timeToStation": 24
+  },
+  {
+      "id": "1675740597",
+      "stationName": "Snaresbrook Underground Station",
+      "lineName": "Central",
+      "timeToStation": 24
+  },
+  {
+      "id": "-606278872",
+      "stationName": "East Acton Underground Station",
+      "lineName": "Central",
+      "timeToStation": 24
+  },
+  {
+      "id": "-1750989151",
+      "stationName": "Woodford Underground Station",
+      "lineName": "Central",
+      "timeToStation": 24
+  },
+  {
+      "id": "809587990",
+      "stationName": "Embankment Underground Station",
+      "lineName": "District",
+      "timeToStation": 24
+  },
+  {
+      "id": "-1872108200",
+      "stationName": "Wimbledon Underground Station",
+      "lineName": "District",
+      "timeToStation": 24
+  },
+  {
+      "id": "-1872108200",
+      "stationName": "Wimbledon Underground Station",
+      "lineName": "District",
+      "timeToStation": 24
+  },
+  {
+      "id": "1276669036",
+      "stationName": "Neasden Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 24
+  },
+  {
+      "id": "1276997524",
+      "stationName": "Farringdon Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 24
+  },
+  {
+      "id": "-1162747637",
+      "stationName": "Wembley Park Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 24
+  },
+  {
+      "id": "-1229640552",
+      "stationName": "Finchley Road Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 24
+  },
+  {
+      "id": "-486868417",
+      "stationName": "Farringdon Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 24
+  },
+  {
+      "id": "1966601058",
+      "stationName": "Moorgate Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 24
+  },
+  {
+      "id": "461141046",
+      "stationName": "Mill Hill East Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 24
+  },
+  {
+      "id": "-1037705914",
+      "stationName": "Morden Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 28
+  },
+  {
+      "id": "1049664930",
+      "stationName": "Totteridge & Whetstone Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 28
+  },
+  {
+      "id": "-1037705914",
+      "stationName": "Morden Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 28
+  },
+  {
+      "id": "-1501803022",
+      "stationName": "Tottenham Court Road Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 28
+  },
+  {
+      "id": "-1037705914",
+      "stationName": "Morden Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 28
+  },
+  {
+      "id": "-1855318951",
+      "stationName": "Clapham North Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 29
+  },
+  {
+      "id": "-839793689",
+      "stationName": "Elephant & Castle Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 29
+  },
+  {
+      "id": "78109010",
+      "stationName": "Old Street Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 29
+  },
+  {
+      "id": "888579194",
+      "stationName": "Bank Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 29
+  },
+  {
+      "id": "479459222",
+      "stationName": "Woodside Park Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 29
+  },
+  {
+      "id": "-222259022",
+      "stationName": "South Wimbledon Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 29
+  },
+  {
+      "id": "-774889890",
+      "stationName": "Euston Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 29
+  },
+  {
+      "id": "143317074",
+      "stationName": "Borough Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 29
+  },
+  {
+      "id": "644039668",
+      "stationName": "Stockwell Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 29
+  },
+  {
+      "id": "-2110456626",
+      "stationName": "King's Cross St. Pancras Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 29
+  },
+  {
+      "id": "-1852821663",
+      "stationName": "Balham Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 30
+  },
+  {
+      "id": "378699672",
+      "stationName": "Moorgate Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 30
+  },
+  {
+      "id": "-1434628622",
+      "stationName": "East Finchley Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 30
+  },
+  {
+      "id": "-910803658",
+      "stationName": "Goodge Street Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 30
+  },
+  {
+      "id": "-437641158",
+      "stationName": "Clapham Common Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 30
+  },
+  {
+      "id": "1956812283",
+      "stationName": "Euston Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 30
+  },
+  {
+      "id": "-438165449",
+      "stationName": "Finchley Central Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 30
+  },
+  {
+      "id": "-411927804",
+      "stationName": "Walthamstow Central Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 30
+  },
+  {
+      "id": "521768711",
+      "stationName": "Monument Underground Station",
+      "lineName": "Circle",
+      "timeToStation": 48
+  },
+  {
+      "id": "-1130052401",
+      "stationName": "Euston Square Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 48
+  },
+  {
+      "id": "1077395127",
+      "stationName": "Shepherd's Bush Market Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 49
+  },
+  {
+      "id": "1386043825",
+      "stationName": "Plaistow Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 49
+  },
+  {
+      "id": "-358077270",
+      "stationName": "Hammersmith (H&C Line) Underground Station",
+      "lineName": "Hammersmith & City",
+      "timeToStation": 49
+  },
+  {
+      "id": "951944000",
+      "stationName": "West Ham Underground Station",
+      "lineName": "Jubilee",
+      "timeToStation": 49
+  },
+  {
+      "id": "412565101",
+      "stationName": "Turnham Green Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 50
+  },
+  {
+      "id": "675592595",
+      "stationName": "Turnpike Lane Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 50
+  },
+  {
+      "id": "675658132",
+      "stationName": "Turnpike Lane Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 50
+  },
+  {
+      "id": "-1396574928",
+      "stationName": "South Ealing Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 51
+  },
+  {
+      "id": "-350618787",
+      "stationName": "Paddington (H&C Line)-Underground",
+      "lineName": "Bakerloo",
+      "timeToStation": 53
+  },
+  {
+      "id": "1123008917",
+      "stationName": "South Woodford Underground Station",
+      "lineName": "Central",
+      "timeToStation": 53
+  },
+  {
+      "id": "1834983706",
+      "stationName": "Queensway Underground Station",
+      "lineName": "Central",
+      "timeToStation": 53
+  },
+  {
+      "id": "-889902988",
+      "stationName": "Greenford Underground Station",
+      "lineName": "Central",
+      "timeToStation": 53
+  },
+  {
+      "id": "-1708214196",
+      "stationName": "Lancaster Gate Underground Station",
+      "lineName": "Central",
+      "timeToStation": 53
+  },
+  {
+      "id": "293334477",
+      "stationName": "Tottenham Court Road Underground Station",
+      "lineName": "Central",
+      "timeToStation": 53
+  },
+  {
+      "id": "1565713792",
+      "stationName": "Leytonstone Underground Station",
+      "lineName": "Central",
+      "timeToStation": 53
+  },
+  {
+      "id": "449525626",
+      "stationName": "Blackfriars Underground Station",
+      "lineName": "District",
+      "timeToStation": 53
+  },
+  {
+      "id": "-1207716302",
+      "stationName": "Temple Underground Station",
+      "lineName": "District",
+      "timeToStation": 53
+  },
+  {
+      "id": "-1794052498",
+      "stationName": "Dagenham East Underground Station",
+      "lineName": "District",
+      "timeToStation": 53
+  },
+  {
+      "id": "664504827",
+      "stationName": "Plaistow Underground Station",
+      "lineName": "District",
+      "timeToStation": 53
+  },
+  {
+      "id": "1557912300",
+      "stationName": "Sloane Square Underground Station",
+      "lineName": "District",
+      "timeToStation": 53
+  },
+  {
+      "id": "889475839",
+      "stationName": "West Ham Underground Station",
+      "lineName": "District",
+      "timeToStation": 53
+  },
+  {
+      "id": "1968463817",
+      "stationName": "South Kensington Underground Station",
+      "lineName": "District",
+      "timeToStation": 53
+  },
+  {
+      "id": "-1614954272",
+      "stationName": "Victoria Underground Station",
+      "lineName": "District",
+      "timeToStation": 53
+  },
+  {
+      "id": "292795502",
+      "stationName": "Gloucester Road Underground Station",
+      "lineName": "District",
+      "timeToStation": 53
+  },
+  {
+      "id": "891709951",
+      "stationName": "West Brompton Underground Station",
+      "lineName": "District",
+      "timeToStation": 53
+  },
+  {
+      "id": "-85187111",
+      "stationName": "Croxley Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 53
+  },
+  {
+      "id": "-746086279",
+      "stationName": "Northwood Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 53
+  },
+  {
+      "id": "-1162203755",
+      "stationName": "Great Portland Street Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 53
+  },
+  {
+      "id": "1061963106",
+      "stationName": "Barons Court Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 53
+  },
+  {
+      "id": "-1780093973",
+      "stationName": "Finsbury Park Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 53
+  },
+  {
+      "id": "-1622487796",
+      "stationName": "Hatton Cross Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 53
+  },
+  {
+      "id": "613976026",
+      "stationName": "Caledonian Road Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 53
+  },
+  {
+      "id": "-1778790316",
+      "stationName": "Covent Garden Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 53
+  },
+  {
+      "id": "411975192",
+      "stationName": "Arnos Grove Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 53
+  },
+  {
+      "id": "-944014127",
+      "stationName": "Acton Town Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 53
+  },
+  {
+      "id": "-510354311",
+      "stationName": "Piccadilly Circus Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 53
+  },
+  {
+      "id": "954090067",
+      "stationName": "Queen's Park Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 54
+  },
+  {
+      "id": "-9690124",
+      "stationName": "Baker Street Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 54
+  },
+  {
+      "id": "570548695",
+      "stationName": "Warwick Avenue Underground Station",
+      "lineName": "Bakerloo",
+      "timeToStation": 54
+  },
+  {
+      "id": "-1751120226",
+      "stationName": "Woodford Underground Station",
+      "lineName": "Central",
+      "timeToStation": 54
+  },
+  {
+      "id": "-720832971",
+      "stationName": "Wanstead Underground Station",
+      "lineName": "Central",
+      "timeToStation": 54
+  },
+  {
+      "id": "-1213302125",
+      "stationName": "Shepherd's Bush (Central) Underground Station",
+      "lineName": "Central",
+      "timeToStation": 54
+  },
+  {
+      "id": "-50115516",
+      "stationName": "Bromley-by-Bow Underground Station",
+      "lineName": "District",
+      "timeToStation": 54
+  },
+  {
+      "id": "393530777",
+      "stationName": "Sloane Square Underground Station",
+      "lineName": "District",
+      "timeToStation": 54
+  },
+  {
+      "id": "-864482821",
+      "stationName": "Victoria Underground Station",
+      "lineName": "District",
+      "timeToStation": 54
+  },
+  {
+      "id": "-338627438",
+      "stationName": "West Kensington Underground Station",
+      "lineName": "District",
+      "timeToStation": 54
+  },
+  {
+      "id": "755272748",
+      "stationName": "Upton Park Underground Station",
+      "lineName": "District",
+      "timeToStation": 54
+  },
+  {
+      "id": "-746413968",
+      "stationName": "West Harrow Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 54
+  },
+  {
+      "id": "-1162551029",
+      "stationName": "Wembley Park Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 54
+  },
+  {
+      "id": "-75414984",
+      "stationName": "Baker Street Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 54
+  },
+  {
+      "id": "-855146498",
+      "stationName": "Pinner Underground Station",
+      "lineName": "Metropolitan",
+      "timeToStation": 54
+  },
+  {
+      "id": "-944014127",
+      "stationName": "Acton Town Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 54
+  },
+  {
+      "id": "-709043586",
+      "stationName": "Cockfosters Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 54
+  },
+  {
+      "id": "816995408",
+      "stationName": "Green Park Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 54
+  },
+  {
+      "id": "117665369",
+      "stationName": "Arsenal Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 54
+  },
+  {
+      "id": "-1216204686",
+      "stationName": "Earl's Court Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 54
+  },
+  {
+      "id": "-565459157",
+      "stationName": "Holborn Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 54
+  },
+  {
+      "id": "-943817520",
+      "stationName": "Acton Town Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 54
+  },
+  {
+      "id": "813915330",
+      "stationName": "Ealing Common Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 54
+  },
+  {
+      "id": "-107988413",
+      "stationName": "Hyde Park Corner Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 54
+  },
+  {
+      "id": "-1913647581",
+      "stationName": "Holborn Underground Station",
+      "lineName": "Piccadilly",
+      "timeToStation": 54
+  },
+  {
+      "id": "-1501671950",
+      "stationName": "Tottenham Court Road Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 58
+  },
+  {
+      "id": "-52263349",
+      "stationName": "Colliers Wood Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "-1852237916",
+      "stationName": "Golders Green Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "-839662617",
+      "stationName": "Elephant & Castle Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "-366264673",
+      "stationName": "West Finchley Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "-775414161",
+      "stationName": "Clapham South Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "754205088",
+      "stationName": "West Finchley Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "-633304920",
+      "stationName": "Woodside Park Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "-221931358",
+      "stationName": "Camden Town Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "-453617628",
+      "stationName": "Colliers Wood Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "754467232",
+      "stationName": "West Finchley Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "-834411768",
+      "stationName": "Borough Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "1329836556",
+      "stationName": "Chalk Farm Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "1392513962",
+      "stationName": "Finchley Central Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "-433431226",
+      "stationName": "Waterloo Underground Station",
+      "lineName": "Northern",
+      "timeToStation": 59
+  },
+  {
+      "id": "-1666040440",
+      "stationName": "Blackhorse Road Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 59
+  },
+  {
+      "id": "-772655659",
+      "stationName": "King's Cross St. Pancras Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 59
+  },
+  {
+      "id": "-433424782",
+      "stationName": "Tottenham Hale Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 59
+  },
+  {
+      "id": "659974253",
+      "stationName": "Stockwell Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 59
+  },
+  {
+      "id": "-1664658998",
+      "stationName": "Vauxhall Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 59
+  },
+  {
+      "id": "2114623666",
+      "stationName": "Green Park Underground Station",
+      "lineName": "Victoria",
+      "timeToStation": 59
+  }
+]

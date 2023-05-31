@@ -54,7 +54,7 @@ function App() {
       <header className="App-header">
         <h2>LUSO</h2>
         <img src={logo} className="App-logo" alt="logo" />
-        <Arrivals tubeData={tubeData} dataBlockDuration={dataBlockDuration} durationPassed={durationPassed} />
+        <Arrivals tubeData={tubeData} durationPassed={durationPassed} />
       </header>
     </div>
   );

@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Arrivals.css';
 
-const Arrivals = ({ tubeData, dataBlockDuration, durationPassed }) => {
+const Arrivals = ({ tubeData, durationPassed }) => {
   const [newArrival, setNewArrival] = useState('');
   const durationPassedRef = useRef(durationPassed);
   
   useEffect(() => {
-
     
     const scheduleTrains = () => {
       const trainData = tubeData;
@@ -41,7 +40,7 @@ const Arrivals = ({ tubeData, dataBlockDuration, durationPassed }) => {
 
   return (
     <div>
-      <p>{tubeData.length > 0 && newArrival}</p>
+      <p cy-data='arrival-info'>{tubeData.length > 0 && newArrival}</p>
     </div>
   );
 };

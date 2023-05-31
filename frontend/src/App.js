@@ -22,6 +22,7 @@ function App() {
           }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
         setTubeData(sortedData);
+        console.log(sortedData);
         // Save sortedData to localStorage
         // localStorage.setItem('sortedData', JSON.stringify(sortedData));
       })
@@ -31,7 +32,7 @@ function App() {
   }, []);
 
   // Display tube data
-  console.log(tubeData);
+  // console.log(tubeData);
 
   return (
     <div className="App">

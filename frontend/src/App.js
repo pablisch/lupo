@@ -46,14 +46,13 @@ function App() {
   }, []);
 
   useEffect(() => {  // Display tube data whenever it changes
-    console.log(tubeData[0]);
+    console.log(tubeData);
   }, [tubeData]);
 
   return (
     <div className="App">
       <header className="App-header">
-        <h2>London Underground</h2>
-        <h2>Symphony Orchestra</h2>
+        <h2>LUSO</h2>
         <img src={logo} className="App-logo" alt="logo" />
         <Arrivals tubeData={tubeData} dataBlockDuration={dataBlockDuration} durationPassed={durationPassed} />
       </header>

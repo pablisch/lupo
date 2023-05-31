@@ -3,33 +3,45 @@ import './Arrivals.css';
 
 const Arrivals = ({ tubeData, dataBlockDuration, durationPassed }) => {
   const [newArrival, setNewArrival] = useState('');
-  const [stationCounter, setStationCounter] = useState(0); // Use useState for stationCounter
   const durationPassedRef = useRef(durationPassed);
-
+  
   useEffect(() => {
-    if (tubeData.length > 0) { // If tubeData is not empty
-      tubeData.forEach(item => {
-        if (durationPassedRef.current < item.timeToStation) { // If the train has not arrived yet
-          setStationCounter(prevCount => prevCount + 1); // Update stationCounter using setStationCounter function
-          const timeout = setTimeout(() => { // Set a timeout until the train arrives
-            console.log(item.stationName);
-            setNewArrival(item.stationName);
-            durationPassedRef.current += (item.timeToStation - durationPassedRef.current);
-          }, (item.timeToStation - durationPassedRef.current) * 1000);
 
-          return () => clearTimeout(timeout); // Clean up the timeout on component unmount or when the tubeData changes
-        } else {
-          setStationCounter(prevCount => prevCount + 1); // Update stationCounter using setStationCounter function
+    
+    const scheduleTrains = () => {
+      const trainData = tubeData;
+      const arrivingNext = [];
+      if (trainData.length > 0) { 
+        if (durationPassedRef.current > trainData[0].timeToStation) {
+          // setNewArrival(trainData[0].stationName);
+          arrivingNext.push(trainData.shift());
+          // if a train has been added to arrivingNext...
+          while (trainData.length > 0 && !arrivingNext.some(obj => obj.lineName === trainData[0].lineName) && durationPassedRef.current > trainData[0].timeToStation) {
+            // setNewArrival(trainData[0].stationName);
+            arrivingNext.push(trainData.shift());
+          }
         }
+      }
+      // console.log(arrivingNext);
+      durationPassedRef.current += 0.15;
+      
+      arrivingNext.forEach(train => {
+        console.log(`${train.lineName} : ${train.stationName}`)
+        setNewArrival(train.stationName);
       });
-    }
+      console.log('-')
+    };
+
+    // run scheduleTrains every 150ms
+    const sixteenthInterval = setInterval(scheduleTrains, 150);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(sixteenthInterval);
   }, [tubeData]);
 
   return (
     <div>
-      <p>{ `Station number ${stationCounter}` }</p>
       <p>{tubeData.length > 0 && newArrival}</p>
-      <p>{`${durationPassedRef.current} seconds passed in this data block`}</p>
     </div>
   );
 };

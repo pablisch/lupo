@@ -37,7 +37,7 @@ function App() {
       <header className="App-header">
         <h2>London Underground</h2>
         <img src={logo} className="App-logo" alt="logo" />
-        <h2>Symphony Orchestra</h2>
+        <h2>Nil-harmonic Orchestra</h2>
       </header>
     </div>
   );

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Arrivals.css';
 import * as Tone from 'tone';
+import * as assignNoteForVictoriaLine from '../note-assignments/victoria-line'
+import * as assignNoteForJubileeLine from '../note-assignments/jubilee-line'
 
 const Arrivals = ({ tubeData, durationPassed }) => {
   const [newArrival, setNewArrival] = useState('');
@@ -11,6 +13,9 @@ const Arrivals = ({ tubeData, durationPassed }) => {
   }
 
   const victoriaLineSynth = new Tone.Synth().toDestination();
+  victoriaLineSynth.volume.value = -12
+  const jubileeLineSynth = new Tone.AMSynth().toDestination();
+  jubileeLineSynth.volume.value = -12;
 
   useEffect(() => {
     
@@ -41,58 +46,11 @@ const Arrivals = ({ tubeData, durationPassed }) => {
 
       arrivingNext.forEach((train) => {
         if (train.lineName === 'Victoria') {
-          switch(train.stationName) {
-            case 'Walthamstow Central Underground Station':
-              note = 'C5';
-              break;
-            case 'Blackhorse Road Underground Station':
-              note = 'A5';
-              break;
-            case 'Tottenham Hale Underground Station':
-              note = 'G4';
-              break;
-            case 'Seven Sisters Underground Station':
-              note = 'E4';
-              break;
-            case 'Finsbury Park Underground Station':
-              note = 'D4';
-              break;
-            case 'Highbury & Islington Underground Station':
-              note = 'C4';
-              break;
-            case "King's Cross St. Pancras Underground Station":
-              note = 'A4';
-              break;
-            case 'Euston Underground Station':
-              note = 'G3';
-              break;
-            case 'Warren Street Underground Station':
-              note = 'E3';
-              break;
-            case 'Oxford Circus Underground Station':
-              note = 'D3';
-              break;
-            case 'Green Park Underground Station':
-              note = 'C3';
-              break;
-            case 'Victoria Underground Station':
-              note = 'A3';
-              break;
-            case 'Pimlico Underground Station':
-              note = 'G2';
-              break;
-            case  'Vauxhall Underground Station':
-              note = 'E2';
-              break;
-            case 'Stockwell Underground Station':
-              note = 'D2';
-              break;
-            case 'Brixton Underground Station':
-              note = 'C2';
-              break;
-            default:
-          }
+          note = assignNoteForVictoriaLine(train.stationName);
           victoriaLineSynth.triggerAttackRelease(note, '16n')
+        } else if (train.lineName === 'Jubilee') {
+          note = assignNoteForJubileeLine(train.stationName)
+          jubileeLineSynth.triggerAttackRelease(note, '16n');
         }
       })
     };
@@ -113,3 +71,4 @@ const Arrivals = ({ tubeData, durationPassed }) => {
 };
 
 export default Arrivals;
+

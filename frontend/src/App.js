@@ -8,6 +8,7 @@ import TubeMap from './components/TubeMap/TubeMap.js';
 const dataBlockDuration = 30; // seconds
 
 function App() {
+  const [tubeData, setTubeData] = useState([]);
 
   var fade_state = true;
   const fadeElement = (elementId) => {

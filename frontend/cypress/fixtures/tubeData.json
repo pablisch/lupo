@@ -1,0 +1,12 @@
+[
+  {
+    "lineName": "Circle",
+    "stationName": "Aldgate",
+    "timeToStation": 10
+  },
+  {
+    "lineName": "District",
+    "stationName": "Notting Hill Gate",
+    "timeToStation": 20
+  }
+]

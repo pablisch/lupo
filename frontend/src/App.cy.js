@@ -2,11 +2,6 @@ import App from './App';
 
 // cypress component test for App.js
 describe('App', () => {
-  it('renders a very temporary title', () => {
-    cy.mount(<App />);
-    cy.get('.App-header > :nth-child(1)').should('be.visible');
-    cy.get('.App-header > :nth-child(1)').contains('London Underground');
-  });
 
   // tests the api call to TFL
   it('fetches data from the TFL API', () => {

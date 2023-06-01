@@ -4,6 +4,7 @@ import './Arrivals.css';
 const Arrivals = ({ tubeData, durationPassed }) => {
   const [newArrival, setNewArrival] = useState('');
   const durationPassedRef = useRef(durationPassed);
+  const timeInterval = 125;
   
   useEffect(() => {
     
@@ -22,7 +23,7 @@ const Arrivals = ({ tubeData, durationPassed }) => {
         }
       }
       // console.log(arrivingNext);
-      durationPassedRef.current += 0.15;
+      durationPassedRef.current += (timeInterval / 1000);
       
       arrivingNext.forEach(train => {
         console.log(`${train.lineName} : ${train.stationName}`)
@@ -32,7 +33,7 @@ const Arrivals = ({ tubeData, durationPassed }) => {
     };
 
     // run scheduleTrains every 150ms
-    const sixteenthInterval = setInterval(scheduleTrains, 150);
+    const sixteenthInterval = setInterval(scheduleTrains, timeInterval);
 
     // Clean up the interval on component unmount
     return () => clearInterval(sixteenthInterval);

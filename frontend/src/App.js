@@ -67,13 +67,24 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h2>LUSO</h2>
-        <img src={logo} className="App-logo" alt="logo" />
-        <Arrivals tubeData={tubeData} durationPassed={durationPassed} />
+      <header>
+        <h1>LUSO</h1>
       </header>
-      <button type="button" onClick={() => fadeElement("Central")}>Central Fade</button>
-      <TubeMap/>
+
+      <div class="container">
+        <aside class="sidebar sidebar-left">
+          <h2>Left Sidebar</h2>
+          <button type="button" onClick={() => fadeElement("Central")}>Central Fade</button>
+        </aside>
+
+        <main>
+          <TubeMap/>
+        </main>
+
+        <aside class="sidebar sidebar-right">
+          <h2>Right Sidebar</h2>
+        </aside>
+      </div>    
     </div>
   );
 }

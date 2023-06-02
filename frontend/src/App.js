@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
-// import Arrivals from './components/Arrivals';
 import './App.css';
 import quantiseData from './quantise-data';
 import * as Tone from 'tone';
 import assignNoteForVictoriaLine from './note-assignments/victoria-line'
 import assignNoteForJubileeLine from './note-assignments/jubilee-line'
 
-const dataBlockDuration = 30; // seconds
+const dataBlockDuration = 30; // seconds between fetch from TFL
 
 function App() {
-  // const [tubeData, setTubeData] = useState([]);
 
   const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
   let instruments = {}; // object to hold Tone instruments, intialised w global scope
@@ -32,9 +30,6 @@ function App() {
     pizzViolaSampler.volume.value = -12
     await Tone.loaded();
 
-    // const synth = new Tone.Synth().toDestination();
-    // synth.volume.value = -12
-
     const frenchHornSampler = new Tone.Sampler({
       urls: {
         "C4": "french-horn_C4_15_piano_normal.mp3",
@@ -51,7 +46,6 @@ function App() {
     };
   }
 
-  // useEffect(() => {
   const fetchData = () => {
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
       .then(response => {
@@ -65,7 +59,6 @@ function App() {
             timeToStation: item.timeToStation
           }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
-        // setTubeData(quantiseData(sortedData));
         const quantisedData = quantiseData(sortedData)
         // console.log(quantisedData);
         playSounds(quantisedData, instruments);
@@ -107,7 +100,6 @@ function App() {
         <h2>LUSO</h2>
         <img src={logo} className="App-logo" alt="logo" />
         <button id="soundon" onClick={soundOn}>Sound On</button>
-        {/* <Arrivals tubeData={tubeData} /> */}
       </header>
     </div>
   );

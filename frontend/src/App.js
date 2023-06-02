@@ -14,11 +14,11 @@ function App() {
   const fadeElement = (elementId) => {
     const element = document.getElementById(elementId);
     console.log(element.id);
-    if (fade_state == true) {
+    if (fade_state === true) {
       console.log("Fade out");
       element.style.animation = "fade-out 1s forwards";
       fade_state = false;
-    } else if (fade_state == false) {
+    } else if (fade_state === false) {
       console.log("Fade In");
       element.style.animation = "fade-in 1s forwards";
       fade_state = true;

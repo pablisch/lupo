@@ -6,6 +6,7 @@ import quantiseData from './quantise-data';
 import * as Tone from 'tone';
 import assignNoteForVictoriaLine from './note-assignments/victoria-line'
 import assignNoteForJubileeLine from './note-assignments/jubilee-line'
+import assignNoteForNorthernLine from './note-assignments/northern-line'
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 
@@ -28,7 +29,6 @@ function App() {
       baseUrl: "/samples/",
     }).connect(freeverb);
     pizzViolaSampler.volume.value = -12
-    await Tone.loaded();
 
     const frenchHornSampler = new Tone.Sampler({
       urls: {
@@ -37,12 +37,22 @@ function App() {
       release: 1,
       baseUrl: "/samples/",
     }).connect(freeverb);
-    frenchHornSampler.volume.value = -8
+    frenchHornSampler.volume.value = -6
+
+    const doubleBassSampler = new Tone.Sampler({
+      urls: {
+        "A1": "double-bass_A1_05_forte_arco-normal.mp3",
+      },
+      release: 1,
+      baseUrl: "/samples/",
+    });
+    doubleBassSampler.volume.value = -12
     await Tone.loaded();
 
     instruments = {
       Victoria: pizzViolaSampler, 
-      Jubilee: frenchHornSampler
+      Jubilee: frenchHornSampler,
+      Northern: doubleBassSampler
     };
   }
 
@@ -85,9 +95,15 @@ function App() {
           console.log(`${train.stationName} on the ${train.lineName} Time To Station: ${train.timeToStation}}`);
         }, train.timeToStation * 1000);
       } else if (train.lineName === 'Jubilee') {
-        const note = assignNoteForJubileeLine(train.stationName)
+        const note = assignNoteForJubileeLine(train.stationName);
         setTimeout(() => {
           instruments.Jubilee.triggerAttackRelease(note, '16n');
+          console.log(`${train.stationName} on the ${train.lineName} Time To Station: ${train.timeToStation}}`);
+        }, train.timeToStation * 1000);
+      } else if (train.lineName === 'Northern') {
+        const note = assignNoteForNorthernLine(train.stationName);
+        setTimeout(() => {
+          instruments.Northern.triggerAttackRelease(note, '16n');
           console.log(`${train.stationName} on the ${train.lineName} Time To Station: ${train.timeToStation}}`);
         }, train.timeToStation * 1000);
       }

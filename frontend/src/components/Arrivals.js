@@ -1,12 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import './Arrivals.css';
 import * as Tone from 'tone';
 import * as assignNoteForVictoriaLine from '../note-assignments/victoria-line'
 import * as assignNoteForJubileeLine from '../note-assignments/jubilee-line'
 
-const Arrivals = ({ tubeData, durationPassed }) => {
-  const [newArrival, setNewArrival] = useState('');
-  const durationPassedRef = useRef(durationPassed);
+// below are the combined varibles for transforming timeToStation into sub-second intervals
+// ONLY set the BPM. Do NOT change the other variables.
+const bpm = 60; 
+const noteInterval = 60 / (bpm * 4); // for 1/16th note in seconds
+const randomIntervalMultiplier = 1 / noteInterval;
+
+const Arrivals = ({ tubeData }) => {
   
   const soundOn = async () => {
     await Tone.start()
@@ -18,53 +22,43 @@ const Arrivals = ({ tubeData, durationPassed }) => {
   jubileeLineSynth.volume.value = -12;
 
   useEffect(() => {
-    
-    const scheduleTrains = () => {
-      const trainData = tubeData;
-      const arrivingNext = [];
-      if (trainData.length > 0) { 
-        if (durationPassedRef.current > trainData[0].timeToStation) {
-          // setNewArrival(trainData[0].stationName);
-          arrivingNext.push(trainData.shift());
-          // if a train has been added to arrivingNext...
-          while (trainData.length > 0 && !arrivingNext.some(obj => obj.lineName === trainData[0].lineName) && durationPassedRef.current > trainData[0].timeToStation) {
-            // setNewArrival(trainData[0].stationName);
-            arrivingNext.push(trainData.shift());
-          }
-        }
-      }
-      // console.log(arrivingNext);
-      durationPassedRef.current += 0.15;
-      
-      arrivingNext.forEach(train => {
-        console.log(`${train.lineName} : ${train.stationName}`)
-        setNewArrival(train.stationName);
-      });
-      console.log('-')
-
-      let note = '';
-
-      arrivingNext.forEach((train) => {
-        if (train.lineName === 'Victoria') {
-          note = assignNoteForVictoriaLine(train.stationName);
-          victoriaLineSynth.triggerAttackRelease(note, '16n')
-        } else if (train.lineName === 'Jubilee') {
-          note = assignNoteForJubileeLine(train.stationName)
-          jubileeLineSynth.triggerAttackRelease(note, '16n');
-        }
-      })
-    };
-
-    // run scheduleTrains every 150ms
-    const sixteenthInterval = setInterval(scheduleTrains, 150);
-
-    // Clean up the interval on component unmount
-    return () => clearInterval(sixteenthInterval);
+    if (tubeData.length > 0) {
+    addIntervals();
+    }
   }, [tubeData]);
+
+  const addIntervals = () => {
+    const quantisedData = tubeData.map((train) => {
+      const randomInterval = (Math.floor(Math.random() * randomIntervalMultiplier))/randomIntervalMultiplier;
+      // console.log(randomInterval)
+      return {
+        ...train,
+        timeToStation: train.timeToStation + randomInterval
+      };
+    });
+    console.log(quantisedData);
+    // save quantisedData to localStorage
+    localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2));
+    // return quantisedData;
+
+    let note = '';
+
+    quantisedData.forEach((train) => {
+      if (train.lineName === 'Victoria') {
+        note = assignNoteForVictoriaLine(train.stationName);
+        setTimeout(() => {victoriaLineSynth.triggerAttackRelease(note, '16n')}, train.timeToStation * 1000);
+      } else if (train.lineName === 'Jubilee') {
+        note = assignNoteForJubileeLine(train.stationName)
+        setTimeout(() => {jubileeLineSynth.triggerAttackRelease(note, '16n')}, train.timeToStation * 1000);
+      }
+    })
+  };
+
+
+  
 
   return (
     <div>
-      <p cy-data='arrival-info'>{tubeData.length > 0 && newArrival}</p>
       <button id="soundon" onClick={soundOn}>Sound On</button>
     </div>
   );

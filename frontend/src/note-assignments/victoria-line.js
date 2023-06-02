@@ -33,6 +33,7 @@ const assignNoteForVictoriaLine = (stationName) => {
     case 'Brixton Underground Station':
       return 'C2';
     default:
+      return 'C2';
   }
 }
 

@@ -53,6 +53,7 @@ const assignNoteForJubileeLine = (stationName) => {
     case 'Stratford Underground Station':
       return 'C2';
     default:
+      return 'C2';
   }
 }
 

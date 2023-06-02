@@ -28,7 +28,7 @@ function App() {
     }
   }
 
-  let durationPassed = 0; // base time used in Arrivals.js
+  // let durationPassed = 0; // base time used in Arrivals.js
 
   const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
   let instruments = {}; // object to hold Tone instruments, intialised w global scope

@@ -6,7 +6,20 @@ const randomIntervalMultiplier = 1 / noteInterval;
 
 function quantiseData (tubeData) {
   if (tubeData.length > 0) {
-    const quantisedData = tubeData.map((train) => {
+    const abridgedData = tubeData.map(obj => {
+      // Modify properties by removing whitespace, apostrophes, and "Underground Station"
+      return {
+        id: obj.id,
+    stationName: obj.stationName
+            .replace(/\s|\.''/g, '')
+            .replace(/\./g, '')
+            .replace(/'/g, '')
+            .replace(/UndergroundStation/g, ''),
+    lineName: obj.lineName.replace(/\s/g, '').replace(/'/g, ''),
+    timeToStation: obj.timeToStation
+      };
+    });
+    const quantisedData = abridgedData.map((train) => {
       const randomInterval = (Math.floor(Math.random() * randomIntervalMultiplier))/randomIntervalMultiplier;
       // console.log(randomInterval)
       return {
@@ -16,7 +29,7 @@ function quantiseData (tubeData) {
     });
     console.log(quantisedData);
     // save quantisedData to localStorage
-    // localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2));
+    localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2));
     return quantisedData;
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {ReactComponent as Map} from '../../assets/FreshTube.svg';
+import {ReactComponent as Map} from '../../assets/Tube.svg';
 
 const TubeMap = () => {
   return (

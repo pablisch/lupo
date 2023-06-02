@@ -1,47 +1,37 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import './Arrivals.css';
 
-const Arrivals = ({ tubeData, durationPassed }) => {
-  const [newArrival, setNewArrival] = useState('');
-  const durationPassedRef = useRef(durationPassed);
-  const timeInterval = 125;
+// below are the combined varibles for transforming timeToStation into sub-second intervals
+// ONLY set the BPM. Do NOT change the other variables.
+const bpm = 60; 
+const noteInterval = 60 / (bpm * 4); // for 1/16th note in seconds
+const randomIntervalMultiplier = 1 / noteInterval;
+
+const Arrivals = ({ tubeData }) => {
   
   useEffect(() => {
-    
-    const scheduleTrains = () => {
-      const trainData = tubeData;
-      const arrivingNext = [];
-      if (trainData.length > 0) { 
-        if (durationPassedRef.current > trainData[0].timeToStation) {
-          // setNewArrival(trainData[0].stationName);
-          arrivingNext.push(trainData.shift());
-          // if a train has been added to arrivingNext...
-          while (trainData.length > 0 && !arrivingNext.some(obj => obj.lineName === trainData[0].lineName) && durationPassedRef.current > trainData[0].timeToStation) {
-            // setNewArrival(trainData[0].stationName);
-            arrivingNext.push(trainData.shift());
-          }
-        }
-      }
-      // console.log(arrivingNext);
-      durationPassedRef.current += (timeInterval / 1000);
-      
-      arrivingNext.forEach(train => {
-        console.log(`${train.lineName} : ${train.stationName}`)
-        setNewArrival(train.stationName);
-      });
-      console.log('-')
-    };
-
-    // run scheduleTrains every 150ms
-    const sixteenthInterval = setInterval(scheduleTrains, timeInterval);
-
-    // Clean up the interval on component unmount
-    return () => clearInterval(sixteenthInterval);
+    if (tubeData.length > 0) {
+    addIntervals();
+    }
   }, [tubeData]);
+
+  const addIntervals = () => {
+    const quantisedData = tubeData.map((train) => {
+      const randomInterval = (Math.floor(Math.random() * randomIntervalMultiplier))/randomIntervalMultiplier;
+      // console.log(randomInterval)
+      return {
+        ...train,
+        timeToStation: train.timeToStation + randomInterval
+      };
+    });
+    console.log(quantisedData);
+    // save quantisedData to localStorage
+    localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2));
+    return quantisedData;
+  };
 
   return (
     <div>
-      <p cy-data='arrival-info'>{tubeData.length > 0 && newArrival}</p>
     </div>
   );
 };

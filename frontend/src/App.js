@@ -9,7 +9,6 @@ const dataBlockDuration = 30; // seconds
 function App() {
   const [tubeData, setTubeData] = useState([]);
 
-  let durationPassed = 0; // base time used in Arrivals.js
   const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
 
   useEffect(() => {
@@ -46,7 +45,7 @@ function App() {
   }, []);
 
   useEffect(() => {  // Display tube data whenever it changes
-    console.log(tubeData);
+    // console.log(tubeData);
   }, [tubeData]);
 
   return (
@@ -54,7 +53,7 @@ function App() {
       <header className="App-header">
         <h2>LUSO</h2>
         <img src={logo} className="App-logo" alt="logo" />
-        <Arrivals tubeData={tubeData} durationPassed={durationPassed} />
+        <Arrivals tubeData={tubeData} />
       </header>
     </div>
   );

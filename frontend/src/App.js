@@ -72,7 +72,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <Arrivals tubeData={tubeData} durationPassed={durationPassed} />
       </header>
-      <button type="button" onClick={() => fadeElement("Central")}>Central Fade</button>
+      <button type="button" onClick={() => fadeElement("Perivale")}>Central Fade</button>
       <TubeMap/>
     </div>
   );

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import './Arrivals.css';
 import * as Tone from 'tone';
-import * as assignNoteForVictoriaLine from '../note-assignments/victoria-line'
-import * as assignNoteForJubileeLine from '../note-assignments/jubilee-line'
+import assignNoteForVictoriaLine from '../note-assignments/victoria-line'
+import assignNoteForJubileeLine from '../note-assignments/jubilee-line'
 
 // below are the combined varibles for transforming timeToStation into sub-second intervals
 // ONLY set the BPM. Do NOT change the other variables.
@@ -53,9 +53,6 @@ const Arrivals = ({ tubeData }) => {
       }
     })
   };
-
-
-  
 
   return (
     <div>

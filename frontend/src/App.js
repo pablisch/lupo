@@ -14,7 +14,7 @@ function App() {
   const [play, setPlay] = React.useState(false);
   const [fadeState, setFadeState] = React.useState(true);
 
-  // var fade_state = true;
+  const lineToFade = "Northern";
   const fadeElement = (elementId) => {
     const element = document.getElementById(elementId);
     console.log(element.id);
@@ -75,7 +75,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         {!play && <button id="soundon" onClick={soundOn} >Sound On</button>}
       </header>
-      <button type="button" onClick={() => fadeElement("Northern")}>{fadeState ? 'Destroy Northern Line' : 'Rebuild Northern Line'}</button>
+      <button type="button" onClick={() => fadeElement(`${lineToFade}`)}>{fadeState ? `Destroy ${lineToFade} Line` : 'Rebuild Northern Line'}</button>
       <TubeMap/>
     </div>
   );

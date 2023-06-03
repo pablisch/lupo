@@ -1,3 +1,5 @@
+
+import React, { useState } from "react";
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
@@ -9,19 +11,21 @@ const { abridgeData, quantiseData } = require('./processTubeData');
 const dataBlockDuration = 30; // seconds between fetch from TFL
 
 function App() {
+  const [play, setPlay] = React.useState(false);
+  const [fadeState, setFadeState] = React.useState(true);
 
-  var fade_state = true;
+  // var fade_state = true;
   const fadeElement = (elementId) => {
     const element = document.getElementById(elementId);
     console.log(element.id);
-    if (fade_state === true) {
+    if (fadeState === true) {
       console.log("Fade out");
-      element.style.animation = "fade-out 1s forwards";
-      fade_state = false;
-    } else if (fade_state === false) {
+      element.style.animation = "fade-out 0.5s forwards";
+      setFadeState(false);
+    } else if (fadeState === false) {
       console.log("Fade In");
       element.style.animation = "fade-in 1s forwards";
-      fade_state = true;
+      setFadeState(true);
     }
   }
 
@@ -53,6 +57,7 @@ function App() {
   };
 
   const soundOn = async () => {
+    setPlay(true);
     instruments = await audioStartup()
     console.log('tone started')
     fetchData(); // initial fetch as setInterval only exectues after first interval
@@ -68,9 +73,9 @@ function App() {
       <header className="App-header">
         <h2>LUSO</h2>
         <img src={logo} className="App-logo" alt="logo" />
-        <button id="soundon" onClick={soundOn}>Sound On</button>
+        {!play && <button id="soundon" onClick={soundOn} >Sound On</button>}
       </header>
-      <button type="button" onClick={() => fadeElement("Perivale")}>Central Fade</button>
+      <button type="button" onClick={() => fadeElement("Northern")}>{fadeState ? 'Destroy Northern Line' : 'Rebuild Northern Line'}</button>
       <TubeMap/>
     </div>
   );

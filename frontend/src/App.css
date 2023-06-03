@@ -42,13 +42,13 @@
     opacity: 100%;
   }
   to {
-    opacity: 25%;
+    opacity: 15%;
   }
 }
 
 @keyframes fade-in {
   from {
-    opacity: 25%;
+    opacity: 15%;
   }
   to {
     opacity: 100%;

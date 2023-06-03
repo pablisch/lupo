@@ -34,7 +34,7 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).toDestination();
-  sustainedHornSampler.volume.value = -6
+  sustainedHornSampler.volume.value = -20
 
   const doubleBassSampler = new Tone.Sampler({
     urls: {

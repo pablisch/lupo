@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import TubeMap from './components/TubeMap/TubeMap.js';
 import audioStartup from './audioStartup';
@@ -11,6 +11,8 @@ const { abridgeData, quantiseData } = require('./processTubeData');
 const dataBlockDuration = 30; // seconds between fetch from TFL
 
 function App() {
+  const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true); // added for data visualiser
+  const [dataVisualiserKey, setDataVisualiserKey] = useState(0); // added for data visualiser
   const [visualData, setVisualData] = useState([]); // added for data visualiser
 
   var fade_state = true;
@@ -70,13 +72,28 @@ function App() {
     }, (dataBlockDuration / 60) * 2000);
   }
 
+  const toggleVisualiseEventsOnly = () => {
+    setVisualiseEventsOnly(!visualiseEventsOnly);
+    setDataVisualiserKey((prevKey) => prevKey + 1);
+    console.log(visualiseEventsOnly)
+    setTimeout(() => {
+      setVisualiseEventsOnly(visualiseEventsOnly);
+      setDataVisualiserKey((prevKey) => prevKey + 1);
+      console.log(visualiseEventsOnly)
+    }, 1000);
+  };
+  
+
   return (
     <div className="App">
       {/* <header className="App-header"> */}
         <h2>LUSO</h2>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
       <button id="soundon" onClick={soundOn}>Sound On</button>
-      <DataVisualiser data={visualData} />
+      <button onClick={toggleVisualiseEventsOnly}>
+      {visualiseEventsOnly ? 'Skinny bars' : 'Fat bars'}
+    </button>
+      <DataVisualiser key={dataVisualiserKey} data={visualData} duration={dataBlockDuration} visualiseEventsOnly={visualiseEventsOnly} />
       {/* </header> */}
       <button type="button" onClick={() => fadeElement("Perivale")}>Central Fade</button>
       <TubeMap/>

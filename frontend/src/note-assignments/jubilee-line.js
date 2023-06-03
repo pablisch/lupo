@@ -1,59 +1,59 @@
 const assignNoteForJubileeLine = (stationName) => {
   switch(stationName) {
     case 'Stanmore':
-      return 'C5';
-    case 'CanonsPark':
       return 'A5';
+    case 'CanonsPark':
+      return 'G6';
     case 'Queensbury':
-      return 'G4';
+      return 'E6';
     case 'Kingsbury':
-      return 'E4';
+      return 'D6';
     case 'WembleyPark':
-      return 'D4';
+      return 'C6';
     case 'Neasden':
-      return 'C4';
+      return 'A6';
     case "WillesdenGreen":
-      return 'A4';
+      return 'G5';
     case 'Kilburn':
-      return 'G3';
+      return 'E5';
     case 'WestHampstead':
-      return 'E3';
+      return 'D5';
     case 'FinchleyRoad':
-      return 'D3';
+      return 'C5';
     case 'SwissCottage':
-      return 'C3';
+      return 'A5';
     case "StJohnsWood":
-      return 'A3';
+      return 'G5';
     case 'Baker Street':
-      return 'G2';
+      return 'E5';
     case  'BondStreet':
-      return 'E2';
+      return 'D5';
     case 'GreenPark':
-      return 'D2';
+      return 'C5';
     case 'Westminster':
-      return 'C2';
+      return 'A5';
     case 'Waterloo':
-      return 'C2';
+      return 'G4';
     case 'Southwark':
-      return 'C2';
+      return 'E4';
     case 'LondonBridge':
-      return 'C2';
+      return 'D4';
     case 'Bermondsey':
-      return 'C2';
+      return 'C4';
     case 'CanadaWater':
-      return 'C2';
+      return 'A4';
     case 'CanaryWharf':
-      return 'C2';
+      return 'G3';
     case 'NorthGreenwich':
-      return 'C2';
+      return 'E3';
     case 'CanningTown':
-      return 'C2';
+      return 'D3';
     case 'WestHam ':
-      return 'C2';
+      return 'C3';
     case 'Stratford':
-      return 'C2';
+      return 'A3';
     default:
-      return 'C2';
+      return 'F4';
   }
 }
 

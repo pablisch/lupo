@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
@@ -6,11 +7,13 @@ import * as Tone from 'tone';
 import assignNoteForVictoriaLine from './note-assignments/victoria-line'
 import assignNoteForJubileeLine from './note-assignments/jubilee-line'
 import assignNoteForNorthernLine from './note-assignments/northern-line'
+import DataVisualiser from './components/DataVisualiser/DataVisualiser.js';
 const { abridgeData, quantiseData } = require('./processTubeData');
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 
 function App() {
+  const [quantisedData, setQuantisedData] = useState([]); // added for data visualiser
 
   var fade_state = true;
   const fadeElement = (elementId) => {
@@ -63,7 +66,7 @@ function App() {
       release: 1,
       baseUrl: "/samples/",
     });
-    doubleBassSampler.volume.value = -12
+    doubleBassSampler.volume.value = -4
     await Tone.loaded();
 
     instruments = {
@@ -87,7 +90,9 @@ function App() {
           }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
         const abridgedData = abridgeData(sortedData);
-        const quantisedData = quantiseData(abridgedData);
+        // line below was used before quantisedData was added to state for data visualiser
+        // const quantisedData = quantiseData(abridgedData);
+        setQuantisedData(quantiseData(abridgedData));
         // localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2)); // FOR DATA COLLECTION ONLY
         console.log(quantisedData);
         playSounds(quantisedData, instruments);
@@ -131,11 +136,12 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header"> */}
         <h2>LUSO</h2>
-        <img src={logo} className="App-logo" alt="logo" />
-        <button id="soundon" onClick={soundOn}>Sound On</button>
-      </header>
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
+      <button id="soundon" onClick={soundOn}>Sound On</button>
+      <DataVisualiser data={quantisedData} />
+      {/* </header> */}
       <button type="button" onClick={() => fadeElement("Perivale")}>Central Fade</button>
       <TubeMap/>
     </div>

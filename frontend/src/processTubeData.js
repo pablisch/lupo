@@ -9,14 +9,15 @@ function abridgeData (tubeData) {
   if (tubeData.length > 0) {
     const abridgedData = tubeData.map(obj => {
       return {
-        id: obj.id,
+        // id: obj.id,
+        lineName: obj.lineName.replace(/\s/g, '').replace(/'/g, ''),
+        tts: obj.timeToStation,
+        timeToStation: obj.timeToStation,
     stationName: obj.stationName
             .replace(/\s|\.''/g, '')
             .replace(/\./g, '')
             .replace(/'/g, '')
             .replace(/UndergroundStation/g, ''),
-    lineName: obj.lineName.replace(/\s/g, '').replace(/'/g, ''),
-    timeToStation: obj.timeToStation
       };
     });
     return abridgedData;

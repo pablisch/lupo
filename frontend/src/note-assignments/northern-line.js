@@ -1,60 +1,60 @@
 const assignNoteForNorthernLine = (stationName) => {
   switch(stationName) {
-    case 'Mill Hill East Underground Station':
+    case 'Mill Hill East':
       return 'E2';
-    case 'Finchley Central Underground Station':
+    case 'FinchleyCentral':
       return 'C2';
-    case 'Highgate Underground Station':
+    case 'Highgate':
       return 'A2';
-    case 'Archway Underground Station':
+    case 'Archway':
       return 'G1';
-    case 'Tufnell Park Underground Station':
+    case 'TufnellPark':
       return 'E1';
-    case 'Kentish Town Underground Station':
+    case 'KentishTown':
       return 'D1';
-    case "Camden Town Underground Station":
+    case "CamdenTown":
       return 'C1';
-    case 'Euston Underground Station':
+    case 'Euston':
       return 'A1';
-    case "King's Cross St Pancras Underground Station":
+    case "KingsCrossStPancras":
       return 'G2';
-    case 'Angel Underground Station':
+    case 'Angel':
       return 'E2';
-    case 'Old Street Underground Station':
+    case 'OldStreet':
       return 'D2';
-    case 'Moorgate Underground Station':
+    case 'Moorgate':
       return 'C2';
-    case 'Bank Underground Station':
+    case 'Bank':
       return 'A2';
-    case  'London Bridge Underground Station':
+    case  'LondonBridge':
       return 'G1';
-    case 'Borough Underground Station':
+    case 'Borough':
       return 'E1';
-    case 'Elephant & Castle Underground Station':
+    case 'Elephant&Castle':
       return 'D1';
-    case 'Kennington Underground Station':
+    case 'Kennington':
       return 'C1';
-    case 'Oval Underground Station':
+    case 'Oval':
       return 'A1';
-    case 'Stockwell Underground Station':
+    case 'Stockwell':
       return 'G2';
-    case 'Clapham North Underground Station':
+    case 'ClaphamNorth':
       return 'E2';
-    case 'Clapham Common Underground Station':
+    case 'ClaphamCommon':
       return 'D2';
-    case 'Clapham South Underground Station':
+    case 'ClaphamSouth':
       return 'C2';
-    case 'Balham Underground Station':
+    case 'Balham':
       return 'A2';
-    case 'Tooting Bec Underground Station':
+    case 'TootingBec':
       return 'G1';
-    case 'Tooting Broadway Underground Station':
+    case 'TootingBroadway':
       return 'E1';
-    case 'Colliers Wood Underground Station':
+    case 'ColliersWood':
       return 'D1';
-    case 'South Wimbledon Underground Station':
+    case 'SouthWimbledon':
       return 'C1';
-    case 'Morden Underground Station':
+    case 'Morden':
       return 'A1';
     default:
       return 'C2';

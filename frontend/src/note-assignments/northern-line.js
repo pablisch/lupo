@@ -1,6 +1,6 @@
 const assignNoteForNorthernLine = (stationName) => {
   switch(stationName) {
-    case 'Mill Hill East':
+    case 'MillHillEast':
       return 'E2';
     case 'FinchleyCentral':
       return 'C2';

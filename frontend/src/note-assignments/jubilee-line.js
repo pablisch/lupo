@@ -24,7 +24,7 @@ const assignNoteForJubileeLine = (stationName) => {
       return 'A5';
     case "StJohnsWood":
       return 'G5';
-    case 'Baker Street':
+    case 'BakerStreet':
       return 'E5';
     case  'BondStreet':
       return 'D5';

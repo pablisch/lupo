@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import TubeMap from './components/TubeMap/TubeMap.js';
-import quantiseData from './quantise-data';
 import * as Tone from 'tone';
 import assignNoteForVictoriaLine from './note-assignments/victoria-line'
 import assignNoteForJubileeLine from './note-assignments/jubilee-line'
 import assignNoteForNorthernLine from './note-assignments/northern-line'
+const { abridgeData, quantiseData } = require('./processTubeData');
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 
@@ -28,7 +27,7 @@ function App() {
     }
   }
 
-  let durationPassed = 0; // base time used in Arrivals.js
+  // let durationPassed = 0; // base time used in Arrivals.js
 
   const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
   let instruments = {}; // object to hold Tone instruments, intialised w global scope
@@ -87,8 +86,10 @@ function App() {
             timeToStation: item.timeToStation
           }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
-        const quantisedData = quantiseData(sortedData)
-        // console.log(quantisedData);
+        const abridgedData = abridgeData(sortedData);
+        const quantisedData = quantiseData(abridgedData);
+        // localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2)); // FOR DATA COLLECTION ONLY
+        console.log(quantisedData);
         playSounds(quantisedData, instruments);
       })
       .catch(error => {

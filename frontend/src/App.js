@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import TubeMap from './components/TubeMap/TubeMap.js';
-import quantiseData from './quantise-data';
 import * as Tone from 'tone';
 import assignNoteForVictoriaLine from './note-assignments/victoria-line'
 import assignNoteForJubileeLine from './note-assignments/jubilee-line'
 import assignNoteForNorthernLine from './note-assignments/northern-line'
+const { abridgeData, quantiseData } = require('./processTubeData');
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 
@@ -87,8 +86,10 @@ function App() {
             timeToStation: item.timeToStation
           }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
-        const quantisedData = quantiseData(sortedData)
-        // console.log(quantisedData);
+        const abridgedData = abridgeData(sortedData);
+        const quantisedData = quantiseData(abridgedData);
+        // localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2)); // FOR DATA COLLECTION ONLY
+        console.log(quantisedData);
         playSounds(quantisedData, instruments);
       })
       .catch(error => {

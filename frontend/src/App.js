@@ -2,10 +2,8 @@ import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
 import TubeMap from './components/TubeMap/TubeMap.js';
-import * as Tone from 'tone';
-import assignNoteForVictoriaLine from './note-assignments/victoria-line'
-import assignNoteForJubileeLine from './note-assignments/jubilee-line'
-import assignNoteForNorthernLine from './note-assignments/northern-line'
+import audioStartup from './audioStartup';
+import playSounds from './playSounds';
 const { abridgeData, quantiseData } = require('./processTubeData');
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
@@ -27,51 +25,8 @@ function App() {
     }
   }
 
-  // let durationPassed = 0; // base time used in Arrivals.js
-
   const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
   let instruments = {}; // object to hold Tone instruments, intialised w global scope
-
-  const toneStart = async () => {
-    await Tone.start()
-
-    const freeverb = new Tone.Freeverb().toDestination();
-    freeverb.dampening = 1000;
-
-    const pizzViolaSampler = new Tone.Sampler({
-      urls: {
-        "A3": "viola_A3_1_piano_pizz-normal.mp3",
-      },
-      release: 1,
-      baseUrl: "/samples/",
-    }).connect(freeverb);
-    pizzViolaSampler.volume.value = -12
-
-    const frenchHornSampler = new Tone.Sampler({
-      urls: {
-        "C4": "french-horn_C4_15_piano_normal.mp3",
-      },
-      release: 1,
-      baseUrl: "/samples/",
-    }).connect(freeverb);
-    frenchHornSampler.volume.value = -6
-
-    const doubleBassSampler = new Tone.Sampler({
-      urls: {
-        "A1": "double-bass_A1_05_forte_arco-normal.mp3",
-      },
-      release: 1,
-      baseUrl: "/samples/",
-    });
-    doubleBassSampler.volume.value = -12
-    await Tone.loaded();
-
-    instruments = {
-      Victoria: pizzViolaSampler, 
-      Jubilee: frenchHornSampler,
-      Northern: doubleBassSampler
-    };
-  }
 
   const fetchData = () => {
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
@@ -98,35 +53,14 @@ function App() {
   };
 
   const soundOn = async () => {
-    await toneStart()
+    instruments = await audioStartup()
     console.log('tone started')
     fetchData(); // initial fetch as setInterval only exectues after first interval
     setInterval(fetchData, dataBlockDuration * 1000);
-  }
-
-  const playSounds = (quantisedTubeData, instruments) => {
-    quantisedTubeData.forEach((train) => {
-      // can this be refactored into one expression for all lines?
-      if (train.lineName === 'Victoria') {
-        const note = assignNoteForVictoriaLine(train.stationName);
-        setTimeout(() => {
-          instruments.Victoria.triggerAttackRelease(note, '16n');
-          console.log(`${train.stationName} on the ${train.lineName} Time To Station: ${train.timeToStation}}`);
-        }, train.timeToStation * 1000);
-      } else if (train.lineName === 'Jubilee') {
-        const note = assignNoteForJubileeLine(train.stationName);
-        setTimeout(() => {
-          instruments.Jubilee.triggerAttackRelease(note, '16n');
-          console.log(`${train.stationName} on the ${train.lineName} Time To Station: ${train.timeToStation}}`);
-        }, train.timeToStation * 1000);
-      } else if (train.lineName === 'Northern') {
-        const note = assignNoteForNorthernLine(train.stationName);
-        setTimeout(() => {
-          instruments.Northern.triggerAttackRelease(note, '16n');
-          console.log(`${train.stationName} on the ${train.lineName} Time To Station: ${train.timeToStation}}`);
-        }, train.timeToStation * 1000);
-      }
-    })
+    // Following block provides a looping pedal note:
+    setInterval(() => {
+      instruments.Pedal.triggerAttackRelease('C4', '1n');
+    }, (dataBlockDuration / 60) * 2000);
   }
 
   return (

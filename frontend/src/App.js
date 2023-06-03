@@ -13,7 +13,7 @@ const { abridgeData, quantiseData } = require('./processTubeData');
 const dataBlockDuration = 30; // seconds between fetch from TFL
 
 function App() {
-  const [quantisedData, setQuantisedData] = useState([]); // added for data visualiser
+  const [visualData, setVisualData] = useState([]); // added for data visualiser
 
   var fade_state = true;
   const fadeElement = (elementId) => {
@@ -91,9 +91,11 @@ function App() {
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
         const abridgedData = abridgeData(sortedData);
         // line below was used before quantisedData was added to state for data visualiser
-        // const quantisedData = quantiseData(abridgedData);
-        setQuantisedData(quantiseData(abridgedData));
+        const quantisedData = quantiseData(abridgedData);
+        setVisualData(quantisedData); // added for data visualiser
+        // setQuantisedData(quantiseData(abridgedData));
         // localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2)); // FOR DATA COLLECTION ONLY
+        console.log("in fetchData")
         console.log(quantisedData);
         playSounds(quantisedData, instruments);
       })
@@ -110,6 +112,8 @@ function App() {
   }
 
   const playSounds = (quantisedTubeData, instruments) => {
+    console.log('in playSounds')
+    console.log(quantisedTubeData)
     quantisedTubeData.forEach((train) => {
       // can this be refactored into one expression for all lines?
       if (train.lineName === 'Victoria') {
@@ -140,7 +144,7 @@ function App() {
         <h2>LUSO</h2>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
       <button id="soundon" onClick={soundOn}>Sound On</button>
-      <DataVisualiser data={quantisedData} />
+      <DataVisualiser data={visualData} />
       {/* </header> */}
       <button type="button" onClick={() => fadeElement("Perivale")}>Central Fade</button>
       <TubeMap/>

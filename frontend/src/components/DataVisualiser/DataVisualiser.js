@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Chart } from 'chart.js/auto';
 
 const DataVisualiser = ({ data }) => {
+  console.log("DataVisualiser.js data: ", data)
   const chartRef = useRef(null);
 
   useEffect(() => {

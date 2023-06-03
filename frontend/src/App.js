@@ -8,6 +8,14 @@ import * as Tone from 'tone';
 import assignNoteForVictoriaLine from './note-assignments/victoria-line'
 import assignNoteForJubileeLine from './note-assignments/jubilee-line'
 import assignNoteForNorthernLine from './note-assignments/northern-line'
+import assignNoteForCentralLine from './note-assignments/central-line'
+import assignNoteForBakerlooLine from './note-assignments/bakerloo-line'
+import assignNoteForCircleLine from './note-assignments/circle-line'
+import assignNoteForDistrictLine from './note-assignments/district-line'
+import assignNoteForHammersmithAndCityLine from './note-assignments/hammersmith-and-city-line'
+import assignNoteForMetropolitanLine from './note-assignments/metropolitan-line'
+import assignNoteForPiccadillyLine from './note-assignments/piccadilly-line'
+import assignNoteForWaterlooAndCityLine from './note-assignments/waterloo-and-city-line'
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 

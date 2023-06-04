@@ -84,7 +84,7 @@ function App() {
       <header className="App-header">
         <h2>LUSO</h2>
         <img src={logo} className="App-logo" alt="logo" />
-        <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'Now Playing LUSO Live' : "Sound On"}</button>
+        <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
         <p>{`This Page has rendered ${renderCount.current} times`}</p>
       </header>
       <section className="map-and-buttons">

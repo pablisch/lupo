@@ -13,17 +13,17 @@ const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
 let instruments = {}; // object to hold Tone instruments, intialised w global scope to allow access from playSounds.js
 
-// TEST points for viusal effects
-const arrivalPoint = "g250238"; // Holborn
+// TEST points for viusal effects including fade and arrival effects
+// const arrivalPoint = "g250238"; // Holborn station (whole station)
 const arrivalPointInner = "path250234"; // white centre of Holborn
 const burntOak = "rect247013"; // Burnt Oak station
+const elementToFade = "Northern";
 
 function App() {
-  const [isPlaying, setIsPlaying] = React.useState(false);
-  const [fadeState, setFadeState] = React.useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [fadeState, setFadeState] = useState(true);
   const renderCount = useRef(1)
-
-  const elementToFade = "g250238";
+  
   const fadeElement = (elementId) => {
     const element = document.getElementById(elementId);
     console.log(element.id);
@@ -89,8 +89,8 @@ function App() {
       </header>
       <section className="map-and-buttons">
         <button type="button" onClick={() => fadeElement(`${elementToFade}`)}>{fadeState ? `Destroy ${elementToFade} Line` : `Rebuild ${elementToFade} Line`}</button>
-        <button type="button" onClick={() => arrivalEffectTransform(`${arrivalPoint}`)}>{`Transform at ${elementToFade}`}</button>
-        <button type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Create at ${elementToFade}`}</button>
+        <button type="button" onClick={() => arrivalEffectTransform(`${arrivalPointInner}`)}>{`Transform at ${arrivalPointInner}`}</button>
+        <button type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Create at ${arrivalPointInner}`}</button>
         <button type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Create at ${burntOak}`}</button>
         <TubeMap/>
       </section>

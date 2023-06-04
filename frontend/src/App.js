@@ -92,6 +92,7 @@ function App() {
     console.log(centreEl.id);
   }
 
+  const burntOak = "rect247013";
   // TEST to get location of SVG element
   const arrivalEffectCreate = (elementId) => {
     const element = document.getElementById(elementId);
@@ -162,7 +163,7 @@ function App() {
         <button type="button" onClick={() => fadeElement(`${elementToFade}`)}>{fadeState ? `Destroy ${elementToFade} Line` : `Rebuild ${elementToFade} Line`}</button>
         <button type="button" onClick={() => arrivalEffectTransform(`${arrivalPoint}`)}>{`Transform at ${elementToFade}`}</button>
         <button type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Create at ${elementToFade}`}</button>
-        <button type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Create at ${elementToFade}`}</button>
+        <button type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Create at ${burntOak}`}</button>
         <TubeMap/>
       </section>
     </div>

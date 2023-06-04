@@ -11,7 +11,7 @@ const { abridgeData, quantiseData } = require('./processTubeData');
 const dataBlockDuration = 30; // seconds between fetch from TFL
 
 function App() {
-  const [play, setPlay] = React.useState(false);
+  const [isPlaying, setIsPlaying] = React.useState(false);
   const [fadeState, setFadeState] = React.useState(true);
 
   const lineToFade = "Northern";
@@ -57,7 +57,7 @@ function App() {
   };
 
   const soundOn = async () => {
-    setPlay(true);
+    setIsPlaying(true);
     instruments = await audioStartup()
     console.log('tone started')
     fetchData(); // initial fetch as setInterval only exectues after first interval
@@ -73,7 +73,7 @@ function App() {
       <header className="App-header">
         <h2>LUSO</h2>
         <img src={logo} className="App-logo" alt="logo" />
-        {!play && <button id="soundon" onClick={soundOn} >Sound On</button>}
+        <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'Now Playing LUSO Live' : "Sound On"}</button>
       </header>
       <button type="button" onClick={() => fadeElement(`${lineToFade}`)}>{fadeState ? `Destroy ${lineToFade} Line` : 'Rebuild Northern Line'}</button>
       <TubeMap/>

@@ -9,6 +9,8 @@ import playSounds from './playSounds';
 const { abridgeData, quantiseData } = require('./processTubeData');
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
+const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
+let instruments = {}; // object to hold Tone instruments, intialised w global scope to allow access from playSounds.js
 
 function App() {
   const [isPlaying, setIsPlaying] = React.useState(false);
@@ -29,9 +31,6 @@ function App() {
       setFadeState(true);
     }
   }
-
-  const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
-  let instruments = {}; // object to hold Tone instruments, intialised w global scope
 
   const fetchData = () => {
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)

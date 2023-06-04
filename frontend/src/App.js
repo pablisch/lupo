@@ -17,6 +17,7 @@ let instruments = {}; // object to hold Tone instruments, intialised w global sc
 // const arrivalPoint = "g250238"; // Holborn station (whole station)
 const arrivalPointInner = "path250234"; // white centre of Holborn
 const burntOak = "rect247013"; // Burnt Oak station
+const hendonCentral = "g249286"; // Hendon Central station
 const elementToFade = "Northern";
 
 function App() {
@@ -90,8 +91,9 @@ function App() {
       <section className="map-and-buttons">
         <button type="button" onClick={() => fadeElement(`${elementToFade}`)}>{fadeState ? `Destroy ${elementToFade} Line` : `Rebuild ${elementToFade} Line`}</button>
         <button type="button" onClick={() => arrivalEffectTransform(`${arrivalPointInner}`)}>{`Transform at ${arrivalPointInner}`}</button>
-        <button type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Create at ${arrivalPointInner}`}</button>
-        <button type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Create at ${burntOak}`}</button>
+        <button type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Holborn`}</button>
+        <button type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Burnt Oak`}</button>
+        <button type="button" onClick={() => arrivalEffectCreate(`${hendonCentral}`)}>{`Hendon`}</button>
         <TubeMap/>
       </section>
     </div>

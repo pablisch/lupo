@@ -48,7 +48,7 @@ const arrivalEffectCreate = (elementId) => {
     arrival2.style.zIndex = "1000";
     arrival2.classList.add(`createArrivalAfterShock${randomEffect2}`);
     container.appendChild(arrival2);
-  }, 100);
+  }, 400);
 
   // remove both elements after 1 second
   setTimeout(() => {

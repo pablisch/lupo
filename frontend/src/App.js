@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
@@ -13,6 +13,7 @@ const dataBlockDuration = 30; // seconds between fetch from TFL
 function App() {
   const [isPlaying, setIsPlaying] = React.useState(false);
   const [fadeState, setFadeState] = React.useState(true);
+  const renderCount = useRef(1)
 
   const lineToFade = "Northern";
   const fadeElement = (elementId) => {
@@ -68,12 +69,18 @@ function App() {
     }, (dataBlockDuration / 60) * 2000);
   }
 
+  useEffect(() => {
+    renderCount.current = renderCount.current + 1
+    console.log('renderCount', renderCount.current)
+  })    
+
   return (
     <div className="App">
       <header className="App-header">
         <h2>LUSO</h2>
         <img src={logo} className="App-logo" alt="logo" />
         <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'Now Playing LUSO Live' : "Sound On"}</button>
+        <p>{`This Page has rendered ${renderCount.current} times`}</p>
       </header>
       <button type="button" onClick={() => fadeElement(`${lineToFade}`)}>{fadeState ? `Destroy ${lineToFade} Line` : 'Rebuild Northern Line'}</button>
       <TubeMap/>

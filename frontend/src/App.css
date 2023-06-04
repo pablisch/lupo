@@ -72,3 +72,112 @@ header p {
   font-size: 16px;
 }
 
+.createArrival {
+  background-color: rgb(255, 233, 123);
+  animation: createArrivalEffect 1s forwards;
+  box-shadow: 0 0 0.3px 3px rgba(255, 183, 0, 0.4); 
+}
+
+.createArrivalAfterShock {
+  background-color: rgb(255, 233, 123);
+  animation: createArrivalAfterEffect 0.9s forwards;
+  box-shadow: 0 0 5px 5px rgba(255, 183, 0, 0.4);
+}
+
+@keyframes createArrivalEffect {
+  0% {
+    background-color: rgb(255, 106, 0);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 90%;
+  }
+  40% {
+    opacity: 75%;
+  }
+  60% {
+    background-color: rgb(255, 183, 0);
+    opacity: 20%
+  }
+  75% {
+    opacity: 1%
+  }
+  100% {
+    background-color:rgb(255, 233, 123);
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0%;
+  }
+}
+
+@keyframes createArrivalAfterEffect {
+  0% {
+    background-color: rgb(255, 85, 0);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 90%;
+  }
+  40% {
+    opacity: 75%;
+  }
+  60% {
+    background-color: rgb(255, 153, 0);
+    opacity: 20%
+  }
+  75% {
+    opacity: 1%
+  }
+  100% {
+    background-color:rgb(255, 233, 123);
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0%;
+  }
+}
+
+.arrivalInner {
+  fill: orange;
+  animation: arrivalEffectInner 1.5s forwards;
+}
+
+@keyframes arrivalEffectInner {
+  0% {
+    fill: white;
+  }
+  10% {
+    fill: rgb(255, 213, 0);
+  }
+  40% {
+    fill: rgb(255, 106, 0);
+  }
+  90% {
+    fill: rgb(255, 213, 0);
+  }
+  100% {
+    fill: white;
+  }
+}
+
+
+
+.arrivalOuter {
+  fill: black;
+  animation: arrivalEffectOuter 1.5s forwards;
+} 
+
+@keyframes arrivalEffectOuter {
+  0% {
+    fill: black;
+  }
+  15% {
+    fill: rgb(137, 0, 0);
+  }
+  50% {
+    fill: rgb(206, 0, 0);
+  }
+  85% {
+    fill: rgb(137, 0, 0);
+  }
+  100% {
+    fill: black;
+  }
+}
+
+.map-and-buttons {
+  position: relative;
+}

@@ -72,26 +72,42 @@ header p {
   font-size: 16px;
 }
 
-.createArrival {
+.createArrival1 {
   background-color: rgb(255, 233, 123);
-  animation: createArrivalEffect 1s forwards;
-  box-shadow: 0 0 0.3px 3px rgba(255, 183, 0, 0.4); 
+  border: 0.1px solid rgb(255, 89, 0);
+  animation: createArrivalEffect1 1s forwards;
+  box-shadow: 0 0 0.3px 1px rgba(255, 111, 0, 0.4); 
 }
 
-.createArrivalAfterShock {
+.createArrival2 {
   background-color: rgb(255, 233, 123);
-  animation: createArrivalAfterEffect 0.9s forwards;
-  box-shadow: 0 0 5px 5px rgba(255, 183, 0, 0.4);
+  /* border: 0.1px solid rgb(255, 136, 0); */
+  animation: createArrivalEffect2 1s forwards;
+  box-shadow: 0 0 0.4px 2px rgba(255, 174, 0, 0.4); 
 }
 
-@keyframes createArrivalEffect {
+.createArrivalAfterShock1 {
+  background-color: rgb(255, 233, 123);
+  border: 0.1px solid rgb(255, 149, 0);
+  animation: createArrivalAfterEffect1 0.9s forwards;
+  box-shadow: 0 0 5px 2px rgba(255, 191, 0, 0.4);
+}
+
+.createArrivalAfterShock2 {
+  background-color: rgb(255, 233, 123);
+  /* border: 0.1px solid rgb(255, 0, 0); */
+  animation: createArrivalAfterEffect2 0.9s forwards;
+  box-shadow: 0 0 4px 3px rgba(255, 191, 0, 0.4);
+}
+
+@keyframes createArrivalEffect1 {
   0% {
     background-color: rgb(255, 106, 0);
     transform: translate(-50%, -50%) scale(1);
     opacity: 90%;
   }
   40% {
-    opacity: 75%;
+    opacity: 55%;
   }
   60% {
     background-color: rgb(255, 183, 0);
@@ -107,14 +123,37 @@ header p {
   }
 }
 
-@keyframes createArrivalAfterEffect {
+@keyframes createArrivalEffect2 {
+  0% {
+    background-color: rgb(255, 77, 0);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 90%;
+  }
+  40% {
+    opacity: 55%;
+  }
+  60% {
+    background-color: rgb(254, 229, 88);
+    opacity: 20%
+  }
+  75% {
+    opacity: 1%
+  }
+  100% {
+    background-color:rgb(255, 176, 18);
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0%;
+  }
+}
+
+@keyframes createArrivalAfterEffect1 {
   0% {
     background-color: rgb(255, 85, 0);
     transform: translate(-50%, -50%) scale(1);
     opacity: 90%;
   }
   40% {
-    opacity: 75%;
+    opacity: 45%;
   }
   60% {
     background-color: rgb(255, 153, 0);
@@ -125,6 +164,29 @@ header p {
   }
   100% {
     background-color:rgb(255, 233, 123);
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0%;
+  }
+}
+
+@keyframes createArrivalAfterEffect2 {
+  0% {
+    background-color: rgb(255, 238, 0);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 90%;
+  }
+  40% {
+    opacity: 45%;
+  }
+  60% {
+    background-color: rgb(255, 233, 124);
+    opacity: 20%
+  }
+  75% {
+    opacity: 1%
+  }
+  100% {
+    background-color:rgb(255, 224, 67);
     transform: translate(-50%, -50%) scale(15);
     opacity: 0%;
   }

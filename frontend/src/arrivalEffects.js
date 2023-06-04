@@ -12,6 +12,8 @@ const arrivalEffectCreate = (elementId) => {
   const centerX = rect.left - svgRect.left + rect.width / 2;
   const centerY = rect.top - svgRect.top + rect.height / 2;
 
+  const randomEffect1 = Math.floor(Math.random() * 2) + 1;
+
   // Use the center coordinates to position the circle element
   const arrival = document.createElement("div");
   arrival.style.width = "5px";
@@ -23,11 +25,13 @@ const arrivalEffectCreate = (elementId) => {
   arrival.style.top = `${centerY}px`;
   arrival.style.left = `${centerX}px`;
   arrival.style.zIndex = "1000";
-  arrival.classList.add("createArrival");
+  arrival.classList.add(`createArrival${randomEffect1}`);
 
   // Append the circle element to the parent container
   const container = document.querySelector(".map-and-buttons");
   container.appendChild(arrival);
+
+  const randomEffect2 = Math.floor(Math.random() * 2) + 1;
 
   let arrival2;
   // create a duplicate element in the same place after 0.1 seconds
@@ -42,7 +46,7 @@ const arrivalEffectCreate = (elementId) => {
     arrival2.style.top = `${centerY}px`;
     arrival2.style.left = `${centerX}px`;
     arrival2.style.zIndex = "1000";
-    arrival2.classList.add("createArrivalAfterShock");
+    arrival2.classList.add(`createArrivalAfterShock${randomEffect2}`);
     container.appendChild(arrival2);
   }, 100);
 

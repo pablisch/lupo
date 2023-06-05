@@ -128,7 +128,7 @@ function App() {
                 <button type="button" onClick={() => fadeElement("Northern", fadeNorthernState, setFadeNorthernState)}>{fadeNorthernState ? `Destroy Northern Line` : `Rebuild Northern Line`}</button>
               </aside>
 
-              <main>
+              <main className='arrival-effect'>
                 <TubeMap/>
               </main>
 

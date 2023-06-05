@@ -119,7 +119,7 @@ function App() {
             </>
           }/>
           <Route path='/' element={
-            <div className="container">
+            <div className="container bars-and-map">
 
               <aside className="sidebar sidebar-left">
                 <h2>Left Sidebar</h2>

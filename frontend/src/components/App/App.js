@@ -41,8 +41,7 @@ function App() {
   const fetchData = () => {
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
       .then(response => {
-        const data = response.data;
-        const filteredData = data
+        const filteredData = response.data
           .filter(item => item.timeToStation < dataBlockDuration)
           .map(item => ({
             id: item.id,
@@ -50,10 +49,10 @@ function App() {
             lineName: item.lineName,
             timeToStation: item.timeToStation
           }));
-        const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
-        const abridgedData = abridgeData(sortedData);
+        const abridgedData = abridgeData(filteredData);
         // line below was used before quantisedData was added to state for data visualiser
-        const quantisedData = quantiseData(abridgedData);
+        const quantisedData = quantiseData(abridgedData).sort((a, b) => a.timeToStation - b.timeToStation);
+
         setVisualData(quantisedData); // added for data visualiser
         // setQuantisedData(quantiseData(abridgedData));
         // localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2)); // FOR DATA COLLECTION ONLY

@@ -14,13 +14,15 @@ const audioStartup = async () => {
       "C4": "clarinet_C4_1_piano_normal.mp3"
     },
     release: 1,
-    baseUrl: "/samples/",
+    baseUrl: "/samples/clarinet/",
   }).toDestination();
   clarinetSampler.volume.value = -9;
 
   const doubleBassSampler = new Tone.Sampler({
     urls: {
-      "A1": "double-bass_A1_05_forte_arco-normal.mp3",
+      // "A1": "double-bass_A1_05_forte_arco-normal.mp3",
+      "A#1": "double-bass_As1_025_piano_pizz-normal.mp3",
+      "A#2": "double-bass_As2_025_piano_pizz-normal.mp3",
     },
     release: 1,
     baseUrl: "/samples/",
@@ -34,7 +36,7 @@ const audioStartup = async () => {
       "A6": "mandolin_A6_very-long_piano_normal.mp3"
     },
     release: 1,
-    baseUrl: "/samples/",
+    baseUrl: "/samples/mandolin/",
   }).connect(freeverb);
   mandolinSampler.volume.value = -6;
 
@@ -43,7 +45,7 @@ const audioStartup = async () => {
       "C5": "french-horn_C5_very-long_piano_normal.mp3"
     },
     release: 1,
-    baseUrl: "/samples/",
+    baseUrl: "/samples/french-horn/",
   }).toDestination();
   sustainedHornSampler.volume.value = -100
 
@@ -65,18 +67,75 @@ const audioStartup = async () => {
   }).connect(freeverb);
   // violinSampler.volume.value = -6;
 
+  const windChimesSampler = new Tone.Sampler({
+    urls: {
+      "C4": "wind_chimes.mp3",
+    },
+    release: 1,
+    baseUrl: "/samples/",
+  })
+  // windChimesSampler.volume.value = -6;
+
+  const bassoonSampler = new Tone.Sampler({
+    urls: {
+      "A2": "bassoon_A2_025_mezzo-piano_normal.mp3",
+    },
+    release: 1,
+    baseUrl: "/samples/",
+  })
+  bassoonSampler.volume.value = -6;
+
+  const celloSampler = new Tone.Sampler({
+    urls: {
+      "A4": "cello_A4_15_forte_arco-normal.mp3",
+    },
+    release: 1,
+    baseUrl: "/samples/",
+  })
+  celloSampler.volume.value = -6;
+
+  const saxophoneSampler = new Tone.Sampler({
+    urls: {
+      "A4": "saxophone_A4_very-long_cresc-decresc_normal.mp3",
+    },
+    release: 1,
+    baseUrl: "/samples/",
+  })
+  saxophoneSampler.volume.value = -6;
+
+  const trumpetSampler = new Tone.Sampler({
+    urls: {
+      "A4": "trumpet_A4_15_pianissimo_normal.mp3",
+    },
+    release: 1,
+    baseUrl: "/samples/",
+  })
+  trumpetSampler.volume.value = -6;
+
+  const tubaSampler = new Tone.Sampler({
+    urls: {
+      "C2": "tuba_C2_025_pianissimo_normal.mp3",
+    },
+    release: 1,
+    baseUrl: "/samples/",
+  })
+  trumpetSampler.volume.value = -6;
+
+  // const synth = new Tone.PolySynth(Tone.Synth).toDestination(); 
+  // synth.volume.value = -6;
+    
   let instruments = {
     Bakerloo: violinSampler,
-    Central: clarinetSampler,
+    Central: windChimesSampler,
     Circle: clarinetSampler,
-    District: clarinetSampler,
-    Hammersmith_City: clarinetSampler,
-    Jubilee: clarinetSampler,
+    District: bassoonSampler,
+    Hammersmith_City: celloSampler,
+    Jubilee: saxophoneSampler,
     Metropolitan: mandolinSampler,
-    Northern: doubleBassSampler,
-    Piccadilly: clarinetSampler,
+    Northern: trumpetSampler,
+    Piccadilly: saxophoneSampler,
     Victoria: violaSampler, 
-    Waterloo_City: clarinetSampler,
+    Waterloo_City: tubaSampler,
 
     Pedal: sustainedHornSampler
   };

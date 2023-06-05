@@ -64,7 +64,6 @@ function App() {
         setVisualData(quantisedData); // added for data visualiser
         // setQuantisedData(quantiseData(abridgedData));
         // localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2)); // FOR DATA COLLECTION ONLY
-        console.log("in fetchData")
         console.log(quantisedData);
         triggerAudioVisuals(quantisedData, instruments);
       })

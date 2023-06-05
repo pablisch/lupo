@@ -1,57 +1,59 @@
 const assignNoteForBakerlooLine = (stationName) => {
+  const lowOctave = 3;
+
   switch(stationName) {
-    case 'Harrow_Wealdstone Underground Station':
-    return 'B1';
-    case 'Kenton Underground Station':
-    return 'B2';
-    case 'South Kenton Underground Station':
-    return 'B3';
-    case 'North Wembley Underground Station':
-    return 'B4';
-    case 'Wembley Central Underground Station':
-    return 'B5';
-    case 'Stonebridge Park Underground Station':
-    return 'B6';
-    case 'Harlesden Underground Station':
-    return 'B7';
-    case 'Willesden Junction Underground Station':
-    return 'B8';
-    case 'Kensal Green Underground Station':
-    return 'B9';
-    case 'Queens Park Underground Station':
-    return 'B10';
-    case 'Kilburn Park Underground Station':
-    return 'B11';
-    case 'Maida Vale Underground Station':
-    return 'B12';
-    case 'Warwick Avenue Underground Station':
-    return 'B13';
-    case 'Paddington Underground Station':
-    return 'B14';
-    case 'Edgware Road (Bakerloo) Underground Station':
-    return 'B15';
-    case 'Marylebone Underground Station':
-    return 'B16';
-    case 'Baker Street Underground Station':
-    return 'B17';
-    case 'Regents Park Underground Station':
-    return 'B18';
-    case 'Oxford Circus Underground Station':
-    return 'B19';
-    case 'Piccadilly Circus Underground Station':
-    return 'B20';
-    case 'Charing Cross Underground Station':
-    return 'B21';
-    case 'Embankment Underground Station':
-    return 'B22';
-    case 'Waterloo Underground Station':
-    return 'B23';
-    case 'Lambeth North Underground Station':
-    return 'B24';
-    case 'Elephant & Castle Underground Station':
-    return 'B25';
+    case 'Harrow_Wealdstone':
+      return `C${lowOctave + 2}`;
+    case 'Kenton ':
+      return `A${lowOctave + 2}`;
+    case 'SouthKenton':
+      return `A${lowOctave + 2}`;
+    case 'NorthWembley':
+      return `G${lowOctave + 1}`;
+    case 'WembleyCentral':
+      return `G${lowOctave + 1}`;
+    case 'StonebridgePark':
+      return `E${lowOctave + 1}`;
+    case 'Harlesden':
+      return `E${lowOctave + 1}`;
+    case 'WillesdenJunction':
+      return `D${lowOctave + 1}`;
+    case 'KensalGreen':
+      return `D${lowOctave + 1}`;
+    case 'QueensPark':
+      return `C${lowOctave + 1}`;
+    case 'KilburnPark':
+      return `C${lowOctave + 1}`;
+    case 'MaidaVale':
+      return `A${lowOctave + 1}`;
+    case 'WarwickAvenue':
+      return `A${lowOctave + 1}`;
+    case 'Paddington':
+      return `G${lowOctave}`;
+    case 'EdgwareRoad(Bakerloo)':
+      return `G${lowOctave}`;
+    case 'Marylebone':
+      return `E${lowOctave}`;
+    case 'BakerStreet':
+      return `E${lowOctave}`;
+    case 'RegentsPark':
+      return `D${lowOctave}`;
+    case 'OxfordCircus':
+      return `D${lowOctave}`;
+    case 'PiccadillyCircus':
+      return `C${lowOctave}`;
+    case 'CharingCross ':
+      return `C${lowOctave}`;
+    case 'Embankment':
+      return `C${lowOctave}`;
+    case 'Waterloo':
+      return `C${lowOctave}`;
+    case 'LambethNorth':
+      return `A${lowOctave}`;
+    case 'Elephant_Castle':
+      return `A${lowOctave}`;
     default:
-    return 'B26';
+      return `A${lowOctave + 1}`;
     }
   }
   

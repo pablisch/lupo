@@ -1,4 +1,4 @@
-const assignNoteForVictoriaLine = (stationName) => {
+const assignNoteForVictoria = (stationName) => {
   switch(stationName) {
     case 'WalthamstowCentral':
       return 'C5';
@@ -37,4 +37,4 @@ const assignNoteForVictoriaLine = (stationName) => {
   }
 }
 
-module.exports = assignNoteForVictoriaLine;
+module.exports = assignNoteForVictoria;

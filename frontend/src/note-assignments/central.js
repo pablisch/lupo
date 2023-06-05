@@ -1,4 +1,4 @@
-const assignNoteForCentralLine = (stationName) => {
+const assignNoteForCentral = (stationName) => {
   switch(stationName) {
     // case 'WestRuislip':
     //   return 'A1';
@@ -99,5 +99,5 @@ const assignNoteForCentralLine = (stationName) => {
     }
   }
   
-  module.exports = assignNoteForCentralLine;
+  module.exports = assignNoteForCentral;
   

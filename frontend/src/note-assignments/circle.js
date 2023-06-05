@@ -1,4 +1,4 @@
-const assignNoteForCircleLine = (stationName) => {
+const assignNoteForCircle = (stationName) => {
   const lowOctave = 4;
 
   switch(stationName) {
@@ -79,4 +79,4 @@ const assignNoteForCircleLine = (stationName) => {
   }
 }
 
-module.exports = assignNoteForCircleLine;
+module.exports = assignNoteForCircle;

@@ -1,4 +1,4 @@
-const assignNoteForDistrictLine = (stationName) => {
+const assignNoteForDistrict = (stationName) => {
   const lowOctave = 4;
 
   switch (stationName) {
@@ -99,4 +99,4 @@ const assignNoteForDistrictLine = (stationName) => {
   }
 };
 
-module.exports = assignNoteForDistrictLine;
+module.exports = assignNoteForDistrict;

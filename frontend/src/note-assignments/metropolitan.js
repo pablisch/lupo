@@ -1,4 +1,4 @@
-const assignNoteForMetropolitanLine = (stationName) => {
+const assignNoteForMetropolitan = (stationName) => {
   const lowOctave = 3;
 
   switch(stationName) {
@@ -75,4 +75,4 @@ const assignNoteForMetropolitanLine = (stationName) => {
     }
   }
   
-  module.exports = assignNoteForMetropolitanLine;
+  module.exports = assignNoteForMetropolitan;

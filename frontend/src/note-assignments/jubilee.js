@@ -1,4 +1,4 @@
-const assignNoteForJubileeLine = (stationName) => {
+const assignNoteForJubilee = (stationName) => {
   switch(stationName) {
     case 'Stanmore':
       return 'A5';
@@ -57,4 +57,4 @@ const assignNoteForJubileeLine = (stationName) => {
   }
 }
 
-module.exports = assignNoteForJubileeLine;
+module.exports = assignNoteForJubilee;

@@ -1,4 +1,4 @@
-const assignNoteForBakerlooLine = (stationName) => {
+const assignNoteForBakerloo = (stationName) => {
   const lowOctave = 4;
 
   switch(stationName) {
@@ -57,4 +57,4 @@ const assignNoteForBakerlooLine = (stationName) => {
     }
   }
   
-  module.exports = assignNoteForBakerlooLine;
+  module.exports = assignNoteForBakerloo;

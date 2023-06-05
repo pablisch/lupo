@@ -1,4 +1,4 @@
-const assignNoteForHammersmithCityLine = (stationName) => {
+const assignNoteForHammersmithCity = (stationName) => {
   const lowOctave = 4;
 
   switch(stationName) {
@@ -81,4 +81,4 @@ const assignNoteForHammersmithCityLine = (stationName) => {
   }
 }
 
-module.exports = assignNoteForHammersmithCityLine;
+module.exports = assignNoteForHammersmithCity;

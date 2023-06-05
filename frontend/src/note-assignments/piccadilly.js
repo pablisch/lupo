@@ -1,4 +1,4 @@
-const assignNoteForPiccadillyLine = (stationName) => {
+const assignNoteForPiccadilly = (stationName) => {
   const lowOctave = 4;
 
   switch(stationName) {
@@ -85,5 +85,5 @@ const assignNoteForPiccadillyLine = (stationName) => {
     }
   }
   
-  module.exports = assignNoteForPiccadillyLine;
+  module.exports = assignNoteForPiccadilly;
   

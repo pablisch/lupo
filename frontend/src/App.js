@@ -91,7 +91,7 @@ function App() {
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
       <button id="soundon" onClick={soundOn}>Sound On</button>
       <button onClick={toggleVisualiseEventsOnly}>
-      {visualiseEventsOnly ? 'Skinny bars' : 'Fat bars'}
+      {visualiseEventsOnly ? 'Include All intervals' : 'Events Only'}
     </button>
       <DataVisualiser key={dataVisualiserKey} data={visualData} duration={dataBlockDuration} visualiseEventsOnly={visualiseEventsOnly} />
       {/* </header> */}

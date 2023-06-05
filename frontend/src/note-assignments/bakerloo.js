@@ -1,6 +1,6 @@
 const assignNoteForBakerlooLine = (stationName) => {
   switch(stationName) {
-    case 'Harrow & Wealdstone Underground Station':
+    case 'Harrow_Wealdstone Underground Station':
     return 'B1';
     case 'Kenton Underground Station':
     return 'B2';

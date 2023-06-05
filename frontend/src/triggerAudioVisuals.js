@@ -9,13 +9,13 @@ const noteAssignFunctions = {
   Central: assignNoteForNorthernLine,
   Circle: assignNoteForNorthernLine,
   District: assignNoteForNorthernLine,
-  HammersmithCity: assignNoteForNorthernLine,
+  Hammersmith_City: assignNoteForNorthernLine,
   Jubilee: assignNoteForJubileeLine,
   Metropolitan: assignNoteForMetropolitanLine,
   Northern: assignNoteForNorthernLine,
   Piccadilly: assignNoteForNorthernLine,
   Victoria: assignNoteForVictoriaLine,
-  WaterlooCity: assignNoteForNorthernLine
+  Waterloo_City: assignNoteForNorthernLine
 }
 
 const triggerAudioVisuals = (quantisedTubeData, instruments) => {

@@ -70,13 +70,13 @@ const audioStartup = async () => {
     Central: clarinetSampler,
     Circle: clarinetSampler,
     District: clarinetSampler,
-    HammersmithCity: clarinetSampler,
+    Hammersmith_City: clarinetSampler,
     Jubilee: clarinetSampler,
     Metropolitan: mandolinSampler,
     Northern: doubleBassSampler,
     Piccadilly: clarinetSampler,
     Victoria: ViolaSampler, 
-    WaterlooCity: clarinetSampler,
+    Waterloo_City: clarinetSampler,
 
     Pedal: sustainedHornSampler
   };

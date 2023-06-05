@@ -47,9 +47,18 @@ const audioStartup = async () => {
   await Tone.loaded();
 
   let instruments = {
-    Victoria: pizzViolaSampler, 
+    Bakerloo: clarinetSampler,
+    Central: clarinetSampler,
+    Circle: clarinetSampler,
+    District: clarinetSampler,
+    HammersmithCity: clarinetSampler,
     Jubilee: clarinetSampler,
+    Metropolitan: clarinetSampler,
     Northern: doubleBassSampler,
+    Piccadilly: clarinetSampler,
+    Victoria: pizzViolaSampler, 
+    WaterlooCity: clarinetSampler,
+
     Pedal: sustainedHornSampler
   };
 

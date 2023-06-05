@@ -3,11 +3,11 @@ const lineNames = [
   'Central',
   'Circle',
   'District',
-  'Hammersmith&City',
+  'HammersmithCity', // removed ampersand as it cannot be used as Key name for instruments obj
   'Jubilee',
   'Metropolitan',
   'Northern',
   'Piccadilly',
   'Victoria',
-  'Waterloo&City',
+  'WaterlooCity', // removed ampersand as it cannot be used as Key name for instruments obj
 ];

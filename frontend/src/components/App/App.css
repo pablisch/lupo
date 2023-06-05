@@ -243,3 +243,38 @@ header p {
 .map-and-buttons {
   position: relative;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  background-color: #f8f8f8;
+  padding: 20px;
+}
+
+.sidebar-left {
+  flex-basis: 200px;
+}
+
+.sidebar-right {
+  flex-basis: 200px;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  height: 100%;
+}

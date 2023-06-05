@@ -9,8 +9,8 @@ const arrivalEffectCreate = (elementId) => {
   const svgRect = rootDiv.getBoundingClientRect();
 
   // Calculate the center position of the circle within the SVG canvas
-  const centerX = (rect.left - svgRect.left + rect.width / 2);
-  const centerY = (rect.top - svgRect.top + rect.height / 2);
+  const centerX = rect.left - svgRect.left + rect.width / 2;
+  const centerY = rect.top - svgRect.top + rect.height / 2;
 
   const randomEffect1 = Math.floor(Math.random() * 2) + 1;
 

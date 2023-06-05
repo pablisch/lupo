@@ -1,87 +1,87 @@
 const assignNoteForPiccadillyLine = (stationName) => {
   const lowOctave = 4;
-  
+
   switch(stationName) {
     case 'Cockfosters Underground Station':
-    return 'G1';
+      return `G${lowOctave + 2}`;
     case 'Oakwood Underground Station':
-    return 'G2';
+      return `G${lowOctave + 2}`;
     case 'Southgate Underground Station':
-    return 'G3';
+      return `E${lowOctave + 2}`;
     case 'Arnos Grove Underground Station':
-    return 'G4';
+      return `E${lowOctave + 2}`;
     case 'Bounds Green Underground Station':
-    return 'G5';
+      return `D${lowOctave + 2}`;
     case 'Wood Green Underground Station':
-    return 'G6';
+      return `D${lowOctave + 2}`;
     case 'Turnpike Lane Underground Station':
-    return 'G7';
+      return `C${lowOctave + 2}`;
     case 'Manor House Underground Station':
-    return 'G8';
+      return `C${lowOctave + 2}`;
     case 'Finsbury Park Underground Station':
-    return 'G9';
+      return `C${lowOctave + 2}`;
     case 'Arsenal Underground Station':
-    return 'G10';
+      return `A${lowOctave + 2}`;
     case 'Holloway Road Underground Station':
-    return 'G11';
-    case 'Caledonian Road Underground Station':
-    return 'G12';
+      return `A${lowOctave + 2}`;
+    case 'Caleonian Road Underground Station':
+      return `A${lowOctave + 2}`;
     case 'Kings Cross St. Pancras Underground Station':
-    return 'G13';
+      return `G${lowOctave + 1}`;
     case 'Russell Square Underground Station':
-    return 'G14';
+      return `G${lowOctave + 1}`;
     case 'Holborn Underground Station':
-    return 'G15';
+      return `G${lowOctave + 1}`;
     case 'Covent Garden Underground Station':
-    return 'G16';
+      return `E${lowOctave + 1}`;
     case 'Leicester Square Underground Station':
-    return 'G17';
-    case 'Piccadilly Circus Underground Station':
-    return 'G18';
+      return `E${lowOctave + 1}`;
     case 'Green Park Underground Station':
-    return 'G19';
+      return `E${lowOctave + 1}`;
+    case 'Piccadilly Circus Underground Station':
+      return `D${lowOctave + 1}`;
     case 'Hyde Park Corner Underground Station':
-    return 'G20';
+      return `D${lowOctave + 1}`;
     case 'Knightsbridge Underground Station':
-    return 'G21';
+      return `D${lowOctave + 1}`;
     case 'South Kensington Underground Station':
-    return 'G22';
+      return `C${lowOctave + 1}`;
     case 'Gloucester Road Underground Station':
-    return 'G23';
+      return `C${lowOctave + 1}`;
     case 'Earls Court Underground Station':
-    return 'G24';
+      return `C${lowOctave + 1}`;
     case 'Barons Court Underground Station':
-    return 'G25';
+      return `A${lowOctave + 1}`;
     case 'Hammersmith Underground Station':
-    return 'G26';
+      return `A${lowOctave + 1}`;
     case 'Turnham Green Underground Station':
-    return 'G27';
+      return `A${lowOctave + 1}`;
     case 'Acton Town Underground Station':
-    return 'G28';
+      return `G${lowOctave}`;
     case 'South Ealing Underground Station':
-    return 'G29';
+      return `G${lowOctave}`;
     case 'Northfields Underground Station':
-    return 'G30';
+      return `G${lowOctave}`;
     case 'Boston Manor Underground Station':
-    return 'G31';
+      return `E${lowOctave}`;
     case 'Osterley Underground Station':
-    return 'G32';
+      return `E${lowOctave}`;
     case 'Hounslow East Underground Station':
-    return 'G33';
+      return `E${lowOctave}`;
     case 'Hounslow Central Underground Station':
-    return 'G34';
+      return `D${lowOctave}`;
     case 'Hounslow West Underground Station':
-    return 'G35';
+      return `D${lowOctave}`;
     case 'Hatton Cross Underground Station':
-    return 'G36';
+      return `D${lowOctave}`;
     case 'Heathrow Terminal 4 Underground Station':
-    return 'G37';
+      return `C${lowOctave}`;
     case 'Heathrow Terminals 2 & 3 Underground Station':
-    return 'G38';
+      return `C${lowOctave}`;
     case 'Heathrow Terminal 5 Underground Station':
-    return 'G39';
+      return `C${lowOctave}`;
     default:
-    return 'G40';
+      return `A${lowOctave}`;
     }
   }
   

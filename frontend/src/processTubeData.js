@@ -26,7 +26,6 @@ function fudgeData(separatedData, dataBlockDuration) {
   if (Object.keys(separatedData).length > 0) {
     const fudgedDataArray = [];
     Object.values(separatedData).forEach((array) => {
-      // console.log('array =', array);
       const result = spreadData(array, dataBlockDuration);
       fudgedDataArray.push(result);
     });
@@ -48,7 +47,6 @@ function spreadData(array, dataBlockDuration) {
       acc[timeToStation].push(obj);
       return acc;
     }, {});
-    // console.log('spreadData =', spreadData)
     const spreadDataArray = Object.values(spreadData); // convert the object into an array of arrays
 
     const spreadDataArray2 = spreadDataArray.flatMap((innerArray) => { // look for arrays with more than three objects
@@ -80,13 +78,11 @@ function spreadData(array, dataBlockDuration) {
             };
           }
       });
-        // console.log('spreadDataArray3 =', spreadDataArray3)
         return spreadDataArray3;
       } else {
         return innerArray;
       }
     });
-    // console.log('spreadDataArray2 =', spreadDataArray2)
     const spreadDataArray4 = spreadDataArray2.flat();
     return spreadDataArray4;
   }

@@ -8,8 +8,7 @@ import playSounds from '../../playSounds';
 import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
 import { Routes, Route, Link } from "react-router-dom";
 import { separateDataIntoLines, fudgeData, abridgeData, quantiseData } from '../../processTubeData';
-// const { separateDataIntoLines, fudgeData, abridgeData, quantiseData } = require('./processTubeData');
-const { arrivalEffectTransform, arrivalEffectCreate } = require('../../arrivalEffects');
+import { arrivalEffectTransform, arrivalEffectCreate } from '../../arrivalEffects';
 
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
@@ -63,10 +62,8 @@ function App() {
           const abridgedData = abridgeData(sortedData);
           // STEP 2: separate data into individual lines.
           const separatedData = separateDataIntoLines(abridgedData);
-          console.log('separated Data =', separatedData);
           // STEP 3: process data where all same line events occur simultaneously.
           const fudgedData = fudgeData(separatedData, dataBlockDuration);
-          console.log('fudgedData =', fudgedData);
           // STEP 4: quantise data to noteInterval
           const quantisedData = quantiseData(fudgedData);
           console.log('quantisedData =', quantisedData);

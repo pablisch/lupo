@@ -1,7 +1,7 @@
-import assignNoteForVictoriaLine from './note-assignments/victoria-line';
-import assignNoteForJubileeLine from './note-assignments/jubilee-line';
-import assignNoteForNorthernLine from './note-assignments/northern-line';
-import assignNoteForMetropolitanLine from './note-assignments/metropolitan-line';
+import assignNoteForVictoriaLine from './note-assignments/victoria';
+import assignNoteForJubileeLine from './note-assignments/jubilee';
+import assignNoteForNorthernLine from './note-assignments/northern';
+import assignNoteForMetropolitanLine from './note-assignments/metropolitan';
 
 
 const noteAssignFunctions = {

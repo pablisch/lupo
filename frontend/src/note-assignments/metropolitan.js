@@ -1,5 +1,5 @@
 const assignNoteForMetropolitanLine = (stationName) => {
-  const lowOctave = 4;
+  const lowOctave = 3;
 
   switch(stationName) {
     case 'Amersham':

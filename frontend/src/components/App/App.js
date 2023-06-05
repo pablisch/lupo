@@ -7,8 +7,8 @@ import audioStartup from '../../audioStartup';
 import playSounds from '../../playSounds';
 import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
 import { Routes, Route, Link } from "react-router-dom";
-const { abridgeData, quantiseData } = require('../../processTubeData');
-const { arrivalEffectTransform, arrivalEffectCreate } = require('../../arrivalEffects');
+import { separateDataIntoLines, fudgeData, abridgeData, quantiseData } from '../../processTubeData';
+import { arrivalEffectTransform, arrivalEffectCreate } from '../../arrivalEffects';
 
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
@@ -57,15 +57,17 @@ function App() {
             lineName: item.lineName,
             timeToStation: item.timeToStation
           }));
-        const abridgedData = abridgeData(filteredData);
-        // line below was used before quantisedData was added to state for data visualiser
-        const quantisedData = quantiseData(abridgedData).sort((a, b) => a.timeToStation - b.timeToStation);
-
-        setVisualData(quantisedData); // added for data visualiser
-        // setQuantisedData(quantiseData(abridgedData));
-        // localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2)); // FOR DATA COLLECTION ONLY
-        console.log("in fetchData")
-        console.log(quantisedData);
+          const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
+          // STEP 1: remove unnecessary text, whitespace, and apostrophes.
+          const abridgedData = abridgeData(sortedData);
+          // STEP 2: separate data into individual lines.
+          const separatedData = separateDataIntoLines(abridgedData);
+          // STEP 3: process data where all same line events occur simultaneously.
+          const fudgedData = fudgeData(separatedData, dataBlockDuration);
+          // STEP 4: quantise data to noteInterval
+          const quantisedData = quantiseData(fudgedData);
+          console.log('quantisedData =', quantisedData);
+          setVisualData(quantisedData);
         playSounds(quantisedData, instruments);
       })
       .catch(error => {
@@ -149,7 +151,6 @@ function App() {
               <p>{`This Page has rendered ${renderCount.current} times`}</p>
             </header>
             <section className="map-and-buttons">
-             
             </section>
           </div>
           }/>
@@ -159,5 +160,4 @@ function App() {
 }
 
 export default App;
-
 

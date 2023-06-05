@@ -1,88 +1,84 @@
-const assignNoteForPiccadillyLine = (stationName) => {
+const assignNoteForHammersmithCityLine = (stationName) => {
   const lowOctave = 4;
 
   switch(stationName) {
-    case 'Cockfosters':
-      return `G${lowOctave + 2}`;
-    case 'Oakwood':
-      return `G${lowOctave + 2}`;
-    case 'Southgate':
-      return `E${lowOctave + 2}`;
-    case 'ArnosGrove':
-      return `E${lowOctave + 2}`;
-    case 'BoundsGreen':
-      return `D${lowOctave + 2}`;
-    case 'WoodGreen':
-      return `D${lowOctave + 2}`;
-    case 'TurnpikeLane':
-      return `C${lowOctave + 2}`;
-    case 'ManorHouse':
-      return `C${lowOctave + 2}`;
-    case 'FinsburyPark':
-      return `C${lowOctave + 2}`;
-    case 'Arsenal':
-      return `A${lowOctave + 2}`;
-    case 'HollowayRoad':
-      return `A${lowOctave + 2}`;
-    case 'CaleonianRoad':
-      return `A${lowOctave + 2}`;
-    case 'KingsCrossStPancras':
-      return `G${lowOctave + 1}`;
-    case 'RussellSquare':
-      return `G${lowOctave + 1}`;
-    case 'Holborn':
-      return `G${lowOctave + 1}`;
-    case 'Covent Garden':
-      return `E${lowOctave + 1}`;
-    case 'Leicester Square':
-      return `E${lowOctave + 1}`;
-    case 'GreenPark':
-      return `E${lowOctave + 1}`;
-    case 'PiccadillyCircus':
-      return `D${lowOctave + 1}`;
-    case 'HydeParkCorner':
-      return `D${lowOctave + 1}`;
-    case 'Knightsbridge':
-      return `D${lowOctave + 1}`;
-    case 'SouthKensington':
-      return `C${lowOctave + 1}`;
-    case 'GloucesterRoad':
-      return `C${lowOctave + 1}`;
-    case 'EarlsCourt':
-      return `C${lowOctave + 1}`;
-    case 'BaronsCourt':
-      return `A${lowOctave + 1}`;
     case 'Hammersmith':
+      return `G${lowOctave + 2}`;
+    case 'GoldhawkRoad':
+      return `G${lowOctave + 2}`;
+    case "ShepherdsBushMarket":
+      return `E${lowOctave + 2}`;
+    case 'WoodLane':
+      return `E${lowOctave + 2}`;
+    case 'LatimerRoad':
+      return `D${lowOctave + 2}`;
+    case 'LadbrokeGrove':
+      return `D${lowOctave + 2}`;
+    case 'WestbournePark':
+      return `C${lowOctave + 2}`;
+    case 'RoyalOak':
+      return `C${lowOctave + 2}`;
+    case 'Paddington':
+      return `A${lowOctave + 2}`;
+    case 'EdgwareRoadCircleLine':
+      return `A${lowOctave + 2}`;
+    case 'BakerStreet':
+      return `G${lowOctave + 1}`;
+    case 'GreatPortlandStreet':
+      return `G${lowOctave + 1}`;
+    case 'EustonSquare':
+      return `G${lowOctave + 1}`;
+    case 'KingsCrossStPancras':
+      return `E${lowOctave + 1}`;
+    case 'Farringdon':
+      return `E${lowOctave + 1}`;
+    case 'Barbican':
+      return `E${lowOctave + 1}`;
+    case 'Moorgate':
+      return `D${lowOctave + 1}`;
+    case 'LiverpoolStreet':
+      return `D${lowOctave + 1}`;
+    case 'AldgateEast':
+      return `D${lowOctave + 1}`;
+    case 'Whitechapel':
+      return `C${lowOctave + 1}`;
+    case 'StepneyGreen':
+      return `C${lowOctave + 1}`;
+    case 'MileEnd':
+      return `C${lowOctave + 1}`;
+    case 'BowRoad':
       return `A${lowOctave + 1}`;
-    case 'TurnhamGreen':
+    case 'Bromley-by-Bow':
       return `A${lowOctave + 1}`;
-    case 'Acton Town':
+    case 'WestHam':
+      return `A${lowOctave + 1}`;
+    case 'Plaistow':
       return `G${lowOctave}`;
-    case 'SouthEaling':
+    case 'UptonPark':
       return `G${lowOctave}`;
-    case 'Northfields':
+    case 'EastHam':
       return `G${lowOctave}`;
-    case 'BostonManor':
+    case 'Barking':
       return `E${lowOctave}`;
-    case 'Osterley':
+    case 'Upney Underground Station':
       return `E${lowOctave}`;
-    case 'HounslowEast':
+    case 'Becontree Underground Station':
       return `E${lowOctave}`;
-    case 'HounslowCentral':
+    case 'Dagenham Heathway Underground Station':
       return `D${lowOctave}`;
-    case 'HounslowWest':
+    case 'Dagenham East Underground Station':
       return `D${lowOctave}`;
-    case 'HattonCross':
+    case 'Elm Park Underground Station':
       return `D${lowOctave}`;
-    case 'HeathrowTerminal 4':
+    case 'Hornchurch Underground Station':
       return `C${lowOctave}`;
-    case 'HeathrowTerminals23':
+    case 'Upminster Bridge Underground Station':
       return `C${lowOctave}`;
-    case 'HeathrowTerminal5':
+    case 'Upminster Underground Station':
       return `C${lowOctave}`;
     default:
       return `A${lowOctave}`;
-    }
   }
-  
-  module.exports = assignNoteForPiccadillyLine;
+}
+
+module.exports = assignNoteForHammersmithCityLine;

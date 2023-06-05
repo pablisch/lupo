@@ -6,15 +6,6 @@ const audioStartup = async () => {
   const freeverb = new Tone.Freeverb().toDestination();
   freeverb.dampening = 1000;
 
-  const pizzViolaSampler = new Tone.Sampler({
-    urls: {
-      "A3": "viola_A3_1_piano_pizz-normal.mp3",
-    },
-    release: 1,
-    baseUrl: "/samples/",
-  }).connect(freeverb);
-  pizzViolaSampler.volume.value = -6
-
   const clarinetSampler = new Tone.Sampler({
     urls: {
       "A3": "clarinet_A3_05_piano_normal.mp3",
@@ -25,16 +16,7 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).toDestination();
-  clarinetSampler.volume.value = -6;
-
-  const sustainedHornSampler = new Tone.Sampler({
-    urls: {
-      "C5": "french-horn_C5_very-long_piano_normal.mp3"
-    },
-    release: 1,
-    baseUrl: "/samples/",
-  }).toDestination();
-  sustainedHornSampler.volume.value = -100
+  clarinetSampler.volume.value = -9;
 
   const doubleBassSampler = new Tone.Sampler({
     urls: {
@@ -46,6 +28,43 @@ const audioStartup = async () => {
   doubleBassSampler.volume.value = -18
   await Tone.loaded();
 
+  const mandolinSampler = new Tone.Sampler({  
+    urls: {
+      "A5": "mandolin_A5_very-long_piano_normal.mp3",
+      "A6": "mandolin_A6_very-long_piano_normal.mp3"
+    },
+    release: 1,
+    baseUrl: "/samples/",
+  }).connect(freeverb);
+  mandolinSampler.volume.value = -6;
+
+  const sustainedHornSampler = new Tone.Sampler({
+    urls: {
+      "C5": "french-horn_C5_very-long_piano_normal.mp3"
+    },
+    release: 1,
+    baseUrl: "/samples/",
+  }).toDestination();
+  sustainedHornSampler.volume.value = -100
+
+  const ViolaSampler = new Tone.Sampler({
+    urls: {
+      "A3": "viola_A3_1_piano_pizz-normal.mp3",
+    },
+    release: 1,
+    baseUrl: "/samples/",
+  }).connect(freeverb);
+  ViolaSampler.volume.value = -6;
+
+  const ViolinSampler = new Tone.Sampler({
+    urls: {
+      "A3": "viola_A3_1_piano_pizz-normal.mp3",
+    },
+    release: 1,
+    baseUrl: "/samples/",
+  }).connect(freeverb);
+  ViolinSampler.volume.value = -6;
+
   let instruments = {
     Bakerloo: clarinetSampler,
     Central: clarinetSampler,
@@ -53,10 +72,10 @@ const audioStartup = async () => {
     District: clarinetSampler,
     HammersmithCity: clarinetSampler,
     Jubilee: clarinetSampler,
-    Metropolitan: clarinetSampler,
+    Metropolitan: mandolinSampler,
     Northern: doubleBassSampler,
     Piccadilly: clarinetSampler,
-    Victoria: pizzViolaSampler, 
+    Victoria: ViolaSampler, 
     WaterlooCity: clarinetSampler,
 
     Pedal: sustainedHornSampler

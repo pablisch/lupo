@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 // import logo from './logo.svg';
 import './App.css';
-import TubeMap from './components/TubeMap/TubeMap.js';
-import audioStartup from './audioStartup';
-import playSounds from './playSounds';
-import DataVisualiser from './components/DataVisualiser/DataVisualiser.js';
-const { abridgeData, quantiseData } = require('./processTubeData');
+import TubeMap from '../TubeMap/TubeMap.js';
+import audioStartup from '../../audioStartup';
+import playSounds from '../../playSounds';
+import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
+import {
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+const { abridgeData, quantiseData } = require('../../processTubeData');
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 
@@ -88,15 +93,24 @@ function App() {
     <div className="App">
       {/* <header className="App-header"> */}
         <h2>LUSO</h2>
+        <Link to="/">Home </Link>
+        <Link to="/data">Data</Link>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-      <button id="soundon" onClick={soundOn}>Sound On</button>
-      <button onClick={toggleVisualiseEventsOnly}>
-      {visualiseEventsOnly ? 'Include All intervals' : 'Events Only'}
-    </button>
-      <DataVisualiser key={dataVisualiserKey} data={visualData} duration={dataBlockDuration} visualiseEventsOnly={visualiseEventsOnly} />
-      {/* </header> */}
-      <button type="button" onClick={() => fadeElement("Perivale")}>Central Fade</button>
-      <TubeMap/>
+        <Routes>
+          <Route path='/data' element={
+            <>
+              <button onClick={toggleVisualiseEventsOnly}> {visualiseEventsOnly ? 'Include All intervals' : 'Events Only'} </button>
+              <DataVisualiser key={dataVisualiserKey} data={visualData} duration={dataBlockDuration} visualiseEventsOnly={visualiseEventsOnly} />
+            </>
+          }/>
+          <Route path='/' element={
+            <>
+              <button id="soundon" onClick={soundOn}>Sound On</button>
+              <button type="button" onClick={() => fadeElement("Perivale")}>Central Fade</button>
+              <TubeMap/>
+            </>
+          }/>
+        </Routes>
     </div>
   );
 }

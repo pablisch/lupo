@@ -1,5 +1,5 @@
 const assignNoteForBakerlooLine = (stationName) => {
-  const lowOctave = 3;
+  const lowOctave = 4;
 
   switch(stationName) {
     case 'Harrow_Wealdstone':

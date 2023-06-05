@@ -47,26 +47,26 @@ const audioStartup = async () => {
   }).toDestination();
   sustainedHornSampler.volume.value = -100
 
-  const ViolaSampler = new Tone.Sampler({
+  const violaSampler = new Tone.Sampler({
     urls: {
       "A3": "viola_A3_1_piano_pizz-normal.mp3",
     },
     release: 1,
     baseUrl: "/samples/",
   }).connect(freeverb);
-  ViolaSampler.volume.value = -6;
+  // violaSampler.volume.value = -6;
 
-  const ViolinSampler = new Tone.Sampler({
+  const violinSampler = new Tone.Sampler({
     urls: {
-      "A3": "viola_A3_1_piano_pizz-normal.mp3",
+      "A5": "violin_A5_1_mezzo-piano_arco-normal.mp3",
     },
     release: 1,
     baseUrl: "/samples/",
   }).connect(freeverb);
-  ViolinSampler.volume.value = -6;
+  // violinSampler.volume.value = -6;
 
   let instruments = {
-    Bakerloo: clarinetSampler,
+    Bakerloo: violinSampler,
     Central: clarinetSampler,
     Circle: clarinetSampler,
     District: clarinetSampler,
@@ -75,7 +75,7 @@ const audioStartup = async () => {
     Metropolitan: mandolinSampler,
     Northern: doubleBassSampler,
     Piccadilly: clarinetSampler,
-    Victoria: ViolaSampler, 
+    Victoria: violaSampler, 
     Waterloo_City: clarinetSampler,
 
     Pedal: sustainedHornSampler

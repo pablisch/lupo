@@ -16,7 +16,7 @@ const noteAssignFunctions = {
   WaterlooCity: assignNoteForNorthernLine
 }
 
-const playSounds = (quantisedTubeData, instruments) => {
+const triggerAudioVisuals = (quantisedTubeData, instruments) => {
   quantisedTubeData.forEach((train) => {
     const note = noteAssignFunctions[train.lineName](train.stationName);
     setTimeout(() => {
@@ -27,4 +27,4 @@ const playSounds = (quantisedTubeData, instruments) => {
   })
 }
 
-export default playSounds;
+export default triggerAudioVisuals;

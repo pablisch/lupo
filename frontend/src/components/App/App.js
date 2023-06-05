@@ -4,7 +4,7 @@ import logo from '../../logo.svg';
 import './App.css';
 import TubeMap from '../TubeMap/TubeMap.js';
 import audioStartup from '../../audioStartup';
-import playSounds from '../../playSounds';
+import triggerAudioVisuals from '../../triggerAudioVisuals';
 import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
 import { Routes, Route, Link } from "react-router-dom";
 const { abridgeData, quantiseData } = require('../../processTubeData');
@@ -66,7 +66,7 @@ function App() {
         // localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2)); // FOR DATA COLLECTION ONLY
         console.log("in fetchData")
         console.log(quantisedData);
-        playSounds(quantisedData, instruments);
+        triggerAudioVisuals(quantisedData, instruments);
       })
       .catch(error => {
         console.error('Error fetching tube data:', error);

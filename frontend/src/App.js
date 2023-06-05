@@ -6,7 +6,7 @@ import TubeMap from './components/TubeMap/TubeMap.js';
 import audioStartup from './audioStartup';
 import playSounds from './playSounds';
 import DataVisualiser from './components/DataVisualiser/DataVisualiser.js';
-const { abridgeData, quantiseData } = require('./processTubeData');
+const { separateDataIntoLines, fudgeData, abridgeData, quantiseData } = require('./processTubeData');
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 
@@ -46,15 +46,22 @@ function App() {
             timeToStation: item.timeToStation
           }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
+        // STEP 1: remove unnecessary text, whitespace, and apostrophes.
         const abridgedData = abridgeData(sortedData);
-        // line below was used before quantisedData was added to state for data visualiser
-        const quantisedData = quantiseData(abridgedData);
-        setVisualData(quantisedData); // added for data visualiser
-        // setQuantisedData(quantiseData(abridgedData));
-        // localStorage.setItem('quantisedData', JSON.stringify(quantisedData, null, 2)); // FOR DATA COLLECTION ONLY
-        console.log("in fetchData")
-        console.log(quantisedData);
-        playSounds(quantisedData, instruments);
+        // STEP 2: separate data into individual lines.
+        const separatedData = separateDataIntoLines(abridgedData);
+        console.log('separated Data =', separatedData);
+        // STEP 3: process data where all same line events occur simultaneously.
+        const fudgedData = fudgeData(separatedData, dataBlockDuration);
+        console.log('fudgedData =', fudgedData);
+        // STEP 4: quantise data to noteInterval
+        const quantisedData = quantiseData(fudgedData);
+        console.log('quantisedData =', quantisedData);
+        // setVisualData(abridgedData);
+        // setVisualData(fudgedData);
+        setVisualData(quantisedData);
+        playSounds(abridgedData, instruments);
+        // playSounds(quantisedData, instruments);
       })
       .catch(error => {
         console.error('Error fetching tube data:', error);

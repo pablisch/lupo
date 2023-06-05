@@ -34,16 +34,7 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).toDestination();
-  sustainedHornSampler.volume.value = 15;
-
-  const sustainedHornSampler2 = new Tone.Sampler({
-    urls: {
-      "C5": "french-horn_C5_very-long_piano_normal.mp3"
-    },
-    release: 1,
-    baseUrl: "/samples/",
-  }).toDestination();
-  sustainedHornSampler2.volume.value = -35;
+  sustainedHornSampler.volume.value = -100;
 
   const doubleBassSampler = new Tone.Sampler({
     urls: {
@@ -60,7 +51,6 @@ const audioStartup = async () => {
     Jubilee: clarinetSampler,
     Northern: doubleBassSampler,
     Pedal: sustainedHornSampler,
-    Pedal: sustainedHornSampler2
   };
 
   return instruments;

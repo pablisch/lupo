@@ -27,7 +27,7 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).toDestination();
-  doubleBassSampler.volume.value = -18
+  doubleBassSampler.volume.value = -9
   await Tone.loaded();
 
   const mandolinSampler = new Tone.Sampler({  
@@ -38,7 +38,7 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/mandolin/",
   }).connect(freeverb);
-  mandolinSampler.volume.value = -6;
+  mandolinSampler.volume.value = -9;
 
   const sustainedHornSampler = new Tone.Sampler({
     urls: {
@@ -56,7 +56,7 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).connect(freeverb);
-  // violaSampler.volume.value = -6;
+  violaSampler.volume.value = -6;
 
   const violinSampler = new Tone.Sampler({
     urls: {
@@ -65,7 +65,7 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).connect(freeverb);
-  // violinSampler.volume.value = -6;
+  violinSampler.volume.value = -6;
 
   const windChimesSampler = new Tone.Sampler({
     urls: {
@@ -74,7 +74,7 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   })
-  // windChimesSampler.volume.value = -6;
+  windChimesSampler.volume.value = -6;
 
   const bassoonSampler = new Tone.Sampler({
     urls: {

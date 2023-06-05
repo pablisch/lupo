@@ -107,7 +107,7 @@ function App() {
     <div className="App">
       {/* <header className="App-header"> */}
         <h2>LUSO</h2>
-        <Link to="/">Home </Link>
+        <Link to="/">Home</Link>
         <Link to="/data">Data</Link>
         <Link to="/landing">Logo</Link>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}

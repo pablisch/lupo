@@ -6,7 +6,7 @@ const triggerAudioVisuals = (quantisedTubeData, instruments) => {
     setTimeout(() => {
       instruments[train.lineName].triggerAttackRelease(note, '4n');
       console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);
-    })
+    }, train.timeToStation * 1000)
   })
 }
 

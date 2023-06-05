@@ -103,11 +103,23 @@ function App() {
             </>
           }/>
           <Route path='/' element={
-            <>
-              <button id="soundon" onClick={soundOn}>Sound On</button>
-              <button type="button" onClick={() => fadeElement("Perivale")}>Central Fade</button>
-              <TubeMap/>
-            </>
+            <div className="container">
+
+              <aside className="sidebar sidebar-left">
+                <h2>Left Sidebar</h2>
+                <button type="button" onClick={() => fadeElement("Central")}>Central Fade</button>
+                <button id="soundon" onClick={soundOn}>Sound On</button>
+              </aside>
+
+              <main>
+                <TubeMap/>
+              </main>
+
+              <aside className="sidebar sidebar-right">
+                <h2>Right Sidebar</h2>
+              </aside>
+
+            </div> 
           }/>
         </Routes>
     </div>
@@ -115,3 +127,5 @@ function App() {
 }
 
 export default App;
+
+

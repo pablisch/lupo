@@ -16,7 +16,8 @@ const TubeMap = () => {
         contentStyle={{ width: "100%", height: "100%" }}>
         <Map />
       </TransformComponent>
-    </TransformWrapper>
+      </TransformWrapper>
+  
   );
 }
 export default TubeMap;

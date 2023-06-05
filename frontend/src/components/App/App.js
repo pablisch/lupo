@@ -144,15 +144,13 @@ function App() {
           }/>
           <Route path='/landing' element={
             <div className="App">
-            <header className="App-header">
-              <h2>LUSO</h2>
-              <img src={logo} className="App-logo" alt="logo" />
-              
-              <p>{`This Page has rendered ${renderCount.current} times`}</p>
-            </header>
-            <section className="map-and-buttons">
-            </section>
-          </div>
+              <header className="App-header">
+                <h2>LUSO</h2>
+                <img src={logo} className="App-logo" alt="logo" />
+                
+                <p>{`This Page has rendered ${renderCount.current} times`}</p>
+              </header>
+            </div>
           }/>
         </Routes>
     </div>

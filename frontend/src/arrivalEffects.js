@@ -3,8 +3,8 @@ const arrivalEffectCreate = (elementId) => {
   const element = document.getElementById(elementId);
   const rect = element.getBoundingClientRect();
 
-  // Get the position and dimensions of section element with a class of "map-and-buttons"
-  const mapAndButtons = document.querySelector(".map-and-buttons");
+  // Get the position and dimensions of section element with a class of "react-transform-component"
+  const mapAndButtons = document.querySelector(".react-transform-component");
   // const svg = document.querySelector("svg");
   const svgRect = mapAndButtons.getBoundingClientRect();
 
@@ -28,7 +28,7 @@ const arrivalEffectCreate = (elementId) => {
   arrival.classList.add(`createArrival${randomEffect1}`);
 
   // Append the circle element to the parent container
-  const container = document.querySelector(".map-and-buttons");
+  const container = document.querySelector(".react-transform-component");
   container.appendChild(arrival);
 
   const randomEffect2 = Math.floor(Math.random() * 2) + 1;

@@ -1,36 +1,36 @@
 const assignNoteForVictoriaLine = (stationName) => {
   switch(stationName) {
-    case 'Walthamstow Central Underground Station':
+    case 'WalthamstowCentral':
       return 'C5';
-    case 'Blackhorse Road Underground Station':
+    case 'BlackhorseRoad':
       return 'A5';
-    case 'Tottenham Hale Underground Station':
+    case 'TottenhamHale':
       return 'G4';
-    case 'Seven Sisters Underground Station':
+    case 'SevenSisters':
       return 'E4';
-    case 'Finsbury Park Underground Station':
+    case 'FinsburyPark':
       return 'D4';
-    case 'Highbury & Islington Underground Station':
+    case 'Highbury&Islington':
       return 'C4';
-    case "King's Cross St. Pancras Underground Station":
+    case "KingsCrossStPancras":
       return 'A4';
-    case 'Euston Underground Station':
+    case 'Euston':
       return 'G3';
-    case 'Warren Street Underground Station':
+    case 'WarrenStreet':
       return 'E3';
-    case 'Oxford Circus Underground Station':
+    case 'OxfordCircus':
       return 'D3';
-    case 'Green Park Underground Station':
+    case 'GreenPark':
       return 'C3';
-    case 'Victoria Underground Station':
+    case 'Victoria':
       return 'A3';
-    case 'Pimlico Underground Station':
+    case 'Pimlico':
       return 'G2';
-    case  'Vauxhall Underground Station':
+    case  'Vauxhall':
       return 'E2';
-    case 'Stockwell Underground Station':
+    case 'Stockwell':
       return 'D2';
-    case 'Brixton Underground Station':
+    case 'Brixton':
       return 'C2';
     default:
       return 'C2';

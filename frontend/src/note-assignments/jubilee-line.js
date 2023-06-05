@@ -1,59 +1,59 @@
 const assignNoteForJubileeLine = (stationName) => {
   switch(stationName) {
-    case 'Stanmore Underground Station':
-      return 'C5';
-    case 'Canons Park Underground Station':
+    case 'Stanmore':
       return 'A5';
-    case 'Queensbury Underground Station':
+    case 'CanonsPark':
+      return 'G6';
+    case 'Queensbury':
+      return 'E6';
+    case 'Kingsbury':
+      return 'D6';
+    case 'WembleyPark':
+      return 'C6';
+    case 'Neasden':
+      return 'A6';
+    case "WillesdenGreen":
+      return 'G5';
+    case 'Kilburn':
+      return 'E5';
+    case 'WestHampstead':
+      return 'D5';
+    case 'FinchleyRoad':
+      return 'C5';
+    case 'SwissCottage':
+      return 'A5';
+    case "StJohnsWood":
+      return 'G5';
+    case 'BakerStreet':
+      return 'E5';
+    case  'BondStreet':
+      return 'D5';
+    case 'GreenPark':
+      return 'C5';
+    case 'Westminster':
+      return 'A5';
+    case 'Waterloo':
       return 'G4';
-    case 'Kingsbury Underground Station':
+    case 'Southwark':
       return 'E4';
-    case 'Wembley Park Underground Station':
+    case 'LondonBridge':
       return 'D4';
-    case 'Neasden Underground Station':
+    case 'Bermondsey':
       return 'C4';
-    case "Willesden Green Underground Station":
+    case 'CanadaWater':
       return 'A4';
-    case 'Kilburn Underground Station':
+    case 'CanaryWharf':
       return 'G3';
-    case 'West Hampstead Underground Station':
+    case 'NorthGreenwich':
       return 'E3';
-    case 'Finchley Road Underground Station':
+    case 'CanningTown':
       return 'D3';
-    case 'Swiss Cottage Underground Station':
+    case 'WestHam ':
       return 'C3';
-    case "St John's Wood Underground Station":
+    case 'Stratford':
       return 'A3';
-    case 'Baker Street Underground Station':
-      return 'G2';
-    case  'Bond Street Underground Station':
-      return 'E2';
-    case 'Green Park Underground Station':
-      return 'D2';
-    case 'Westminster Underground Station':
-      return 'C2';
-    case 'Waterloo Underground Station':
-      return 'C2';
-    case 'Southwark Underground Station':
-      return 'C2';
-    case 'London Bridge Underground Station':
-      return 'C2';
-    case 'Bermondsey Underground Station':
-      return 'C2';
-    case 'Canada Water Underground Station':
-      return 'C2';
-    case 'Canary Wharf Underground Station':
-      return 'C2';
-    case 'North Greenwich Underground Station':
-      return 'C2';
-    case 'Canning Town Underground Station':
-      return 'C2';
-    case 'West Ham  Underground Station':
-      return 'C2';
-    case 'Stratford Underground Station':
-      return 'C2';
     default:
-      return 'C2';
+      return 'F4';
   }
 }
 

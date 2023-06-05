@@ -45,7 +45,7 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).toDestination();
-  doubleBassSampler.volume.value = -9
+  doubleBassSampler.volume.value = -6
   await Tone.loaded();
 
   const mandolinSampler = new Tone.Sampler({  
@@ -105,7 +105,10 @@ const audioStartup = async () => {
 
   const violinSampler = new Tone.Sampler({
     urls: {
+      "A6": "violin_A6_1_piano_arco-normal.mp3",
       "A5": "violin_A5_1_mezzo-piano_arco-normal.mp3",
+      // "A4": "violin_A4_05_mezzo-piano_arco-normal.mp3",
+      // "A3": "violin_A3_025_mezzo-piano_arco-normal.mp3"
     },
     release: 1,
     baseUrl: "/samples/",
@@ -133,12 +136,12 @@ const audioStartup = async () => {
   let instruments = {
     Bakerloo: violinSampler,
     Central: windChimesSampler,
-    Circle: clarinetSampler,
+    Circle: violinSampler,
     District: bassoonSampler,
     Hammersmith_City: celloSampler,
-    Jubilee: saxophoneSampler,
+    Jubilee: trumpetSampler,
     Metropolitan: mandolinSampler,
-    Northern: trumpetSampler,
+    Northern: doubleBassSampler,
     Piccadilly: saxophoneSampler,
     Victoria: violaSampler, 
     Waterloo_City: tubaSampler,

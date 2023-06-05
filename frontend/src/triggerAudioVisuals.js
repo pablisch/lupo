@@ -1,21 +1,27 @@
-import assignNoteForVictoriaLine from './note-assignments/victoria';
+import assignNoteForBakerlooLine from './note-assignments/bakerloo';
+import assignNoteForCentralLine from './note-assignments/central';
+import assignNoteForCircleLine from './note-assignments/circle'
+import assignNoteForDistrictLine from './note-assignments/district';
+import assignNoteForHammersmithCityLine from  './note-assignments/hammersmithandcity'
 import assignNoteForJubileeLine from './note-assignments/jubilee';
-import assignNoteForNorthernLine from './note-assignments/northern';
 import assignNoteForMetropolitanLine from './note-assignments/metropolitan';
-
+import assignNoteForNorthernLine from './note-assignments/northern';
+import assigneNoteForPicadillyLine from './note-assignments/piccadilly'
+import assignNoteForVictoriaLine from './note-assignments/victoria';
+import assignNoteForWaterlooAndCityLine from './note-assignments/waterlooandcity';
 
 const noteAssignFunctions = {
-  Bakerloo: assignNoteForNorthernLine,
-  Central: assignNoteForNorthernLine,
-  Circle: assignNoteForNorthernLine,
-  District: assignNoteForNorthernLine,
-  Hammersmith_City: assignNoteForNorthernLine,
+  Bakerloo: assignNoteForBakerlooLine,
+  Central: assignNoteForCentralLine,
+  Circle: assignNoteForCircleLine,
+  District: assignNoteForDistrictLine,
+  Hammersmith_City: assignNoteForHammersmithCityLine,
   Jubilee: assignNoteForJubileeLine,
   Metropolitan: assignNoteForMetropolitanLine,
   Northern: assignNoteForNorthernLine,
-  Piccadilly: assignNoteForNorthernLine,
+  Piccadilly: assigneNoteForPicadillyLine,
   Victoria: assignNoteForVictoriaLine,
-  Waterloo_City: assignNoteForNorthernLine
+  Waterloo_City: assignNoteForWaterlooAndCityLine
 }
 
 const triggerAudioVisuals = (quantisedTubeData, instruments) => {

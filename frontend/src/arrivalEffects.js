@@ -4,9 +4,9 @@ const arrivalEffectCreate = (elementId) => {
   const rect = element.getBoundingClientRect();
 
   // Get the position and dimensions of section element with a class of "bars-and-map"
-  const mapAndButtons = document.querySelector("#root");
+  const rootDiv = document.querySelector("#root");
   // const svg = document.querySelector("svg");
-  const svgRect = mapAndButtons.getBoundingClientRect();
+  const svgRect = rootDiv.getBoundingClientRect();
 
   // Calculate the center position of the circle within the SVG canvas
   const centerX = (rect.left - svgRect.left + rect.width / 2);

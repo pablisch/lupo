@@ -6,22 +6,15 @@ const audioStartup = async () => {
   const freeverb = new Tone.Freeverb().toDestination();
   freeverb.dampening = 1000;
 
-  const bassoonSampler = new Tone.Sampler({
-    urls: {
-      "A2": "bassoon_A2_025_mezzo-piano_normal.mp3",
-    },
-    release: 1,
-    baseUrl: "/samples/",
-  }).toDestination();
-  bassoonSampler.volume.value = -6;
-
   const celloSampler = new Tone.Sampler({
     urls: {
+      "A5": "cello_A5_05_forte_arco-normal.mp3",
       "A4": "cello_A4_15_forte_arco-normal.mp3",
+      "A3": "cello_A3_025_forte_arco-normal.mp3",
     },
-    release: 1,
-    baseUrl: "/samples/",
-  }).toDestination();
+    release: 0.5,
+    baseUrl: "/samples/cello/",
+  }).connect(freeverb);
   celloSampler.volume.value = -6;
 
   const clarinetSampler = new Tone.Sampler({
@@ -36,17 +29,24 @@ const audioStartup = async () => {
   }).toDestination();
   clarinetSampler.volume.value = -9;
 
-  const doubleBassSampler = new Tone.Sampler({
+  const doubleBassPizzSampler = new Tone.Sampler({
     urls: {
-      // "A1": "double-bass_A1_05_forte_arco-normal.mp3",
       "A#1": "double-bass_As1_025_piano_pizz-normal.mp3",
       "A#2": "double-bass_As2_025_piano_pizz-normal.mp3",
     },
     release: 1,
-    baseUrl: "/samples/",
+    baseUrl: "/samples/double-bass/",
+  }).toDestination();
+  doubleBassPizzSampler.volume.value = -3
+
+  const doubleBassSampler = new Tone.Sampler({
+    urls: {
+      "A1": "double-bass_A1_05_forte_arco-normal.mp3",
+    },
+    release: 1,
+    baseUrl: "/samples/double-bass/",
   }).toDestination();
   doubleBassSampler.volume.value = -6
-  await Tone.loaded();
 
   const mandolinSampler = new Tone.Sampler({  
     urls: {
@@ -107,49 +107,40 @@ const audioStartup = async () => {
     urls: {
       "A6": "violin_A6_1_piano_arco-normal.mp3",
       "A5": "violin_A5_1_mezzo-piano_arco-normal.mp3",
-      // "A4": "violin_A4_05_mezzo-piano_arco-normal.mp3",
-      // "A3": "violin_A3_025_mezzo-piano_arco-normal.mp3"
+      "A4": "violin_A4_05_mezzo-piano_arco-normal.mp3",
+      "A3": "violin_A3_025_mezzo-piano_arco-normal.mp3"
     },
     release: 1,
-    baseUrl: "/samples/",
+    baseUrl: "/samples/violin/",
   }).connect(freeverb);
   violinSampler.volume.value = -6;
 
   const windChimesSampler = new Tone.Sampler({
     urls: {
-      "C7": "wind_chimes_short.mp3",
-      "C6": "wind_chimes_short.mp3",
-      "C5": "wind_chimes_short.mp3",
       "C4": "wind_chimes_short.mp3",
-      "C3": "wind_chimes_short.mp3",
-      "C2": "wind_chimes_short.mp3",
-      "C1": "wind_chimes_short.mp3",
     },
     release: 1,
     baseUrl: "/samples/",
   }).toDestination();
   windChimesSampler.volume.value = -6;
 
-  // const synth = new Tone.PolySynth(Tone.Synth).toDestination(); 
-  // synth.volume.value = -6;
-    
-  let instruments = {
+  await Tone.loaded();
+
+  return {
     Bakerloo: violinSampler,
-    Central: windChimesSampler,
+    Central: doubleBassSampler,
     Circle: violinSampler,
-    District: bassoonSampler,
+    District: tubaSampler,
     Hammersmith_City: celloSampler,
-    Jubilee: trumpetSampler,
+    Jubilee: clarinetSampler,
     Metropolitan: mandolinSampler,
-    Northern: doubleBassSampler,
+    Northern: doubleBassPizzSampler,
     Piccadilly: saxophoneSampler,
     Victoria: violaSampler, 
-    Waterloo_City: tubaSampler,
+    Waterloo_City: windChimesSampler,
 
     Pedal: sustainedHornSampler
   };
-
-  return instruments;
 }
 
 export default audioStartup;

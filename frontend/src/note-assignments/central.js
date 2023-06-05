@@ -95,7 +95,7 @@ const assignNoteForCentral = (stationName) => {
     // case 'Epping':
     //   return 'A47';
     default:
-      return 'C4';
+      return 'C1';
     }
   }
   

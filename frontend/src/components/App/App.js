@@ -1,42 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-// import logo from './logo.svg';
+import logo from '../../logo.svg';
 import './App.css';
 import TubeMap from '../TubeMap/TubeMap.js';
 import audioStartup from '../../audioStartup';
 import playSounds from '../../playSounds';
 import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
-import {
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 const { abridgeData, quantiseData } = require('../../processTubeData');
+const { arrivalEffectTransform, arrivalEffectCreate } = require('../../arrivalEffects');
+
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
+const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
+let instruments = {}; // object to hold Tone instruments, intialised w global scope
+
+// TEST points for viusal effects including fade and arrival effects
+// const arrivalPoint = "g250238"; // Holborn station (whole station)
+const arrivalPointInner = "path250234"; // white centre of Holborn
+const burntOak = "rect247013"; // Burnt Oak station
+const hendonCentral = "g249286"; // Hendon Central station
 
 function App() {
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true); // added for data visualiser
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0); // added for data visualiser
   const [visualData, setVisualData] = useState([]); // added for data visualiser
+  const [isPlaying, setIsPlaying] = useState(false);
+  const renderCount = useRef(1)
 
-  var fade_state = true;
-  const fadeElement = (elementId) => {
+  const [fadeCentralState, setFadeCentralState] = useState(true);
+  const [fadeNorthernState, setFadeNorthernState] = useState(true);
+
+  const fadeElement = (elementId, state, setState) => {
     const element = document.getElementById(elementId);
     console.log(element.id);
-    if (fade_state === true) {
+    if (state === true) {
       console.log("Fade out");
       element.style.animation = "fade-out 1s forwards";
-      fade_state = false;
-    } else if (fade_state === false) {
+      setState(false);
+    } else if (state === false) {
       console.log("Fade In");
       element.style.animation = "fade-in 1s forwards";
-      fade_state = true;
+      setState(true);
     }
   }
 
-  const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
-  let instruments = {}; // object to hold Tone instruments, intialised w global scope
 
   const fetchData = () => {
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
@@ -66,6 +74,7 @@ function App() {
   };
 
   const soundOn = async () => {
+    setIsPlaying(true);
     instruments = await audioStartup()
     console.log('tone started')
     fetchData(); // initial fetch as setInterval only exectues after first interval
@@ -87,6 +96,10 @@ function App() {
     }, 1000);
   };
   
+  useEffect(() => {
+    renderCount.current = renderCount.current + 1
+    console.log('renderCount', renderCount.current)
+  })     
 
   return (
     <div className="App">
@@ -94,6 +107,7 @@ function App() {
         <h2>LUSO</h2>
         <Link to="/">Home </Link>
         <Link to="/data">Data</Link>
+        <Link to="/landing">Logo</Link>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <Routes>
           <Route path='/data' element={
@@ -107,8 +121,9 @@ function App() {
 
               <aside className="sidebar sidebar-left">
                 <h2>Left Sidebar</h2>
-                <button type="button" onClick={() => fadeElement("Central")}>Central Fade</button>
-                <button id="soundon" onClick={soundOn}>Sound On</button>
+                <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
+                <button type="button" onClick={() => fadeElement("Central", fadeCentralState, setFadeCentralState)}>{fadeCentralState ? `Destroy Central Line` : `Rebuild Central Line`}</button>
+                <button type="button" onClick={() => fadeElement("Northern", fadeNorthernState, setFadeNorthernState)}>{fadeNorthernState ? `Destroy Northern Line` : `Rebuild Northern Line`}</button>
               </aside>
 
               <main>
@@ -116,10 +131,27 @@ function App() {
               </main>
 
               <aside className="sidebar sidebar-right">
-                <h2>Right Sidebar</h2>
+                <h2>Right Sidebar</h2> 
+                <button type="button" onClick={() => arrivalEffectTransform(`${arrivalPointInner}`)}>{`Transform at ${arrivalPointInner}`}</button>
+                <button type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Holborn`}</button>
+                <button type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Burnt Oak`}</button>
+                <button type="button" onClick={() => arrivalEffectCreate(`${hendonCentral}`)}>{`Hendon`}</button>
               </aside>
 
             </div> 
+          }/>
+          <Route path='/landing' element={
+            <div className="App">
+            <header className="App-header">
+              <h2>LUSO</h2>
+              <img src={logo} className="App-logo" alt="logo" />
+              
+              <p>{`This Page has rendered ${renderCount.current} times`}</p>
+            </header>
+            <section className="map-and-buttons">
+             
+            </section>
+          </div>
           }/>
         </Routes>
     </div>

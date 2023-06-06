@@ -1,13 +1,13 @@
 const central = [
   "WestRuislip",
   "RuislipGardens",
-  "South Ruislip",
+  "SouthRuislip",
   "Northolt",
   "Greenford",
   "Perivale",
   "HangerLane",
   "NorthActon",
-  "West Acton",
+  "WestActon",
   "EastActon",
   "WhiteCity",
   "ShepherdsBush(Central)",
@@ -275,7 +275,6 @@ const metropolitan = [
   "WembleyPark"
 ]
 const northern = [
-  "BatterseaPowerStation",
   "Archway",
   "Angel",
   "Balham",
@@ -325,8 +324,7 @@ const northern = [
   "WestFinchley",
   "Waterloo",
   "WoodsidePark",
-  "WarrenStreet",
-  "NineElms"
+  "WarrenStreet"
 ]
 const piccadilly = [
   "ActonTown",
@@ -405,3 +403,9 @@ const waterloocity = [
   "Bank",
   "Waterloo"
 ]
+
+const allStations = [
+  central, bakerloo, circle, district, hammersmithcity, jubilee, metropolitan, northern, piccadilly, victoria, waterloocity
+]
+
+export default allStations;

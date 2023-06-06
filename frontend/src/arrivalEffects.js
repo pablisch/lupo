@@ -3,10 +3,10 @@ const arrivalEffectCreate = (elementId) => {
   const element = document.getElementById(elementId);
   const rect = element.getBoundingClientRect();
 
-  // Get the position and dimensions of section element with a class of "map-and-buttons"
-  const mapAndButtons = document.querySelector(".map-and-buttons");
+  // Get the position and dimensions of section element with a class of "bars-and-map"
+  const rootDiv = document.querySelector("#root");
   // const svg = document.querySelector("svg");
-  const svgRect = mapAndButtons.getBoundingClientRect();
+  const svgRect = rootDiv.getBoundingClientRect();
 
   // Calculate the center position of the circle within the SVG canvas
   const centerX = rect.left - svgRect.left + rect.width / 2;
@@ -28,7 +28,7 @@ const arrivalEffectCreate = (elementId) => {
   arrival.classList.add(`createArrival${randomEffect1}`);
 
   // Append the circle element to the parent container
-  const container = document.querySelector(".map-and-buttons");
+  const container = document.querySelector("#root");
   container.appendChild(arrival);
 
   const randomEffect2 = Math.floor(Math.random() * 2) + 1;

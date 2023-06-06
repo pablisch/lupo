@@ -21,25 +21,25 @@ function separateDataIntoLines(tubeData) {
   }
 }
 
-// declare the fudgeData function to iterate through each array in separatedData calling spreadData on each array and return the result
-function fudgeData(separatedData, dataBlockDuration) {
+// declare the spreadData function to iterate through each array in separatedData calling dataWithClumps on each array and return the result
+function spreadData(separatedData, dataBlockDuration) {
   if (Object.keys(separatedData).length > 0) {
-    const fudgedDataArray = [];
+    const spreadedDataArray = [];
     Object.values(separatedData).forEach((array) => {
-      const result = spreadData(array, dataBlockDuration);
-      fudgedDataArray.push(result);
+      const result = processDataClumps(array, dataBlockDuration);
+      spreadedDataArray.push(result);
     });
-    const fudgedData = fudgedDataArray.flat();
-    return fudgedData;
+    const spreadedData = spreadedDataArray.flat();
+    return spreadedData;
   } else {
     console.log("No data");
   }
 }
 
-// The spreadData function looks at the timeToStation of each object in the array and copies some objects to other timeToStation values where there are more than three objects within a second interval
-function spreadData(array, dataBlockDuration) {
+// The dataWithClumps function looks at the timeToStation of each object in the array and copies some objects to other timeToStation values where there are more than three objects within a second interval
+function processDataClumps(array, dataBlockDuration) {
   if (array.length > 0) {
-    const spreadData = array.reduce((acc, obj) => { // separate the data into arrays for each timeToStation
+    const dataWithClumps = array.reduce((acc, obj) => { // separate the data into arrays for each timeToStation
       const timeToStation = obj.timeToStation; 
       if (!acc[timeToStation]) { // if there is no key for this timeToStation, create one and set its value to an empty array
         acc[timeToStation] = [];
@@ -47,11 +47,11 @@ function spreadData(array, dataBlockDuration) {
       acc[timeToStation].push(obj);
       return acc;
     }, {});
-    const spreadDataArray = Object.values(spreadData); // convert the object into an array of arrays
+    const dataWithClumpsArray = Object.values(dataWithClumps); // convert the object into an array of arrays
 
-    const spreadDataArray2 = spreadDataArray.flatMap((innerArray) => { // look for arrays with more than three objects
+    const lineDataSortedBySeconds = dataWithClumpsArray.flatMap((innerArray) => { // look for arrays with more than three objects
       if (innerArray.length > 2) {
-        const spreadDataArray3 = innerArray.map((obj) => {
+        const clumpedDataForProcessing = innerArray.map((obj) => {
           const midpoint = dataBlockDuration / 2;
           // create a new timeToStation value which:
           // must always be an integer
@@ -78,13 +78,13 @@ function spreadData(array, dataBlockDuration) {
             };
           }
       });
-        return spreadDataArray3;
+        return clumpedDataForProcessing;
       } else {
         return innerArray;
       }
     });
-    const spreadDataArray4 = spreadDataArray2.flat();
-    return spreadDataArray4;
+    const processedDataClumps = lineDataSortedBySeconds.flat();
+    return processedDataClumps;
   }
 }
 
@@ -93,13 +93,14 @@ function abridgeData (tubeData) {
   if (tubeData.length > 0) {
     const abridgedData = tubeData.map(obj => {
       return {
-        lineName: obj.lineName.replace(/\s/g, '').replace(/'/g, ''),
+        lineName: obj.lineName.replace(/\s/g, '').replace(/'/g, '').replace(/&/g, '_'),
         timeToStation: obj.timeToStation,
         stationName: obj.stationName
             .replace(/\s|\.''/g, '')
             .replace(/\./g, '')
             .replace(/'/g, '')
-            .replace(/UndergroundStation/g, ''),
+            .replace(/UndergroundStation/g, '')
+            .replace(/&/g, '_'),
       };
     });
     return abridgedData;
@@ -120,10 +121,17 @@ function quantiseData (abridgedData) {
   }
 }
 
-module.exports = {
-  separateDataIntoLines,
-  fudgeData,
-  abridgeData,  
-  quantiseData
-};
+function processTubeData(tubeData, dataBlockDuration) {
+  // STEP 1: remove unnecessary text, whitespace, and apostrophes.
+  const abridgedData = abridgeData(tubeData);
+  // STEP 2: separate data into individual lines.
+  const separatedData = separateDataIntoLines(abridgedData);
+  // STEP 3: process data where all same line events occur simultaneously.
+  const spreadedData = spreadData(separatedData, dataBlockDuration);
+  // STEP 4: quantise data to noteInterval
+  const quantisedData = quantiseData(spreadedData);
+  return quantisedData;
+}
+
+module.exports = processTubeData;
   

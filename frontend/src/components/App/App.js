@@ -4,10 +4,10 @@ import logo from '../../logo.svg';
 import './App.css';
 import TubeMap from '../TubeMap/TubeMap.js';
 import audioStartup from '../../audioStartup';
-import playSounds from '../../playSounds';
+import triggerAudioVisuals from '../../triggerAudioVisuals';
 import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
 import { Routes, Route, Link } from "react-router-dom";
-import { separateDataIntoLines, fudgeData, abridgeData, quantiseData } from '../../processTubeData';
+import processTubeData from '../../processTubeData';
 import { arrivalEffectTransform, arrivalEffectCreate } from '../../arrivalEffects';
 
 
@@ -45,7 +45,6 @@ function App() {
     }
   }
 
-
   const fetchData = () => {
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
       .then(response => {
@@ -57,18 +56,11 @@ function App() {
             lineName: item.lineName,
             timeToStation: item.timeToStation
           }));
-          const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
-          // STEP 1: remove unnecessary text, whitespace, and apostrophes.
-          const abridgedData = abridgeData(sortedData);
-          // STEP 2: separate data into individual lines.
-          const separatedData = separateDataIntoLines(abridgedData);
-          // STEP 3: process data where all same line events occur simultaneously.
-          const fudgedData = fudgeData(separatedData, dataBlockDuration);
-          // STEP 4: quantise data to noteInterval
-          const quantisedData = quantiseData(fudgedData);
-          console.log('quantisedData =', quantisedData);
-          setVisualData(quantisedData);
-        playSounds(quantisedData, instruments);
+        const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
+        const processedData = processTubeData(sortedData, dataBlockDuration);
+        console.log('processedData =', processedData);
+        setVisualData(processedData);
+        triggerAudioVisuals(processedData, instruments);
       })
       .catch(error => {
         console.error('Error fetching tube data:', error);

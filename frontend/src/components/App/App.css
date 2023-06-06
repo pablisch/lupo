@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+body > iframe {
+  display: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

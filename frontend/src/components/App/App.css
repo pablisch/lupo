@@ -1,3 +1,5 @@
+/* APP STYLES FROM REACT */
+
 .App {
   text-align: center;
 }
@@ -5,6 +7,7 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+  margin: 30px auto 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -37,6 +40,68 @@
   }
 }
 
+/* CUSTOM APP STYLES */
+
+.App h2 {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.App a {
+  padding: 0 10px;
+  text-decoration: none;
+}
+
+/* GENERAL PAGE STYLES */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+header p {
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+main {
+  flex: 1;
+  /* padding: 20px; */
+  background-color: #fff;
+  height: 100%;
+}
+
+.sidebar {
+  background-color: #f8f8f8;
+  /* padding: 20px; */
+  padding: 15px;
+}
+
+.sidebar h2 {
+  font-size: 0.9rem;
+}
+
+.sidebar-left {
+  /* flex-basis: 200px; */
+  width: 130px;
+}
+
+.sidebar-right {
+  /* flex-basis: 200px; */
+  width: 120px;
+}
+
+/* FADE FUNCTION STYLES */
+
 @keyframes fade-out {
   from {
     opacity: 100%;
@@ -55,22 +120,89 @@
   }
 }
 
+/* BUTTON STYLES */
+
 #soundon {
-  margin-top: 35px;
+  margin: 10px auto;
   background-color: #3b1ec9;
   color: #fff;
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   border: 1px solid #999;
+  border-radius: 2px;
 }
 
 #soundon:disabled {
   background-color: #55bd47;
 }
 
-header p {
-  font-size: 16px;
+.btn-temp {
+  width: 100%;
+  margin: 1px auto;
+  background-color: #fff;
+  color: #444;
+  font-size: 0.6rem;
+  border: 1px solid #555;
+  border-radius: 2px;
 }
+
+.btn-line {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #fff;
+  font-size: 0.7rem;
+  /* border: 1px solid #555; */
+  border: none;
+  /* border-radius: 2px; */
+  cursor: pointer;
+}
+
+.btn-bakerloo {
+  background-color: rgb(160, 112, 34);
+}
+
+.btn-central {
+  background-color: rgb(220, 36, 31);
+}
+
+.btn-circle {
+  background-color: rgb(255, 211, 41);
+}
+
+.btn-district {
+  background-color: rgb(0, 125, 50);
+}
+
+.btn-hammersmith-city {
+  background-color: rgb(244, 169, 190);
+}
+
+.btn-jubilee {
+  background-color: rgb(161, 165, 167);
+}
+
+.btn-metropolitan {
+  background-color: rgb(117, 16, 86);
+}
+
+.btn-northern {
+  background-color: rgb(0, 0, 0);
+}
+
+.btn-piccadilly {
+  background-color: rgb(0, 25, 168);
+}
+
+.btn-victoria {
+  background-color: rgb(0, 152, 216);
+}
+
+.btn-waterloo-city {
+  background-color: rgb(106, 187, 170);
+}
+
+/* ARRIVAL EFFECTS */
 
 .createArrival1 {
   background-color: rgb(255, 233, 123);
@@ -244,37 +376,5 @@ header p {
   position: relative;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-}
 
-header {
-  background-color: #f0f0f0;
-  padding: 20px;
-}
 
-.container {
-  display: flex;
-  height: 100vh;
-}
-
-.sidebar {
-  background-color: #f8f8f8;
-  padding: 20px;
-}
-
-.sidebar-left {
-  flex-basis: 200px;
-}
-
-.sidebar-right {
-  flex-basis: 200px;
-}
-
-main {
-  flex: 1;
-  padding: 20px;
-  background-color: #fff;
-  height: 100%;
-}

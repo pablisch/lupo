@@ -15,6 +15,7 @@ import allStations from '../../stations';
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
 let instruments = {}; // object to hold Tone instruments, intialised w global scope
+const arrivals = []; // array to hold arrival elements, intialised w global scope
 
 // TEST points for viusal effects including fade and arrival effects
 // const arrivalPoint = "g250238"; // Holborn station (whole station)
@@ -87,7 +88,7 @@ function App() {
         const processedData = processTubeData(sortedData, dataBlockDuration);
         console.log('processedData =', processedData);
         setVisualData(processedData);
-        triggerAudioVisuals(processedData, instruments);
+        triggerAudioVisuals(processedData, instruments, arrivals);
       })
       .catch(error => {
         console.error('Error fetching tube data:', error);
@@ -102,9 +103,9 @@ function App() {
     fetchData(); // initial fetch as setInterval only exectues after first interval
     setInterval(fetchData, dataBlockDuration * 1000);
     // Following block provides a looping pedal note:
-    setInterval(() => {
-      instruments.Pedal.triggerAttackRelease('C4', '1n');
-    }, (dataBlockDuration / 60) * 2000);
+    // setInterval(() => {
+    //   instruments.Pedal.triggerAttackRelease('C4', '1n');
+    // }, (dataBlockDuration / 60) * 2000);
   }
 
   const toggleVisualiseEventsOnly = () => {
@@ -169,6 +170,11 @@ function App() {
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Holborn`}</button>
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Burnt Oak`}</button>
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${hendonCentral}`)}>{`Hendon`}</button>
+                {/* render each element of the arrivals array in a paragraph element */}
+                {arrivals.flat().map((arrival, index) => {
+                  console.log('arrival', arrival);
+                  return <p key={index}>{arrival}</p>
+                })}
               </aside>
 
             </div> 

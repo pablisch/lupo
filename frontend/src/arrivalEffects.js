@@ -57,10 +57,11 @@ const arrivalEffectCreate = (elementId, arrivalEffects) => {
     // remove both elements after 1 second
     setTimeout(() => {
       arrival.remove();
-      if (arrival2) {
-        arrival2.remove(); // Check if arrival2 exists before removing it
-      }
     }, 2000);
+    setTimeout(() => {
+      arrival2.remove();
+    }
+    , 2400);
   }
 };
 

@@ -16,14 +16,14 @@ const flashElement = (elementId) => {
   
 }
 
-const triggerAudioVisuals = (quantisedTubeData, instruments) => {
+const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffects) => {
   quantisedTubeData.forEach((train) => {
     const note = noteAssignFunctions[train.lineName](train.stationName);
     setTimeout(() => {
       instruments[train.lineName].triggerAttackRelease(note, '4n');
       console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);
       flashElement(train.stationName);
-      arrivalEffectCreate(train.stationName);
+      if (arrivalEffects) {arrivalEffectCreate(train.stationName, arrivalEffects)};
       // arrivalEffectCreate(`${train.stationName}x`);
     }, train.timeToStation * 1000)
   })

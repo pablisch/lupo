@@ -102,9 +102,9 @@ function App() {
     fetchData(); // initial fetch as setInterval only exectues after first interval
     setInterval(fetchData, dataBlockDuration * 1000);
     // Following block provides a looping pedal note:
-    setInterval(() => {
-      instruments.Pedal.triggerAttackRelease('C4', '1n');
-    }, (dataBlockDuration / 60) * 2000);
+    // setInterval(() => {
+    //   instruments.Pedal.triggerAttackRelease('C4', '1n');
+    // }, (dataBlockDuration / 60) * 2000);
   }
 
   const toggleVisualiseEventsOnly = () => {

@@ -23,8 +23,8 @@ const triggerAudioVisuals = (quantisedTubeData, instruments) => {
       instruments[train.lineName].triggerAttackRelease(note, '4n');
       console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);
       flashElement(train.stationName);
-      // arrivalEffectCreate(train.stationName);
-      arrivalEffectCreate(`${train.stationName}x`);
+      arrivalEffectCreate(train.stationName);
+      // arrivalEffectCreate(`${train.stationName}x`);
     }, train.timeToStation * 1000)
   })
 }

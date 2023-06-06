@@ -155,6 +155,7 @@ main {
   /* border: 1px solid #555; */
   border: none;
   /* border-radius: 2px; */
+  cursor: pointer;
 }
 
 .btn-bakerloo {

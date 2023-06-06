@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import logo from '../../logo.svg';
 import './App.css';
@@ -9,11 +9,14 @@ import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
 import { Routes, Route, Link } from "react-router-dom";
 import processTubeData from '../../processTubeData';
 import { arrivalEffectTransform, arrivalEffectCreate } from '../../arrivalEffects';
+import lineNames from '../../lineNames';
+import Slider from '../Slider/Slider';
 
+console.log('lineNames is', lineNames)
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
-let instruments = {}; // object to hold Tone instruments, intialised w global scope
+// let instruments = {}; // object to hold Tone instruments, intialised w global scope
 
 // TEST points for viusal effects including fade and arrival effects
 // const arrivalPoint = "g250238"; // Holborn station (whole station)
@@ -30,7 +33,7 @@ function App() {
 
   const [fadeCentralState, setFadeCentralState] = useState(true);
   const [fadeNorthernState, setFadeNorthernState] = useState(true);
-  // const [instruments, setInstruments] = useState({})
+  const [instruments, setInstruments] = useState(null)
 
   const fadeElement = (elementId, state, setState) => {
     const element = document.getElementById(elementId);
@@ -47,6 +50,7 @@ function App() {
   }
 
   const fetchData = () => {
+    // console.log("fetchdata awaited instruments", awaitedInstruments)
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
       .then(response => {
         const filteredData = response.data
@@ -61,28 +65,43 @@ function App() {
         const processedData = processTubeData(sortedData, dataBlockDuration);
         console.log('processedData =', processedData);
         setVisualData(processedData);
+        console.log("fetchdata instruments", instruments)
         triggerAudioVisuals(processedData, instruments);
+        // triggerAudioVisuals(processedData, awaitedInstruments);
       })
       .catch(error => {
         console.error('Error fetching tube data:', error);
       });
   };
 
+  // let updateOnInstrumentChange = true;
+
+  useEffect(() => {
+    console.log('used effect')
+    // console.log(`firstFetch is ${firstFetch}`)
+
+    if(instruments) { 
+      // console.log('firstFetch was true')
+      console.log('instruments:', instruments)
+      fetchData()  // initial fetch as setInterval only exectues after first interval
+      setInterval(fetchData, dataBlockDuration * 1000);
+    }
+  }, [instruments])
+
   const soundOn = async () => {
     setIsPlaying(true);
-    instruments = await audioStartup();
-    // const awaitedInstruments = await audioStartup()
+    // firstFetch = true;
+    // instruments = await audioStartup();
+    const awaitedInstruments = await audioStartup()
     // console.log("awaitedInstruments = ", awaitedInstruments)
-    // setInstruments(awaitedInstruments);
-    // setInstruments(instruments => ({ ...instruments }))
-    console.log("instruments after setInstruments call = ", instruments)
+    setInstruments(awaitedInstruments);
+    // console.log("instruments after setInstruments call = ", instruments)
     console.log('tone started')
-    fetchData(); // initial fetch as setInterval only exectues after first interval
-    setInterval(fetchData, dataBlockDuration * 1000);
+    
     // Following block provides a looping pedal note:
-    setInterval(() => {
-      instruments.Pedal.triggerAttackRelease('C4', '1n');
-    }, (dataBlockDuration / 60) * 2000);
+    // setInterval(() => {
+    //   instruments.Pedal.triggerAttackRelease('C4', '1n');
+    // }, (dataBlockDuration / 60) * 2000);
   }
 
   const toggleVisualiseEventsOnly = () => {
@@ -116,11 +135,14 @@ function App() {
               <DataVisualiser key={dataVisualiserKey} data={visualData} duration={dataBlockDuration} visualiseEventsOnly={visualiseEventsOnly} />
             </>
           }/>
-          <Route path='/' element={
+          <Route path='/' instruments={instruments} element={
             <div className="container bars-and-map">
 
               <aside className="sidebar sidebar-left">
                 <h2>Left Sidebar</h2>
+                  { lineNames.map((line, index) => {
+                    return <Slider lineName={line} instruments={instruments} key={index} />
+                  }) }
                 <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
                 
                 <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Bakerloo</button>

@@ -93,7 +93,7 @@ function abridgeData (tubeData) {
   if (tubeData.length > 0) {
     const abridgedData = tubeData.map(obj => {
       return {
-        lineName: obj.lineName.replace(/\s/g, '').replace(/'/g, '').replace(/&/g, '_'),
+        lineName: obj.lineName.replace(/\s/g, '').replace(/'/g, '').replace(/&/g, ''),
         timeToStation: obj.timeToStation,
         stationName: obj.stationName
             .replace(/\s|\.''/g, '')

@@ -113,7 +113,8 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/violin/",
   }).connect(reverb);
-  violinSampler.volume.value = -6;
+  violinSampler.maxVolume = -6
+  violinSampler.volume.value = violinSampler.maxVolume;
 
   const windChimesSampler = new Tone.Sampler({
     urls: {
@@ -126,20 +127,36 @@ const audioStartup = async () => {
 
   await Tone.loaded();
 
-  return {
-    Bakerloo: violinSampler,
-    Central: doubleBassSampler,
-    Circle: violinSampler,
-    District: tubaSampler,
-    Hammersmith_City: celloSampler,
-    Jubilee: clarinetSampler,
-    Metropolitan: mandolinSampler,
-    Northern: doubleBassPizzSampler,
-    Piccadilly: saxophoneSampler,
-    Victoria: violaSampler, 
-    Waterloo_City: windChimesSampler,
+  // return {
+  //   Bakerloo: violinSampler,
+  //   Central: doubleBassSampler,
+  //   Circle: violinSampler,
+  //   District: tubaSampler,
+  //   HammersmithCity: celloSampler,
+  //   Jubilee: clarinetSampler,
+  //   Metropolitan: mandolinSampler,
+  //   Northern: doubleBassPizzSampler,
+  //   Piccadilly: saxophoneSampler,
+  //   Victoria: violaSampler, 
+  //   WaterlooCity: windChimesSampler,
 
-    Pedal: sustainedHornSampler
+  //   Pedal: sustainedHornSampler
+  // };
+
+    return {
+    Bakerloo: violinSampler,
+    Central: violinSampler,
+    Circle: violinSampler,
+    District: violinSampler,
+    HammersmithCity: violinSampler,
+    Jubilee: violinSampler,
+    Metropolitan: violinSampler,
+    Northern: violinSampler,
+    Piccadilly: violinSampler,
+    Victoria: violinSampler, 
+    WaterlooCity: violinSampler,
+
+    Pedal: violinSampler
   };
 }
 

@@ -29,8 +29,17 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const renderCount = useRef(1)
 
+  const [fadeBakerlooState, setFadeBakerlooState] = useState(true);
   const [fadeCentralState, setFadeCentralState] = useState(true);
+  const [fadeCircleState, setFadeCircleState] = useState(true);
+  const [fadeDistrictState, setFadeDistrictState] = useState(true);
+  const [fadeHammersmithCityState, setFadeHammersmithCityState] = useState(true);
+  const [fadeJubileeState, setFadeJubileeState] = useState(true);
+  const [fadeMetropolitanState, setFadeMetropolitanState] = useState(true);
   const [fadeNorthernState, setFadeNorthernState] = useState(true);
+  const [fadePiccadillyState, setFadePiccadillyState] = useState(true);
+  const [fadeVictoriaState, setFadeVictoriaState] = useState(true);
+  const [fadeWaterlooCityState, setFadeWaterlooCityState] = useState(true);
 
   const fadeElement = (elementId, state, setState) => {
     const element = document.getElementById(elementId);
@@ -75,8 +84,7 @@ function App() {
             timeToStation: item.timeToStation
           }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
-        const processedData = processTubeData(sortedData, dataBlockDuration)
-          .filter(item => !["BatterseaPowerStation", "NineElms"].includes(item.stationName));
+        const processedData = processTubeData(sortedData, dataBlockDuration);
         console.log('processedData =', processedData);
         setVisualData(processedData);
         triggerAudioVisuals(processedData, instruments);
@@ -136,19 +144,18 @@ function App() {
               <aside className="sidebar sidebar-left">
                 <h2>Left Sidebar</h2>
                 <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
-                <button onClick={fadeAll} >Fade all stations</button>
-                <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Bakerloo</button>
-                <button className='btn-line btn-central' type="button" onClick={() => fadeElement("Central", fadeNorthernState, setFadeNorthernState)}>Central</button>
-                <button className='btn-line btn-circle' type="button" onClick={() => fadeElement("Circle", fadeNorthernState, setFadeNorthernState)}>Circle</button>
-                <button className='btn-line btn-district' type="button" onClick={() => fadeElement("District", fadeNorthernState, setFadeNorthernState)}>District</button>
-                <button className='btn-line btn-hammersmith-city' type="button" onClick={() => fadeElement("HammersmithCity", fadeNorthernState, setFadeNorthernState)}>Hammersmith & City</button>
-                <button className='btn-line btn-jubilee' type="button" onClick={() => fadeElement("Jubilee", fadeNorthernState, setFadeNorthernState)}>Jubilee</button>
-                <button className='btn-line btn-metropolitan' type="button" onClick={() => fadeElement("Metropolitan", fadeNorthernState, setFadeNorthernState)}>Metropolitan</button>
+                <button  onClick={fadeAll}>Fade All</button>
+                <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeElement("Bakerloo", fadeBakerlooState, setFadeBakerlooState)}>Bakerloo</button>
+                <button className='btn-line btn-central' type="button" onClick={() => fadeElement("Central", fadeCentralState, setFadeCentralState)}>Central</button>
+                <button className='btn-line btn-circle' type="button" onClick={() => fadeElement("Circle", fadeCircleState, setFadeCircleState)}>Circle</button>
+                <button className='btn-line btn-district' type="button" onClick={() => fadeElement("District", fadeDistrictState, setFadeDistrictState)}>District</button>
+                <button className='btn-line btn-hammersmith-city' type="button" onClick={() => fadeElement("HammersmithCity", fadeHammersmithCityState, setFadeHammersmithCityState)}>Hammersmith & City</button>
+                <button className='btn-line btn-jubilee' type="button" onClick={() => fadeElement("Jubilee", fadeJubileeState, setFadeJubileeState)}>Jubilee</button>
+                <button className='btn-line btn-metropolitan' type="button" onClick={() => fadeElement("Metropolitan", fadeMetropolitanState, setFadeMetropolitanState)}>Metropolitan</button>
                 <button className='btn-line btn-northern' type="button" onClick={() => fadeElement("Northern", fadeNorthernState, setFadeNorthernState)}>Northern</button>
-                <button className='btn-line btn-piccadilly' type="button" onClick={() => fadeElement("Piccadilly", fadeNorthernState, setFadeNorthernState)}>Piccadilly</button>
-                <button className='btn-line btn-victoria' type="button" onClick={() => fadeElement("Victoria", fadeNorthernState, setFadeNorthernState)}>Victoria</button>
-                <button className='btn-line btn-waterloo-city' type="button" onClick={() => fadeElement("WaterlooCity", fadeNorthernState, setFadeNorthernState)}>Waterloo & City</button>
-
+                <button className='btn-line btn-piccadilly' type="button" onClick={() => fadeElement("Piccadilly", fadePiccadillyState, setFadePiccadillyState)}>Piccadilly</button>
+                <button className='btn-line btn-victoria' type="button" onClick={() => fadeElement("Victoria", fadeVictoriaState, setFadeVictoriaState)}>Victoria</button>
+                <button className='btn-line btn-waterloo-city' type="button" onClick={() => fadeElement("WaterlooCity", fadeWaterlooCityState, setFadeWaterlooCityState)}>Waterloo & City</button>
           
               </aside>
 
@@ -162,8 +169,6 @@ function App() {
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Holborn`}</button>
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Burnt Oak`}</button>
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${hendonCentral}`)}>{`Hendon`}</button>
-                <button className='btn-temp' type="button" onClick={() => fadeElement("Central", fadeCentralState, setFadeCentralState)}>{fadeCentralState ? `Destroy Central Line` : `Rebuild Central Line`}</button>
-                <button className='btn-temp' type="button" onClick={() => fadeElement("Northern", fadeNorthernState, setFadeNorthernState)}>{fadeNorthernState ? `Destroy Northern Line` : `Rebuild Northern Line`}</button>
               </aside>
 
             </div> 

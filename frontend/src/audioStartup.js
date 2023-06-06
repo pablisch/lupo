@@ -128,18 +128,18 @@ const audioStartup = async () => {
 
   return {
     Bakerloo: violinSampler,
-    Central: doubleBassSampler,
+    Central: violinSampler,
     Circle: violinSampler,
-    District: tubaSampler,
-    Hammersmith_City: celloSampler,
-    Jubilee: clarinetSampler,
-    Metropolitan: mandolinSampler,
-    Northern: doubleBassPizzSampler,
-    Piccadilly: saxophoneSampler,
-    Victoria: violaSampler, 
-    Waterloo_City: windChimesSampler,
+    District: violinSampler,
+    Hammersmith_City: violinSampler,
+    Jubilee: violinSampler,
+    Metropolitan: violinSampler,
+    Northern: violinSampler,
+    Piccadilly: violinSampler,
+    Victoria: violinSampler, 
+    Waterloo_City: violinSampler,
 
-    Pedal: sustainedHornSampler
+    Pedal: violinSampler
   };
 }
 

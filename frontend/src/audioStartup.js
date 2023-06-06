@@ -3,8 +3,8 @@ import * as Tone from 'tone';
 const audioStartup = async () => {
   await Tone.start()
 
-  const freeverb = new Tone.Freeverb().toDestination();
-  freeverb.dampening = 1000;
+  const reverb = new Tone.Reverb(2.5).toDestination(); // decay time as arg
+  reverb.wet.value = 0.4; // 1 == 100% reverb. 0 == no reverb
 
   const celloSampler = new Tone.Sampler({
     urls: {
@@ -14,7 +14,7 @@ const audioStartup = async () => {
     },
     release: 0.5,
     baseUrl: "/samples/cello/",
-  }).connect(freeverb);
+  }).connect(reverb);
   celloSampler.volume.value = -6;
 
   const clarinetSampler = new Tone.Sampler({
@@ -55,7 +55,7 @@ const audioStartup = async () => {
     },
     release: 1,
     baseUrl: "/samples/mandolin/",
-  }).connect(freeverb);
+  }).connect(reverb);
   mandolinSampler.volume.value = -9;
 
   const sustainedHornSampler = new Tone.Sampler({
@@ -100,7 +100,7 @@ const audioStartup = async () => {
     },
     release: 1,
     baseUrl: "/samples/",
-  }).connect(freeverb);
+  }).connect(reverb);
   violaSampler.volume.value = -6;
 
   const violinSampler = new Tone.Sampler({
@@ -112,7 +112,7 @@ const audioStartup = async () => {
     },
     release: 1,
     baseUrl: "/samples/violin/",
-  }).connect(freeverb);
+  }).connect(reverb);
   violinSampler.volume.value = -6;
 
   const windChimesSampler = new Tone.Sampler({

@@ -124,8 +124,20 @@ function App() {
               <aside className="sidebar sidebar-left">
                 <h2>Left Sidebar</h2>
                 <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
-                <button type="button" onClick={() => fadeElement("Central", fadeCentralState, setFadeCentralState)}>{fadeCentralState ? `Destroy Central Line` : `Rebuild Central Line`}</button>
-                <button type="button" onClick={() => fadeElement("Northern", fadeNorthernState, setFadeNorthernState)}>{fadeNorthernState ? `Destroy Northern Line` : `Rebuild Northern Line`}</button>
+                
+                <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Bakerloo</button>
+              <button className='btn-line btn-central' type="button" onClick={() => fadeElement("Central", fadeNorthernState, setFadeNorthernState)}>Central</button>
+              <button className='btn-line btn-circle' type="button" onClick={() => fadeElement("Circle", fadeNorthernState, setFadeNorthernState)}>Circle</button>
+              <button className='btn-line btn-district' type="button" onClick={() => fadeElement("District", fadeNorthernState, setFadeNorthernState)}>District</button>
+              <button className='btn-line btn-hammersmith-city' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Hammersmith & City</button>
+              <button className='btn-line btn-jubilee' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Jubilee</button>
+              <button className='btn-line btn-metropolitan' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Metropolitan</button>
+              <button className='btn-line btn-northern' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Northern</button>
+              <button className='btn-line btn-piccadilly' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Piccadilly</button>
+              <button className='btn-line btn-victoria' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Victoria</button>
+              <button className='btn-line btn-waterloo-city' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Waterloo & City</button>
+
+          
               </aside>
 
               <main>
@@ -134,10 +146,12 @@ function App() {
 
               <aside className="sidebar sidebar-right">
                 <h2>Right Sidebar</h2> 
-                <button type="button" onClick={() => arrivalEffectTransform(`${arrivalPointInner}`)}>{`Transform at ${arrivalPointInner}`}</button>
-                <button type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Holborn`}</button>
-                <button type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Burnt Oak`}</button>
-                <button type="button" onClick={() => arrivalEffectCreate(`${hendonCentral}`)}>{`Hendon`}</button>
+                <button className='btn-temp' type="button" onClick={() => arrivalEffectTransform(`${arrivalPointInner}`)}>{`Transform at ${arrivalPointInner}`}</button>
+                <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Holborn`}</button>
+                <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Burnt Oak`}</button>
+              <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${hendonCentral}`)}>{`Hendon`}</button>
+              <button className='btn-temp' type="button" onClick={() => fadeElement("Central", fadeCentralState, setFadeCentralState)}>{fadeCentralState ? `Destroy Central Line` : `Rebuild Central Line`}</button>
+                <button className='btn-temp' type="button" onClick={() => fadeElement("Northern", fadeNorthernState, setFadeNorthernState)}>{fadeNorthernState ? `Destroy Northern Line` : `Rebuild Northern Line`}</button>
               </aside>
 
             </div> 

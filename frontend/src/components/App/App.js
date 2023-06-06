@@ -18,7 +18,9 @@ let instruments = {}; // object to hold Tone instruments, intialised w global sc
 
 // TEST points for viusal effects including fade and arrival effects
 // const arrivalPoint = "g250238"; // Holborn station (whole station)
-const arrivalPointInner = "path250234"; // white centre of Holborn
+const arrivalPointInner = "Holbornx"; // white centre of Holborn
+const marbleArch = "MarbleArchx"; // white centre of Holborn
+// const arrivalPointInner = "path250234"; // white centre of Holborn
 const burntOak = "rect247013"; // Burnt Oak station
 const hendonCentral = "g249286"; // Hendon Central station
 
@@ -169,6 +171,7 @@ function App() {
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Holborn`}</button>
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Burnt Oak`}</button>
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${hendonCentral}`)}>{`Hendon`}</button>
+                <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${marbleArch}`)}>{`Marble Arch`}</button>
               </aside>
 
             </div> 

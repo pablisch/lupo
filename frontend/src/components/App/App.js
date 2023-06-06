@@ -9,6 +9,7 @@ import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
 import { Routes, Route, Link } from "react-router-dom";
 import processTubeData from '../../processTubeData';
 import { arrivalEffectTransform, arrivalEffectCreate } from '../../arrivalEffects';
+import allStations from '../../stations';
 
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
@@ -45,6 +46,23 @@ function App() {
     }
   }
 
+  const fadeAll = () => {
+    allStations.forEach((line) => {
+      line.forEach((station) => {
+        console.log(station);
+        document.getElementById(station
+          .replace(/ *\([^)]*\) */g, "")
+          .replace(/\s|\.''/g, '')
+          .replace(/\./g, '')
+          .replace(/'/g, '')
+          .replace(/UndergroundStation/g, '')
+          .replace(/-Underground/g, '')
+          .replace(/&/g, '_'),)
+        .style.opacity = "0%";
+      });
+    });
+  }
+
   const fetchData = () => {
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
       .then(response => {
@@ -57,7 +75,8 @@ function App() {
             timeToStation: item.timeToStation
           }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
-        const processedData = processTubeData(sortedData, dataBlockDuration);
+        const processedData = processTubeData(sortedData, dataBlockDuration)
+          .filter(item => !["BatterseaPowerStation", "NineElms"].includes(item.stationName));
         console.log('processedData =', processedData);
         setVisualData(processedData);
         triggerAudioVisuals(processedData, instruments);
@@ -69,6 +88,7 @@ function App() {
 
   const soundOn = async () => {
     setIsPlaying(true);
+    fadeAll();
     instruments = await audioStartup()
     console.log('tone started')
     fetchData(); // initial fetch as setInterval only exectues after first interval
@@ -116,7 +136,7 @@ function App() {
               <aside className="sidebar sidebar-left">
                 <h2>Left Sidebar</h2>
                 <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
-                
+                <button onClick={fadeAll} >Fade all stations</button>
                 <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Bakerloo</button>
                 <button className='btn-line btn-central' type="button" onClick={() => fadeElement("Central", fadeNorthernState, setFadeNorthernState)}>Central</button>
                 <button className='btn-line btn-circle' type="button" onClick={() => fadeElement("Circle", fadeNorthernState, setFadeNorthernState)}>Circle</button>

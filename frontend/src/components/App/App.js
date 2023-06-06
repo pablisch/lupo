@@ -30,6 +30,7 @@ function App() {
 
   const [fadeCentralState, setFadeCentralState] = useState(true);
   const [fadeNorthernState, setFadeNorthernState] = useState(true);
+  // const [instruments, setInstruments] = useState({})
 
   const fadeElement = (elementId, state, setState) => {
     const element = document.getElementById(elementId);
@@ -69,7 +70,12 @@ function App() {
 
   const soundOn = async () => {
     setIsPlaying(true);
-    instruments = await audioStartup()
+    instruments = await audioStartup();
+    // const awaitedInstruments = await audioStartup()
+    // console.log("awaitedInstruments = ", awaitedInstruments)
+    // setInstruments(awaitedInstruments);
+    // setInstruments(instruments => ({ ...instruments }))
+    console.log("instruments after setInstruments call = ", instruments)
     console.log('tone started')
     fetchData(); // initial fetch as setInterval only exectues after first interval
     setInterval(fetchData, dataBlockDuration * 1000);

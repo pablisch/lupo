@@ -96,6 +96,7 @@ function App() {
 
   const soundOn = async () => {
     setIsPlaying(true);
+    fadeAll();
     instruments = await audioStartup()
     console.log('tone started')
     fetchData(); // initial fetch as setInterval only exectues after first interval

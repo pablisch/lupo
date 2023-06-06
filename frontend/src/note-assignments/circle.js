@@ -60,7 +60,7 @@ const assignNoteForCircle = (stationName) => {
       return `E${lowOctave}`;
     case 'StJamessPark':
       return `E${lowOctave}`;
-    case 'Victoria':
+    case 'VictoriaSt':
       return `E${lowOctave}`;
     case 'SloaneSquare':
       return `D${lowOctave}`;

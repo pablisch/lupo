@@ -20,6 +20,12 @@ body > iframe {
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .luso-logo {
+    animation: App-logo-spin infinite 5s linear;
+  }
+}
+
 .App-header {
   background-color: #313a4a;
   min-height: 100vh;
@@ -47,13 +53,7 @@ body > iframe {
 /* CUSTOM APP STYLES */
 
 .App h2 {
-  margin: 0 auto;
   padding: 0;
-}
-
-.App a {
-  padding: 0 10px;
-  text-decoration: none;
 }
 
 /* GENERAL PAGE STYLES */
@@ -61,6 +61,45 @@ body > iframe {
 body {
   margin: 0;
   padding: 0;
+}
+
+nav {
+  background-color: #3b3939;
+  padding: 0;
+  margin: 0 auto;
+  height: 40px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 30px;
+  height: 100%;
+}
+
+nav a {
+  color: #fff;
+  padding: 0 0 0 10px;
+  text-decoration: none;
+}
+
+nav h2 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-logo {
+  display: flex;
+}
+
+.luso-logo {
+  height: 30px;
+  margin-right: 10px;
 }
 
 header {
@@ -85,9 +124,9 @@ main {
 }
 
 .sidebar {
-  background-color: #f8f8f8;
+  background-color: #f2f1f1;
   /* padding: 20px; */
-  padding: 15px;
+  padding: 0 10px;
 }
 
 .sidebar h2 {
@@ -96,7 +135,7 @@ main {
 
 .sidebar-left {
   /* flex-basis: 200px; */
-  width: 130px;
+  width: 120px;
 }
 
 .sidebar-right {
@@ -160,7 +199,7 @@ main {
 
 .btn-temp {
   width: 100%;
-  margin: 1px auto;
+  margin: 0 auto;
   background-color: #fff;
   color: #444;
   font-size: 0.6rem;

@@ -127,10 +127,19 @@ function App() {
   return (
     <div className="App">
       {/* <header className="App-header"> */}
-        <h2>LUSO</h2>
-        <Link to="/">Home</Link>
-        <Link to="/data">Data</Link>
-        <Link to="/landing">Logo</Link>
+      <nav>
+        <div className="nav-container">
+          <div className="nav-logo">
+            <img src="./Underground.png" alt="" className="luso-logo" />
+            <h2>LUSO</h2>
+          </div>
+          <div className="nav-links">
+            <Link to="/">Home</Link>
+            <Link to="/data">Data</Link>
+            <Link to="/landing">Logo</Link>
+          </div>
+        </div>
+      </nav>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <Routes>
           <Route path='/data' element={

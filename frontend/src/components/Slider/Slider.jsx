@@ -14,7 +14,7 @@ const Slider = ({ instruments, lineName, fadeElement, setState }) => {
     let negativeValue = (event.target.value - 100);
     instruments[lineName].volume.value = negativeValue;
     setSliderValue(event.target.value)
-    
+
     if (event.target.value === "0") {
       fadeElement(lineName, true);
     } else {
@@ -51,7 +51,10 @@ const Slider = ({ instruments, lineName, fadeElement, setState }) => {
       className="slider" 
       onChange={handleSliderChange}>
       </input>
-      <button id='button' className={lineName} onClick={handleButtonClick}>Mute <br/>{lineName === 'HammersmithCity' ? 'Hammersmith & City' : lineName === 'WaterlooCity' ? 'Waterloo & City' : lineName}</button>
+      <button id='button' className={lineName} onClick={handleButtonClick}>Mute 
+      {lineName === 'HammersmithCity' || lineName === 'WaterlooCity' ? <br /> : " "}
+      {lineName === 'HammersmithCity' ? 'Hammersmith & City' : lineName === 'WaterlooCity' ? 'Waterloo & City' : lineName}
+      </button>
     </div>
   )
 }

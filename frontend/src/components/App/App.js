@@ -182,7 +182,7 @@ function App() {
                 {/* render each element of the arrivals array in a paragraph element */}
                 {arrivals.flat().map((arrival, index) => {
                   console.log('arrival', arrival);
-                  return <p key={index}>{arrival}</p>
+                  return <div className="arrival-item"><p key={index}>{arrival}</p></div> 
                 })}
               </aside>
 

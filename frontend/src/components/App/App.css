@@ -141,6 +141,22 @@ main {
 .sidebar-right {
   /* flex-basis: 200px; */
   width: 120px;
+  padding: 0 10px;
+  margin: 0;
+}
+
+.sidebar-right p {
+  font-family: 'VT323';
+  font-weight: light;
+  font-size: 0.8rem;
+  margin: 1px 0;  
+  padding: 1px 0 2px;
+}
+
+.arrival-item {
+  background-color: #373737;
+  color: #fff16f;
+  width: 100%;
 }
 
 /* FADE FUNCTION STYLES */

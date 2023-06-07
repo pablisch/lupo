@@ -31,8 +31,8 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const renderCount = useRef(1)
 
-  const [fadeCentralState, setFadeCentralState] = useState(true);
-  const [fadeNorthernState, setFadeNorthernState] = useState(true);
+  const [fadeCentralState, setFadeCentralState] = useState(false);
+  const [fadeNorthernState, setFadeNorthernState] = useState(false);
   const [instruments, setInstruments] = useState(null)
 
   const fadeElement = (elementId, state, setState) => {
@@ -82,7 +82,7 @@ function App() {
 
     if(instruments) { 
       // console.log('firstFetch was true')
-      console.log('instruments:', instruments)
+      // console.log('instruments:', instruments)
       fetchData()  // initial fetch as setInterval only exectues after first interval
       setInterval(fetchData, dataBlockDuration * 1000);
     }
@@ -141,11 +141,16 @@ function App() {
               <aside className="sidebar sidebar-left">
                 <h2>Left Sidebar</h2>
                   { lineNames.map((line, index) => {
-                    return <Slider lineName={line} instruments={instruments} key={index} />
+                    return <Slider 
+                    lineName={line} 
+                    instruments={instruments} 
+                    fadeElement={fadeElement}
+                    setState={setFadeNorthernState}
+                    key={index} />
                   }) }
                 <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
                 
-                <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Bakerloo</button>
+                {/* <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Bakerloo</button>
                 <button className='btn-line btn-central' type="button" onClick={() => fadeElement("Central", fadeNorthernState, setFadeNorthernState)}>Central</button>
                 <button className='btn-line btn-circle' type="button" onClick={() => fadeElement("Circle", fadeNorthernState, setFadeNorthernState)}>Circle</button>
                 <button className='btn-line btn-district' type="button" onClick={() => fadeElement("District", fadeNorthernState, setFadeNorthernState)}>District</button>
@@ -155,7 +160,7 @@ function App() {
                 <button className='btn-line btn-northern' type="button" onClick={() => fadeElement("Northern", fadeNorthernState, setFadeNorthernState)}>Northern</button>
                 <button className='btn-line btn-piccadilly' type="button" onClick={() => fadeElement("Piccadilly", fadeNorthernState, setFadeNorthernState)}>Piccadilly</button>
                 <button className='btn-line btn-victoria' type="button" onClick={() => fadeElement("Victoria", fadeNorthernState, setFadeNorthernState)}>Victoria</button>
-                <button className='btn-line btn-waterloo-city' type="button" onClick={() => fadeElement("WaterlooCity", fadeNorthernState, setFadeNorthernState)}>Waterloo & City</button>
+                <button className='btn-line btn-waterloo-city' type="button" onClick={() => fadeElement("WaterlooCity", fadeNorthernState, setFadeNorthernState)}>Waterloo & City</button> */}
 
           
               </aside>

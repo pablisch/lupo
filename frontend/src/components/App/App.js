@@ -16,8 +16,8 @@ import TIMEOUTS from '../../timeouts';
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
 let instruments = {}; // object to hold Tone instruments, intialised w global scope
+const arrivals = []; // array to hold arrival elements, intialised w global scope
 let mainLooper;
-
 
 // TEST points for viusal effects including fade and arrival effects
 // const arrivalPoint = "g250238"; // Holborn station (whole station)
@@ -100,7 +100,7 @@ function App() {
         const processedData = processTubeData(sortedData, dataBlockDuration);
         console.log('processedData =', processedData);
         setVisualData(processedData);
-        triggerAudioVisuals(processedData, instruments, arrivalEffects);
+        triggerAudioVisuals(processedData, instruments, arrivalEffects, arrivals);
       })
       .catch(error => {
         console.error('Error fetching tube data:', error);
@@ -146,11 +146,17 @@ function App() {
     <div className="App">
       {/* <header className="App-header"> */}
       <nav>
-
-        <h2>LUSO</h2>
-        <Link to="/">Home</Link>
-        <Link to="/data">Data</Link>
-        <Link to="/landing">Logo</Link>
+        <div className="nav-container">
+          <div className="nav-logo">
+            <img src="./Underground.png" alt="" className="luso-logo" />
+            <h2>LUSO</h2>
+          </div>
+          <div className="nav-links">
+            <Link to="/">Home</Link>
+            <Link to="/data">Data</Link>
+            <Link to="/landing">Logo</Link>
+          </div>
+        </div>
       </nav>
         {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <Routes>
@@ -194,6 +200,11 @@ function App() {
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${hendonCentral}`)}>{`Hendon`}</button>
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${marbleArch}`)}>{`Marble Arch`}</button>
                 <button className='btn-temp btn-arrival-effects' type="button" onClick={() => handleArrivalEffectToggle()}>{arrivalEffects ? 'Turn Arrival Effects ON' : 'Turn Arrival Effects OFF'}</button>
+                {/* render each element of the arrivals array in a paragraph element */}
+                {arrivals.flat().map((arrival, index) => {
+                  console.log('arrival', arrival);
+                  return <div className="arrival-item"><p key={index}>{arrival}</p></div> 
+                })}
               </aside>
 
             </div> 

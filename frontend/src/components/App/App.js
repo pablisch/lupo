@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import './App.css';
 import TubeMap from '../TubeMap/TubeMap.js';
@@ -13,6 +13,7 @@ import SideBarLeft from '../SideBarLeft/SideBarLeft';
 import SideBarRight from '../SideBarRight/SideBarRight';
 import Navbar from '../Navbar/Navbar';
 import Landing from '../Landing/Landing';
+import { InstrumentContext } from '../InstrumentProvider/InstrumentProvider';
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
@@ -20,6 +21,8 @@ const arrivals = []; // array to hold arrival elements, intialised w global scop
 let mainLooper;
 
 function App() {
+  const {currentInstrument, setCurrentInstrument} = useContext(InstrumentContext)
+
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true); // added for data visualiser
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0); // added for data visualiser
   const [visualData, setVisualData] = useState([]); // added for data visualiser
@@ -28,12 +31,12 @@ function App() {
   const [instruments, setInstruments] = useState(null);
   const renderCount = useRef(1)
 
-  const soundOn = async (instrumentSet) => {
+  const soundOn = async () => {
+    console.log('SOUND ON');
     setIsPlaying(true); // controls the visibility of the soundon button
     fadeAllStations();
-    const awaitedInstruments = await audioStartup(instrumentSet)
+    const awaitedInstruments = await audioStartup(currentInstrument);
     setInstruments(awaitedInstruments);
-    console.log('tone started')
     
     // Following block provides a looping pedal note:
     // setInterval(() => {
@@ -58,12 +61,11 @@ function App() {
     });
   }
 
-  const restart = async (instrumentSet) => {
+  const restart = async () => {
+    console.log("RESTART");
     TIMEOUTS.clearAllTimeouts();
     clearTimeout(mainLooper);
-    console.log("All timeouts cleared");
-    soundOn(instrumentSet)
-    console.log('tone restarted');
+    soundOn();
   }
 
   const fetchData = () => {
@@ -91,7 +93,8 @@ function App() {
 
   // To trigger the first fetch after instruments 
   useEffect(() => {
-    console.log('used effect')
+    if(!isPlaying) {return;}
+    // console.log('used effect')
 
     if(instruments) { 
       console.log('instruments:', instruments)
@@ -114,14 +117,31 @@ function App() {
 
   // handleArrivalEffectToggle to toggle the value of arrivalEffectsToggle
   const handleArrivalEffectToggle = () => {
-    setArrivalEffectsToggle(!arrivalEffectsToggle);
-    console.log('arrivalEffectsToggle', arrivalEffectsToggle)
+    console.log("Helo wrolds")
+    setArrivalEffectsToggle(current => !current);
+    restart();
+    console.log('arrivalEffectsToggle', arrivalEffectsToggle);
   };
 
   useEffect(() => {
+    if(!isPlaying) {return;}
     renderCount.current = renderCount.current + 1
-    console.log('renderCount', renderCount.current)
-  })     
+    // console.log('renderCount', renderCount.current)
+  })
+
+  useEffect(() => {
+    if(!isPlaying) {return;}
+    (async () => {
+      await restart();
+    })();
+
+    return () => {};
+  }, [currentInstrument])
+  
+  const changeCurrentInstrument = (change) => {
+    console.log("Change Current Instrument to :" + change);
+    setCurrentInstrument(change);
+  }
 
   return (
     <div className="App">

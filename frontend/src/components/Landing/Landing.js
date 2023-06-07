@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import './Landing.css';
 
 const Landing = ({renderCount, soundOn}) => {
+const Landing = ({renderCount, soundOn}) => {
   return (
     <div className="App">
       <div className="app-nav">
@@ -30,3 +31,5 @@ const Landing = ({renderCount, soundOn}) => {
   );
 }
 export default Landing;
+
+

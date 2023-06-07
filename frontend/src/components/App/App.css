@@ -1,44 +1,11 @@
-/* APP STYLES FROM REACT */
-
-.App {
-  text-align: center;
-}
-
 body > iframe {
   display: none;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-  margin: 30px auto 20px;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .luso-logo {
     animation: App-logo-spin infinite 5s linear;
   }
-}
-
-.App-header {
-  background-color: #313a4a;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -50,67 +17,13 @@ body > iframe {
   }
 }
 
-/* CUSTOM APP STYLES */
-
-.App h2 {
-  padding: 0;
-}
-
 /* GENERAL PAGE STYLES */
-
-body > iframe {
-  display: none;
-}
 
 body {
   margin: 0;
   padding: 0;
   overflow: hidden; /* Hide scrollbars */
 }
-
-/* NAVBAR - also in navbar.css */
-/* nav {
-  background-color: #3b3939;
-  padding: 0;
-  margin: 0 auto;
-  height: 70px;
-  z-index: 100;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 30px;
-  height: 100%;
-  z-index: 100;
-}
-
-nav a {
-  color: #fff;
-  padding: 0 0 0 10px;
-  text-decoration: none;
-  font-size: 2.1rem;
-}
-
-nav h2 {
-  color: #fff;
-  font-size: 3.2rem;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-logo {
-  display: flex;
-}
-
-.luso-logo {
-  height: 60px;
-  margin-right: 10px;
-} */
-/* END OF NAVBAR stuff */
 
 header {
   background-color: #f0f0f0;
@@ -136,6 +49,7 @@ main {
 .sidebar {
   background-color: #f2f1f1;
   padding: 0 20px;
+  width: 200px;
 }
 
 .sidebar h2 {

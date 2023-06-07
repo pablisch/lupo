@@ -18,15 +18,15 @@ nav {
 
 nav a {
   color: #fff;
-  padding: 0 0 0 10px;
+  padding: 0 0 0 20px;
   text-decoration: none;
   font-size: 2.1rem;
 }
 
 nav h2 {
   color: #fff;
-  font-size: 3.2rem;
-  margin: 0;
+  font-size: 2.5rem;
+  margin: 0 20px;
   padding: 0;
 }
 
@@ -37,5 +37,4 @@ nav h2 {
 .luso-logo {
   max-height: 6vh;
   margin: auto;
-  margin-right: 10px;
 }

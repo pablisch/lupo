@@ -125,20 +125,23 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      
       <Routes>
         <Route path='/data' element={<>
+          <Navbar />
           <button onClick={toggleVisualiseEventsOnly}> {visualiseEventsOnly ? 'Include All intervals' : 'Events Only'} </button>
           <DataVisualiser key={dataVisualiserKey} data={visualData} duration={dataBlockDuration} visualiseEventsOnly={visualiseEventsOnly} />
         </>}/>
-        <Route path='/' element={
-          <div className="container bars-and-map">
-            <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments}/>
-            <TubeMap/>
-            <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} />
-          </div> 
+        <Route path='/sounds-of-the-underground' element={<>
+            <Navbar />
+            <div className="container bars-and-map">
+              <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments}/>
+              <TubeMap/>
+              <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} />
+            </div> 
+          </>
         }/>
-        <Route path='/landing' element={
+        <Route path='/' element={
           <Landing renderCount={renderCount} />
         }/>
       </Routes>

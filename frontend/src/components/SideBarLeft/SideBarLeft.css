@@ -30,6 +30,15 @@
   align-items: center;
   padding: 5px 5px 4px;
   background: #fff;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 1s ease, opacity 3s ease;
+}
+
+.open {
+  height: auto;
+  opacity: 1;
 }
 
 .btn-temp-left {

@@ -63,7 +63,7 @@ function App() {
     }
   }
 
-  const fadeAll = () => {
+  const fadeAllStations = () => {
     allStations.forEach((line) => {
       line.forEach((station) => {
         // console.log(station);
@@ -80,15 +80,14 @@ function App() {
     });
   }
 
-  const restart = async (event) => {
+  const restart = async (instrumentSet) => {
     TIMEOUTS.clearAllTimeouts();
     clearTimeout(mainLooper);
     // soundOn(instrumentSet);
     console.log("All timeouts cleared");
-    const instrumentSet = event.target.id;
-    const awaitedInstruments = await audioStartup(instrumentSet)
-    setInstruments(awaitedInstruments);
-    console.log('tone restarted')
+    // const instrumentSet = event.target.id; // the button id used to call restart === the instrument set
+    soundOn(instrumentSet)
+    console.log('tone restarted');
   }
 
   const fetchData = () => {
@@ -114,19 +113,23 @@ function App() {
       });
   };
 
+  // To trigger the first fetch after instruments 
   useEffect(() => {
     console.log('used effect')
+    // console.log(`firstFetch is ${firstFetch}`)
 
-    if(instruments) {  // prevents fetchData from being called before we have awaited audioStartUp()
+    if(instruments) { 
+      // console.log('firstFetch was true')
+      console.log('instruments:', instruments)
       fetchData()  // initial fetch as setInterval only exectues after first interval
-      mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
+      mainLooper =setInterval(fetchData, dataBlockDuration * 1000);
     }
   }, [instruments])
 
-  const soundOn = async () => {
-    setIsPlaying(true);
-    fadeAll();
-    const awaitedInstruments = await audioStartup('strings')
+  const soundOn = async (instrumentSet) => {
+    setIsPlaying(true); // controls the visibility of the soundon button
+    fadeAllStations();
+    const awaitedInstruments = await audioStartup(instrumentSet)
     setInstruments(awaitedInstruments);
     // console.log("instruments after setInstruments call = ", instruments)
     console.log('tone started')
@@ -191,10 +194,10 @@ function App() {
                   { lineNames.map((line, index) => {
                     return <Slider lineName={line} instruments={instruments} key={index} />
                   }) }
-                <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
-                <button  onClick={fadeAll}>Fade All</button>
-                <button id="marimba" onClick={restart}>Marimba</button>
-                <button id="strings" onClick={restart}>Strings</button>
+                <button id="soundon" onClick={() => soundOn('strings')} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
+                <button  onClick={fadeAllStations}>Fade All</button>
+                <button id="marimba" onClick={() => restart("marimba")}>Marimba</button>
+                <button id="strings" onClick={() => restart("strings")}>Strings</button>
                 <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeElement("Bakerloo", fadeBakerlooState, setFadeBakerlooState)}>Bakerloo</button>
                 <button className='btn-line btn-central' type="button" onClick={() => fadeElement("Central", fadeCentralState, setFadeCentralState)}>Central</button>
                 <button className='btn-line btn-circle' type="button" onClick={() => fadeElement("Circle", fadeCircleState, setFadeCircleState)}>Circle</button>

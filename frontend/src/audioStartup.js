@@ -171,8 +171,8 @@ const audioStartup = async (instrumentSet) => {
         Piccadilly: violaSampler,
         Victoria: violaSampler, 
         WaterlooCity: violaSampler,
-    
-        Pedal: violinSampler
+        Pedal: violinSampler,
+
       };
   } else if (instrumentSet === 'marimba') {
     instruments = {
@@ -187,11 +187,13 @@ const audioStartup = async (instrumentSet) => {
       Piccadilly: clarinetSampler,
       Victoria: clarinetSampler, 
       WaterlooCity: clarinetSampler,
-  
       Pedal: clarinetSampler
     };
   }
-    return instruments;
+
+  // instruments.noteAssignmentFunctions = getNoteAssignmentFunctions(instrumentSet)
+
+  return instruments;
 }
 
 export default audioStartup;

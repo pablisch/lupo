@@ -8,9 +8,10 @@ const Slider = ({ instruments, lineName, fadeElement, setState }) => {
   // if(instruments) { console.log(`max volume is ${instruments[lineName].maxVolume}`) }
 
   const handleSliderChange = (event) => {
-    console.log(`slider value: ${event.target.value}`)
+    // console.log(`slider value: ${event.target.value}`)
     // console.log('instrument inside of handleSliderChange', instruments[lineName])
-    console.log(`maxVolumeScaledUp is ${maxVolumeScaledUp}`)
+    // console.log(`maxVolumeScaledUp is ${maxVolumeScaledUp}`)
+    
     let negativeValue = (event.target.value - 100);
     instruments[lineName].volume.value = negativeValue;
     setSliderValue(event.target.value)
@@ -51,8 +52,7 @@ const Slider = ({ instruments, lineName, fadeElement, setState }) => {
       className="slider" 
       onChange={handleSliderChange}>
       </input>
-      <button id='button' className={lineName} onClick={handleButtonClick}>Mute 
-      {lineName === 'HammersmithCity' || lineName === 'WaterlooCity' ? <br /> : " "}
+      <button id='button' className={lineName} onClick={handleButtonClick}>
       {lineName === 'HammersmithCity' ? 'Hammersmith & City' : lineName === 'WaterlooCity' ? 'Waterloo & City' : lineName}
       </button>
     </div>

@@ -15,13 +15,13 @@ const noteAssignFunctions =  {
     Central: assignNoteForCentral,
     Circle: assignNoteForCircle,
     District: assignNoteForDistrict,
-    Hammersmith_City: assignNoteForHammersmithCity,
+    HammersmithCity: assignNoteForHammersmithCity,
     Jubilee: assignNoteForJubilee,
     Metropolitan: assignNoteForMetropolitan,
     Northern: assignNoteForNorthern,
     Piccadilly: assigneNoteForPicadilly,
     Victoria: assignNoteForVictoria,
-    Waterloo_City: assignNoteForWaterlooAndCity
+    WaterlooCity: assignNoteForWaterlooAndCity
 }
 
 export default noteAssignFunctions;

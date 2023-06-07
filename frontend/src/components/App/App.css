@@ -58,6 +58,10 @@ body > iframe {
 
 /* GENERAL PAGE STYLES */
 
+body > iframe {
+  display: none;
+}
+
 body {
   margin: 0;
   padding: 0;

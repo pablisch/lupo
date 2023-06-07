@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './SideBarLeft.css'
+import lineNames from '../../lineNames';
+import Slider from '../Slider/Slider';
 
 
-const SideBarLeft = ({restart, fadeAll, soundOn, isPlaying}) => {
+const SideBarLeft = ({restart, soundOn, isPlaying, instruments}) => {
   const [fadeBakerlooState, setFadeBakerlooState] = useState(true);
   const [fadeCentralState, setFadeCentralState] = useState(true);
   const [fadeCircleState, setFadeCircleState] = useState(true);
@@ -33,9 +35,12 @@ const SideBarLeft = ({restart, fadeAll, soundOn, isPlaying}) => {
   return (
     <aside className="sidebar sidebar-left">
       <h2>Left Sidebar</h2>
-      <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
-      <button className='btn-temp-left' onClick={fadeAll}>Fade All</button>
-      <button className='btn-temp-left' onClick={restart}>Restart</button>
+      { lineNames.map((line, index) => {
+        return <Slider lineName={line} instruments={instruments} key={index} />
+      }) }
+      <button id="soundon" onClick={() => soundOn('strings')} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
+      <button id="marimba" onClick={() => restart("marimba")}>Marimba</button>
+      <button id="strings" onClick={() => restart("strings")}>Strings</button>
       <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)}>Bakerloo</button>
       <button className='btn-line btn-central' type="button" onClick={() => fadeLine("Central", fadeCentralState, setFadeCentralState)}>Central</button>
       <button className='btn-line btn-circle' type="button" onClick={() => fadeLine("Circle", fadeCircleState, setFadeCircleState)}>Circle</button>

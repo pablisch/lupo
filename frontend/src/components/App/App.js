@@ -14,40 +14,37 @@ import SideBarRight from '../SideBarRight/SideBarRight';
 import Navbar from '../Navbar/Navbar';
 import Landing from '../Landing/Landing';
 
-
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
-let instruments = {}; // object to hold Tone instruments, intialised w global scope
 const arrivals = []; // array to hold arrival elements, intialised w global scope
 let mainLooper;
-
-
 
 function App() {
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true); // added for data visualiser
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0); // added for data visualiser
   const [visualData, setVisualData] = useState([]); // added for data visualiser
   const [isPlaying, setIsPlaying] = useState(false);
-  const [arrivalEffects, setArrivalEffects] = useState(true); // added for data visualiser
+  const [arrivalEffectsToggle, setArrivalEffectsToggle] = useState(true); // added for data visualiser
+  const [instruments, setInstruments] = useState(null);
   const renderCount = useRef(1)
 
-  const soundOn = async () => {
-    setIsPlaying(true);
-    fadeAll();
-    instruments = await audioStartup()
+  const soundOn = async (instrumentSet) => {
+    setIsPlaying(true); // controls the visibility of the soundon button
+    fadeAllStations();
+    const awaitedInstruments = await audioStartup(instrumentSet)
+    setInstruments(awaitedInstruments);
     console.log('tone started')
-    fetchData(); // initial fetch as setInterval only exectues after first interval
-    mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
+    
     // Following block provides a looping pedal note:
     // setInterval(() => {
     //   instruments.Pedal.triggerAttackRelease('C4', '1n');
     // }, (dataBlockDuration / 60) * 2000);
   }
 
-  const fadeAll = () => {
+  const fadeAllStations = () => {
     allStations.forEach((line) => {
       line.forEach((station) => {
-        console.log(station);
+        // console.log(station);
         document.getElementById(station
           .replace(/ *\([^)]*\) */g, "")
           .replace(/\s|\.''/g, '')
@@ -59,6 +56,14 @@ function App() {
         .style.opacity = "0%";
       });
     });
+  }
+
+  const restart = async (instrumentSet) => {
+    TIMEOUTS.clearAllTimeouts();
+    clearTimeout(mainLooper);
+    console.log("All timeouts cleared");
+    soundOn(instrumentSet)
+    console.log('tone restarted');
   }
 
   const fetchData = () => {
@@ -76,19 +81,25 @@ function App() {
         const processedData = processTubeData(sortedData, dataBlockDuration);
         console.log('processedData =', processedData);
         setVisualData(processedData);
-        triggerAudioVisuals(processedData, instruments, arrivalEffects, arrivals);
+        console.log("fetchdata instruments", instruments)
+        triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals);
       })
       .catch(error => {
         console.error('Error fetching tube data:', error);
       });
   };
 
-  const restart = () => {
-    TIMEOUTS.clearAllTimeouts();
-    clearTimeout(mainLooper);
-    soundOn();
-    console.log("All timeouts cleared");
-  }
+  // To trigger the first fetch after instruments 
+  useEffect(() => {
+    console.log('used effect')
+
+    if(instruments) { 
+      console.log('instruments:', instruments)
+      fetchData()  // initial fetch as setInterval only exectues after first interval
+      mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
+    }
+  // eslint-disable-next-line
+  }, [instruments])
 
   const toggleVisualiseEventsOnly = () => {
     setVisualiseEventsOnly(!visualiseEventsOnly);
@@ -101,10 +112,10 @@ function App() {
     }, 1000);
   };
 
-  // handleArrivalEffectToggle to toggle the value of arrivalEffects
+  // handleArrivalEffectToggle to toggle the value of arrivalEffectsToggle
   const handleArrivalEffectToggle = () => {
-    setArrivalEffects(!arrivalEffects);
-    console.log('arrivalEffects', arrivalEffects)
+    setArrivalEffectsToggle(!arrivalEffectsToggle);
+    console.log('arrivalEffectsToggle', arrivalEffectsToggle)
   };
 
   useEffect(() => {
@@ -122,9 +133,9 @@ function App() {
         </>}/>
         <Route path='/' element={
           <div className="container bars-and-map">
-            <SideBarLeft restart={restart} fadeAll={fadeAll} soundOn={soundOn} isPlaying={isPlaying}/>
+            <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments}/>
             <TubeMap/>
-            <SideBarRight arrivals={arrivals} arrivalEffects={arrivalEffects} handleArrivalEffectToggle={handleArrivalEffectToggle} />
+            <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} />
           </div> 
         }/>
         <Route path='/landing' element={

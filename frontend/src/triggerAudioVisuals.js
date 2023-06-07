@@ -1,4 +1,7 @@
 import noteAssignFunctions from './note-assignments/getNoteAssignFunctions'
+import { arrivalEffectCreate } from './arrivalEffects';
+import TIMEOUTS from './timeouts';
+
 
 const flashElement = (elementId) => {
   const element = document.getElementById(elementId.replace(/ *\([^)]*\) */g, ""));
@@ -15,10 +18,10 @@ const flashElement = (elementId) => {
   
 }
 
-const triggerAudioVisuals = (quantisedTubeData, instruments, arrivals) => {
+const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffects, arrivals) => {
   quantisedTubeData.forEach((train) => {
     const note = noteAssignFunctions[train.lineName](train.stationName);
-    setTimeout(() => {
+    TIMEOUTS.setTimeout(() => {
       instruments[train.lineName].triggerAttackRelease(note, '4n');
       console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);
       flashElement(train.stationName);
@@ -27,6 +30,9 @@ const triggerAudioVisuals = (quantisedTubeData, instruments, arrivals) => {
         arrivals.shift();
       }
       console.log('arrivals =', arrivals);
+      // flashElement(train.stationName);
+      if (arrivalEffects) {arrivalEffectCreate(train.stationName, arrivalEffects)};
+      // arrivalEffectCreate(`${train.stationName}x`);
     }, train.timeToStation * 1000)
   })
 }

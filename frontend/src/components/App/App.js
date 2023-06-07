@@ -10,16 +10,20 @@ import { Routes, Route, Link } from "react-router-dom";
 import processTubeData from '../../processTubeData';
 import { arrivalEffectTransform, arrivalEffectCreate } from '../../arrivalEffects';
 import allStations from '../../stations';
+import TIMEOUTS from '../../timeouts';
 
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
 let instruments = {}; // object to hold Tone instruments, intialised w global scope
 const arrivals = []; // array to hold arrival elements, intialised w global scope
+let mainLooper;
 
 // TEST points for viusal effects including fade and arrival effects
 // const arrivalPoint = "g250238"; // Holborn station (whole station)
-const arrivalPointInner = "path250234"; // white centre of Holborn
+const arrivalPointInner = "Holbornx"; // white centre of Holborn
+const marbleArch = "MarbleArchx"; // white centre of Holborn
+// const arrivalPointInner = "path250234"; // white centre of Holborn
 const burntOak = "rect247013"; // Burnt Oak station
 const hendonCentral = "g249286"; // Hendon Central station
 
@@ -28,6 +32,7 @@ function App() {
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0); // added for data visualiser
   const [visualData, setVisualData] = useState([]); // added for data visualiser
   const [isPlaying, setIsPlaying] = useState(false);
+  const [arrivalEffects, setArrivalEffects] = useState(true); // added for data visualiser
   const renderCount = useRef(1)
 
   const [fadeBakerlooState, setFadeBakerlooState] = useState(true);
@@ -73,6 +78,13 @@ function App() {
     });
   }
 
+  const restart = () => {
+    TIMEOUTS.clearAllTimeouts();
+    clearTimeout(mainLooper);
+    soundOn();
+    console.log("All timeouts cleared");
+  }
+
   const fetchData = () => {
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
       .then(response => {
@@ -88,7 +100,7 @@ function App() {
         const processedData = processTubeData(sortedData, dataBlockDuration);
         console.log('processedData =', processedData);
         setVisualData(processedData);
-        triggerAudioVisuals(processedData, instruments, arrivals);
+        triggerAudioVisuals(processedData, instruments, arrivalEffects, arrivals);
       })
       .catch(error => {
         console.error('Error fetching tube data:', error);
@@ -101,7 +113,7 @@ function App() {
     instruments = await audioStartup()
     console.log('tone started')
     fetchData(); // initial fetch as setInterval only exectues after first interval
-    setInterval(fetchData, dataBlockDuration * 1000);
+    mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
     // Following block provides a looping pedal note:
     // setInterval(() => {
     //   instruments.Pedal.triggerAttackRelease('C4', '1n');
@@ -118,7 +130,13 @@ function App() {
       console.log(visualiseEventsOnly)
     }, 1000);
   };
-  
+
+  // handleArrivalEffectToggle to toggle the value of arrivalEffects
+  const handleArrivalEffectToggle = () => {
+    setArrivalEffects(!arrivalEffects);
+    console.log('arrivalEffects', arrivalEffects)
+  };
+
   useEffect(() => {
     renderCount.current = renderCount.current + 1
     console.log('renderCount', renderCount.current)
@@ -155,6 +173,7 @@ function App() {
                 <h2>Left Sidebar</h2>
                 <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
                 <button  onClick={fadeAll}>Fade All</button>
+                <button  onClick={restart}>restart</button>
                 <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeElement("Bakerloo", fadeBakerlooState, setFadeBakerlooState)}>Bakerloo</button>
                 <button className='btn-line btn-central' type="button" onClick={() => fadeElement("Central", fadeCentralState, setFadeCentralState)}>Central</button>
                 <button className='btn-line btn-circle' type="button" onClick={() => fadeElement("Circle", fadeCircleState, setFadeCircleState)}>Circle</button>
@@ -179,6 +198,8 @@ function App() {
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Holborn`}</button>
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Burnt Oak`}</button>
                 <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${hendonCentral}`)}>{`Hendon`}</button>
+                <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${marbleArch}`)}>{`Marble Arch`}</button>
+                <button className='btn-temp btn-arrival-effects' type="button" onClick={() => handleArrivalEffectToggle()}>{arrivalEffects ? 'Turn Arrival Effects ON' : 'Turn Arrival Effects OFF'}</button>
                 {/* render each element of the arrivals array in a paragraph element */}
                 {arrivals.flat().map((arrival, index) => {
                   console.log('arrival', arrival);

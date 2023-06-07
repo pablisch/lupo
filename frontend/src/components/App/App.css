@@ -131,6 +131,7 @@ main {
 
 .sidebar h2 {
   font-size: 0.9rem;
+  z-index: 100;
 }
 
 .sidebar-left {
@@ -209,10 +210,12 @@ main {
   font-size: 0.9rem;
   border: 1px solid #999;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 #soundon:disabled {
   background-color: #55bd47;
+  cursor: not-allowed;
 }
 
 .btn-temp {
@@ -223,6 +226,7 @@ main {
   font-size: 0.6rem;
   border: 1px solid #555;
   border-radius: 2px;
+  cursor: pointer;
 }
 
 .btn-line {

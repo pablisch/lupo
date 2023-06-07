@@ -18,7 +18,7 @@ const flashElement = (elementId) => {
   
 }
 
-const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffects, arrivals) => {
+const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffectsToggle, arrivals) => {
   quantisedTubeData.forEach((train) => {
     const note = noteAssignFunctions[train.lineName](train.stationName);
     TIMEOUTS.setTimeout(() => {
@@ -29,10 +29,7 @@ const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffects, arr
       if (arrivals.length > 10) {
         arrivals.shift();
       }
-      // console.log('arrivals =', arrivals);
-      // flashElement(train.stationName);
-      if (arrivalEffects) {arrivalEffectCreate(train.stationName, arrivalEffects)};
-      // arrivalEffectCreate(`${train.stationName}x`);
+      if (arrivalEffectsToggle) {arrivalEffectCreate(train.stationName, arrivalEffectsToggle)};
     }, train.timeToStation * 1000)
   })
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css';
 import TubeMap from '../TubeMap/TubeMap.js';
@@ -7,7 +7,6 @@ import triggerAudioVisuals from '../../triggerAudioVisuals';
 import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
 import { Routes, Route } from "react-router-dom";
 import processTubeData from '../../processTubeData';
-import { arrivalEffectTransform, arrivalEffectCreate } from '../../arrivalEffects';
 import allStations from '../../stations';
 import TIMEOUTS from '../../timeouts';
 import SideBarLeft from '../SideBarLeft/SideBarLeft';
@@ -17,18 +16,15 @@ import Landing from '../Landing/Landing';
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
-// let instruments = {}; // object to hold Tone instruments, intialised w global scope
 const arrivals = []; // array to hold arrival elements, intialised w global scope
 let mainLooper;
-
-
 
 function App() {
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true); // added for data visualiser
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0); // added for data visualiser
   const [visualData, setVisualData] = useState([]); // added for data visualiser
   const [isPlaying, setIsPlaying] = useState(false);
-  const [arrivalEffects, setArrivalEffects] = useState(true); // added for data visualiser
+  const [arrivalEffectsToggle, setArrivalEffectsToggle] = useState(true); // added for data visualiser
   const [instruments, setInstruments] = useState(null);
   const renderCount = useRef(1)
 
@@ -37,7 +33,6 @@ function App() {
     fadeAllStations();
     const awaitedInstruments = await audioStartup(instrumentSet)
     setInstruments(awaitedInstruments);
-    // console.log("instruments after setInstruments call = ", instruments)
     console.log('tone started')
     
     // Following block provides a looping pedal note:
@@ -66,9 +61,7 @@ function App() {
   const restart = async (instrumentSet) => {
     TIMEOUTS.clearAllTimeouts();
     clearTimeout(mainLooper);
-    // soundOn(instrumentSet);
     console.log("All timeouts cleared");
-    // const instrumentSet = event.target.id; // the button id used to call restart === the instrument set
     soundOn(instrumentSet)
     console.log('tone restarted');
   }
@@ -89,7 +82,7 @@ function App() {
         console.log('processedData =', processedData);
         setVisualData(processedData);
         console.log("fetchdata instruments", instruments)
-        triggerAudioVisuals(processedData, instruments, arrivalEffects, arrivals);
+        triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals);
       })
       .catch(error => {
         console.error('Error fetching tube data:', error);
@@ -99,14 +92,13 @@ function App() {
   // To trigger the first fetch after instruments 
   useEffect(() => {
     console.log('used effect')
-    // console.log(`firstFetch is ${firstFetch}`)
 
     if(instruments) { 
-      // console.log('firstFetch was true')
       console.log('instruments:', instruments)
       fetchData()  // initial fetch as setInterval only exectues after first interval
-      mainLooper =setInterval(fetchData, dataBlockDuration * 1000);
+      mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
     }
+  // eslint-disable-next-line
   }, [instruments])
 
   const toggleVisualiseEventsOnly = () => {
@@ -120,10 +112,10 @@ function App() {
     }, 1000);
   };
 
-  // handleArrivalEffectToggle to toggle the value of arrivalEffects
+  // handleArrivalEffectToggle to toggle the value of arrivalEffectsToggle
   const handleArrivalEffectToggle = () => {
-    setArrivalEffects(!arrivalEffects);
-    console.log('arrivalEffects', arrivalEffects)
+    setArrivalEffectsToggle(!arrivalEffectsToggle);
+    console.log('arrivalEffectsToggle', arrivalEffectsToggle)
   };
 
   useEffect(() => {
@@ -143,7 +135,7 @@ function App() {
           <div className="container bars-and-map">
             <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments}/>
             <TubeMap/>
-            <SideBarRight arrivals={arrivals} arrivalEffects={arrivalEffects} handleArrivalEffectToggle={handleArrivalEffectToggle} />
+            <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} />
           </div> 
         }/>
         <Route path='/landing' element={

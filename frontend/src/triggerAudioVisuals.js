@@ -8,13 +8,13 @@ const flashElement = (elementId) => {
   element.style.animation = "full-fade-in 1s forwards";
   setTimeout(() => {
     element.style.animation = "full-fade-out 1s forwards";
-  }, 1000);
-  setTimeout(() => {
-    element.style.animation = "full-fade-in 1s forwards";
-  }, 2000);
-  setTimeout(() => {
-    element.style.animation = "full-fade-out 1s forwards";
-  }, 3000);
+  }, 1500);
+  // setTimeout(() => {
+  //   element.style.animation = "full-fade-in 1s forwards";
+  // }, 2000);
+  // setTimeout(() => {
+  //   element.style.animation = "full-fade-out 1s forwards";
+  // }, 3000);
   
 }
 

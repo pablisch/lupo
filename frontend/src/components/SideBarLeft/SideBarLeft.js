@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { InstrumentContext } from '../InstrumentProvider/InstrumentProvider';
+
 import './SideBarLeft.css'
 import lineNames from '../../lineNames';
 import Slider from '../Slider/Slider';
 
 
-const SideBarLeft = ({restart, soundOn, isPlaying, instruments}) => {
+const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentInstrument}) => {
+  const {setCurrentInstrument} = useContext(InstrumentContext)
+
   const [fadeBakerlooState, setFadeBakerlooState] = useState(true);
   const [fadeCentralState, setFadeCentralState] = useState(true);
   const [fadeCircleState, setFadeCircleState] = useState(true);
@@ -16,17 +20,14 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments}) => {
   const [fadePiccadillyState, setFadePiccadillyState] = useState(true);
   const [fadeVictoriaState, setFadeVictoriaState] = useState(true);
   const [fadeWaterlooCityState, setFadeWaterlooCityState] = useState(true);
-  console.log(soundOn)
 
   const fadeLine = (elementId, state, setState) => {
     const element = document.getElementById(elementId);
     console.log(element.id);
     if (state === true) {
-      console.log("Fade out");
       element.style.animation = "fade-out 1s forwards";
       setState(false);
     } else if (state === false) {
-      console.log("Fade In");
       element.style.animation = "fade-in 1s forwards";
       setState(true);
     }
@@ -38,9 +39,9 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments}) => {
       { lineNames.map((line, index) => {
         return <Slider lineName={line} instruments={instruments} key={index} />
       }) }
-      <button id="soundon" onClick={() => soundOn('strings')} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
-      <button id="marimba" onClick={() => restart("marimba")}>Marimba</button>
-      <button id="strings" onClick={() => restart("strings")}>Strings</button>
+      <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
+      <button id="marimba" onClick={() => changeCurrentInstrument("marimba")}>Marimba</button>
+      <button id="strings" onClick={() => changeCurrentInstrument("strings")}>Strings</button>
       <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)}>Bakerloo</button>
       <button className='btn-line btn-central' type="button" onClick={() => fadeLine("Central", fadeCentralState, setFadeCentralState)}>Central</button>
       <button className='btn-line btn-circle' type="button" onClick={() => fadeLine("Circle", fadeCircleState, setFadeCircleState)}>Circle</button>

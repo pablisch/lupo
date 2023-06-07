@@ -40,7 +40,7 @@ const arrivalEffectCreate = (elementId, arrivalEffects) => {
     let arrival2;
     // create a duplicate element in the same place after 0.1 seconds
     setTimeout(() => {
-      const arrival2 = document.createElement("div");
+      arrival2 = document.createElement("div");
       arrival2.style.width = "5px";
       arrival2.style.height = "5px";
       // arrival2.style.backgroundColor = "rgba(255, 0, 0, 0.4";
@@ -61,7 +61,7 @@ const arrivalEffectCreate = (elementId, arrivalEffects) => {
     setTimeout(() => {
       arrival2.remove();
     }
-    , 2400);
+    , 3000);
   }
 };
 

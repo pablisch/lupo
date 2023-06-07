@@ -14,7 +14,7 @@ const SideBarRight = ({arrivals, arrivalEffectsToggle, handleArrivalEffectToggle
 
   return (
     <aside className="sidebar sidebar-right">
-      <h2>Right Sidebar</h2> 
+      <h2>Nothing</h2> 
       <button className='btn-temp-right' type="button" onClick={() => arrivalEffectTransform(`${arrivalPointInner}`)}>{`Transform at ${arrivalPointInner}`}</button>
       <button className='btn-temp-right' type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Holborn`}</button>
       <button className='btn-temp-right' type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Burnt Oak`}</button>

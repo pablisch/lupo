@@ -17,6 +17,34 @@ body > iframe {
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  #tap-in {
+    animation: tap-in-spin infinite 5s linear;
+  }
+}
+
+@keyframes tap-in-spin {
+  from {
+    transform: translate(-50%, -50%)rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%)rotate(360deg);
+  }
+}
+
+#tap-in {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: calc(10px + 2vmin);
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 0 5px #000;
+  z-index: 1000;
+  cursor: url('./oyster-card.png'), auto;
+}
+
 /* GENERAL PAGE STYLES */
 
 body {
@@ -55,6 +83,18 @@ main {
 .sidebar h2 {
   font-size: 1.8rem;
   z-index: 100;
+  margin: 10px 0;
+}
+
+.mute-icon {
+  height: 25px;
+}
+
+.mute {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px 25px;
 }
 
 /* FADE FUNCTION STYLES */
@@ -97,7 +137,20 @@ main {
 
 /* BUTTON STYLES */
 
+#btn-data {
+  margin: 20px 0 0;
+}
 
+.btn-data-chart {
+  background-color: #dee4e8;
+  color: #444;
+  font-size: 1.2rem;
+  border: 1px solid #555;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto 5px;
+  width: 480px;
+}
 
 
 

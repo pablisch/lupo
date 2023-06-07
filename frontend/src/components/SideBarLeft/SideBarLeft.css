@@ -3,19 +3,20 @@
 }
 
 #soundon {
-  width: 100%;
+  width: 90%;
   margin: 0 auto 20px;
-  background-color: #3b1ec9;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.8rem;
+  padding: 5px 0;
+  background-color: #e48d6a;
+  color: #000;
+  /* font-weight: bold; */
+  font-size: 1.3rem;
   border: 1px solid #999;
   border-radius: 2px;
   cursor: pointer;
 }
 
 #soundon:disabled {
-  background-color: #55bd47;
+  background-color: #86ea79;
   cursor: not-allowed;
 }
 

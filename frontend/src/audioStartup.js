@@ -15,7 +15,8 @@ const audioStartup = async () => {
     release: 0.5,
     baseUrl: "/samples/cello/",
   }).connect(reverb);
-  celloSampler.volume.value = -6;
+  celloSampler.maxVolume = -6;
+  celloSampler.volume.value = celloSampler.maxVolume;
 
   const clarinetSampler = new Tone.Sampler({
     urls: {
@@ -27,7 +28,8 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/clarinet/",
   }).toDestination();
-  clarinetSampler.volume.value = -9;
+  clarinetSampler.maxVolume = -9;
+  clarinetSampler.volume.value = clarinetSampler.maxVolume;
 
   const doubleBassPizzSampler = new Tone.Sampler({
     urls: {
@@ -37,7 +39,8 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/double-bass/",
   }).toDestination();
-  doubleBassPizzSampler.volume.value = -3
+  doubleBassPizzSampler.maxVolume = -3;
+  doubleBassPizzSampler.volume.value = doubleBassPizzSampler.maxVolume;
 
   const doubleBassSampler = new Tone.Sampler({
     urls: {
@@ -46,7 +49,8 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/double-bass/",
   }).toDestination();
-  doubleBassSampler.volume.value = -6
+  doubleBassSampler.maxVolume = -6;
+  doubleBassSampler.volume.value = doubleBassSampler.maxVolume;
 
   const mandolinSampler = new Tone.Sampler({  
     urls: {
@@ -56,7 +60,8 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/mandolin/",
   }).connect(reverb);
-  mandolinSampler.volume.value = -9;
+  mandolinSampler.maxVolume = -18;
+  mandolinSampler.volume.value = mandolinSampler.maxVolume;
 
   const sustainedHornSampler = new Tone.Sampler({
     urls: {
@@ -65,7 +70,8 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/french-horn/",
   }).toDestination();
-  sustainedHornSampler.volume.value = -100
+  sustainedHornSampler.maxVolume = -12;
+  sustainedHornSampler.volume.value = -100;
 
   const saxophoneSampler = new Tone.Sampler({
     urls: {
@@ -74,7 +80,8 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).toDestination();
-  saxophoneSampler.volume.value = -6;
+  saxophoneSampler.maxVolume = -6;
+  saxophoneSampler.volume.value = saxophoneSampler.maxVolume;
 
   const trumpetSampler = new Tone.Sampler({
     urls: {
@@ -83,7 +90,8 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).toDestination();
-  trumpetSampler.volume.value = -6;
+  trumpetSampler.maxVolume = -6;
+  trumpetSampler.volume.value = trumpetSampler.maxVolume;
 
   const tubaSampler = new Tone.Sampler({
     urls: {
@@ -92,7 +100,8 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).toDestination();
-  trumpetSampler.volume.value = -6;
+  tubaSampler.maxVolume = -6;
+  tubaSampler.volume.value = tubaSampler.maxVolume;
 
   const violaSampler = new Tone.Sampler({
     urls: {
@@ -101,7 +110,8 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).connect(reverb);
-  violaSampler.volume.value = -6;
+  violaSampler.maxVolume = -6
+  violaSampler.volume.value = violaSampler.maxVolume;
 
   const violinSampler = new Tone.Sampler({
     urls: {
@@ -123,7 +133,8 @@ const audioStartup = async () => {
     release: 1,
     baseUrl: "/samples/",
   }).toDestination();
-  windChimesSampler.volume.value = -6;
+  windChimesSampler.maxVolume = -6;
+  windChimesSampler.volume.value = windChimesSampler.maxVolume;
 
   await Tone.loaded();
 
@@ -150,11 +161,11 @@ const audioStartup = async () => {
     District: violinSampler,
     HammersmithCity: violinSampler,
     Jubilee: violinSampler,
-    Metropolitan: violinSampler,
-    Northern: violinSampler,
-    Piccadilly: violinSampler,
-    Victoria: violinSampler, 
-    WaterlooCity: violinSampler,
+    Metropolitan: violaSampler,
+    Northern: violaSampler,
+    Piccadilly: violaSampler,
+    Victoria: violaSampler, 
+    WaterlooCity: violaSampler,
 
     Pedal: violinSampler
   };

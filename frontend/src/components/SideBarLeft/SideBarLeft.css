@@ -20,6 +20,18 @@
   cursor: not-allowed;
 }
 
+.mute-icon {
+  height: 25px;
+}
+
+.mute {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px 4px;
+  background: #fff;
+}
+
 .btn-temp-left {
   width: 100%;
   margin: 0 auto 10px;
@@ -88,4 +100,10 @@
 
 .btn-waterloo-city {
   background-color: rgb(106, 187, 170);
+}
+
+.underline-bakerloo {
+  min-height: 5px;
+  background: rgb(160, 112, 34);
+  margin-bottom: 3px;
 }

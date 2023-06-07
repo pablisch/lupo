@@ -68,11 +68,13 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentIns
       <button id="strings" onClick={() => changeCurrentInstrument("strings")}>Strings</button>
       {/* <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)}>Bakerloo</button> */}
       <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button>
-      {bakerlooControlToggle && <div className="mute">
+      {bakerlooControlToggle && <><div className="mute">
         <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} />
         {/* <button className='btn-mute btn-mute-bakerloo' type="button" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)}>Mute</button> */}
         <Slider lineName="Bakerloo" instruments={instruments} key="Bakerloo" />
-      </div>}
+        
+      </div>
+      <div className="underline-bakerloo"></div></>}
       <button className='btn-line btn-central' type="button" onClick={() => fadeLine("Central", fadeCentralState, setFadeCentralState)}>Central</button>
       <button className='btn-line btn-circle' type="button" onClick={() => fadeLine("Circle", fadeCircleState, setFadeCircleState)}>Circle</button>
       <button className='btn-line btn-district' type="button" onClick={() => fadeLine("District", fadeDistrictState, setFadeDistrictState)}>District</button>

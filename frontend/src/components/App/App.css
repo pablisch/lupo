@@ -86,17 +86,6 @@ main {
   margin: 10px 0;
 }
 
-.mute-icon {
-  height: 25px;
-}
-
-.mute {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px 5px 25px;
-}
-
 /* FADE FUNCTION STYLES */
 
 @keyframes fade-out {

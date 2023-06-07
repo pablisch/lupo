@@ -1,4 +1,5 @@
 import * as Tone from 'tone';
+import getNoteAssignFunctions from './note-assignments/getNoteAssignFunctions';
 
 const audioStartup = async (instrumentSet) => {
   await Tone.start()
@@ -191,7 +192,8 @@ const audioStartup = async (instrumentSet) => {
     };
   }
 
-  // instruments.noteAssignmentFunctions = getNoteAssignmentFunctions(instrumentSet)
+  // getNoteAssignFunctions returns an object with line names as keys and note assign functions as values
+  instruments.noteAssignFunctions = getNoteAssignFunctions(instrumentSet);
 
   return instruments;
 }

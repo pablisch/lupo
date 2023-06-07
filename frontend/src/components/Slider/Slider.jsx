@@ -1,7 +1,7 @@
 import './Slider.css';
 import { useState } from 'react';
 
-const Slider = ({ instruments, lineName, fadeElement, setState }) => {
+const Slider = ({ instruments, lineName, fadeElement, setState, changeOpacity }) => {
 
   // console.log('instruments in Slider', instruments)
   // console.log(`lineName inside of handleSliderChage: ${lineName}`)
@@ -11,29 +11,29 @@ const Slider = ({ instruments, lineName, fadeElement, setState }) => {
     // console.log(`slider value: ${event.target.value}`)
     // console.log('instrument inside of handleSliderChange', instruments[lineName])
     // console.log(`maxVolumeScaledUp is ${maxVolumeScaledUp}`)
-    
     let negativeValue = (event.target.value - 100);
     instruments[lineName].volume.value = negativeValue;
     setSliderValue(event.target.value)
 
-    if (event.target.value === "0") {
-      fadeElement(lineName, true);
-    } else {
-      fadeElement(lineName, false);
+    let newOpacity = (event.target.value/100)+0.15
+    if (newOpacity > 1) {
+      newOpacity = 1;
     }
+    changeOpacity(lineName, newOpacity);
   }
 
   const handleButtonClick = () => {
     if(sliderValue > 0){
-      fadeElement(lineName, true, setState);
+      // fadeElement(lineName, true, setState);
       instruments[lineName].volume.value = -100;
       setSliderValue(0);
+      changeOpacity(lineName, 0.15);
 
     } else {
-      setSliderValue(100);
-      setSliderValue(maxVolumeScaledUp);
-      fadeElement(lineName, false, setState);
+      // fadeElement(lineName, false, setState);
       instruments[lineName].volume.value = -6;
+      setSliderValue(maxVolumeScaledUp);
+      changeOpacity(lineName, 1);
     }
   };
 

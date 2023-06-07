@@ -37,16 +37,32 @@ function App() {
 
   const fadeElement = (elementId, state, setState) => {
     const element = document.getElementById(elementId);
-    console.log(element.id);
+    
     if (state === true) {
-      console.log("Fade out");
-      element.style.animation = "fade-out 1s forwards";
+      let currentOpacity = element.style.opacity;
+      console.log(element.style.opacity)
+      if (isNaN(currentOpacity)){ currentOpacity = 1 }
+      changeCSSFadeOut(currentOpacity);
+      element.style.animation = `fade-out ${currentOpacity}s forwards`;
       setState(false);
     } else if (state === false) {
       console.log("Fade In");
       element.style.animation = "fade-in 1s forwards";
       setState(true);
     }
+  }
+
+  const changeCSSFadeOut = (opacity) => {
+    const styleSheet = document.styleSheets[2];
+    const cssRules = styleSheet.cssRules;
+    const fadeOutKeyframes = cssRules[18];
+    fadeOutKeyframes.deleteRule(0);
+    fadeOutKeyframes.appendRule(`from { opacity: ${opacity}; }`);
+  }
+
+  const changeOpacity = (elementId, opacity) => {
+    const element = document.getElementById(elementId);
+    element.style.opacity = opacity;
   }
 
   const fetchData = () => {
@@ -146,6 +162,7 @@ function App() {
                     instruments={instruments} 
                     fadeElement={fadeElement}
                     setState={setFadeNorthernState}
+                    changeOpacity={changeOpacity}
                     key={index} />
                   }) }
                 <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
@@ -162,7 +179,6 @@ function App() {
                 <button className='btn-line btn-victoria' type="button" onClick={() => fadeElement("Victoria", fadeNorthernState, setFadeNorthernState)}>Victoria</button>
                 <button className='btn-line btn-waterloo-city' type="button" onClick={() => fadeElement("WaterlooCity", fadeNorthernState, setFadeNorthernState)}>Waterloo & City</button> */}
 
-          
               </aside>
 
               <main>

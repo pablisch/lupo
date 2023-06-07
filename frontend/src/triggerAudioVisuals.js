@@ -23,13 +23,13 @@ const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffects, arr
     const note = noteAssignFunctions[train.lineName](train.stationName);
     TIMEOUTS.setTimeout(() => {
       instruments[train.lineName].triggerAttackRelease(note, '4n');
-      console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);
+      // console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);
       flashElement(train.stationName);
       arrivals.push([train.stationName]);
       if (arrivals.length > 10) {
         arrivals.shift();
       }
-      console.log('arrivals =', arrivals);
+      // console.log('arrivals =', arrivals);
       // flashElement(train.stationName);
       if (arrivalEffects) {arrivalEffectCreate(train.stationName, arrivalEffects)};
       // arrivalEffectCreate(`${train.stationName}x`);

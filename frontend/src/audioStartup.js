@@ -1,6 +1,6 @@
 import * as Tone from 'tone';
 
-const audioStartup = async () => {
+const audioStartup = async (instrumentSet) => {
   await Tone.start()
 
   const reverb = new Tone.Reverb(2.5).toDestination(); // decay time as arg
@@ -154,21 +154,44 @@ const audioStartup = async () => {
   //   Pedal: sustainedHornSampler
   // };
 
-  return {
-    Bakerloo: violinSampler,
-    Central: violinSampler,
-    Circle: violinSampler,
-    District: violinSampler,
-    HammersmithCity: violinSampler,
-    Jubilee: violinSampler,
-    Metropolitan: violaSampler,
-    Northern: violaSampler,
-    Piccadilly: violaSampler,
-    Victoria: violaSampler, 
-    WaterlooCity: violaSampler,
+  let instruments = {}
 
-    Pedal: violinSampler
-  };
+  console.log(`instrumentSet is ${instrumentSet}`)
+
+  if (instrumentSet === 'strings') {
+      instruments = {
+        Bakerloo: violinSampler,
+        Central: violinSampler,
+        Circle: violinSampler,
+        District: violinSampler,
+        HammersmithCity: violinSampler,
+        Jubilee: violinSampler,
+        Metropolitan: violaSampler,
+        Northern: violaSampler,
+        Piccadilly: violaSampler,
+        Victoria: violaSampler, 
+        WaterlooCity: violaSampler,
+    
+        Pedal: violinSampler
+      };
+  } else if (instrumentSet === 'marimba') {
+    instruments = {
+      Bakerloo: clarinetSampler,
+      Central: clarinetSampler,
+      Circle: clarinetSampler,
+      District: clarinetSampler,
+      HammersmithCity: clarinetSampler,
+      Jubilee: clarinetSampler,
+      Metropolitan: clarinetSampler,
+      Northern: clarinetSampler,
+      Piccadilly: clarinetSampler,
+      Victoria: clarinetSampler, 
+      WaterlooCity: clarinetSampler,
+  
+      Pedal: clarinetSampler
+    };
+  }
+    return instruments;
 }
 
 export default audioStartup;

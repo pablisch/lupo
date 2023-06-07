@@ -14,8 +14,6 @@ import Slider from '../Slider/Slider';
 import allStations from '../../stations';
 import TIMEOUTS from '../../timeouts';
 
-console.log('lineNames is', lineNames)
-
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
 // let instruments = {}; // object to hold Tone instruments, intialised w global scope
@@ -68,7 +66,7 @@ function App() {
   const fadeAll = () => {
     allStations.forEach((line) => {
       line.forEach((station) => {
-        console.log(station);
+        // console.log(station);
         document.getElementById(station
           .replace(/ *\([^)]*\) */g, "")
           .replace(/\s|\.''/g, '')
@@ -82,15 +80,18 @@ function App() {
     });
   }
 
-  const restart = () => {
+  const restart = async (event) => {
     TIMEOUTS.clearAllTimeouts();
     clearTimeout(mainLooper);
-    soundOn();
+    // soundOn(instrumentSet);
     console.log("All timeouts cleared");
+    const instrumentSet = event.target.id;
+    const awaitedInstruments = await audioStartup(instrumentSet)
+    setInstruments(awaitedInstruments);
+    console.log('tone restarted')
   }
 
   const fetchData = () => {
-    // console.log("fetchdata awaited instruments", awaitedInstruments)
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
       .then(response => {
         const filteredData = response.data
@@ -113,15 +114,10 @@ function App() {
       });
   };
 
-  // let updateOnInstrumentChange = true;
-
   useEffect(() => {
     console.log('used effect')
-    // console.log(`firstFetch is ${firstFetch}`)
 
-    if(instruments) { 
-      // console.log('firstFetch was true')
-      console.log('instruments:', instruments)
+    if(instruments) {  // prevents fetchData from being called before we have awaited audioStartUp()
       fetchData()  // initial fetch as setInterval only exectues after first interval
       mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
     }
@@ -130,10 +126,7 @@ function App() {
   const soundOn = async () => {
     setIsPlaying(true);
     fadeAll();
-    // firstFetch = true;
-    // instruments = await audioStartup();
-    const awaitedInstruments = await audioStartup()
-    // console.log("awaitedInstruments = ", awaitedInstruments)
+    const awaitedInstruments = await audioStartup('strings')
     setInstruments(awaitedInstruments);
     // console.log("instruments after setInstruments call = ", instruments)
     console.log('tone started')
@@ -200,7 +193,7 @@ function App() {
                   }) }
                 <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
                 <button  onClick={fadeAll}>Fade All</button>
-                <button  onClick={restart}>restart</button>
+                <button id="marimba" onClick={restart}>Marimba</button>
                 <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeElement("Bakerloo", fadeBakerlooState, setFadeBakerlooState)}>Bakerloo</button>
                 <button className='btn-line btn-central' type="button" onClick={() => fadeElement("Central", fadeCentralState, setFadeCentralState)}>Central</button>
                 <button className='btn-line btn-circle' type="button" onClick={() => fadeElement("Circle", fadeCircleState, setFadeCircleState)}>Circle</button>

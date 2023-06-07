@@ -3,14 +3,14 @@ import { useState } from 'react';
 
 const Slider = ({ instruments, lineName }) => {
 
-  console.log('instruments in Slider', instruments)
-  console.log(`lineName inside of handleSliderChage: ${lineName}`)
+  // console.log('instruments in Slider', instruments)
+  // console.log(`lineName inside of handleSliderChage: ${lineName}`)
   // if(instruments) { console.log(`max volume is ${instruments[lineName].maxVolume}`) }
 
   const handleSliderChange = (event) => {
     console.log(`slider value: ${event.target.value}`)
     console.log('instrument inside of handleSliderChange', instruments[lineName])
-    console.log(`maxVolumeScaledUp is ${maxVolumeScaledUp}`)
+    // console.log(`maxVolumeScaledUp is ${maxVolumeScaledUp}`)
     let negativeValue = (event.target.value - 100);
     instruments[lineName].volume.value = negativeValue;
     setSliderValue(event.target.value)

@@ -1,0 +1,92 @@
+.sidebar-left {
+  /* flex-basis: 200px; */
+  width: 240px;
+  z-index: 2;
+}
+
+#soundon {
+  width: 100%;
+  margin: 0 auto 20px;
+  background-color: #3b1ec9;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.8rem;
+  border: 1px solid #999;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+#soundon:disabled {
+  background-color: #55bd47;
+  cursor: not-allowed;
+}
+
+.btn-temp-left {
+  width: 100%;
+  margin: 0 auto 10px;
+  background-color: #fff;
+  color: #444;
+  font-size: 1.1rem;
+  border: 1px solid #555;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.btn-line {
+  width: 100%;
+  margin: 1px auto;
+  background-color: #fff;
+  color: #fff;
+  font-size: 1.4rem;
+  /* border: 1px solid #555; */
+  border: none;
+  /* border-radius: 2px; */
+  cursor: pointer;
+  height: 30px;
+}
+
+.btn-bakerloo {
+  background-color: rgb(160, 112, 34);
+  margin-top: 10px;
+}
+
+.btn-central {
+  background-color: rgb(220, 36, 31);
+}
+
+.btn-circle {
+  background-color: rgb(255, 211, 41);
+}
+
+.btn-district {
+  background-color: rgb(0, 125, 50);
+}
+
+.btn-hammersmith-city {
+  background-color: rgb(244, 169, 190);
+  font-size: 1.2rem;
+}
+
+.btn-jubilee {
+  background-color: rgb(161, 165, 167);
+}
+
+.btn-metropolitan {
+  background-color: rgb(117, 16, 86);
+}
+
+.btn-northern {
+  background-color: rgb(0, 0, 0);
+}
+
+.btn-piccadilly {
+  background-color: rgb(0, 25, 168);
+}
+
+.btn-victoria {
+  background-color: rgb(0, 152, 216);
+}
+
+.btn-waterloo-city {
+  background-color: rgb(106, 187, 170);
+}

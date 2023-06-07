@@ -33,6 +33,7 @@ const arrivalEffectCreate = (elementId, arrivalEffects) => {
 
     // Append the circle element to the parent container
     const container = document.querySelector("#root");
+    // const container = document.querySelector("#Everything");
     container.appendChild(arrival);
 
     const randomEffect2 = Math.floor(Math.random() * 2) + 1;

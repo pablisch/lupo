@@ -31,6 +31,19 @@ function App() {
   const [arrivalEffects, setArrivalEffects] = useState(true); // added for data visualiser
   const renderCount = useRef(1)
 
+  const soundOn = async () => {
+    setIsPlaying(true);
+    fadeAll();
+    instruments = await audioStartup()
+    console.log('tone started')
+    fetchData(); // initial fetch as setInterval only exectues after first interval
+    mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
+    // Following block provides a looping pedal note:
+    // setInterval(() => {
+    //   instruments.Pedal.triggerAttackRelease('C4', '1n');
+    // }, (dataBlockDuration / 60) * 2000);
+  }
+
   const fadeAll = () => {
     allStations.forEach((line) => {
       line.forEach((station) => {
@@ -46,13 +59,6 @@ function App() {
         .style.opacity = "0%";
       });
     });
-  }
-
-  const restart = () => {
-    TIMEOUTS.clearAllTimeouts();
-    clearTimeout(mainLooper);
-    soundOn();
-    console.log("All timeouts cleared");
   }
 
   const fetchData = () => {
@@ -77,17 +83,11 @@ function App() {
       });
   };
 
-  const soundOn = async () => {
-    setIsPlaying(true);
-    fadeAll();
-    instruments = await audioStartup()
-    console.log('tone started')
-    fetchData(); // initial fetch as setInterval only exectues after first interval
-    mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
-    // Following block provides a looping pedal note:
-    // setInterval(() => {
-    //   instruments.Pedal.triggerAttackRelease('C4', '1n');
-    // }, (dataBlockDuration / 60) * 2000);
+  const restart = () => {
+    TIMEOUTS.clearAllTimeouts();
+    clearTimeout(mainLooper);
+    soundOn();
+    console.log("All timeouts cleared");
   }
 
   const toggleVisualiseEventsOnly = () => {

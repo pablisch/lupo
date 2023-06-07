@@ -3,7 +3,7 @@
 const bpm = 60; 
 const noteInterval = 60 / (bpm * 4); // for 1/16th note in seconds
 const randomIntervalMultiplier = 1 / noteInterval;
-const spreadNewData = false; // if true, spread new data across timeToStation values
+const spreadNewData = true; // if true, spread new data across timeToStation values
 
 // separate the data into an array of objects for each train line
 function separateDataIntoLines(tubeData) {

@@ -145,18 +145,20 @@ main {
   margin: 0;
 }
 
+/* arrivals text */
 .sidebar-right p {
   font-family: 'VT323';
   font-weight: light;
-  font-size: 0.8rem;
-  margin: 1px 0;  
-  padding: 1px 0 2px;
+  font-size: 0.7rem;
+  margin: 1px 3px;  
+  padding: 1px 3px 2px;
 }
 
 .arrival-item {
   background-color: #373737;
   color: #fff16f;
   width: 100%;
+  height: 15px;
 }
 
 /* FADE FUNCTION STYLES */
@@ -233,6 +235,7 @@ main {
   border: none;
   /* border-radius: 2px; */
   cursor: pointer;
+  height: 15px;
 }
 
 .btn-bakerloo {
@@ -253,6 +256,7 @@ main {
 
 .btn-hammersmith-city {
   background-color: rgb(244, 169, 190);
+  font-size: 0.6rem;
 }
 
 .btn-jubilee {

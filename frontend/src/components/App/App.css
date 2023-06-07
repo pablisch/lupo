@@ -65,13 +65,16 @@ body > iframe {
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden; /* Hide scrollbars */
 }
 
-nav {
+/* NAVBAR - also in navbar.css */
+/* nav {
   background-color: #3b3939;
   padding: 0;
   margin: 0 auto;
-  height: 40px;
+  height: 70px;
+  z-index: 100;
 }
 
 .nav-container {
@@ -82,17 +85,19 @@ nav {
   margin: 0 auto;
   padding: 0 30px;
   height: 100%;
+  z-index: 100;
 }
 
 nav a {
   color: #fff;
   padding: 0 0 0 10px;
   text-decoration: none;
+  font-size: 2.1rem;
 }
 
 nav h2 {
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 3.2rem;
   margin: 0;
   padding: 0;
 }
@@ -102,9 +107,10 @@ nav h2 {
 }
 
 .luso-logo {
-  height: 30px;
+  height: 60px;
   margin-right: 10px;
-}
+} */
+/* END OF NAVBAR stuff */
 
 header {
   background-color: #f0f0f0;
@@ -117,7 +123,7 @@ header p {
 
 .container {
   display: flex;
-  height: 100vh;
+  height: 93vh;
 }
 
 main {
@@ -129,41 +135,12 @@ main {
 
 .sidebar {
   background-color: #f2f1f1;
-  /* padding: 20px; */
-  padding: 0 10px;
+  padding: 0 20px;
 }
 
 .sidebar h2 {
-  font-size: 0.9rem;
+  font-size: 1.8rem;
   z-index: 100;
-}
-
-.sidebar-left {
-  /* flex-basis: 200px; */
-  width: 120px;
-}
-
-.sidebar-right {
-  /* flex-basis: 200px; */
-  width: 120px;
-  padding: 0 10px;
-  margin: 0;
-}
-
-/* arrivals text */
-.sidebar-right p {
-  font-family: 'VT323';
-  font-weight: light;
-  font-size: 0.7rem;
-  margin: 1px 3px;  
-  padding: 1px 3px 2px;
-}
-
-.arrival-item {
-  background-color: #373737;
-  color: #fff16f;
-  width: 100%;
-  height: 15px;
 }
 
 /* FADE FUNCTION STYLES */
@@ -206,90 +183,9 @@ main {
 
 /* BUTTON STYLES */
 
-#soundon {
-  margin: 10px auto;
-  background-color: #3b1ec9;
-  color: #fff;
-  font-weight: bold;
-  font-size: 0.9rem;
-  border: 1px solid #999;
-  border-radius: 2px;
-  cursor: pointer;
-}
 
-#soundon:disabled {
-  background-color: #55bd47;
-  cursor: not-allowed;
-}
 
-.btn-temp {
-  width: 100%;
-  margin: 0 auto;
-  background-color: #fff;
-  color: #444;
-  font-size: 0.6rem;
-  border: 1px solid #555;
-  border-radius: 2px;
-  cursor: pointer;
-}
 
-.btn-line {
-  width: 100%;
-  margin: 0 auto;
-  background-color: #fff;
-  color: #fff;
-  font-size: 0.7rem;
-  /* border: 1px solid #555; */
-  border: none;
-  /* border-radius: 2px; */
-  cursor: pointer;
-  height: 15px;
-}
-
-.btn-bakerloo {
-  background-color: rgb(160, 112, 34);
-}
-
-.btn-central {
-  background-color: rgb(220, 36, 31);
-}
-
-.btn-circle {
-  background-color: rgb(255, 211, 41);
-}
-
-.btn-district {
-  background-color: rgb(0, 125, 50);
-}
-
-.btn-hammersmith-city {
-  background-color: rgb(244, 169, 190);
-  font-size: 0.6rem;
-}
-
-.btn-jubilee {
-  background-color: rgb(161, 165, 167);
-}
-
-.btn-metropolitan {
-  background-color: rgb(117, 16, 86);
-}
-
-.btn-northern {
-  background-color: rgb(0, 0, 0);
-}
-
-.btn-piccadilly {
-  background-color: rgb(0, 25, 168);
-}
-
-.btn-victoria {
-  background-color: rgb(0, 152, 216);
-}
-
-.btn-waterloo-city {
-  background-color: rgb(106, 187, 170);
-}
 
 /* ARRIVAL EFFECTS */
 

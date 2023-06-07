@@ -14,13 +14,13 @@ const SideBarRight = ({arrivals, arrivalEffectsToggle, handleArrivalEffectToggle
 
   return (
     <aside className="sidebar sidebar-right">
-      <h2>Nothing</h2> 
-      <button className='btn-temp-right' type="button" onClick={() => arrivalEffectTransform(`${arrivalPointInner}`)}>{`Transform at ${arrivalPointInner}`}</button>
+      <h2>Effects button</h2> 
+      {/* <button className='btn-temp-right' type="button" onClick={() => arrivalEffectTransform(`${arrivalPointInner}`)}>{`Transform at ${arrivalPointInner}`}</button>
       <button className='btn-temp-right' type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Holborn`}</button>
       <button className='btn-temp-right' type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Burnt Oak`}</button>
       <button className='btn-temp-right' type="button" onClick={() => arrivalEffectCreate(`${hendonCentral}`)}>{`Hendon`}</button>
-      <button className='btn-temp-right' type="button" onClick={() => arrivalEffectCreate(`${marbleArch}`)}>{`Marble Arch`}</button>
-      <button className='btn-temp-right btn-arrival-effects' type="button" onClick={() => handleArrivalEffectToggle()}>{arrivalEffectsToggle ? 'Turn Arrival Effects ON' : 'Turn Arrival Effects OFF'}</button>
+      <button className='btn-temp-right' type="button" onClick={() => arrivalEffectCreate(`${marbleArch}`)}>{`Marble Arch`}</button> */}
+      <button className='btn-temp-right btn-arrival-effects' type="button" onClick={() => handleArrivalEffectToggle()}>{arrivalEffectsToggle ? 'Turn Arrival Effects OFF' : 'Turn Arrival Effects ON'}</button>
       {/* render each element of the arrivals array in a paragraph element */}
       {/* {arrivals.length > 0 && arrivals.flat().map((arrival, index) => {
         // console.log('arrival', arrival);

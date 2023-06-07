@@ -110,6 +110,10 @@ function App() {
     console.log('tone started')
     fetchData(); // initial fetch as setInterval only exectues after first interval
     mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
+    // Following block provides a looping pedal note:
+    // setInterval(() => {
+    //   instruments.Pedal.triggerAttackRelease('C4', '1n');
+    // }, (dataBlockDuration / 60) * 2000);
   }
 
   const toggleVisualiseEventsOnly = () => {

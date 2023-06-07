@@ -154,7 +154,7 @@ const audioStartup = async () => {
   //   Pedal: sustainedHornSampler
   // };
 
-    return {
+  return {
     Bakerloo: violinSampler,
     Central: violinSampler,
     Circle: violinSampler,

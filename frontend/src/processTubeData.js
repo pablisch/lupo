@@ -100,7 +100,8 @@ function abridgeData (tubeData) {
             .replace(/\./g, '')
             .replace(/'/g, '')
             .replace(/UndergroundStation/g, '')
-            .replace(/&/g, '_'),
+            .replace(/&/g, '_')
+            .replace(/Victoria/g, 'VictoriaSt'),
       };
     });
     return abridgedData;

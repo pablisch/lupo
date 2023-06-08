@@ -1,6 +1,6 @@
 import { arrivalEffectCreate } from './arrivalEffects';
 import TIMEOUTS from './timeouts';
-import Tone from 'tone'; // added this to get the Tone.now() function
+import * as Tone from 'tone'; // added this to get the Tone.now() function
 
 
 const flashElement = (elementId) => {
@@ -24,8 +24,10 @@ const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffectsToggl
     const note = instruments.noteAssignFunctions[train.lineName](train.stationName);
     TIMEOUTS.setTimeout(() => {
       const now = Tone.now(); // the audio context time
-      const randomVelocity = Math.round(((Math.random() * 0.5) + 0.5) * 10) / 10 // random velocity between 0.5 and 1
-
+      const minVelocity = 0.4;
+      // max velocity is 1 as 1 is max output from Math.random()
+      const randomVelocity = Math.round(((Math.random() * minVelocity) + minVelocity) * 10) / 10 // random velocity between 0.3 and 1
+      // console.log(randomVelocity)
       instruments[train.lineName].triggerAttackRelease(note, '4n', now, randomVelocity);
       // console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);
       flashElement(train.stationName);

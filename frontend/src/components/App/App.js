@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css';
 import TubeMap from '../TubeMap/TubeMap.js';
@@ -13,7 +13,6 @@ import SideBarLeft from '../SideBarLeft/SideBarLeft';
 import SideBarRight from '../SideBarRight/SideBarRight';
 import Navbar from '../Navbar/Navbar';
 import Landing from '../Landing/Landing';
-import { InstrumentContext } from '../InstrumentProvider/InstrumentProvider';
 import logo from '../../logo.svg';
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
@@ -22,7 +21,7 @@ const arrivals = []; // array to hold arrival elements, intialised w global scop
 let mainLooper;
 
 function App() {
-  const {currentInstrument, setCurrentInstrument} = useContext(InstrumentContext)
+  const [currentInstrument, setCurrentInstrument] = useState("strings")
 
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true); // added for data visualiser
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0); // added for data visualiser
@@ -139,6 +138,7 @@ function App() {
     })();
 
     return () => {};
+  // eslint-disable-next-line
   }, [currentInstrument])
   
   const changeCurrentInstrument = (change) => {

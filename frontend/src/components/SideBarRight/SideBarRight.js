@@ -1,4 +1,3 @@
-import { arrivalEffectTransform, arrivalEffectCreate } from '../../arrivalEffects';
 import './SideBarRight.css'
 
 

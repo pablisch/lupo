@@ -1,5 +1,4 @@
-import React, { useState, useContext } from 'react';
-import { InstrumentContext } from '../InstrumentProvider/InstrumentProvider';
+import React, { useState } from 'react';
 
 import './SideBarLeft.css'
 import lineNames from '../../lineNames';
@@ -7,7 +6,6 @@ import Slider from '../Slider/Slider';
 
 
 const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentInstrument}) => {
-  const {setCurrentInstrument} = useContext(InstrumentContext)
 
   const [fadeBakerlooState, setFadeBakerlooState] = useState(true);
   const [fadeCentralState, setFadeCentralState] = useState(true);

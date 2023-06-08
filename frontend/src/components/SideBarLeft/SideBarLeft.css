@@ -3,8 +3,8 @@
 }
 
 #soundon {
-  width: 90%;
-  margin: 0 auto 20px;
+  width: 100%;
+  margin: 5px auto 20px;
   padding: 5px 0;
   background-color: #e48d6a;
   color: #000;
@@ -15,14 +15,13 @@
   cursor: pointer;
 }
 :root {
-  --service-1: #d0f086;
+  --service-1: #ebf086;
   --service-2: #b2e63a;
 } 
 
 #soundon:disabled {
-  background-color: var(--service-1);
+  background-color: var(--service-2);
   cursor: not-allowed;
-  animation: colorTransition 2s infinite alternate;
 }
 
 @keyframes colorTransition {
@@ -58,8 +57,41 @@
   opacity: 1;
 }
 
+#mute {
+  margin-bottom: 15px;
+}
+
 .instrumentButton {
   width: 100%;
+  height: 28px;
+  margin: 0 auto 5px;
+  color: #222;
+  font-size: 1.2rem;
+  border: 1.5px solid #555;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(214, 216, 213);
+}
+
+.instrumentButton:disabled {
+  background-color: var(--service-1);
+  color: #000;
+  cursor: not-allowed;
+  animation: colorTransition 2s infinite alternate; 
+}
+
+.redButton {
+  background-color: rgb(124, 124, 124);
+  color: #fff;
+}
+
+.greenButton {
+  background-color: rgb(214, 216, 213);
+  color: #222;
+}
+
+.arrival-effects {
+  font-size: 1rem;
 }
 
 .btn-temp-left {
@@ -79,9 +111,7 @@
   background-color: #fff;
   color: #fff;
   font-size: 1.4rem;
-  /* border: 1px solid #555; */
   border: none;
-  /* border-radius: 2px; */
   cursor: pointer;
   height: 30px;
 }
@@ -106,6 +136,7 @@
 .btn-hammersmith-city {
   background-color: rgb(244, 169, 190);
   font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .btn-jubilee {
@@ -139,13 +170,3 @@
   margin-bottom: 3px;
 }
 
-.btn-temp-right {
-  width: 100%;
-  margin: 0 auto 5px;
-  background-color: #fff;
-  color: #444;
-  font-size: 1.2rem;
-  border: 1px solid #555;
-  border-radius: 2px;
-  cursor: pointer;
-}

@@ -3,7 +3,7 @@ import './SideBarLeft.css'
 import Slider from '../Slider/Slider';
 
 
-const SideBarLeft = ({ stop, setTapInVisible ,arrivalEffectsToggle, handleArrivalEffectToggle,currentInstrument, soundOn, isPlaying, instruments, changeCurrentInstrument}) => {
+const SideBarLeft = ({ stop, setTapInVisible ,arrivalEffectsToggle, handleArrivalEffectToggle,currentInstrument, soundOn, isPlaying, instruments, changeCurrentInstrument, muted, handleMuteButtonClick}) => {
 
   const [bakerlooControlToggle, setBakerlooControlToggle] = useState(false);
   const [centralControlToggle, setCentralControlToggle] = useState(false);
@@ -107,6 +107,7 @@ const SideBarLeft = ({ stop, setTapInVisible ,arrivalEffectsToggle, handleArriva
       <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button><br />
       <button className="instrumentButton" onClick={() => handleArrivalEffectToggle()}>{arrivalEffectsToggle ? 'Turn Arrival Effects OFF' : 'Turn Arrival Effects ON'}</button><br />
       <button className="instrumentButton" onClick={() => {stop(); setTapInVisible(true);}}>STOP</button><br /><br />
+      <button id="mute" onClick={() => handleMuteButtonClick()}> {muted ? 'Unmute' : 'Mute'} </button>
       <button className="instrumentButton" id="tubeDrums" onClick={() => changeCurrentInstrument("tubeDrums")} disabled={currentInstrument == "tubeDrums"}>Tube Drums</button><br />
       <button className="instrumentButton" id="marimba" onClick={() => changeCurrentInstrument("marimba")} disabled={currentInstrument == "marimba"}>Marimba</button><br />
       <button className="instrumentButton" id="orchestra" onClick={() => changeCurrentInstrument("orchestra")} disabled={currentInstrument == "orchestra"}>Orchestra</button><br />

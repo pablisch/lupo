@@ -14,6 +14,7 @@ import SideBarLeft from '../SideBarLeft/SideBarLeft';
 import Navbar from '../Navbar/Navbar';
 import Landing from '../Landing/Landing';
 import logo from '../../logo.svg';
+import * as Tone from 'tone';
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
@@ -29,6 +30,7 @@ function App() {
   const [arrivalEffectsToggle, setArrivalEffectsToggle] = useState(true); // added for data visualiser
   const [instruments, setInstruments] = useState(null);
   const [tapInVisible, setTapInVisible] = useState(true);
+  const [muted, setMuted] = useState(false);
   const renderCount = useRef(1)
 
   // const fadeElement = (elementId, state, setState) => {
@@ -167,6 +169,17 @@ function App() {
     setCurrentInstrument(change);
   }
 
+  const handleMuteButtonClick = () => {
+    if (muted) {
+      Tone.Destination.mute = false;
+      console.log('unmuted')
+    } else {
+      Tone.Destination.mute = true;
+      console.log('muted')
+    }
+    setMuted(() => !muted);
+  }
+
   return (
     <div className="App">
       
@@ -182,7 +195,7 @@ function App() {
             {/* <img src={logo} id="tap-in" className="App-logo" alt="sound on" /> */}
             <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
             <div className="container bars-and-map">
-              <SideBarLeft stop={stop} setTapInVisible={setTapInVisible} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument}/>
+              <SideBarLeft stop={stop} setTapInVisible={setTapInVisible} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick}/>
               <TubeMap/>
             </div> 
           </>

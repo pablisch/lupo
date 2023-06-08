@@ -106,6 +106,7 @@ const SideBarLeft = ({ soundOn, isPlaying, instruments, changeCurrentInstrument}
     <aside className="sidebar sidebar-left">
       <h2>Line Status</h2>
       <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button>
+      <button id="tubeDrums" onClick={() => changeCurrentInstrument("tubeDrums")}>Tube Drums</button>
       <button id="marimba" onClick={() => changeCurrentInstrument("marimba")}>Marimba</button>
       <button id="orchestra" onClick={() => changeCurrentInstrument("orchestra")}>Orchestra</button>
       <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button>

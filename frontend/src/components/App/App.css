@@ -85,7 +85,7 @@ main {
 .sidebar h2 {
   font-size: 1.8rem;
   z-index: 100;
-  margin: 10px 0;
+  margin: 10px 0 3px;
 }
 
 /* FADE FUNCTION STYLES */
@@ -117,6 +117,16 @@ main {
 } */
 
 /* BUTTON STYLES */
+
+#btn-data {
+  margin-top: 15px;
+  width: 380px;
+  font-size: 1rem;
+  background-color: #444;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 5px;
+}
 
 #soundon {
   margin: 10px auto;

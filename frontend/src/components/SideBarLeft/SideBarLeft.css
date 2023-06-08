@@ -3,8 +3,8 @@
 }
 
 #soundon {
-  width: 90%;
-  margin: 0 auto 20px;
+  width: 100%;
+  margin: 5px auto 15px;
   padding: 5px 0;
   background-color: #e48d6a;
   color: #000;
@@ -20,9 +20,8 @@
 } 
 
 #soundon:disabled {
-  background-color: var(--service-1);
+  background-color: var(--service-2);
   cursor: not-allowed;
-  animation: colorTransition 2s infinite alternate;
 }
 
 @keyframes colorTransition {
@@ -58,16 +57,27 @@
   opacity: 1;
 }
 
+#mute {
+  margin-bottom: 10px;
+}
+
 .instrumentButton {
   width: 100%;
-  height: 30px;
+  height: 25px;
   margin: 0 auto 5px;
   background-color: #fff;
   color: #444;
   font-size: 1.2rem;
-  border: 1px solid #555;
-  border-radius: 2px;
+  border: 1.5px solid #555;
+  border-radius: 10px;
   cursor: pointer;
+  background-color: rgb(178, 205, 255);
+}
+
+.instrumentButton:disabled {
+  background-color: var(--service-1);
+  cursor: not-allowed;
+  animation: colorTransition 2s infinite alternate; 
 }
 
 .redButton {
@@ -99,9 +109,7 @@
   background-color: #fff;
   color: #fff;
   font-size: 1.4rem;
-  /* border: 1px solid #555; */
   border: none;
-  /* border-radius: 2px; */
   cursor: pointer;
   height: 30px;
 }
@@ -157,16 +165,5 @@
   min-height: 5px;
   background: rgb(160, 112, 34);
   margin-bottom: 3px;
-}
-
-.btn-temp-right {
-  width: 100%;
-  margin: 0 auto 5px;
-  background-color: #fff;
-  color: #444;
-  font-size: 1.2rem;
-  border: 1px solid #555;
-  border-radius: 2px;
-  cursor: pointer;
 }
 

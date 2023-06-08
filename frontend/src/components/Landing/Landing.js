@@ -7,7 +7,7 @@ const Landing = ({renderCount, soundOn}) => {
   return (
     <div className="App">
       <div className="app-nav">
-        <h2>LONDON UNDERGROUND ORCHESTRA</h2>
+        <h2>LONDON UNDERGROUND PHONY ORCHESTRA</h2>
       </div>
       <div className="blue-break"></div>
       <header className="App-header">
@@ -23,7 +23,7 @@ const Landing = ({renderCount, soundOn}) => {
       <section className='blurb'>
         <div className="landing-page">
           <p className='top-text'>Click on the logo above to enter the London Underground music map.</p>
-          <p>The London Underground Orchestra is powered by the TFL Unified API which provides a stream of dubious data about train arrivals throughout the entire
+          <p>The London Underground Phony Orchestra is powered by the TFL Unified API which provides a stream of dubious data about train arrivals throughout the entire
             London tube, train, bus and river bus network.</p>
           <p className='bottom-text'>In this app, each tube train arrival triggers a audio/visual event.</p>
         </div>

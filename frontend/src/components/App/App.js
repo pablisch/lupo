@@ -22,7 +22,7 @@ const arrivals = []; // array to hold arrival elements, intialised w global scop
 let mainLooper;
 
 function App() {
-  const [currentInstrument, setCurrentInstrument] = useState("strings")
+  const [currentInstrument, setCurrentInstrument] = useState("orchestra")
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true); // added for data visualiser
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0); // added for data visualiser
   const [visualData, setVisualData] = useState([]); // added for data visualiser

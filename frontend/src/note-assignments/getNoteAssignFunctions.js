@@ -1,27 +1,60 @@
-import assignNoteForBakerloo from './bakerloo';
-import assignNoteForCentral from './central';
-import assignNoteForCircle from './circle'
-import assignNoteForDistrict from './district';
-import assignNoteForHammersmithCity from './hammersmithandcity'
-import assignNoteForJubilee from './jubilee';
-import assignNoteForMetropolitan from './metropolitan';
-import assignNoteForNorthern from './northern';
-import assigneNoteForPicadilly from './piccadilly'
-import assignNoteForVictoria from './victoria';
-import assignNoteForWaterlooAndCity from './waterlooandcity';
+import orchestraBakerlooNoteAssignment from './orchestra/bakerloo';
+import orchestraCentralNoteAssignment from './orchestra/central';
+import orchestraCircleNoteAssignment from './orchestra/circle'
+import orchestraDistrictNoteAssignment from './orchestra/district';
+import orchestraHammersmithCityNoteAssignment from './orchestra/hammersmithandcity';
+import orchestraJubileeNoteAssignment from './orchestra/jubilee';
+import orchestraMetropolitanNoteAssignment from './orchestra/metropolitan';
+import orchestraNorthernNoteAssignment from './orchestra/northern';
+import orchestraPiccadillyNoteAssignment from './orchestra/piccadilly';
+import orchestraVictoriaNoteAssignment from './orchestra/victoria';
+import orchestraWaterlooAndCityNoteAssignment from './orchestra/waterlooandcity';
 
-const noteAssignFunctions =  {
-    Bakerloo: assignNoteForBakerloo,
-    Central: assignNoteForCentral,
-    Circle: assignNoteForCircle,
-    District: assignNoteForDistrict,
-    HammersmithCity: assignNoteForHammersmithCity,
-    Jubilee: assignNoteForJubilee,
-    Metropolitan: assignNoteForMetropolitan,
-    Northern: assignNoteForNorthern,
-    Piccadilly: assigneNoteForPicadilly,
-    Victoria: assignNoteForVictoria,
-    WaterlooCity: assignNoteForWaterlooAndCity
+import marimbaBakerlooNoteAssignment from './marimba/bakerloo';
+import marimbaCentralNoteAssignment from './marimba/central';
+import marimbaCircleNoteAssignment from './marimba/circle'
+import marimbaDistrictNoteAssignment from './marimba/district';
+import marimbaHammersmithCityNoteAssignment from './marimba/hammersmithandcity';
+import marimbaJubileeNoteAssignment from './marimba/jubilee';
+import marimbaMetropolitanNoteAssignment from './marimba/metropolitan';
+import marimbaNorthernNoteAssignment from './marimba/northern';
+import marimbaPiccadillyNoteAssignment from './marimba/piccadilly';
+import marimbaVictoriaNoteAssignment from './marimba/victoria';
+import marimbaWaterlooAndCityNoteAssignment from './marimba/waterlooandcity';
+
+const getNoteAssignFunctions = (instrumentSet) => {
+  let noteAssignFunctions = {}
+
+  if (instrumentSet === 'orchestra') {
+    noteAssignFunctions = {
+			Bakerloo: orchestraBakerlooNoteAssignment,
+			Central: orchestraCentralNoteAssignment,
+			Circle: orchestraCircleNoteAssignment,
+			District: orchestraDistrictNoteAssignment,
+			HammersmithCity: orchestraHammersmithCityNoteAssignment,
+			Jubilee: orchestraJubileeNoteAssignment,
+			Metropolitan: orchestraMetropolitanNoteAssignment,
+			Northern: orchestraNorthernNoteAssignment,
+			Piccadilly: orchestraPiccadillyNoteAssignment,
+			Victoria: orchestraVictoriaNoteAssignment,
+			WaterlooCity: orchestraWaterlooAndCityNoteAssignment
+		}
+	} else if (instrumentSet === 'marimba') {
+		noteAssignFunctions = {
+			Bakerloo: marimbaBakerlooNoteAssignment,
+			Central: marimbaCentralNoteAssignment,
+			Circle: marimbaCircleNoteAssignment,
+			District: marimbaDistrictNoteAssignment,
+			HammersmithCity: marimbaHammersmithCityNoteAssignment,
+			Jubilee: marimbaJubileeNoteAssignment,
+			Metropolitan: marimbaMetropolitanNoteAssignment,
+			Northern: marimbaNorthernNoteAssignment,
+			Piccadilly: marimbaPiccadillyNoteAssignment,
+			Victoria: marimbaVictoriaNoteAssignment,
+			WaterlooCity: marimbaWaterlooAndCityNoteAssignment
+		}
+	}	
+	return noteAssignFunctions;
 }
 
-export default noteAssignFunctions;
+export default getNoteAssignFunctions;

@@ -1,4 +1,3 @@
-import noteAssignFunctions from './note-assignments/getNoteAssignFunctions'
 import { arrivalEffectCreate } from './arrivalEffects';
 import TIMEOUTS from './timeouts';
 import Tone from 'tone'; // added this to get the Tone.now() function
@@ -21,7 +20,8 @@ const flashElement = (elementId) => {
 
 const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffectsToggle, arrivals) => {
   quantisedTubeData.forEach((train) => {
-    const note = noteAssignFunctions[train.lineName](train.stationName);
+    // const note = noteAssignFunctions[train.lineName](train.stationName);
+    const note = instruments.noteAssignFunctions[train.lineName](train.stationName);
     TIMEOUTS.setTimeout(() => {
       const now = Tone.now(); // the audio context time
       const randomVelocity = Math.round(((Math.random() * 0.5) + 0.5) * 10) / 10 // random velocity between 0.5 and 1

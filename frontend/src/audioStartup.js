@@ -309,31 +309,77 @@ const audioStartup = async (instrumentSet) => {
   }).toDestination();
   gongSampler.maxVolume = -6;
   gongSampler.volume.value = gongSampler.maxVolume;
+
+  const tubeDrumSamplerSetupParams = {
+      urls: {
+        "A2": "tube_drum_c2.mp3",
+        "A3": "tube_drum_a3.mp3",
+        "A4": "tube_drum_a4.mp3",
+        "C2": "tube_drum_c2.mp3",
+        "C3": "tube_drum_c3.mp3",
+        "C4": "tube_drum_c4.mp3",
+        "C5": "tube_drum_c5.mp3",
+        "D2": "tube_drum_d2.mp3",
+        "D3": "tube_drum_d3.mp3",
+        "D4": "tube_drum_d4.mp3",
+        "E2": "tube_drum_e2.mp3",
+        "E3": "tube_drum_e3.mp3",
+        "E4": "tube_drum_e4.mp3",
+        "G2": "tube_drum_g2.mp3",
+        "G3": "tube_drum_g3.mp3",
+        "G4": "tube_drum_g4.mp3"
+       },
+      release: 1,
+      baseUrl: "samples/tubeDrum_samples/",
+    }
   
-  const tubeDrumSampler = new Tone.Sampler({
-    urls: {
-      "A2": "tube_drum_c2.mp3",
-      "A3": "tube_drum_a3.mp3",
-      "A4": "tube_drum_a4.mp3",
-      "C2": "tube_drum_c2.mp3",
-      "C3": "tube_drum_c3.mp3",
-      "C4": "tube_drum_c4.mp3",
-      "C5": "tube_drum_c5.mp3",
-      "D2": "tube_drum_d2.mp3",
-      "D3": "tube_drum_d3.mp3",
-      "D4": "tube_drum_d4.mp3",
-      "E2": "tube_drum_e2.mp3",
-      "E3": "tube_drum_e3.mp3",
-      "E4": "tube_drum_e4.mp3",
-      "G2": "tube_drum_g2.mp3",
-      "G3": "tube_drum_g3.mp3",
-      "G4": "tube_drum_g4.mp3"
-     },
-    release: 1,
-    baseUrl: "samples/tubeDrum_samples/",
-  }).toDestination();
+  const tubeDrumSampler = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
   tubeDrumSampler.maxVolume = -6;
   tubeDrumSampler.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler2 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler2.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler2.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler3 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler3.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler3.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler4 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler4.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler4.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler5 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler5.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler5.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler6 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler6.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler6.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler7 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler7.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler7.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler8 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler8.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler8.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler9 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler9.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler9.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler10 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler10.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler10.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler11 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler11.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler11.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler12 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler12.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler12.volume.value = tubeDrumSampler.maxVolume;
   
   let instruments = {}
 
@@ -374,17 +420,17 @@ const audioStartup = async (instrumentSet) => {
   } else if (instrumentSet === 'tubeDrums') {
     instruments = {
       Bakerloo: tubeDrumSampler,
-      Central: tubeDrumSampler,
-      Circle: tubeDrumSampler,
-      District: tubeDrumSampler,
-      HammersmithCity: tubeDrumSampler,
-      Jubilee: tubeDrumSampler,
-      Metropolitan: tubeDrumSampler,
-      Northern: tubeDrumSampler,
-      Piccadilly: tubeDrumSampler,
-      Victoria: tubeDrumSampler, 
-      WaterlooCity: tubeDrumSampler,
-      Pedal: tubeDrumSampler
+      Central: tubeDrumSampler2,
+      Circle: tubeDrumSampler3,
+      District: tubeDrumSampler4,
+      HammersmithCity: tubeDrumSampler5,
+      Jubilee: tubeDrumSampler6,
+      Metropolitan: tubeDrumSampler7,
+      Northern: tubeDrumSampler8,
+      Piccadilly: tubeDrumSampler9,
+      Victoria: tubeDrumSampler10, 
+      WaterlooCity: tubeDrumSampler11,
+      Pedal: tubeDrumSampler12
     };
   }
 

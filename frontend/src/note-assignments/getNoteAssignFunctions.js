@@ -22,6 +22,18 @@ import marimbaPiccadillyNoteAssignment from './marimba/piccadilly';
 import marimbaVictoriaNoteAssignment from './marimba/victoria';
 import marimbaWaterlooAndCityNoteAssignment from './marimba/waterlooandcity';
 
+import tubeDrumsBakerlooNoteAssignment from './tubeDrums/bakerloo';
+import tubeDrumsCentralNoteAssignment from './tubeDrums/central';
+import tubeDrumsCircleNoteAssignment from './tubeDrums/circle'
+import tubeDrumsDistrictNoteAssignment from './tubeDrums/district';
+import tubeDrumsHammersmithCityNoteAssignment from './tubeDrums/hammersmithandcity';
+import tubeDrumsJubileeNoteAssignment from './tubeDrums/jubilee';
+import tubeDrumsMetropolitanNoteAssignment from './tubeDrums/metropolitan';
+import tubeDrumsNorthernNoteAssignment from './tubeDrums/northern';
+import tubeDrumsPiccadillyNoteAssignment from './tubeDrums/piccadilly';
+import tubeDrumsVictoriaNoteAssignment from './tubeDrums/victoria';
+import tubeDrumsWaterlooAndCityNoteAssignment from './tubeDrums/waterlooandcity';
+
 const getNoteAssignFunctions = (instrumentSet) => {
   let noteAssignFunctions = {}
 
@@ -52,6 +64,20 @@ const getNoteAssignFunctions = (instrumentSet) => {
 			Piccadilly: marimbaPiccadillyNoteAssignment,
 			Victoria: marimbaVictoriaNoteAssignment,
 			WaterlooCity: marimbaWaterlooAndCityNoteAssignment
+		}
+	} else if (instrumentSet === 'tubeDrums') {
+		noteAssignFunctions = {
+			Bakerloo: tubeDrumsBakerlooNoteAssignment,
+			Central: tubeDrumsCentralNoteAssignment,
+			Circle: tubeDrumsCircleNoteAssignment,
+			District: tubeDrumsDistrictNoteAssignment,
+			HammersmithCity: tubeDrumsHammersmithCityNoteAssignment,
+			Jubilee: tubeDrumsJubileeNoteAssignment,
+			Metropolitan: tubeDrumsMetropolitanNoteAssignment,
+			Northern: tubeDrumsNorthernNoteAssignment,
+			Piccadilly: tubeDrumsPiccadillyNoteAssignment,
+			Victoria: tubeDrumsVictoriaNoteAssignment,
+			WaterlooCity: tubeDrumsWaterlooAndCityNoteAssignment
 		}
 	}	
 	return noteAssignFunctions;

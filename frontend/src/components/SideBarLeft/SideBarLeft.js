@@ -189,7 +189,7 @@ const SideBarLeft = ({ currentInstrument, soundOn, isPlaying, instruments, chang
       </div>
       </>}
 
-      <button className='btn-line btn-waterloo-city' type="button" onClick={() => handleLineControlToggle("WaterlooCity")}>WaterlooCity</button>
+      <button className='btn-line btn-waterloo-city' type="button" onClick={() => handleLineControlToggle("WaterlooCity")}>Waterloo & City</button>
       {waterlooCityControlToggle && <>
       <div className={`mute ${waterlooCityControlToggle ? 'open' : ''}`}>
         <Slider lineName="WaterlooCity" instruments={instruments} key="WaterlooCity" 

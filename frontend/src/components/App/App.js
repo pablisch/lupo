@@ -32,6 +32,23 @@ function App() {
   const [tapInVisible, setTapInVisible] = useState(true);
   const renderCount = useRef(1)
 
+  // const fadeElement = (elementId, state, setState) => {
+  //   const element = document.getElementById(elementId);
+    
+  //   if (state === true) {
+  //     let currentOpacity = element.style.opacity;
+  //     console.log(element.style.opacity)
+  //     if (isNaN(currentOpacity)){ currentOpacity = 1 }
+  //     // changeCSSFadeOut(currentOpacity);
+  //     element.style.animation = `fade-out 1s forwards`;
+  //     setState(false);
+  //   } else if (state === false) {
+  //     console.log("Fade In");
+  //     element.style.animation = "fade-in 1s forwards";
+  //     setState(true);
+  //   }
+  // }
+
   const soundOn = async () => {
     console.log('SOUND ON');
     setTapInVisible(false);

@@ -1,66 +1,63 @@
 const assignNoteForNorthern = (stationName) => {
   switch(stationName) {
-  //   case 'MillHillEast':
-  //     return 'E2';
-  //   case 'FinchleyCentral':
-  //     return 'C2';
-  //   case 'Highgate':
-  //     return 'A2';
-  //   case 'Archway':
-  //     return 'G1';
-  //   case 'TufnellPark':
-  //     return 'E1';
-  //   case 'KentishTown':
-  //     return 'D1';
-  //   case "CamdenTown":
-  //     return 'C1';
-  //   case 'Euston':
-  //     return 'A1';
-  //   case "KingsCrossStPancras":
-  //     return 'G2';
-  //   case 'Angel':
-  //     return 'E2';
-  //   case 'OldStreet':
-  //     return 'D2';
-  //   case 'Moorgate':
-  //     return 'C2';
-  //   case 'Bank':
-  //     return 'A2';
-  //   case  'LondonBridge':
-  //     return 'G1';
-  //   case 'Borough':
-  //     return 'E1';
-  //   case 'Elephant&Castle':
-  //     return 'D1';
-  //   case 'Kennington':
-  //     return 'C1';
-  //   case 'Oval':
-  //     return 'A1';
-  //   case 'Stockwell':
-  //     return 'G2';
-  //   case 'ClaphamNorth':
-  //     return 'E2';
-  //   case 'ClaphamCommon':
-  //     return 'D2';
-  //   case 'ClaphamSouth':
-  //     return 'C2';
-  //   case 'Balham':
-  //     return 'A2';
-  //   case 'TootingBec':
-  //     return 'G1';
-  //   case 'TootingBroadway':
-  //     return 'E1';
-  //   case 'ColliersWood':
-  //     return 'D1';
-  //   case 'SouthWimbledon':
-  //     return 'C1';
-  //   case 'Morden':
-  //     return 'A1';
-  //   default:
-  //     return 'C2';
-  // }
-  default:
-    return `C3`;
+    case 'MillHillEast':
+      return 'C4';
+    case 'FinchleyCentral':
+      return 'D4';
+    case 'Highgate':
+      return 'E4';
+    case 'Archway':
+      return 'G4';
+    case 'TufnellPark':
+      return 'A4';
+    case 'KentishTown':
+      return 'C5';
+    case "CamdenTown":
+      return 'D5';
+    case 'Euston':
+      return 'E5';
+    case "KingsCrossStPancras":
+      return 'G5';
+    case 'Angel':
+      return 'A5';
+    case 'OldStreet':
+      return 'C6';
+    case 'Moorgate':
+      return 'C4';
+    case 'Bank':
+      return 'D4';
+    case  'LondonBridge':
+      return 'E4';
+    case 'Borough':
+      return 'G4';
+    case 'Elephant&Castle':
+      return 'A4';
+    case 'Kennington':
+      return 'C5';
+    case 'Oval':
+      return 'D5';
+    case 'Stockwell':
+      return 'E5';
+    case 'ClaphamNorth':
+      return 'G5';
+    case 'ClaphamCommon':
+      return 'A5';
+    case 'ClaphamSouth':
+      return 'C6';
+    case 'Balham':
+      return 'C4';
+    case 'TootingBec':
+      return 'D4';
+    case 'TootingBroadway':
+      return 'E4';
+    case 'ColliersWood':
+      return 'G4';
+    case 'SouthWimbledon':
+      return 'A4';
+    case 'Morden':
+      return 'C5';
+    default:
+      return 'C4';
   }
 }
 

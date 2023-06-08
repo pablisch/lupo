@@ -1,86 +1,82 @@
 const assignNoteForHammersmithCity = (stationName) => {
-  const lowOctave = 4;
-
   switch(stationName) {
-    // case 'Hammersmith':
-    //   return `G${lowOctave + 2}`;
-    // case 'GoldhawkRoad':
-    //   return `G${lowOctave + 2}`;
-    // case "ShepherdsBushMarket":
-    //   return `E${lowOctave + 2}`;
-    // case 'WoodLane':
-    //   return `E${lowOctave + 2}`;
-    // case 'LatimerRoad':
-    //   return `D${lowOctave + 2}`;
-    // case 'LadbrokeGrove':
-    //   return `D${lowOctave + 2}`;
-    // case 'WestbournePark':
-    //   return `C${lowOctave + 2}`;
-    // case 'RoyalOak':
-    //   return `C${lowOctave + 2}`;
-    // case 'Paddington':
-    //   return `A${lowOctave + 2}`;
-    // case 'EdgwareRoadCircleLine':
-    //   return `A${lowOctave + 2}`;
-    // case 'BakerStreet':
-    //   return `G${lowOctave + 1}`;
-    // case 'GreatPortlandStreet':
-    //   return `G${lowOctave + 1}`;
-    // case 'EustonSquare':
-    //   return `G${lowOctave + 1}`;
-    // case 'KingsCrossStPancras':
-    //   return `E${lowOctave + 1}`;
-    // case 'Farringdon':
-    //   return `E${lowOctave + 1}`;
-    // case 'Barbican':
-    //   return `E${lowOctave + 1}`;
-    // case 'Moorgate':
-    //   return `D${lowOctave + 1}`;
-    // case 'LiverpoolStreet':
-    //   return `D${lowOctave + 1}`;
-    // case 'AldgateEast':
-    //   return `D${lowOctave + 1}`;
-    // case 'Whitechapel':
-    //   return `C${lowOctave + 1}`;
-    // case 'StepneyGreen':
-    //   return `C${lowOctave + 1}`;
-    // case 'MileEnd':
-    //   return `C${lowOctave + 1}`;
-    // case 'BowRoad':
-    //   return `A${lowOctave + 1}`;
-    // case 'Bromley-by-Bow':
-    //   return `A${lowOctave + 1}`;
-    // case 'WestHam':
-    //   return `A${lowOctave + 1}`;
-    // case 'Plaistow':
-    //   return `G${lowOctave}`;
-    // case 'UptonPark':
-    //   return `G${lowOctave}`;
-    // case 'EastHam':
-    //   return `G${lowOctave}`;
-    // case 'Barking':
-    //   return `E${lowOctave}`;
-    // case 'Upney Underground Station':
-    //   return `E${lowOctave}`;
-    // case 'Becontree Underground Station':
-    //   return `E${lowOctave}`;
-    // case 'Dagenham Heathway Underground Station':
-    //   return `D${lowOctave}`;
-    // case 'Dagenham East Underground Station':
-    //   return `D${lowOctave}`;
-    // case 'Elm Park Underground Station':
-    //   return `D${lowOctave}`;
-    // case 'Hornchurch Underground Station':
-    //   return `C${lowOctave}`;
-    // case 'Upminster Bridge Underground Station':
-    //   return `C${lowOctave}`;
-    // case 'Upminster Underground Station':
-    //   return `C${lowOctave}`;
-    // default:
-    //   return `A${lowOctave}`;
+    case 'Hammersmith':
+      return 'C4';
+    case 'GoldhawkRoad':
+      return 'D4';
+    case "ShepherdsBushMarket":
+      return 'E4';
+    case 'WoodLane':
+      return 'G4';
+    case 'LatimerRoad':
+      return 'A4';
+    case 'LadbrokeGrove':
+      return 'C5';
+    case 'WestbournePark':
+      return 'D5';
+    case 'RoyalOak':
+      return 'E5';
+    case 'Paddington':
+      return 'G5';
+    case 'EdgwareRoadCircleLine':
+      return 'A5';
+    case 'BakerStreet':
+      return 'C6';
+    case 'GreatPortlandStreet':
+      return 'C4';
+    case 'EustonSquare':
+      return 'D4';
+    case 'KingsCrossStPancras':
+      return 'E4';
+    case 'Farringdon':
+      return 'G4';
+    case 'Barbican':
+      return 'A4';
+    case 'Moorgate':
+      return 'C5';
+    case 'LiverpoolStreet':
+      return 'D5';
+    case 'AldgateEast':
+      return 'E5';
+    case 'Whitechapel':
+      return 'G5';
+    case 'StepneyGreen':
+      return 'A5';
+    case 'MileEnd':
+      return 'C6';
+    case 'BowRoad':
+      return 'C4';
+    case 'Bromley-by-Bow':
+      return 'D4';
+    case 'WestHam':
+      return 'E4';
+    case 'Plaistow':
+      return 'G4';
+    case 'UptonPark':
+      return 'A4';
+    case 'EastHam':
+      return 'C5';
+    case 'Barking':
+      return 'D5';
+    case 'Upney':
+      return 'E5';
+    case 'Becontree':
+      return 'G5';
+    case 'Dagenham Heathway':
+      return 'A5';
+    case 'Dagenham East':
+      return 'C6';
+    case 'Elm Park':
+      return 'C4';
+    case 'Hornchurch':
+      return 'D4';
+    case 'Upminster Bridge':
+      return 'E4';
+    case 'Upminster':
+      return 'G4';
     default:
-      return `C3`;
-    }
+      return 'C4';
+  }
 }
 
 module.exports = assignNoteForHammersmithCity;

@@ -1,90 +1,85 @@
 const assignNoteForPiccadilly = (stationName) => {
-  const lowOctave = 3;
-
   switch(stationName) {
-    // case 'Cockfosters':
-    //   return `G${lowOctave + 2}`;
-    // case 'Oakwood':
-    //   return `G${lowOctave + 2}`;
-    // case 'Southgate':
-    //   return `E${lowOctave + 2}`;
-    // case 'ArnosGrove':
-    //   return `E${lowOctave + 2}`;
-    // case 'BoundsGreen':
-    //   return `D${lowOctave + 2}`;
-    // case 'WoodGreen':
-    //   return `D${lowOctave + 2}`;
-    // case 'TurnpikeLane':
-    //   return `C${lowOctave + 2}`;
-    // case 'ManorHouse':
-    //   return `C${lowOctave + 2}`;
-    // case 'FinsburyPark':
-    //   return `C${lowOctave + 2}`;
-    // case 'Arsenal':
-    //   return `A${lowOctave + 2}`;
-    // case 'HollowayRoad':
-    //   return `A${lowOctave + 2}`;
-    // case 'CaleonianRoad':
-    //   return `A${lowOctave + 2}`;
-    // case 'KingsCrossStPancras':
-    //   return `G${lowOctave + 1}`;
-    // case 'RussellSquare':
-    //   return `G${lowOctave + 1}`;
-    // case 'Holborn':
-    //   return `G${lowOctave + 1}`;
-    // case 'Covent Garden':
-    //   return `E${lowOctave + 1}`;
-    // case 'Leicester Square':
-    //   return `E${lowOctave + 1}`;
-    // case 'GreenPark':
-    //   return `E${lowOctave + 1}`;
-    // case 'PiccadillyCircus':
-    //   return `D${lowOctave + 1}`;
-    // case 'HydeParkCorner':
-    //   return `D${lowOctave + 1}`;
-    // case 'Knightsbridge':
-    //   return `D${lowOctave + 1}`;
-    // case 'SouthKensington':
-    //   return `C${lowOctave + 1}`;
-    // case 'GloucesterRoad':
-    //   return `C${lowOctave + 1}`;
-    // case 'EarlsCourt':
-    //   return `C${lowOctave + 1}`;
-    // case 'BaronsCourt':
-    //   return `A${lowOctave + 1}`;
-    // case 'Hammersmith':
-    //   return `A${lowOctave + 1}`;
-    // case 'TurnhamGreen':
-    //   return `A${lowOctave + 1}`;
-    // case 'Acton Town':
-    //   return `G${lowOctave}`;
-    // case 'SouthEaling':
-    //   return `G${lowOctave}`;
-    // case 'Northfields':
-    //   return `G${lowOctave}`;
-    // case 'BostonManor':
-    //   return `E${lowOctave}`;
-    // case 'Osterley':
-    //   return `E${lowOctave}`;
-    // case 'HounslowEast':
-    //   return `E${lowOctave}`;
-    // case 'HounslowCentral':
-    //   return `D${lowOctave}`;
-    // case 'HounslowWest':
-    //   return `D${lowOctave}`;
-    // case 'HattonCross':
-    //   return `D${lowOctave}`;
-    // case 'HeathrowTerminal 4':
-    //   return `C${lowOctave}`;
-    // case 'HeathrowTerminals23':
-    //   return `C${lowOctave}`;
-    // case 'HeathrowTerminal5':
-    //   return `C${lowOctave}`;
-    // default:
-    //   return `A${lowOctave}`;
-    // }
+    case 'Cockfosters':
+      return 'C4';
+    case 'Oakwood':
+      return 'D4';
+    case 'Southgate':
+      return 'E4';
+    case 'ArnosGrove':
+      return 'G4';
+    case 'BoundsGreen':
+      return 'A4';
+    case 'WoodGreen':
+      return 'C5';
+    case 'TurnpikeLane':
+      return 'D5';
+    case 'ManorHouse':
+      return 'E5';
+    case 'FinsburyPark':
+      return 'G5';
+    case 'Arsenal':
+      return 'A5';
+    case 'HollowayRoad':
+      return 'C6';
+    case 'CaleonianRoad':
+      return 'C4';
+    case 'KingsCrossStPancras':
+      return 'D4';
+    case 'RussellSquare':
+      return 'E4';
+    case 'Holborn':
+      return 'G4';
+    case 'Covent Garden':
+      return 'A4';
+    case 'Leicester Square':
+      return 'C5';
+    case 'GreenPark':
+      return 'D5';
+    case 'PiccadillyCircus':
+      return 'E5';
+    case 'HydeParkCorner':
+      return 'G5';
+    case 'Knightsbridge':
+      return 'A5';
+    case 'SouthKensington':
+      return 'C6';
+    case 'GloucesterRoad':
+      return 'C4';
+    case 'EarlsCourt':
+      return 'D4';
+    case 'BaronsCourt':
+      return 'E4';
+    case 'Hammersmith':
+      return 'G4';
+    case 'TurnhamGreen':
+      return 'A4';
+    case 'Acton Town':
+      return 'C4';
+    case 'SouthEaling':
+      return 'D4';
+    case 'Northfields':
+      return 'E4';
+    case 'BostonManor':
+      return 'G4';
+    case 'Osterley':
+      return 'A4';
+    case 'HounslowEast':
+      return 'C5';
+    case 'HounslowCentral':
+      return 'D5';
+    case 'HounslowWest':
+      return 'E5';
+    case 'HattonCross':
+      return 'G5';
+    case 'HeathrowTerminal 4':
+      return 'A5';
+    case 'HeathrowTerminals23':
+      return 'C4';
+    case 'HeathrowTerminal5':
+      return 'D4';
     default:
-      return `C3`;
+      return 'C4';
     }
   }
   

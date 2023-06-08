@@ -1,80 +1,75 @@
 const assignNoteForMetropolitan = (stationName) => {
-  const lowOctave = 3;
-
   switch(stationName) {
-    // case 'Amersham':
-    //   return `E${lowOctave}`;
-    // case 'Chesham':
-    //   return `D${lowOctave}`;
-    // case 'Chalfont&Latimer':
-    //   return `C${lowOctave}`;
-    // case 'Chorleywood':
-    //   return `A${lowOctave}`;
-    // case 'Watford':
-    //   return `G${lowOctave + 2}`;
-    // case 'Rickmansworth':
-    //   return `E${lowOctave + 2}`;
-    // case 'Croxley':
-    //   return `D${lowOctave + 2}`;
-    // case 'MoorPark':
-    //   return `C${lowOctave + 2}`;
-    // case 'Northwood':
-    //   return `A${lowOctave + 2}`;
-    // case 'NorthwoodHills':
-    //   return `G${lowOctave + 1}`;
-    // case 'Pinner':
-    //   return `E${lowOctave + 1}`;
-    // case 'NorthHarrow':
-    //   return `D${lowOctave + 1}`;
-    // case 'Uxbridge':
-    //   return `C${lowOctave + 1}`;
-    // case 'Hillingdon':
-    //   return `A${lowOctave + 1}`;
-    // case 'Ickenham':
-    //   return `G${lowOctave}`;
-    // case 'Ruislip':
-    //   return `G${lowOctave}`;
-    // case  'RuislipManor':
-    //   return `E${lowOctave}`;
-    // case 'Eastcote':
-    //   return `D${lowOctave}`;
-    // case 'RaynersLane':
-    //   return `C${lowOctave}`;
-    // case 'WestHarrow':
-    //   return `A${lowOctave}`;
-    // case 'Harrow-on-the-Hill':
-    //   return `G${lowOctave + 2}`;
-    // case 'NorthwickPark':
-    //   return `E${lowOctave + 2}`;
-    // case 'PrestonRoad':
-    //   return `D${lowOctave + 2}`;
-    // case 'WembleyPark':
-    //   return `C${lowOctave + 2}`;
-    // case 'FinchleyRoad':
-    //   return `A${lowOctave + 2}`;
-    // case 'BakerStreet':
-    //   return `G${lowOctave + 1}`;
-    // case 'GreatPortlandStreet':
-    //   return `E${lowOctave + 1}`;
-    // case 'EustonSquare':
-    //   return `D${lowOctave + 1}`;
-    // case 'KingsCrossStPancras':
-    //   return `C${lowOctave + 1}`;
-    // case 'Farringdon':
-    //   return `A${lowOctave + 1}`;
-    // case 'Barbican':
-    //   return `G${lowOctave}`;
-    // case 'Moorgate':
-    //   return `E${lowOctave}`;
-    // case 'LiverpoolStreet':
-    //   return `D${lowOctave}`;
-    // case 'Aldgate':
-    //   return `C${lowOctave}`;
-    // default:
-    //   return `A${lowOctave}`;
-    // }
+    case 'Amersham':
+      return 'C4';
+    case 'Chesham':
+      return 'D4';
+    case 'Chalfont&Latimer':
+      return 'E4';
+    case 'Chorleywood':
+      return 'G4';
+    case 'Watford':
+      return 'A4';
+    case 'Rickmansworth':
+      return 'C5';
+    case 'Croxley':
+      return 'D5';
+    case 'MoorPark':
+      return 'E5';
+    case 'Northwood':
+      return 'G5';
+    case 'NorthwoodHills':
+      return 'A5';
+    case 'Pinner':
+      return 'C6';
+    case 'NorthHarrow':
+      return 'C4';
+    case 'Uxbridge':
+      return 'D4';
+    case 'Hillingdon':
+      return 'E4';
+    case 'Ickenham':
+      return 'G4';
+    case 'Ruislip':
+      return 'A4';
+    case  'RuislipManor':
+      return 'C5';
+    case 'Eastcote':
+      return 'D5';
+    case 'RaynersLane':
+      return 'E5';
+    case 'WestHarrow':
+      return 'G5';
+    case 'Harrow-on-the-Hill':
+      return 'A5';
+    case 'NorthwickPark':
+      return 'C6';
+    case 'PrestonRoad':
+      return 'C4';
+    case 'WembleyPark':
+      return 'D4';
+    case 'FinchleyRoad':
+      return 'E4';
+    case 'BakerStreet':
+      return 'G4';
+    case 'GreatPortlandStreet':
+      return 'A4';
+    case 'EustonSquare':
+      return 'C5';
+    case 'KingsCrossStPancras':
+      return 'D5';
+    case 'Farringdon':
+      return 'E5';
+    case 'Barbican':
+      return 'G5';
+    case 'Moorgate':
+      return 'A5';
+    case 'LiverpoolStreet':
+      return 'C6';
+    case 'Aldgate':
+      return 'C4';
     default:
-      return `C3`;
+      return 'C4';
     }
   }
   

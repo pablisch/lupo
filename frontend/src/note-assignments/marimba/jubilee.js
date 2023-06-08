@@ -1,63 +1,59 @@
 const assignNoteForJubilee = (stationName) => {
-  const lowOctave = 3;
-
   switch(stationName) {
-    // case 'Stanmore':
-    //   return `E${lowOctave + 2}`;
-    // case 'CanonsPark':
-    //   return `E${lowOctave + 2}`;
-    // case 'Queensbury':
-    //   return `D${lowOctave + 2}`;
-    // case 'Kingsbury':
-    //   return `D${lowOctave + 2}`;
-    // case 'WembleyPark':
-    //   return `C${lowOctave + 2}`;
-    // case 'Neasden':
-    //   return `C${lowOctave + 2}`;
-    // case "WillesdenGreen":
-    //   return `A${lowOctave + 2}`;
-    // case 'Kilburn':
-    //   return `A${lowOctave + 2}`;
-    // case 'WestHampstead':
-    //   return `E${lowOctave + 1}`;
-    // case 'FinchleyRoad':
-    //   return `E${lowOctave + 1}`;
-    // case 'SwissCottage':
-    //   return `D${lowOctave + 1}`;
-    // case "StJohnsWood":
-    //   return `D${lowOctave + 1}`;
-    // case 'BakerStreet':
-    //   return `C${lowOctave + 1}`;
-    // case  'BondStreet':
-    //   return `C${lowOctave + 1}`;
-    // case 'GreenPark':
-    //   return `A${lowOctave + 1}`;
-    // case 'Westminster':
-    //   return `A${lowOctave + 1}`;
-    // case 'Waterloo':
-    //   return `E${lowOctave}`;
-    // case 'Southwark':
-    //   return `E${lowOctave}`;
-    // case 'LondonBridge':
-    //   return `D${lowOctave}`;
-    // case 'Bermondsey':
-    //   return `D${lowOctave}`;
-    // case 'CanadaWater':
-    //   return `C${lowOctave}`;
-    // case 'CanaryWharf':
-    //   return `C${lowOctave}`;
-    // case 'NorthGreenwich':
-    //   return `A${lowOctave}`;
-    // case 'CanningTown':
-    //   return `A${lowOctave}`;
-    // case 'WestHam ':
-    //   return `C${lowOctave}`;
-    // case 'Stratford':
-    //   return `C${lowOctave}`;
-    // default:
-    //   return `C${lowOctave + 1}`;
+    case 'Stanmore':
+      return 'C4';
+    case 'CanonsPark':
+      return 'D4';
+    case 'Queensbury':
+      return 'E4';
+    case 'Kingsbury':
+      return 'G4';
+    case 'WembleyPark':
+      return 'A4';
+    case 'Neasden':
+      return 'C5';
+    case "WillesdenGreen":
+      return 'D5';
+    case 'Kilburn':
+      return 'E5';
+    case 'WestHampstead':
+      return 'G5';
+    case 'FinchleyRoad':
+      return 'A5';
+    case 'SwissCottage':
+      return 'C6';
+    case "StJohnsWood":
+      return 'C4';
+    case 'BakerStreet':
+      return 'D4';
+    case  'BondStreet':
+      return 'E4';
+    case 'GreenPark':
+      return 'G4';
+    case 'Westminster':
+      return 'A4';
+    case 'Waterloo':
+      return 'C5';
+    case 'Southwark':
+      return 'D5';
+    case 'LondonBridge':
+      return 'E5';
+    case 'Bermondsey':
+      return 'G5';
+    case 'CanadaWater':
+      return 'A5';
+    case 'CanaryWharf':
+      return 'C6';
+    case 'NorthGreenwich':
+      return 'C4';
+    case 'CanningTown':
+      return 'D4';
+    case 'WestHam ':
+      return 'E4';
+    case 'Stratford':
+      return 'G4';
     default:
-      return `C3`;
+      return 'C4';
   }
 }
 

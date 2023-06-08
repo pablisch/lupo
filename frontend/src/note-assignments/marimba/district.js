@@ -1,103 +1,99 @@
 const assignNoteForDistrict = (stationName) => {
-  const lowOctave = 11;
-
   switch (stationName) {
-    // case 'Upminster':
-    //   return `G${lowOctave + 2}`;
-    // case 'UpminsterBridge':
-    //   return `G${lowOctave + 2}`;
-    // case 'Hornchurch':
-    //   return `G${lowOctave + 2}`;
-    // case 'ElmPark':
-    //   return `E${lowOctave + 2}`;
-    // case 'DagenhamEast':
-    //   return `E${lowOctave + 2}`;
-    // case 'DagenhamHeathway':
-    //   return `E${lowOctave + 2}`;
-    // case 'Becontree':
-    //   return `D${lowOctave + 2}`;
-    // case 'Upney':
-    //   return `D${lowOctave + 2}`;
-    // case 'Barking':
-    //   return `D${lowOctave + 2}`;
-    // case 'EastHam':
-    //   return `C${lowOctave + 2}`;
-    // case 'UptonPark':
-    //   return `C${lowOctave + 2}`;
-    // case 'Plaistow':
-    //   return `C${lowOctave + 2}`;
-    // case 'WestHam':
-    //   return `A${lowOctave + 2}`;
-    // case 'Bromley-by-Bow':
-    //   return `A${lowOctave + 2}`;
-    // case 'BowRoad':
-    //   return `A${lowOctave + 2}`;
-    // case 'MileEnd':
-    //   return `G${lowOctave + 1}`;
-    // case 'StepneyGreen':
-    //   return `G${lowOctave + 1}`;
-    // case 'Whitechapel':
-    //   return `G${lowOctave + 1}`;
-    // case 'AldgateEast':
-    //   return `E${lowOctave + 1}`;
-    // case 'TowerHill':
-    //   return `E${lowOctave + 1}`;
-    // case 'Monument':
-    //   return `E${lowOctave + 1}`;
-    // case 'CannonStreet':
-    //   return `D${lowOctave + 1}`;
-    // case 'MansionHouse':
-    //   return `D${lowOctave + 1}`;
-    // case 'Blackfriars':
-    //   return `D${lowOctave + 1}`;
-    // case 'Temple':
-    //   return `C${lowOctave + 1}`;
-    // case 'Embankment':
-    //   return `C${lowOctave + 1}`;
-    // case 'Westminster':
-    //   return `C${lowOctave + 1}`;
-    // case 'StJamessPark':
-    //   return `A${lowOctave + 1}`;
-    // case 'VictoriaSt':
-    //   return `A${lowOctave + 1}`;
-    // case 'SloaneSquare':
-    //   return `A${lowOctave + 1}`;
-    // case 'SouthKensington':
-    //   return `G${lowOctave}`;
-    // case 'GloucesterRoad':
-    //   return `G${lowOctave}`;
-    // case 'HighStreetKensington':
-    //   return `G${lowOctave}`;
-    // case 'EarlsCourt':
-    //   return `E${lowOctave}`;
-    // case 'WestKensington':
-    //   return `E${lowOctave}`;
-    // case 'BaronsCourt':
-    //   return `E${lowOctave}`;
-    // case 'Hammersmith(Dist&PiccLine)':
-    //   return `D${lowOctave}`;
-    // case 'RavenscourtPark':
-    //   return `D${lowOctave}`;
-    // case 'StamfordBrook':
-    //   return `D${lowOctave}`;
-    // case 'TurnhamGreen':
-    //   return `C${lowOctave}`;
-    // case 'Gunnersbury':
-    //   return `C${lowOctave}`;
-    // case 'KewGardens':
-    //   return `C${lowOctave}`;
-    // case 'Richmond':
-    //   return `A${lowOctave}`;
-    // case 'WimbledonPark':
-    //   return `A${lowOctave}`;
-    // case 'Wimbledon':
-    //   return `A${lowOctave}`;
-    // case 'WestBrompton':
-    //   return `A${lowOctave}`;
-    // default:
-    //   return `A${lowOctave}`;
+    case 'Upminster':
+      return 'C4';
+    case 'UpminsterBridge':
+      return 'D4';
+    case 'Hornchurch':
+      return 'E4';
+    case 'ElmPark':
+      return 'G4';
+    case 'DagenhamEast':
+      return 'A4';
+    case 'DagenhamHeathway':
+      return 'C5';
+    case 'Becontree':
+      return 'D5';
+    case 'Upney':
+      return 'E5';
+    case 'Barking':
+      return 'G5';
+    case 'EastHam':
+      return 'A5';
+    case 'UptonPark':
+      return 'C6';
+    case 'Plaistow':
+      return 'C4';
+    case 'WestHam':
+      return 'D4';
+    case 'Bromley-by-Bow':
+      return 'E4';
+    case 'BowRoad':
+      return 'G4';
+    case 'MileEnd':
+      return 'A4';
+    case 'StepneyGreen':
+      return 'G4';
+    case 'Whitechapel':
+      return 'C5';
+    case 'AldgateEast':
+      return 'D5';
+    case 'TowerHill':
+      return 'E5';
+    case 'Monument':
+      return 'G5';
+    case 'CannonStreet':
+      return 'A5';
+    case 'MansionHouse':
+      return 'C6';
+    case 'Blackfriars':
+      return 'C4';
+    case 'Temple':
+      return 'D4';
+    case 'Embankment':
+      return 'E4';
+    case 'Westminster':
+      return 'G4';
+    case 'StJamessPark':
+      return 'A4';
+    case 'Victoria':
+      return 'C5';
+    case 'SloaneSquare':
+      return 'D5';
+    case 'SouthKensington':
+      return 'E5';
+    case 'GloucesterRoad':
+      return 'G5';
+    case 'HighStreetKensington':
+      return 'A5';
+    case 'EarlsCourt':
+      return 'C6';
+    case 'WestKensington':
+      return 'C4';
+    case 'BaronsCourt':
+      return 'D4';
+    case 'Hammersmith(Dist&PiccLine)':
+      return 'E4';
+    case 'RavenscourtPark':
+      return 'G4';
+    case 'StamfordBrook':
+      return 'A4';
+    case 'TurnhamGreen':
+      return 'C5';
+    case 'Gunnersbury':
+      return 'D5';
+    case 'KewGardens':
+      return 'E5';
+    case 'Richmond':
+      return 'G5';
+    case 'WimbledonPark':
+      return 'A5';
+    case 'Wimbledon':
+      return 'C6';
+    case 'WestBrompton':
+      return 'C4';
     default:
-      return `C3`;
+      return 'C4';
   }
 };
 

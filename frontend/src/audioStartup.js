@@ -7,6 +7,35 @@ const audioStartup = async (instrumentSet) => {
   const reverb = new Tone.Reverb(2.5).toDestination(); // decay time as arg
   reverb.wet.value = 0.4; // 1 == 100% reverb. 0 == no reverb
 
+  const marimbaSampler = new Tone.Sampler({
+    urls: {
+      "A2": "marimba_a2.mp3",
+      "A3": "marimba_a3.mp3",
+      "A4": "marimba_a4.mp3",
+      "A5": "marimba_a5.mp3",
+      "C3": "marimba_c3.mp3",
+      "C4": "marimba_c4.mp3",
+      "C5": "marimba_c5.mp3",
+      "C6": "marimba_c6.mp3",
+      "D2": "marimba_d2.mp3",
+      "D3": "marimba_d3.mp3",
+      "D4": "marimba_d4.mp3",
+      "D5": "marimba_d5.mp3",
+      "E2": "marimba_e2.mp3",
+      "E3": "marimba_e3.mp3",
+      "E4": "marimba_e4.mp3",
+      "E5": "marimba_e5.mp3",
+      "G2": "marimba_g2.mp3",
+      "G3": "marimba_g3.mp3",
+      "G4": "marimba_g4.mp3",
+      "G5": "marimba_g5.mp3"
+    },
+    release: 1,
+    baseUrl: "/samples/marimba_hits/",
+  }).connect(reverb);
+  marimbaSampler.volume.value = -6;
+  
+
   const celloSampler = new Tone.Sampler({
     urls: {
       "A5": "cello_A5_05_forte_arco-normal.mp3",
@@ -177,18 +206,18 @@ const audioStartup = async (instrumentSet) => {
       };
   } else if (instrumentSet === 'marimba') {
     instruments = {
-      Bakerloo: clarinetSampler,
-      Central: clarinetSampler,
-      Circle: clarinetSampler,
-      District: clarinetSampler,
-      HammersmithCity: clarinetSampler,
-      Jubilee: clarinetSampler,
-      Metropolitan: clarinetSampler,
-      Northern: clarinetSampler,
-      Piccadilly: clarinetSampler,
-      Victoria: clarinetSampler, 
-      WaterlooCity: clarinetSampler,
-      Pedal: clarinetSampler
+      Bakerloo: marimbaSampler,
+      Central: marimbaSampler,
+      Circle: marimbaSampler,
+      District: marimbaSampler,
+      HammersmithCity: marimbaSampler,
+      Jubilee: marimbaSampler,
+      Metropolitan: marimbaSampler,
+      Northern: marimbaSampler,
+      Piccadilly: marimbaSampler,
+      Victoria: marimbaSampler, 
+      WaterlooCity: marimbaSampler,
+      Pedal: marimbaSampler
     };
   }
 

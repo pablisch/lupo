@@ -1,84 +1,80 @@
 const assignNoteForCircle = (stationName) => {
-  const lowOctave = 4;
-
   switch(stationName) {
-    // case 'Hammersmith(H&CLine)':
-    //   return `G${lowOctave + 2}`;
-    // case 'GoldhawkRoad':
-    //   return `G${lowOctave + 2}`;
-    // case 'ShepherdsBushMarket':
-    //   return `E${lowOctave + 2}`;
-    // case 'WoodLane':
-    //   return `E${lowOctave + 2}`;
-    // case 'LatimerRoad':
-    //   return `D${lowOctave + 2}`;
-    // case 'LadbrokeGrove':
-    //   return `D${lowOctave + 2}`;
-    // case 'WestbournePark':
-    //   return `C${lowOctave + 2}`;
-    // case 'RoyalOak':
-    //   return `C${lowOctave + 2}`;
-    // case 'Paddington(H&CLine)-Underground':
-    //   return `A${lowOctave + 2}`;
-    // case 'Paddington':
-    //   return `A${lowOctave + 2}`;
-    // case 'EdgwareRoad(CircleLine)':
-    //   return `G${lowOctave + 1}`;
-    // case 'BakerStreet':
-    //   return `G${lowOctave + 1}`;
-    // case 'GreatPortlandStreet':
-    //   return `E${lowOctave + 1}`;
-    // case 'EustonSquare':
-    //   return `E${lowOctave + 1}`;
-    // case 'KingsCrossStPancras':
-    //   return `E${lowOctave + 1}`;
-    // case 'Farringdon':
-    //   return `D${lowOctave + 1}`;
-    // case 'Barbican':
-    //   return `D${lowOctave + 1}`;
-    // case 'Moorgate':
-    //   return `D${lowOctave + 1}`;
-    // case 'LiverpoolStreet':
-    //   return `C${lowOctave + 1}`;
-    // case 'Aldgate':
-    //   return `C${lowOctave + 1}`;
-    // case 'TowerHill':
-    //   return `C${lowOctave + 1}`;
-    // case 'Monument':
-    //   return `A${lowOctave + 1}`;
-    // case 'CannonStreet':
-    //   return `A${lowOctave + 1}`;
-    // case 'MansionHouse':
-    //   return `A${lowOctave + 1}`;
-    // case 'Blackfriars':
-    //   return `G${lowOctave}`;
-    // case 'Temple':
-    //   return `G${lowOctave}`;
-    // case 'Embankment':
-    //   return `G${lowOctave}`;
-    // case 'Westminster':
-    //   return `E${lowOctave}`;
-    // case 'StJamessPark':
-    //   return `E${lowOctave}`;
-    // case 'VictoriaSt':
-    //   return `E${lowOctave}`;
-    // case 'SloaneSquare':
-    //   return `D${lowOctave}`;
-    // case 'SouthKensington':
-    //   return `D${lowOctave}`;
-    // case 'GloucesterRoad':
-    //   return `D${lowOctave}`;
-    // case 'HighStreetKensington':
-    //   return `C${lowOctave}`;
-    // case 'NottingHillGate':
-    //   return `C${lowOctave}`;
-    // case 'Bayswater':
-    //   return `C${lowOctave}`;
-    // default:
-    //   return `A${lowOctave}`;
+    case 'Hammersmith(H&CLine)':
+      return 'C4';
+    case 'GoldhawkRoad':
+      return 'D4';
+    case 'ShepherdsBushMarket':
+      return 'E4';
+    case 'WoodLane':
+      return 'G4';
+    case 'LatimerRoad':
+      return 'A4';
+    case 'LadbrokeGrove':
+      return 'C5';
+    case 'WestbournePark':
+      return 'D5';
+    case 'RoyalOak':
+      return 'E5';
+    case 'Paddington(H&CLine)-Underground':
+      return 'G5';
+    case 'Paddington':
+      return 'A5';
+    case 'EdgwareRoad(CircleLine)':
+      return 'C6';
+    case 'BakerStreet':
+      return 'C4';
+    case 'GreatPortlandStreet':
+      return 'D4';
+    case 'EustonSquare':
+      return 'E4';
+    case 'KingsCrossStPancras':
+      return 'G4';
+    case 'Farringdon':
+      return 'A4';
+    case 'Barbican':
+      return 'C5';
+    case 'Moorgate':
+      return 'D5';
+    case 'LiverpoolStreet':
+      return 'E5';
+    case 'Aldgate':
+      return 'G5';
+    case 'TowerHill':
+      return 'A5';
+    case 'Monument':
+      return 'C6';
+    case 'CannonStreet':
+      return 'C4';
+    case 'MansionHouse':
+      return 'D4';
+    case 'Blackfriars':
+      return 'E4';
+    case 'Temple':
+      return 'G4';
+    case 'Embankment':
+      return 'A4';
+    case 'Westminster':
+      return 'C5';
+    case 'StJamessPark':
+      return 'D5';
+    case 'Victoria':
+      return 'E5';
+    case 'SloaneSquare':
+      return 'G5';
+    case 'SouthKensington':
+      return 'A5';
+    case 'GloucesterRoad':
+      return 'C6';
+    case 'HighStreetKensington':
+      return 'C4';
+    case 'NottingHillGate':
+      return 'D4';
+    case 'Bayswater':
+      return 'E4';
     default:
-      return `C3`;
-    }
+      return 'C4';
+  }
 }
 
 module.exports = assignNoteForCircle;

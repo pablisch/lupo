@@ -1,61 +1,57 @@
 const assignNoteForBakerloo = (stationName) => {
-  const lowOctave = 4;
-
   switch(stationName) {
-    // // case 'Harrow_Wealdstone':
-    // //   return `C${lowOctave + 2}`;
-    // // case 'Kenton ':
-    // //   return `A${lowOctave + 2}`;
-    // // case 'SouthKenton':
-    // //   return `A${lowOctave + 2}`;
-    // // case 'NorthWembley':
-    // //   return `G${lowOctave + 1}`;
-    // // case 'WembleyCentral':
-    // //   return `G${lowOctave + 1}`;
-    // // case 'StonebridgePark':
-    // //   return `E${lowOctave + 1}`;
-    // // case 'Harlesden':
-    // //   return `E${lowOctave + 1}`;
-    // // case 'WillesdenJunction':
-    // //   return `D${lowOctave + 1}`;
-    // // case 'KensalGreen':
-    // //   return `D${lowOctave + 1}`;
-    // // case 'QueensPark':
-    // //   return `C${lowOctave + 1}`;
-    // // case 'KilburnPark':
-    // //   return `C${lowOctave + 1}`;
-    // // case 'MaidaVale':
-    // //   return `A${lowOctave + 1}`;
-    // // case 'WarwickAvenue':
-    // //   return `A${lowOctave + 1}`;
-    // // case 'Paddington':
-    // //   return `G${lowOctave}`;
-    // // case 'EdgwareRoad(Bakerloo)':
-    // //   return `G${lowOctave}`;
-    // // case 'Marylebone':
-    // //   return `E${lowOctave}`;
-    // // case 'BakerStreet':
-    // //   return `E${lowOctave}`;
-    // // case 'RegentsPark':
-    // //   return `D${lowOctave}`;
-    // // case 'OxfordCircus':
-    // //   return `D${lowOctave}`;
-    // // case 'PiccadillyCircus':
-    // //   return `C${lowOctave}`;
-    // // case 'CharingCross ':
-    // //   return `C${lowOctave}`;
-    // // case 'Embankment':
-    // //   return `C${lowOctave}`;
-    // // case 'Waterloo':
-    // //   return `C${lowOctave}`;
-    // // case 'LambethNorth':
-    // //   return `A${lowOctave}`;
-    // // case 'Elephant_Castle':
-    // //   return `A${lowOctave}`;
-    // default:
-    //   return `A${lowOctave + 1}`;
+    case 'Harrow_Wealdstone':
+      return 'C4';
+    case 'Kenton ':
+      return 'D4';
+    case 'SouthKenton':
+      return 'E4';
+    case 'NorthWembley':
+      return 'G4';
+    case 'WembleyCentral':
+      return 'A4';
+    case 'StonebridgePark':
+      return 'C5';
+    case 'Harlesden':
+      return 'D5';
+    case 'WillesdenJunction':
+      return 'E5';
+    case 'KensalGreen':
+      return 'G5';
+    case 'QueensPark':
+      return 'A5';
+    case 'KilburnPark':
+      return 'C6';
+    case 'MaidaVale':
+      return 'C4';
+    case 'WarwickAvenue':
+      return 'D4';
+    case 'Paddington':
+      return 'E4';
+    case 'EdgwareRoad(Bakerloo)':
+      return 'G4';
+    case 'Marylebone':
+      return 'A4';
+    case 'BakerStreet':
+      return 'C5';
+    case 'RegentsPark':
+      return 'D5';
+    case 'OxfordCircus':
+      return 'E5';
+    case 'PiccadillyCircus':
+      return 'G5';
+    case 'CharingCross ':
+      return 'A5';
+    case 'Embankment':
+      return 'C6';
+    case 'Waterloo':
+      return 'C4';
+    case 'LambethNorth':
+      return 'D4';
+    case 'Elephant_Castle':
+      return 'E4';
     default:
-      return `C3`;
+      return 'C4';
     }
   }
   

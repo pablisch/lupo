@@ -1,11 +1,15 @@
 import './Slider.css';
-import { useState } from 'react';
 
-const Slider = ({ instruments, lineName, changeOpacity }) => {
+const Slider = ({ instruments, lineName, maxVolumeScaledUp, sliderValue, setSliderValue}) => {
 
   // console.log('instruments in Slider', instruments)
   // console.log(`lineName inside of handleSliderChage: ${lineName}`)
   // if(instruments) { console.log(`max volume is ${instruments[lineName].maxVolume}`) }
+
+  const changeOpacity = (elementId, opacity) => {
+    const element = document.getElementById(elementId);
+    element.style.opacity = opacity;
+  }
 
   const handleSliderChange = (event) => {
     // console.log(`slider value: ${event.target.value}`)
@@ -37,11 +41,6 @@ const Slider = ({ instruments, lineName, changeOpacity }) => {
     }
   };
 
-  // on first render of the component, instruments is undefined as SoundOn has not yet been called
-  const maxVolumeScaledUp = instruments ? instruments[lineName].maxVolume + 100 : 94
-
-  const [sliderValue, setSliderValue] = useState(maxVolumeScaledUp)
-
   return (
     <div>
       <input 
@@ -53,9 +52,6 @@ const Slider = ({ instruments, lineName, changeOpacity }) => {
       onChange={handleSliderChange}>
       </input>
       <img className='mute-icon' src="./mute.png" alt="mute" onClick={handleButtonClick} />
-      {/* <button id='button' className={lineName} onClick={handleButtonClick}>
-      {lineName === 'HammersmithCity' ? 'Hammersmith & City' : lineName === 'WaterlooCity' ? 'Waterloo & City' : lineName}
-      </button> */}
     </div>
   )
 }

@@ -51,10 +51,6 @@ function App() {
   //   }
   // }
 
-  const changeOpacity = (elementId, opacity) => {
-    const element = document.getElementById(elementId);
-    element.style.opacity = opacity;
-  }
   const soundOn = async () => {
     console.log('SOUND ON');
     setTapInVisible(false);
@@ -183,7 +179,7 @@ function App() {
             {/* <img src={logo} id="tap-in" className="App-logo" alt="sound on" /> */}
             <Navbar />
             <div className="container bars-and-map">
-              <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeOpacity={changeOpacity} changeCurrentInstrument={changeCurrentInstrument}/>
+              <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument}/>
               <TubeMap/>
               <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} />
             </div> 

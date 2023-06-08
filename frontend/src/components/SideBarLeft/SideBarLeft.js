@@ -1,25 +1,11 @@
-import React, { useState, useContext } from 'react';
-import { InstrumentContext } from '../InstrumentProvider/InstrumentProvider';
+import React, { useState } from 'react';
 
 import './SideBarLeft.css'
 import lineNames from '../../lineNames';
 import Slider from '../Slider/Slider';
 
 
-const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeOpacity, changeCurrentInstrument}) => {
-  const {setCurrentInstrument} = useContext(InstrumentContext)
-
-  const [fadeBakerlooState, setFadeBakerlooState] = useState(true);
-  const [fadeCentralState, setFadeCentralState] = useState(true);
-  const [fadeCircleState, setFadeCircleState] = useState(true);
-  const [fadeDistrictState, setFadeDistrictState] = useState(true);
-  const [fadeHammersmithCityState, setFadeHammersmithCityState] = useState(true);
-  const [fadeJubileeState, setFadeJubileeState] = useState(true);
-  const [fadeMetropolitanState, setFadeMetropolitanState] = useState(true);
-  const [fadeNorthernState, setFadeNorthernState] = useState(true);
-  const [fadePiccadillyState, setFadePiccadillyState] = useState(true);
-  const [fadeVictoriaState, setFadeVictoriaState] = useState(true);
-  const [fadeWaterlooCityState, setFadeWaterlooCityState] = useState(true);
+const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentInstrument}) => {
 
   const [bakerlooControlToggle, setBakerlooControlToggle] = useState(false);
   const [centralControlToggle, setCentralControlToggle] = useState(false);
@@ -33,17 +19,38 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeOpacity, c
   const [victoriaControlToggle, setVictoriaControlToggle] = useState(false);
   const [waterlooCityControlToggle, setWaterlooCityControlToggle] = useState(false);
 
-  const fadeLine = (elementId, state, setState) => {
-    const element = document.getElementById(elementId);
-    console.log(element.id);
-    if (state === true) {
-      element.style.animation = "fade-out 1s forwards";
-      setState(false);
-    } else if (state === false) {
-      element.style.animation = "fade-in 1s forwards";
-      setState(true);
-    }
-  }
+  const bakerlooMaxVolumeScaledUp = instruments ? instruments["Bakerloo"].maxVolume + 100 : 94
+  const [bakerlooSliderValue, setBakerlooSliderValue] = useState(bakerlooMaxVolumeScaledUp)
+
+  const centralMaxVolumeScaledUp = instruments ? instruments["Central"].maxVolume + 100 : 94
+  const [centralSliderValue, setCentralSliderValue] = useState(centralMaxVolumeScaledUp)
+
+  const circleMaxVolumeScaledUp = instruments ? instruments["Circle"].maxVolume + 100 : 94
+  const [circleSliderValue, setCircleSliderValue] = useState(circleMaxVolumeScaledUp)
+
+  const districtMaxVolumeScaledUp = instruments ? instruments["District"].maxVolume + 100 : 94
+  const [districtSliderValue, setDistrictSliderValue] = useState(districtMaxVolumeScaledUp)
+
+  const hammersmithCityMaxVolumeScaledUp = instruments ? instruments["HammersmithCity"].maxVolume + 100 : 94
+  const [hammersmithCitySliderValue, setHammersmithCitySliderValue] = useState(hammersmithCityMaxVolumeScaledUp)
+
+  const jubileeMaxVolumeScaledUp = instruments ? instruments["Jubilee"].maxVolume + 100 : 94
+  const [jubileeSliderValue, setJubileeSliderValue] = useState(jubileeMaxVolumeScaledUp)
+
+  const metropolitanMaxVolumeScaledUp = instruments ? instruments["Metropolitan"].maxVolume + 100 : 94
+  const [metropolitanSliderValue, setMetropolitanSliderValue] = useState(metropolitanMaxVolumeScaledUp)
+
+  const northernMaxVolumeScaledUp = instruments ? instruments["Northern"].maxVolume + 100 : 94
+  const [northernSliderValue, setNorthernSliderValue] = useState(northernMaxVolumeScaledUp)
+
+  const piccadillyMaxVolumeScaledUp = instruments ? instruments["Piccadilly"].maxVolume + 100 : 94
+  const [piccadillySliderValue, setPiccadillySliderValue] = useState(piccadillyMaxVolumeScaledUp)
+
+  const victoriaMaxVolumeScaledUp = instruments ? instruments["Victoria"].maxVolume + 100 : 94
+  const [victoriaSliderValue, setVictoriaSliderValue] = useState(victoriaMaxVolumeScaledUp)
+
+  const waterlooCityMaxVolumeScaledUp = instruments ? instruments["WaterlooCity"].maxVolume + 100 : 94
+  const [waterlooCitySliderValue, setWaterlooCitySliderValue] = useState(waterlooCityMaxVolumeScaledUp)
 
   // handleLineControlToggle takes a line name as an argument and toggles the state of the corresponding line state, e.g. bakerlooControlToggle
   const handleLineControlToggle = (lineName) => {
@@ -100,100 +107,93 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeOpacity, c
     <aside className="sidebar sidebar-left">
       <h2>Line Status</h2>
       <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button>
-      {/* { lineNames.map((line, index) => {
-                    return <Slider 
-                    lineName={line} 
-                    instruments={instruments} 
-                    changeOpacity={changeOpacity}
-                    key={index} />
-                  }) } */}
       <button id="marimba" onClick={() => changeCurrentInstrument("marimba")}>Marimba</button>
       <button id="strings" onClick={() => changeCurrentInstrument("strings")}>Strings</button>
       <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button>
       {bakerlooControlToggle && <>
       <div className={`mute ${bakerlooControlToggle ? 'open' : ''}`}>
-        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
-        <Slider lineName="Bakerloo" instruments={instruments} changeOpacity={changeOpacity} key="Bakerloo" />
+        <Slider lineName="Bakerloo" instruments={instruments} key="Bakerloo" 
+          maxVolumeScaledUp={bakerlooMaxVolumeScaledUp} sliderValue={bakerlooSliderValue} setSliderValue={setBakerlooSliderValue}/>
       </div>
       </>}
 
       <button className='btn-line btn-central' type="button" onClick={() => handleLineControlToggle("Central")}>Central</button>
       {centralControlToggle && <>
       <div className={`mute ${centralControlToggle ? 'open' : ''}`}>
-        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
-        <Slider lineName="Central" instruments={instruments} changeOpacity={changeOpacity} key="Central" />
+        <Slider lineName="Central" instruments={instruments} key="Central" 
+          maxVolumeScaledUp={centralMaxVolumeScaledUp} sliderValue={centralSliderValue} setSliderValue={setCentralSliderValue}/>
       </div>
       </>}
 
       <button className='btn-line btn-circle' type="button" onClick={() => handleLineControlToggle("Circle")}>Circle</button>
       {circleControlToggle && <>
       <div className={`mute ${circleControlToggle ? 'open' : ''}`}>
-        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
-        <Slider lineName="Circle" instruments={instruments} changeOpacity={changeOpacity} key="Circle" />
+        <Slider lineName="Circle" instruments={instruments} key="Circle" 
+          maxVolumeScaledUp={circleMaxVolumeScaledUp} sliderValue={circleSliderValue} setSliderValue={setCircleSliderValue}/>
       </div>
       </>}
 
       <button className='btn-line btn-district' type="button" onClick={() => handleLineControlToggle("District")}>District</button>
       {districtControlToggle && <>
       <div className={`mute ${districtControlToggle ? 'open' : ''}`}>
-        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
-        <Slider lineName="District" instruments={instruments} changeOpacity={changeOpacity} key="District" />
+        <Slider lineName="District" instruments={instruments} key="District" 
+          maxVolumeScaledUp={districtMaxVolumeScaledUp} sliderValue={districtSliderValue} setSliderValue={setDistrictSliderValue}/>
       </div>
       </>}
 
       <button className='btn-line btn-hammersmith-city' type="button" onClick={() => handleLineControlToggle("HammersmithCity")}>Hammersmith & City</button>
       {hammersmithCityControlToggle && <>
       <div className={`mute ${hammersmithCityControlToggle ? 'open' : ''}`}>
-        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
-        <Slider lineName="HammersmithCity" instruments={instruments} changeOpacity={changeOpacity} key="HammersmithCity" />
+        <Slider lineName="HammersmithCity" instruments={instruments} key="HammersmithCity" 
+          maxVolumeScaledUp={hammersmithCityMaxVolumeScaledUp} sliderValue={hammersmithCitySliderValue} setValue={setHammersmithCitySliderValue}/>
       </div>
       </>}
 
       <button className='btn-line btn-jubilee' type="button" onClick={() => handleLineControlToggle("Jubilee")}>Jubilee</button>
       {jubileeControlToggle && <>
       <div className={`mute ${jubileeControlToggle ? 'open' : ''}`}>
-        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
-        <Slider lineName="Jubilee" instruments={instruments} changeOpacity={changeOpacity} key="Jubilee" />
+        <Slider lineName="Jubilee" instruments={instruments} key="Jubilee" 
+          maxVolumeScaledUp={jubileeMaxVolumeScaledUp} sliderValue={jubileeSliderValue} setSliderValue={setJubileeSliderValue}/>
       </div>
       </>}
       
       <button className='btn-line btn-metropolitan' type="button" onClick={() => handleLineControlToggle("Metropolitan")}>Metropolitan</button>
       {metropolitanControlToggle && <>
       <div className={`mute ${metropolitanControlToggle ? 'open' : ''}`}>
-        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
-        <Slider lineName="Metropolitan" instruments={instruments} changeOpacity={changeOpacity} key="Metropolitan" />
+        <Slider lineName="Metropolitan" instruments={instruments} key="Metropolitan" 
+          maxVolumeScaledUp={metropolitanMaxVolumeScaledUp} sliderValue={metropolitanSliderValue} setSliderValue={setMetropolitanSliderValue}/>
       </div>
       </>}
 
       <button className='btn-line btn-northern' type="button" onClick={() => handleLineControlToggle("Northern")}>Northern</button>
       {northernControlToggle && <>
       <div className={`mute ${northernControlToggle ? 'open' : ''}`}>
-        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
-        <Slider lineName="Northern" instruments={instruments} changeOpacity={changeOpacity} key="Northern" />
+        <Slider lineName="Northern" instruments={instruments} key="Northern" 
+          maxVolumeScaledUp={northernMaxVolumeScaledUp} sliderValue={northernSliderValue} setSliderValue={setNorthernSliderValue}/>
       </div>
       </>}
       
       <button className='btn-line btn-piccadilly' type="button" onClick={() => handleLineControlToggle("Piccadilly")}>Piccadilly</button>
       {piccadillyControlToggle && <>
       <div className={`mute ${piccadillyControlToggle ? 'open' : ''}`}>
-        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
-        <Slider lineName="Piccadilly" instruments={instruments} changeOpacity={changeOpacity} key="Piccadilly" />
+        <Slider lineName="Piccadilly" instruments={instruments} key="Piccadilly" 
+          maxVolumeScaledUp={piccadillyMaxVolumeScaledUp} sliderValue={piccadillySliderValue} setSliderValue={setPiccadillySliderValue}/>
       </div>
       </>}
       
       <button className='btn-line btn-victoria' type="button" onClick={() => handleLineControlToggle("Victoria")}>Victoria</button>
       {victoriaControlToggle && <>
       <div className={`mute ${victoriaControlToggle ? 'open' : ''}`}>
-        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
-        <Slider lineName="Victoria" instruments={instruments} changeOpacity={changeOpacity} key="Victoria" />
+        <Slider lineName="Victoria" instruments={instruments} key="Victoria" 
+          maxVolumeScaledUp={victoriaMaxVolumeScaledUp} sliderValue={victoriaSliderValue} setSliderValue={setVictoriaSliderValue}/>
       </div>
       </>}
 
       <button className='btn-line btn-waterloo-city' type="button" onClick={() => handleLineControlToggle("WaterlooCity")}>WaterlooCity</button>
       {waterlooCityControlToggle && <>
       <div className={`mute ${waterlooCityControlToggle ? 'open' : ''}`}>
-        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
-        <Slider lineName="WaterlooCity" instruments={instruments} changeOpacity={changeOpacity} key="WaterlooCity" />
+        <Slider lineName="WaterlooCity" instruments={instruments} key="WaterlooCity" 
+         maxVolumeScaledUp={waterlooCityMaxVolumeScaledUp} sliderValue={waterlooCitySliderValue} setSliderValue={setWaterlooCitySliderValue}/>
       </div>
       </>}
     </aside>

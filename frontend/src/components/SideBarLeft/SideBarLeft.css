@@ -58,6 +58,10 @@
   opacity: 1;
 }
 
+.instrumentButton {
+  width: 100%;
+}
+
 .btn-temp-left {
   width: 100%;
   margin: 0 auto 10px;
@@ -101,6 +105,7 @@
 
 .btn-hammersmith-city {
   background-color: rgb(244, 169, 190);
+  font-size: 1rem;
   font-size: 1rem;
 }
 

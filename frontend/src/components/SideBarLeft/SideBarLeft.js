@@ -4,7 +4,7 @@ import './SideBarLeft.css'
 import Slider from '../Slider/Slider';
 
 
-const SideBarLeft = ({ soundOn, isPlaying, instruments, changeCurrentInstrument}) => {
+const SideBarLeft = ({ currentInstrument, soundOn, isPlaying, instruments, changeCurrentInstrument}) => {
 
   const [bakerlooControlToggle, setBakerlooControlToggle] = useState(false);
   const [centralControlToggle, setCentralControlToggle] = useState(false);
@@ -106,9 +106,9 @@ const SideBarLeft = ({ soundOn, isPlaying, instruments, changeCurrentInstrument}
     <aside className="sidebar sidebar-left">
       <h2>Line Status</h2>
       <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button>
-      <button id="tubeDrums" onClick={() => changeCurrentInstrument("tubeDrums")}>Tube Drums</button>
-      <button id="marimba" onClick={() => changeCurrentInstrument("marimba")}>Marimba</button>
-      <button id="orchestra" onClick={() => changeCurrentInstrument("orchestra")}>Orchestra</button>
+      <button className="instrumentButton" id="tubeDrums" onClick={() => changeCurrentInstrument("tubeDrums")} disabled={currentInstrument == "tubeDrums"}>Tube Drums</button><br />
+      <button className="instrumentButton" id="marimba" onClick={() => changeCurrentInstrument("marimba")} disabled={currentInstrument == "marimba"}>Marimba</button><br />
+      <button className="instrumentButton" id="orchestra" onClick={() => changeCurrentInstrument("orchestra")} disabled={currentInstrument == "orchestra"}>Orchestra</button><br />
       <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button>
       {bakerlooControlToggle && <>
       <div className={`mute ${bakerlooControlToggle ? 'open' : ''}`}>

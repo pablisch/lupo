@@ -218,16 +218,16 @@ const audioStartup = async (instrumentSet) => {
   const trumpetSampler = new Tone.Sampler({
     urls: {
       "A3": "trumpet_stacc_a3.mp3",
-      "A4": "trumpet_stacc_a4.mp3",
-      "C3": "trumpet_stacc_c3.mp3",
-      "C4": "trumpet_stacc_c4.mp3",
-      "C5": "trumpet_stacc_c5.mp3",
-      "D3": "trumpet_stacc_d3.mp3",
-      "D4": "trumpet_stacc_d4.mp3",
-      "E3": "trumpet_stacc_e3.mp3",
-      "E4": "trumpet_stacc_e4.mp3",
-      "G3": "trumpet_stacc_g3.mp3",
-      "G4": "trumpet_stacc_g4.mp3"
+      // "A4": "trumpet_stacc_a4.mp3",
+      // "C3": "trumpet_stacc_c3.mp3",
+      // "C4": "trumpet_stacc_c4.mp3",
+      // "C5": "trumpet_stacc_c5.mp3",
+      // "D3": "trumpet_stacc_d3.mp3",
+      // "D4": "trumpet_stacc_d4.mp3",
+      // "E3": "trumpet_stacc_e3.mp3",
+      // "E4": "trumpet_stacc_e4.mp3",
+      // "G3": "trumpet_stacc_g3.mp3",
+      // "G4": "trumpet_stacc_g4.mp3"
     },
     release: 1,
     baseUrl: "/samples/trumpet_samples/",

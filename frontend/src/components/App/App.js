@@ -183,7 +183,7 @@ function App() {
             {/* <img src={logo} id="tap-in" className="App-logo" alt="sound on" /> */}
             <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
             <div className="container bars-and-map">
-              <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument}/>
+              <SideBarLeft currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument}/>
               <TubeMap/>
               <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} stop={stop} setTapInVisible={setTapInVisible}/>
             </div> 

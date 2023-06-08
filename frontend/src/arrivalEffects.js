@@ -16,7 +16,7 @@ const arrivalEffectCreate = (elementId, arrivalEffects) => {
     const centerX = rect.left - svgRect.left + rect.width / 2;
     const centerY = rect.top - svgRect.top + rect.height / 2;
 
-    const randomEffect1 = Math.floor(Math.random() * 2) + 1;
+    const randomEffect1 = Math.floor(Math.random() * 6) + 1;
 
     // Use the center coordinates to position the circle element
     const arrival = document.createElement("div");
@@ -36,7 +36,7 @@ const arrivalEffectCreate = (elementId, arrivalEffects) => {
     // const container = document.querySelector("#Everything");
     container.appendChild(arrival);
 
-    const randomEffect2 = Math.floor(Math.random() * 2) + 1;
+    const randomEffect2 = Math.floor(Math.random() * 6) + 1;
 
     let arrival2;
     // create a duplicate element in the same place after 0.1 seconds

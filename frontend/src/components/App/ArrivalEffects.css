@@ -1,18 +1,38 @@
 :root {
   --createArrival1Base: rgb(255, 233, 123);
-  --createArrival3Base: rgb(255, 233, 123);
-
+  
   --createArrival1Border: rgb(255, 89, 0);
   --createArrivalAfterShock1Border: rgb(255, 149, 0);
-
+  
   --createArrival2Border: rgb(255, 136, 0);
   --createArrivalAfterShock2Border: rgb(255, 0, 0);
-
+  
   --createArrival2BoxShadow: rgba(255, 174, 0, 0.4);
   --createArrivalAfterShock1BoxShadow: rgba(255, 191, 0, 0.4);
-
+  
   --createArrival1BoxShadow: rgba(255, 111, 0, 0.4);
   --createArrivalAfterShock2BoxShadow: rgba(255, 191, 0, 0.4);
+  
+  --createArrival3Base: rgb(154, 220, 255);
+  --createArrival3Border: rgb(85, 185, 238);
+  --createArrivalAfterShock3Border: rgb(11, 138, 236);
+  --createArrivalAfterShock3BoxShadow: rgba(11, 138, 236, 0.4);
+  
+  --createArrival4Base: rgb(156, 204, 250);
+  --createArrival4Border: rgb(65, 163, 255);
+  --createArrivalAfterShock4Border: rgb(24, 139, 247);
+  --createArrivalAfterShock4BoxShadow: rgba(65, 163, 255, 0.4);
+  
+  --createArrival5Base: rgb(189, 247, 89);
+  --createArrival5Border: rgb(87, 220, 5);
+  --createArrivalAfterShock5Border: rgb(74, 190, 2);
+  --createArrivalAfterShock5BoxShadow: rgba(87, 220, 5, 0.4);
+  
+  --createArrival6Base: rgb(249, 91, 231);
+  --createArrival6Border: rgb(195, 3, 173);
+  --createArrivalAfterShock6Border: rgb(166, 28, 150);
+  --createArrivalAfterShock6BoxShadow: rgba(195, 3, 173, 0.4);
+  
 
   --fx1Transition1: rgb(255, 106, 0);
   --fx1Transition2: rgb(255, 183, 0);
@@ -30,13 +50,37 @@
   --fx2ATransition2: rgb(255, 233, 124);
   --fx2ATransition3: rgb(255, 224, 67);
 
-  --fx3Transition1: rgb(255, 77, 0);
-  --fx3Transition2: rgb(254, 229, 88);
-  --fx3Transition3: rgb(255, 176, 18);
+  --fx3Transition1: rgb(11, 138, 236);
+  --fx3Transition2: rgb(154, 220, 255);
+  --fx3Transition3: rgb(85, 185, 238);
 
-  --fx3ATransition1: rgb(255, 238, 0);
-  --fx3ATransition2: rgb(255, 233, 124);
-  --fx3ATransition3: rgb(255, 224, 67);
+  --fx3ATransition1: rgb(154, 220, 255);
+  --fx3ATransition2: rgb(85, 185, 238);
+  --fx3ATransition3: rgb(179, 239, 253);
+
+  --fx4Transition1: rgb(67, 76, 235);
+  --fx4Transition2: rgb(156, 160, 233);
+  --fx4Transition3: rgb(107, 113, 218);
+
+  --fx4ATransition1: rgb(95, 170, 241);
+  --fx4ATransition2: rgb(65, 163, 255);
+  --fx4ATransition3: rgb(152, 203, 250);
+
+  --fx5Transition1: rgb(9, 209, 39);
+  --fx5Transition2: rgb(170, 245, 116);
+  --fx5Transition3: rgb(59, 255, 88);
+
+  --fx5ATransition1: rgb(87, 220, 5);
+  --fx5ATransition2:  rgb(204, 255, 75);
+  --fx5ATransition3:  rgb(152, 255, 150);
+
+  --fx6Transition1: rgb(166, 3, 195);
+  --fx6Transition2: rgb(243, 127, 245);
+  --fx6Transition3: rgb(219, 50, 248);
+
+  --fx6ATransition1: rgb(195, 3, 173);
+  --fx6ATransition2:  rgb(249, 79, 229);
+  --fx6ATransition3:  rgb(247, 155, 236);
 }
 
 .createArrival1 {
@@ -210,6 +254,180 @@
   }
   100% {
     background-color:var(--fx3ATransition3);
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0%;
+  }
+}
+
+.createArrival4 {
+  background-color: var(--createArrival4Base);
+  animation: createArrivalEffect4 2s forwards;
+  box-shadow: 0 0 0.4px 2px var(--createArrival4BoxShadow); 
+}
+
+.createArrivalAfterShock4 {
+  background-color: var(--createArrival4Base);
+  animation: createArrivalAfterEffect4 1.7s forwards;
+  box-shadow: 0 0 4px 3px var(--createArrivalAfterShock4BoxShadow);
+}
+
+@keyframes createArrivalEffect4 {
+  0% {
+    background-color: var(--fx3Transition1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 90%;
+  }
+  40% {
+    opacity: 55%;
+  }
+  60% {
+    background-color: var(--fx4Transition2);
+    opacity: 20%
+  }
+  75% {
+    opacity: 1%
+  }
+  100% {
+    background-color:var(--fx4Transition3);
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0%;
+  }
+}
+
+@keyframes createArrivalAfterEffect4 {
+  0% {
+    background-color: var(--fx4ATransition1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 90%;
+  }
+  40% {
+    opacity: 45%;
+  }
+  60% {
+    background-color: var(--fx4ATransition2);
+    opacity: 20%
+  }
+  75% {
+    opacity: 1%
+  }
+  100% {
+    background-color:var(--fx4ATransition3);
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0%;
+  }
+}
+
+.createArrival5 {
+  background-color: var(--createArrival5Base);
+  animation: createArrivalEffect5 2s forwards;
+  box-shadow: 0 0 0.4px 2px var(--createArrival5BoxShadow); 
+}
+
+.createArrivalAfterShock5 {
+  background-color: var(--createArrival5Base);
+  animation: createArrivalAfterEffect5 1.7s forwards;
+  box-shadow: 0 0 4px 3px var(--createArrivalAfterShock5BoxShadow);
+}
+
+@keyframes createArrivalEffect5 {
+  0% {
+    background-color: var(--fx5Transition1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 90%;
+  }
+  40% {
+    opacity: 55%;
+  }
+  60% {
+    background-color: var(--fx5Transition2);
+    opacity: 20%
+  }
+  75% {
+    opacity: 1%
+  }
+  100% {
+    background-color:var(--fx5Transition3);
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0%;
+  }
+}
+
+@keyframes createArrivalAfterEffect5 {
+  0% {
+    background-color: var(--fx5ATransition1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 90%;
+  }
+  40% {
+    opacity: 45%;
+  }
+  60% {
+    background-color: var(--fx5ATransition2);
+    opacity: 20%
+  }
+  75% {
+    opacity: 1%
+  }
+  100% {
+    background-color:var(--fx5ATransition3);
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0%;
+  }
+}
+
+.createArrival6 {
+  background-color: var(--createArrival6Base);
+  animation: createArrivalEffect6 2s forwards;
+  box-shadow: 0 0 0.4px 2px var(--createArrival6BoxShadow); 
+}
+
+.createArrivalAfterShock6 {
+  background-color: var(--createArrival6Base);
+  animation: createArrivalAfterEffect6 1.7s forwards;
+  box-shadow: 0 0 4px 3px var(--createArrivalAfterShock6BoxShadow);
+}
+
+@keyframes createArrivalEffect6 {
+  0% {
+    background-color: var(--fx6Transition1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 90%;
+  }
+  40% {
+    opacity: 55%;
+  }
+  60% {
+    background-color: var(--fx6Transition2);
+    opacity: 20%
+  }
+  75% {
+    opacity: 1%
+  }
+  100% {
+    background-color:var(--fx6Transition3);
+    transform: translate(-50%, -50%) scale(15);
+    opacity: 0%;
+  }
+}
+
+@keyframes createArrivalAfterEffect6 {
+  0% {
+    background-color: var(--fx6ATransition1);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 90%;
+  }
+  40% {
+    opacity: 45%;
+  }
+  60% {
+    background-color: var(--fx6ATransition2);
+    opacity: 20%
+  }
+  75% {
+    opacity: 1%
+  }
+  100% {
+    background-color:var(--fx6ATransition3);
     transform: translate(-50%, -50%) scale(15);
     opacity: 0%;
   }

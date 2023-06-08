@@ -7,7 +7,7 @@ const audioStartup = async (instrumentSet) => {
   const reverb = new Tone.Reverb(2.5).toDestination(); // decay time as arg
   reverb.wet.value = 0.4; // 1 == 100% reverb. 0 == no reverb
 
-  const marimbaSampler = new Tone.Sampler({
+  const marimbaSamplerSetupParams = {
     urls: {
       "A2": "marimba_a2.mp3",
       "A3": "marimba_a3.mp3",
@@ -32,9 +32,55 @@ const audioStartup = async (instrumentSet) => {
     },
     release: 1,
     baseUrl: "/samples/marimba_hits/",
-  }).connect(reverb);
+  }
+
+  const marimbaSampler = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
   marimbaSampler.maxVolume = -6;
   marimbaSampler.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler2 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler2.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler2.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler3 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler3.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler3.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler4 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler4.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler4.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler5 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler5.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler5.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler6 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler6.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler6.volume.value = marimbaSampler6.maxVolume;
+
+  const marimbaSampler7 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler7.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler7.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler8 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler8.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler8.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler9 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler9.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler9.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler10 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler10.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler10.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler11 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler11.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler11.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler12 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler12.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler12.volume.value = marimbaSampler.maxVolume;
 
   const violaSampler = new Tone.Sampler({
     urls: {
@@ -312,17 +358,17 @@ const audioStartup = async (instrumentSet) => {
   } else if (instrumentSet === 'marimba') {
     instruments = {
       Bakerloo: marimbaSampler,
-      Central: marimbaSampler,
-      Circle: marimbaSampler,
-      District: marimbaSampler,
-      HammersmithCity: marimbaSampler,
-      Jubilee: marimbaSampler,
-      Metropolitan: marimbaSampler,
-      Northern: marimbaSampler,
-      Piccadilly: marimbaSampler,
-      Victoria: marimbaSampler, 
-      WaterlooCity: marimbaSampler,
-      Pedal: marimbaSampler
+      Central: marimbaSampler2,
+      Circle: marimbaSampler3,
+      District: marimbaSampler4,
+      HammersmithCity: marimbaSampler5,
+      Jubilee: marimbaSampler6,
+      Metropolitan: marimbaSampler7,
+      Northern: marimbaSampler8,
+      Piccadilly: marimbaSampler9,
+      Victoria: marimbaSampler10, 
+      WaterlooCity: marimbaSampler11,
+      Pedal: marimbaSampler12
 
     };
   } else if (instrumentSet === 'tubeDrums') {

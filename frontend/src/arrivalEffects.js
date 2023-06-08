@@ -1,7 +1,13 @@
 // Get location of element and create two circle elements at that location with css effects
-const arrivalEffectCreate = (elementId, arrivalEffects) => {
+const arrivalEffectCreate = (elementId, arrivalEffectsToggle, arrivals) => {
+  console.log('elementId: ', elementId)
+  arrivals.push([elementId]);
+      if (arrivals.length > 10) {
+        arrivals.shift();
+      }
+  // console.log('Arrivals: ', arrivals)
 
-  if (arrivalEffects === true) {
+  if (arrivalEffectsToggle === true) {
     
   
     const element = document.getElementById(elementId);

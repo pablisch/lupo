@@ -23,13 +23,15 @@ const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffectsToggl
       instruments[train.lineName].triggerAttackRelease(note, '4n', now, randomVelocity);
       // console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);
       flashElement(train.stationName);
-      arrivals.push([train.stationName]);
-      if (arrivals.length > 10) {
-        arrivals.shift();
-      }
-      if (arrivalEffectsToggle) {arrivalEffectCreate(train.stationName, arrivalEffectsToggle)};
+      // arrivals.push([train.stationName]);
+      // if (arrivals.length > 10) {
+      //   arrivals.shift();
+      // }
+      if (arrivalEffectsToggle) {arrivalEffectCreate(train.stationName, arrivalEffectsToggle, arrivals)};
     }, train.timeToStation * 1000)
   })
 }
 
 export default triggerAudioVisuals;
+
+// send each train to a method in the right sidebar component that will setState to add the train to the arrivals array

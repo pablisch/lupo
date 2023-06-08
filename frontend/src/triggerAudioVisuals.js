@@ -26,7 +26,6 @@ const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffectsToggl
       const now = Tone.now(); // the audio context time
       const minVelocity = 0.4;
       // max velocity is 1 as 1 is max output from Math.random()
-      console.log(train.lineName)
       const randomVelocity = Math.round(((Math.random() * minVelocity) + minVelocity) * 10) / 10 // random velocity between 0.3 and 1
       // console.log(randomVelocity)
       instruments[train.lineName].triggerAttackRelease(note, '4n', now, randomVelocity);

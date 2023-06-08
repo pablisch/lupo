@@ -69,7 +69,7 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentIns
         break;
       case "District":
         setDistrictControlToggle(!districtControlToggle);
-        console.log('Circle toggle', districtControlToggle);
+        console.log('District toggle', districtControlToggle);
         break;
       case "HammersmithCity":
         setHammersmithCityControlToggle(!hammersmithCityControlToggle);
@@ -77,7 +77,7 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentIns
         break;
       case "Jubilee":
         setJubileeControlToggle(!jubileeControlToggle);
-        console.log('Jubilee toggle', hammersmithCityControlToggle);
+        console.log('Jubilee toggle', jubileeControlToggle);
         break;
       case "Metropolitan":
         setMetropolitanControlToggle(!metropolitanControlToggle);
@@ -145,7 +145,7 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentIns
       {hammersmithCityControlToggle && <>
       <div className={`mute ${hammersmithCityControlToggle ? 'open' : ''}`}>
         <Slider lineName="HammersmithCity" instruments={instruments} key="HammersmithCity" 
-          maxVolumeScaledUp={hammersmithCityMaxVolumeScaledUp} sliderValue={hammersmithCitySliderValue} setValue={setHammersmithCitySliderValue}/>
+          maxVolumeScaledUp={hammersmithCityMaxVolumeScaledUp} sliderValue={hammersmithCitySliderValue} setSliderValue={setHammersmithCitySliderValue}/>
       </div>
       </>}
 

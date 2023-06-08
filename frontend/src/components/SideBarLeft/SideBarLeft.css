@@ -58,6 +58,10 @@
   opacity: 1;
 }
 
+.instrumentButton {
+  width: 100%;
+}
+
 .btn-temp-left {
   width: 100%;
   margin: 0 auto 10px;

@@ -38,9 +38,9 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments}) => {
       { lineNames.map((line, index) => {
         return <Slider lineName={line} instruments={instruments} key={index} />
       }) }
-      <button id="soundon" onClick={() => soundOn('strings')} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
+      <button id="soundon" onClick={() => soundOn('orchestra')} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
       <button id="marimba" onClick={() => restart("marimba")}>Marimba</button>
-      <button id="strings" onClick={() => restart("strings")}>Strings</button>
+      <button id="orchestra" onClick={() => restart("orchestra")}>Orchestra</button>
       <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)}>Bakerloo</button>
       <button className='btn-line btn-central' type="button" onClick={() => fadeLine("Central", fadeCentralState, setFadeCentralState)}>Central</button>
       <button className='btn-line btn-circle' type="button" onClick={() => fadeLine("Circle", fadeCircleState, setFadeCircleState)}>Circle</button>

@@ -1,14 +1,14 @@
-import stringsBakerlooNoteAssignment from './strings/bakerloo';
-import stringsCentralNoteAssignment from './strings/central';
-import stringsCircleNoteAssignment from './strings/circle'
-import stringsDistrictNoteAssignment from './strings/district';
-import stringsHammersmithCityNoteAssignment from './strings/hammersmithandcity';
-import stringsJubileeNoteAssignment from './strings/jubilee';
-import stringsMetropolitanNoteAssignment from './strings/metropolitan';
-import stringsNorthernNoteAssignment from './strings/northern';
-import stringsPiccadillyNoteAssignment from './strings/piccadilly';
-import stringsVictoriaNoteAssignment from './strings/victoria';
-import stringsWaterlooAndCityNoteAssignment from './strings/waterlooandcity';
+import orchestraBakerlooNoteAssignment from './orchestra/bakerloo';
+import orchestraCentralNoteAssignment from './orchestra/central';
+import orchestraCircleNoteAssignment from './orchestra/circle'
+import orchestraDistrictNoteAssignment from './orchestra/district';
+import orchestraHammersmithCityNoteAssignment from './orchestra/hammersmithandcity';
+import orchestraJubileeNoteAssignment from './orchestra/jubilee';
+import orchestraMetropolitanNoteAssignment from './orchestra/metropolitan';
+import orchestraNorthernNoteAssignment from './orchestra/northern';
+import orchestraPiccadillyNoteAssignment from './orchestra/piccadilly';
+import orchestraVictoriaNoteAssignment from './orchestra/victoria';
+import orchestraWaterlooAndCityNoteAssignment from './orchestra/waterlooandcity';
 
 import marimbaBakerlooNoteAssignment from './marimba/bakerloo';
 import marimbaCentralNoteAssignment from './marimba/central';
@@ -25,19 +25,19 @@ import marimbaWaterlooAndCityNoteAssignment from './marimba/waterlooandcity';
 const getNoteAssignFunctions = (instrumentSet) => {
   let noteAssignFunctions = {}
 
-  if (instrumentSet === 'strings') {
+  if (instrumentSet === 'orchestra') {
     noteAssignFunctions = {
-			Bakerloo: stringsBakerlooNoteAssignment,
-			Central: stringsCentralNoteAssignment,
-			Circle: stringsCircleNoteAssignment,
-			District: stringsDistrictNoteAssignment,
-			HammersmithCity: stringsHammersmithCityNoteAssignment,
-			Jubilee: stringsJubileeNoteAssignment,
-			Metropolitan: stringsMetropolitanNoteAssignment,
-			Northern: stringsNorthernNoteAssignment,
-			Piccadilly: stringsPiccadillyNoteAssignment,
-			Victoria: stringsVictoriaNoteAssignment,
-			WaterlooCity: stringsWaterlooAndCityNoteAssignment
+			Bakerloo: orchestraBakerlooNoteAssignment,
+			Central: orchestraCentralNoteAssignment,
+			Circle: orchestraCircleNoteAssignment,
+			District: orchestraDistrictNoteAssignment,
+			HammersmithCity: orchestraHammersmithCityNoteAssignment,
+			Jubilee: orchestraJubileeNoteAssignment,
+			Metropolitan: orchestraMetropolitanNoteAssignment,
+			Northern: orchestraNorthernNoteAssignment,
+			Piccadilly: orchestraPiccadillyNoteAssignment,
+			Victoria: orchestraVictoriaNoteAssignment,
+			WaterlooCity: orchestraWaterlooAndCityNoteAssignment
 		}
 	} else if (instrumentSet === 'marimba') {
 		noteAssignFunctions = {

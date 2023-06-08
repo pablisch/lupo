@@ -334,7 +334,7 @@ const audioStartup = async (instrumentSet) => {
     }
   
   const tubeDrumSampler = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler.maxVolume = -6;
+  tubeDrumSampler.maxVolume = -9;
   tubeDrumSampler.volume.value = tubeDrumSampler.maxVolume;
 
   const tubeDrumSampler2 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();

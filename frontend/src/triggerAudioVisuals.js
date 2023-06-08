@@ -6,16 +6,9 @@ import * as Tone from 'tone'; // added this to get the Tone.now() function
 const flashElement = (elementId) => {
   const element = document.getElementById(elementId.replace(/ *\([^)]*\) */g, ""));
   element.style.animation = "full-fade-in 1s forwards";
-  setTimeout(() => {
+  TIMEOUTS.setTimeout(() => {
     element.style.animation = "full-fade-out 1s forwards";
-  }, 1500);
-  // setTimeout(() => {
-  //   element.style.animation = "full-fade-in 1s forwards";
-  // }, 2000);
-  // setTimeout(() => {
-  //   element.style.animation = "full-fade-out 1s forwards";
-  // }, 3000);
-  
+  }, 1500);  
 }
 
 const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffectsToggle, arrivals) => {

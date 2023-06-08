@@ -7,7 +7,7 @@ const audioStartup = async (instrumentSet) => {
   const reverb = new Tone.Reverb(2.5).toDestination(); // decay time as arg
   reverb.wet.value = 0.4; // 1 == 100% reverb. 0 == no reverb
 
-  const marimbaSampler = new Tone.Sampler({
+  const marimbaSamplerSetupParams = {
     urls: {
       "A2": "marimba_a2.mp3",
       "A3": "marimba_a3.mp3",
@@ -32,24 +32,70 @@ const audioStartup = async (instrumentSet) => {
     },
     release: 1,
     baseUrl: "/samples/marimba_hits/",
-  }).connect(reverb);
+  }
+
+  const marimbaSampler = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
   marimbaSampler.maxVolume = -6;
   marimbaSampler.volume.value = marimbaSampler.maxVolume;
 
+  const marimbaSampler2 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler2.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler2.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler3 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler3.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler3.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler4 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler4.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler4.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler5 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler5.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler5.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler6 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler6.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler6.volume.value = marimbaSampler6.maxVolume;
+
+  const marimbaSampler7 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler7.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler7.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler8 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler8.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler8.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler9 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler9.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler9.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler10 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler10.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler10.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler11 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler11.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler11.volume.value = marimbaSampler.maxVolume;
+
+  const marimbaSampler12 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+  marimbaSampler12.maxVolume = marimbaSampler.maxVolume;
+  marimbaSampler12.volume.value = marimbaSampler.maxVolume;
+
   const violaSampler = new Tone.Sampler({
     urls: {
+      "A2": "viola_legato_a2.mp3",
       "A3": "viola_legato_a3.mp3",
       "A4": "viola_legato_a4.mp3",
-      // "A5": "viola_legato_a5.mp3",
       "C3": "viola_legato_c3.mp3",
       "C4": "viola_legato_c4.mp3",
       "C5": "viola_legato_c5.mp3",
+      "D2": "viola_legato_d2.mp3",
       "D3": "viola_legato_d3.mp3",
       "D4": "viola_legato_d4.mp3",
-      // "D5": "viola_legato_d5.mp3",
+      "E2": "viola_legato_e2.mp3",
       "E3": "viola_legato_e3.mp3",
       "E4": "viola_legato_e4.mp3",
-      // "E5": "viola_legato_e5.mp3",
       "G3": "viola_legato_g3.mp3",
       "G4": "viola_legato_g4.mp3"
     },
@@ -263,31 +309,77 @@ const audioStartup = async (instrumentSet) => {
   }).toDestination();
   gongSampler.maxVolume = -6;
   gongSampler.volume.value = gongSampler.maxVolume;
+
+  const tubeDrumSamplerSetupParams = {
+      urls: {
+        "A2": "tube_drum_c2.mp3",
+        "A3": "tube_drum_a3.mp3",
+        "A4": "tube_drum_a4.mp3",
+        "C2": "tube_drum_c2.mp3",
+        "C3": "tube_drum_c3.mp3",
+        "C4": "tube_drum_c4.mp3",
+        "C5": "tube_drum_c5.mp3",
+        "D2": "tube_drum_d2.mp3",
+        "D3": "tube_drum_d3.mp3",
+        "D4": "tube_drum_d4.mp3",
+        "E2": "tube_drum_e2.mp3",
+        "E3": "tube_drum_e3.mp3",
+        "E4": "tube_drum_e4.mp3",
+        "G2": "tube_drum_g2.mp3",
+        "G3": "tube_drum_g3.mp3",
+        "G4": "tube_drum_g4.mp3"
+       },
+      release: 1,
+      baseUrl: "samples/tubeDrum_samples/",
+    }
   
-  const tubeDrumSampler = new Tone.Sampler({
-    urls: {
-      "A2": "tube_drum_c2.mp3",
-      "A3": "tube_drum_a3.mp3",
-      "A4": "tube_drum_a4.mp3",
-      "C2": "tube_drum_c2.mp3",
-      "C3": "tube_drum_c3.mp3",
-      "C4": "tube_drum_c4.mp3",
-      "C5": "tube_drum_c5.mp3",
-      "D2": "tube_drum_d2.mp3",
-      "D3": "tube_drum_d3.mp3",
-      "D4": "tube_drum_d4.mp3",
-      "E2": "tube_drum_e2.mp3",
-      "E3": "tube_drum_e3.mp3",
-      "E4": "tube_drum_e4.mp3",
-      "G2": "tube_drum_g2.mp3",
-      "G3": "tube_drum_g3.mp3",
-      "G4": "tube_drum_g4.mp3"
-     },
-    release: 1,
-    baseUrl: "samples/tubeDrum_samples/",
-  }).toDestination();
-  tubeDrumSampler.maxVolume = -6;
+  const tubeDrumSampler = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler.maxVolume = -9;
   tubeDrumSampler.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler2 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler2.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler2.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler3 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler3.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler3.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler4 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler4.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler4.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler5 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler5.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler5.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler6 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler6.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler6.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler7 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler7.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler7.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler8 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler8.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler8.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler9 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler9.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler9.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler10 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler10.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler10.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler11 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler11.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler11.volume.value = tubeDrumSampler.maxVolume;
+
+  const tubeDrumSampler12 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+  tubeDrumSampler12.maxVolume = tubeDrumSampler.maxVolume;
+  tubeDrumSampler12.volume.value = tubeDrumSampler.maxVolume;
   
   let instruments = {}
 
@@ -312,33 +404,33 @@ const audioStartup = async (instrumentSet) => {
   } else if (instrumentSet === 'marimba') {
     instruments = {
       Bakerloo: marimbaSampler,
-      Central: marimbaSampler,
-      Circle: marimbaSampler,
-      District: marimbaSampler,
-      HammersmithCity: marimbaSampler,
-      Jubilee: marimbaSampler,
-      Metropolitan: marimbaSampler,
-      Northern: marimbaSampler,
-      Piccadilly: marimbaSampler,
-      Victoria: marimbaSampler, 
-      WaterlooCity: marimbaSampler,
-      Pedal: marimbaSampler
+      Central: marimbaSampler2,
+      Circle: marimbaSampler3,
+      District: marimbaSampler4,
+      HammersmithCity: marimbaSampler5,
+      Jubilee: marimbaSampler6,
+      Metropolitan: marimbaSampler7,
+      Northern: marimbaSampler8,
+      Piccadilly: marimbaSampler9,
+      Victoria: marimbaSampler10, 
+      WaterlooCity: marimbaSampler11,
+      Pedal: marimbaSampler12
 
     };
   } else if (instrumentSet === 'tubeDrums') {
     instruments = {
       Bakerloo: tubeDrumSampler,
-      Central: tubeDrumSampler,
-      Circle: tubeDrumSampler,
-      District: tubeDrumSampler,
-      HammersmithCity: tubeDrumSampler,
-      Jubilee: tubeDrumSampler,
-      Metropolitan: tubeDrumSampler,
-      Northern: tubeDrumSampler,
-      Piccadilly: tubeDrumSampler,
-      Victoria: tubeDrumSampler, 
-      WaterlooCity: tubeDrumSampler,
-      Pedal: tubeDrumSampler
+      Central: tubeDrumSampler2,
+      Circle: tubeDrumSampler3,
+      District: tubeDrumSampler4,
+      HammersmithCity: tubeDrumSampler5,
+      Jubilee: tubeDrumSampler6,
+      Metropolitan: tubeDrumSampler7,
+      Northern: tubeDrumSampler8,
+      Piccadilly: tubeDrumSampler9,
+      Victoria: tubeDrumSampler10, 
+      WaterlooCity: tubeDrumSampler11,
+      Pedal: tubeDrumSampler12
     };
   }
 

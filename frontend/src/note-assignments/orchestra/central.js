@@ -1,27 +1,27 @@
 const assignNoteForCentral = (stationName) => {
   switch(stationName) {
     case 'WestRuislip':
-      return 'C4';
+      return 'C2';
     case 'RuislipGardens':
-      return 'D4';
+      return 'D2';
     case 'SouthRuislip':
-      return 'E4';
+      return 'E2';
     case 'Northolt':
-      return 'G4';
+      return 'G2';
     case 'Greenford':
-      return 'A4';
+      return 'A2';
     case 'Perivale':
-      return 'C5';
+      return 'C3';
     case 'HangerLane':
-      return 'D5';
+      return 'D3';
     case 'NorthActon':
-      return 'E5';
+      return 'E3';
     case 'EastActon':
-      return 'G5';
+      return 'G3';
     case 'WhiteCity':
-      return 'A5';
+      return 'A3';
     case 'ShepherdsBush(Central)':
-      return 'C6';
+      return 'C4';
     case 'HollandPark':
       return 'C4';
     case 'NottingHillGate':
@@ -35,37 +35,37 @@ const assignNoteForCentral = (stationName) => {
     case 'BondStreet':
       return 'C5';
     case 'OxfordCircus':
-      return 'D5';
-    case 'TottenhamCourtRoad':
-      return 'E5';
-    case 'Holborn':
-      return 'G5';
-    case 'ChanceryLane':
-      return 'A5';
-    case 'St.Pauls':
-      return 'C6';
-    case 'Bank':
       return 'C4';
-    case 'LiverpoolStreet':
-      return 'D4';
-    case 'BethnalGreen':
+    case 'TottenhamCourtRoad':
       return 'E4';
-    case 'MileEnd':
+    case 'Holborn':
       return 'G4';
-    case 'Stratford':
+    case 'ChanceryLane':
       return 'A4';
-    case 'Leyton':
+    case 'St.Pauls':
       return 'C5';
+    case 'Bank':
+      return 'C3';
+    case 'LiverpoolStreet':
+      return 'D3';
+    case 'BethnalGreen':
+      return 'E3';
+    case 'MileEnd':
+      return 'G3';
+    case 'Stratford':
+      return 'A3';
+    case 'Leyton':
+      return 'C4';
     case 'Leytonstone':
-      return 'D5';
+      return 'D4';
     case 'Wanstead':
-      return 'E5';
+      return 'E4';
     case 'Redbridge':
-      return 'G5';
+      return 'G4';
     case 'GantsHill':
-      return 'A5';
+      return 'A4';
     case 'NewburyPark':
-      return 'C6';
+      return 'C4';
     case 'Barkingside':
       return 'C4';
     case 'Fairlop':
@@ -79,21 +79,21 @@ const assignNoteForCentral = (stationName) => {
     case 'RodingValley':
       return 'C5';
     case 'Snaresbrook':
-      return 'D5';
+      return 'D2';
     case 'SouthWoodford':
-      return 'E5';
+      return 'E2';
     case 'Woodford':
-      return 'G5';
+      return 'G2';
     case 'BuckhurstHill':
-      return 'C6';
+      return 'C3';
     case 'Loughton':
-      return 'C4';
+      return 'C3';
     case 'Debden':
-      return 'D5';
+      return 'D3';
     case 'TheydonBois ':
-      return 'E5';
+      return 'E3';
     case 'Epping':
-      return 'G5';
+      return 'G3';
     default:
       return 'C4';
     }

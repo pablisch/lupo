@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 
 import './SideBarLeft.css'
-import lineNames from '../../lineNames';
 import Slider from '../Slider/Slider';
 
 
-const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentInstrument}) => {
+const SideBarLeft = ({ soundOn, isPlaying, instruments, changeCurrentInstrument}) => {
 
   const [bakerlooControlToggle, setBakerlooControlToggle] = useState(false);
   const [centralControlToggle, setCentralControlToggle] = useState(false);
@@ -108,7 +107,7 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentIns
       <h2>Line Status</h2>
       <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button>
       <button id="marimba" onClick={() => changeCurrentInstrument("marimba")}>Marimba</button>
-      <button id="strings" onClick={() => changeCurrentInstrument("strings")}>Strings</button>
+      <button id="orchestra" onClick={() => changeCurrentInstrument("orchestra")}>Orchestra</button>
       <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button>
       {bakerlooControlToggle && <>
       <div className={`mute ${bakerlooControlToggle ? 'open' : ''}`}>

@@ -1,4 +1,3 @@
-import noteAssignFunctions from './note-assignments/getNoteAssignFunctions'
 import { arrivalEffectCreate } from './arrivalEffects';
 import TIMEOUTS from './timeouts';
 
@@ -20,7 +19,8 @@ const flashElement = (elementId) => {
 
 const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffectsToggle, arrivals) => {
   quantisedTubeData.forEach((train) => {
-    const note = noteAssignFunctions[train.lineName](train.stationName);
+    // const note = noteAssignFunctions[train.lineName](train.stationName);
+    const note = instruments.noteAssignFunctions[train.lineName](train.stationName);
     TIMEOUTS.setTimeout(() => {
       instruments[train.lineName].triggerAttackRelease(note, '4n');
       // console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);

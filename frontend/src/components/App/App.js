@@ -11,7 +11,6 @@ import processTubeData from '../../processTubeData';
 import allStations from '../../stations';
 import TIMEOUTS from '../../timeouts';
 import SideBarLeft from '../SideBarLeft/SideBarLeft';
-import SideBarRight from '../SideBarRight/SideBarRight';
 import Navbar from '../Navbar/Navbar';
 import Landing from '../Landing/Landing';
 import logo from '../../logo.svg';
@@ -183,9 +182,8 @@ function App() {
             {/* <img src={logo} id="tap-in" className="App-logo" alt="sound on" /> */}
             <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
             <div className="container bars-and-map">
-              <SideBarLeft currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument}/>
+              <SideBarLeft stop={stop} setTapInVisible={setTapInVisible} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument}/>
               <TubeMap/>
-              <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} stop={stop} setTapInVisible={setTapInVisible}/>
             </div> 
           </>
         } />

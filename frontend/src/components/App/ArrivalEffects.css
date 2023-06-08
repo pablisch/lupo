@@ -28,13 +28,7 @@
   --fx4Transition1: rgb(255, 238, 0);
   --fx4Transition2: rgb(255, 233, 124);
   --fx4Transition3: rgb(255, 224, 67);
-
-
-
-
 }
-
-
 
 .createArrival1 {
   background-color: var(--createArrival1Base);

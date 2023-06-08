@@ -8,12 +8,13 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="nav-logo">
           <img src="./Underground.png" alt="" className="luso-logo" />
-          <h2>LUSO</h2>
+          <h2>LONDON UNDERGROUND ORCHESTRA</h2>
+          <img src="./Underground.png" alt="" className="luso-logo" />
         </div>
         <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/data">Data</Link>
-          <Link to="/landing">Logo</Link>
+          {/data/.test(window.location.href) && <Link to="/sounds-of-the-underground">Map</Link>}
+          {/sounds/.test(window.location.href) && <Link to="/data">Data</Link>}
+          <Link to="/">Exit</Link>
         </div>
       </div>
     </nav>

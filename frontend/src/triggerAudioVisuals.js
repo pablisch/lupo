@@ -5,7 +5,7 @@ import TIMEOUTS from './timeouts';
 const flashElement = (elementId) => {
   const element = document.getElementById(elementId.replace(/ *\([^)]*\) */g, ""));
   element.style.animation = "full-fade-in 1s forwards";
-  TIMEOUTS.setTimeout(() => {
+  setTimeout(() => {
     element.style.animation = "full-fade-out 1s forwards";
   }, 1500);  
 }

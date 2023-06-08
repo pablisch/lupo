@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import './App.css';
+import './ArrivalEffects.css';
 import TubeMap from '../TubeMap/TubeMap.js';
 import audioStartup from '../../audioStartup';
 import triggerAudioVisuals from '../../triggerAudioVisuals';

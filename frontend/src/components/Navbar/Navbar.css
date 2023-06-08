@@ -1,25 +1,30 @@
 nav {
+  position: relative;
   background-color: #3b3939;
   padding: 0;
   margin: 0 auto;
   height: 7vh;
-  z-index: 1000;
+  z-index: 200;
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 30px;
   height: 100%;
-  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
 }
 
 nav a {
-  color: #fff;
-  padding: 0 0 0 20px;
+  color: #fff349;
+  /* padding: 0 0 0 20px; */
   text-decoration: none;
   font-size: 2.1rem;
 }
@@ -40,3 +45,50 @@ nav h2 {
   max-height: 6vh;
   margin: auto;
 }
+
+.link-btn {
+  background-color: #000;
+  text-align: center;
+  color: #444;
+  /* font-size: 1.1rem; */
+  border: 1px solid #555;
+  border-radius: 10px;
+  padding: 2px 10px;
+  width: 100px;
+  margin: 0 0 0 15px;
+  cursor: pointer;
+  box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 1100px) {
+  nav h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 920px) {
+  .second-logo {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) {
+  nav h2 {
+    font-size: 1.4rem;
+  }
+  nav a {
+    font-size: 1.2rem;
+    padding: 0 0 0 15px;
+  }
+}
+
+@media (max-width: 730px) {
+  nav h2 {
+    font-size: 1.2rem;
+  }
+  nav a {
+    font-size: 1.1rem;
+    padding: 0 0 0 15px;
+  }
+}
+

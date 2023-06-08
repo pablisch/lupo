@@ -1,3 +1,70 @@
 .slider {
-  width: 90%;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#button {
+  width: 100%;
+  margin: 0px auto;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: #fff;
+  font-size: 0.6rem;
+  border: 1px solid #555;
+  border-radius: 2px;
+}
+
+.Bakerloo {
+  background-color: rgb(160, 112, 34);
+  accent-color: rgb(160, 112, 34);
+}
+
+.Central {
+  background-color: rgb(220, 36, 31);
+  accent-color: rgb(220, 36, 31);
+}
+
+.Circle {
+  background-color: rgb(255, 211, 41);
+  accent-color: rgb(255, 211, 41);
+}
+
+.District {
+  background-color: rgb(0, 125, 50);
+  accent-color: rgb(0, 125, 50);
+}
+
+.HammersmithCity {
+  background-color: rgb(244, 169, 190);
+  accent-color: rgb(244, 169, 190);
+}
+
+.Jubilee {
+  background-color: rgb(161, 165, 167);
+  accent-color: rgb(161, 165, 167);
+}
+
+.Metropolitan {
+  background-color: rgb(117, 16, 86);
+  accent-color: rgb(117, 16, 86);
+}
+
+.Northern {
+  background-color: rgb(0, 0, 0);
+  accent-color: rgb(0, 0, 0);
+}
+
+.Piccadilly {
+  background-color: rgb(0, 25, 168);
+  accent-color: rgb(0, 25, 168);
+}
+
+.Victoria {
+  background-color: rgb(0, 152, 216);
+  accent-color:rgb(0, 152, 216);
+}
+
+.WaterlooCity {
+  background-color: rgb(106, 187, 170);
+  accent-color:rgb(106, 187, 170);
 }

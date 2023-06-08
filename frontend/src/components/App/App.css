@@ -91,25 +91,147 @@ main {
 
 @keyframes fade-out {
   from {
-    opacity: 100%;
+    opacity: 1;
   }
   to {
-    opacity: 15%;
+    opacity: 0.15;
   }
 }
 
 @keyframes fade-in {
   from {
-    opacity: 15%;
+    opacity: 0.15;
   }
   to {
-    opacity: 100%;
+    opacity: 1;
   }
 }
 
-@keyframes full-fade-out {
-  from {
-    opacity: 100%;
+/* .fade-out {
+  animation: fade-out 1s forwards;
+}
+
+.fade-in {
+  animation: fade-in 1s forwards;
+} */
+
+/* BUTTON STYLES */
+
+#soundon {
+  margin: 10px auto;
+  background-color: #3b1ec9;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border: 1px solid #999;
+  border-radius: 2px;
+}
+
+#soundon:disabled {
+  background-color: #55bd47;
+}
+
+.btn-temp {
+  width: 100%;
+  margin: 1px auto;
+  background-color: #fff;
+  color: #444;
+  font-size: 0.6rem;
+  border: 1px solid #555;
+  border-radius: 2px;
+}
+
+.btn-line {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #fff;
+  font-size: 0.7rem;
+  /* border: 1px solid #555; */
+  border: none;
+  /* border-radius: 2px; */
+  cursor: pointer;
+}
+
+.btn-bakerloo {
+  background-color: rgb(160, 112, 34);
+}
+
+.btn-central {
+  background-color: rgb(220, 36, 31);
+}
+
+.btn-circle {
+  background-color: rgb(255, 211, 41);
+}
+
+.btn-district {
+  background-color: rgb(0, 125, 50);
+}
+
+.btn-hammersmith-city {
+  background-color: rgb(244, 169, 190);
+}
+
+.btn-jubilee {
+  background-color: rgb(161, 165, 167);
+}
+
+.btn-metropolitan {
+  background-color: rgb(117, 16, 86);
+}
+
+.btn-northern {
+  background-color: rgb(0, 0, 0);
+}
+
+.btn-piccadilly {
+  background-color: rgb(0, 25, 168);
+}
+
+.btn-victoria {
+  background-color: rgb(0, 152, 216);
+}
+
+.btn-waterloo-city {
+  background-color: rgb(106, 187, 170);
+}
+
+/* ARRIVAL EFFECTS */
+
+.createArrival1 {
+  background-color: rgb(255, 233, 123);
+  border: 0.1px solid rgb(255, 89, 0);
+  animation: createArrivalEffect1 2s forwards;
+  box-shadow: 0 0 0.3px 1px rgba(255, 111, 0, 0.4); 
+}
+
+.createArrival2 {
+  background-color: rgb(255, 233, 123);
+  /* border: 0.1px solid rgb(255, 136, 0); */
+  animation: createArrivalEffect2 2s forwards;
+  box-shadow: 0 0 0.4px 2px rgba(255, 174, 0, 0.4); 
+}
+
+.createArrivalAfterShock1 {
+  background-color: rgb(255, 233, 123);
+  border: 0.1px solid rgb(255, 149, 0);
+  animation: createArrivalAfterEffect1 1.7s forwards;
+  box-shadow: 0 0 5px 2px rgba(255, 191, 0, 0.4);
+}
+
+.createArrivalAfterShock2 {
+  background-color: rgb(255, 233, 123);
+  /* border: 0.1px solid rgb(255, 0, 0); */
+  animation: createArrivalAfterEffect2 1.7s forwards;
+  box-shadow: 0 0 4px 3px rgba(255, 191, 0, 0.4);
+}
+
+@keyframes createArrivalEffect1 {
+  0% {
+    background-color: rgb(255, 106, 0);
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 90%;
   }
   to {
     opacity: 0%;
@@ -122,6 +244,15 @@ main {
   }
   to {
     opacity: 100%;
+  }
+}
+
+@keyframes full-fade-out {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
   }
 }
 

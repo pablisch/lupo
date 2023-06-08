@@ -23,80 +23,80 @@ const assignNoteForCentral = (stationName) => {
     case 'ShepherdsBush(Central)':
       return 'C4';
     case 'HollandPark':
-      return 'C4';
+      return 'D4';
     case 'NottingHillGate':
-      return 'D4';
+      return 'E4';
     case 'Queensway':
-      return 'E4';
+      return 'G4';
     case 'LancasterGate':
-      return 'G4';
+      return 'A4';
     case 'MarbleArch':
-      return 'A4';
+      return 'C5';
     case 'BondStreet':
-      return 'C5';
-    case 'OxfordCircus':
-      return 'C4';
-    case 'TottenhamCourtRoad':
-      return 'E4';
-    case 'Holborn':
-      return 'G4';
-    case 'ChanceryLane':
-      return 'A4';
-    case 'St.Pauls':
-      return 'C5';
-    case 'Bank':
       return 'C3';
-    case 'LiverpoolStreet':
+    case 'OxfordCircus':
       return 'D3';
-    case 'BethnalGreen':
+    case 'TottenhamCourtRoad':
       return 'E3';
-    case 'MileEnd':
+    case 'Holborn':
       return 'G3';
-    case 'Stratford':
+    case 'ChanceryLane':
       return 'A3';
-    case 'Leyton':
+    case 'St.Pauls':
       return 'C4';
-    case 'Leytonstone':
+    case 'Bank':
       return 'D4';
-    case 'Wanstead':
+    case 'LiverpoolStreet':
       return 'E4';
-    case 'Redbridge':
+    case 'BethnalGreen':
       return 'G4';
-    case 'GantsHill':
+    case 'MileEnd':
       return 'A4';
+    case 'Stratford':
+      return 'C5';
+    case 'Leyton':
+      return 'C3';
+    case 'Leytonstone':
+      return 'D3';
+    case 'Wanstead':
+      return 'E3';
+    case 'Redbridge':
+      return 'G3';
+    case 'GantsHill':
+      return 'A3';
     case 'NewburyPark':
       return 'C4';
     case 'Barkingside':
-      return 'C4';
-    case 'Fairlop':
       return 'D4';
-    case 'Hainault':
+    case 'Fairlop':
       return 'E4';
-    case 'GrangeHill':
+    case 'Hainault':
       return 'G4';
-    case 'Chigwell':
+    case 'GrangeHill':
       return 'A4';
-    case 'RodingValley':
+    case 'Chigwell':
       return 'C5';
+    case 'RodingValley':
+      return 'C4';
     case 'Snaresbrook':
-      return 'D2';
+      return 'D4';
     case 'SouthWoodford':
-      return 'E2';
+      return 'E4';
     case 'Woodford':
-      return 'G2';
+      return 'G4';
     case 'BuckhurstHill':
-      return 'C3';
+      return 'A4';
     case 'Loughton':
-      return 'C3';
+      return 'C5';
     case 'Debden':
-      return 'D3';
+      return 'C3';
     case 'TheydonBois ':
-      return 'E3';
+      return 'D3';
     case 'Epping':
-      return 'G3';
+      return 'E3';
     default:
       return 'C4';
     }
-  }
-
-module.exports = assignNoteForCentral;
+  };
+  
+  module.exports = assignNoteForCentral;

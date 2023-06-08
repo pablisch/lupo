@@ -1,6 +1,33 @@
-# Getting Started with Create React App
+# The LONDON UNDERGROUND PHONY ORCHESTRA (LUPO)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a audio/visual generative music app powered by the TfL Unified API and a healthy does of curiosity.
+
+## To view this app
+
+At time of writing, the app can be viewed online at [[Create React App](https://lupo.onrender.com/)](https://lupo.onrender.com/).
+
+## To run this app
+
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
+### In development
+```bash
+npm install # to install dependencies
+npm start # to start the app
+```
+
+### In production
+
+Requires the serve package
+```bash
+npm install -g serve # to install serve
+npm run build # to build the static site
+npm serve -s build # to serve the static site on port 3000.
+```
+
+You may also use `npm serve` to serve the site on another port, e.g.
+```bash
+npm serve -s build -l 4000 # to serve the static site on port 4000.
+```
 
 ## Available Scripts
 
@@ -72,3 +99,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+

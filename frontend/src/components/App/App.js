@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import './App.css';
+import './ArrivalEffects.css';
 import TubeMap from '../TubeMap/TubeMap.js';
 import audioStartup from '../../audioStartup';
 import triggerAudioVisuals from '../../triggerAudioVisuals';
@@ -13,6 +14,7 @@ import SideBarLeft from '../SideBarLeft/SideBarLeft';
 import SideBarRight from '../SideBarRight/SideBarRight';
 import Navbar from '../Navbar/Navbar';
 import Landing from '../Landing/Landing';
+import logo from '../../logo.svg';
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
@@ -20,20 +22,23 @@ const arrivals = []; // array to hold arrival elements, intialised w global scop
 let mainLooper;
 
 function App() {
+  const [currentInstrument, setCurrentInstrument] = useState("orchestra")
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true); // added for data visualiser
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0); // added for data visualiser
   const [visualData, setVisualData] = useState([]); // added for data visualiser
   const [isPlaying, setIsPlaying] = useState(false);
   const [arrivalEffectsToggle, setArrivalEffectsToggle] = useState(true); // added for data visualiser
   const [instruments, setInstruments] = useState(null);
+  const [tapInVisible, setTapInVisible] = useState(true);
   const renderCount = useRef(1)
 
-  const soundOn = async (instrumentSet) => {
+  const soundOn = async () => {
+    console.log('SOUND ON');
+    setTapInVisible(false);
     setIsPlaying(true); // controls the visibility of the soundon button
     fadeAllStations();
-    const awaitedInstruments = await audioStartup(instrumentSet)
+    const awaitedInstruments = await audioStartup(currentInstrument);
     setInstruments(awaitedInstruments);
-    console.log('tone started')
     
     // Following block provides a looping pedal note:
     // setInterval(() => {
@@ -58,12 +63,17 @@ function App() {
     });
   }
 
-  const restart = async (instrumentSet) => {
+  const stop = () => {
+    console.log("STOP");
     TIMEOUTS.clearAllTimeouts();
     clearTimeout(mainLooper);
-    console.log("All timeouts cleared");
-    soundOn(instrumentSet)
-    console.log('tone restarted');
+    setIsPlaying(false);
+  }
+
+  const restart = async () => {
+    console.log("RESTART");
+    stop();
+    soundOn();
   }
 
   const fetchData = () => {
@@ -91,7 +101,8 @@ function App() {
 
   // To trigger the first fetch after instruments 
   useEffect(() => {
-    console.log('used effect')
+    if(!isPlaying) {return;}
+    // console.log('used effect')
 
     if(instruments) { 
       console.log('instruments:', instruments)
@@ -109,36 +120,60 @@ function App() {
       setVisualiseEventsOnly(visualiseEventsOnly);
       setDataVisualiserKey((prevKey) => prevKey + 1);
       console.log(visualiseEventsOnly)
-    }, 1000);
+    }, 3000);
   };
 
   // handleArrivalEffectToggle to toggle the value of arrivalEffectsToggle
   const handleArrivalEffectToggle = () => {
-    setArrivalEffectsToggle(!arrivalEffectsToggle);
-    console.log('arrivalEffectsToggle', arrivalEffectsToggle)
+    console.log('arrivalEffectsToggle: '+ arrivalEffectsToggle);
+    setArrivalEffectsToggle(current => !current);
+    restart();
   };
 
   useEffect(() => {
+    if(!isPlaying) {return;}
     renderCount.current = renderCount.current + 1
-    console.log('renderCount', renderCount.current)
-  })     
+    // console.log('renderCount', renderCount.current)
+  })
+
+  useEffect(() => {
+    if(!isPlaying) {return;}
+    (async () => {
+      await restart();
+    })();
+
+    return () => {};
+  // eslint-disable-next-line
+  }, [currentInstrument])
+  
+  const changeCurrentInstrument = (change) => {
+    console.log("Change Current Instrument to :" + change);
+    setCurrentInstrument(change);
+  }
 
   return (
     <div className="App">
-      <Navbar />
+      
       <Routes>
         <Route path='/data' element={<>
-          <button onClick={toggleVisualiseEventsOnly}> {visualiseEventsOnly ? 'Include All intervals' : 'Events Only'} </button>
+          <Navbar stop={stop}/>
+          <button id="btn-data" className='btn-data-chart' onClick={toggleVisualiseEventsOnly}> {visualiseEventsOnly ? 'Include second intervals where no events occur' : 'Button will reset in 3 seconds'} </button>
           <DataVisualiser key={dataVisualiserKey} data={visualData} duration={dataBlockDuration} visualiseEventsOnly={visualiseEventsOnly} />
-        </>}/>
+        </>} />
+        
+        <Route path='/sounds-of-the-underground' element={<>
+            {tapInVisible && <img src={logo} id="tap-in" className="App-logo" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>}
+            {/* <img src={logo} id="tap-in" className="App-logo" alt="sound on" /> */}
+            <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
+            <div className="container bars-and-map">
+              <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument}/>
+              <TubeMap/>
+              <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} stop={stop} setTapInVisible={setTapInVisible}/>
+            </div> 
+          </>
+        } />
+        
         <Route path='/' element={
-          <div className="container bars-and-map">
-            <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments}/>
-            <TubeMap/>
-            <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} />
-          </div> 
-        }/>
-        <Route path='/landing' element={
           <Landing renderCount={renderCount} />
         }/>
       </Routes>

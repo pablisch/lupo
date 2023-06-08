@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+
 import './SideBarLeft.css'
 import lineNames from '../../lineNames';
 import Slider from '../Slider/Slider';
 
 
-const SideBarLeft = ({restart, soundOn, isPlaying, instruments}) => {
+const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentInstrument}) => {
+
   const [fadeBakerlooState, setFadeBakerlooState] = useState(true);
   const [fadeCentralState, setFadeCentralState] = useState(true);
   const [fadeCircleState, setFadeCircleState] = useState(true);
@@ -16,32 +18,58 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments}) => {
   const [fadePiccadillyState, setFadePiccadillyState] = useState(true);
   const [fadeVictoriaState, setFadeVictoriaState] = useState(true);
   const [fadeWaterlooCityState, setFadeWaterlooCityState] = useState(true);
-  console.log(soundOn)
+
+  const [bakerlooControlToggle, setBakerlooControlToggle] = useState(false);
+  // const [centralControlToggle, setCentralControlToggle] = useState(false);
+  // const [circleControlToggle, setCircleControlToggle] = useState(false);
+  // const [districtControlToggle, setDistrictControlToggle] = useState(false);
+  // const [hammersmithCityControlToggle, setHammersmithCityControlToggle] = useState(false);
+  // const [jubileeControlToggle, setJubileeControlToggle] = useState(false);
+  // const [metropolitanControlToggle, setMetropolitanControlToggle] = useState(false);
+  // const [northernControlToggle, setNorthernControlToggle] = useState(false);
+  // const [piccadillyControlToggle, setPiccadillyControlToggle] = useState(false);
+  // const [victoriaControlToggle, setVictoriaControlToggle] = useState(false);
+  // const [waterlooCityControlToggle, setWaterlooCityControlToggle] = useState(false);
 
   const fadeLine = (elementId, state, setState) => {
     const element = document.getElementById(elementId);
     console.log(element.id);
     if (state === true) {
-      console.log("Fade out");
       element.style.animation = "fade-out 1s forwards";
       setState(false);
     } else if (state === false) {
-      console.log("Fade In");
       element.style.animation = "fade-in 1s forwards";
       setState(true);
     }
   }
 
+  // handleLineControlToggle takes a line name as an argument and toggles the state of the corresponding line state, e.g. bakerlooControlToggle
+  const handleLineControlToggle = (lineName) => {
+    switch (lineName) {
+      case "Bakerloo":
+        setBakerlooControlToggle(!bakerlooControlToggle);
+        console.log('Bakerloo toggle', bakerlooControlToggle);
+        break;
+      default:
+        break;
+    }
+  }
+
   return (
     <aside className="sidebar sidebar-left">
-      <h2>Left Sidebar</h2>
+      <h2>Line Status</h2>
+      <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button>
       { lineNames.map((line, index) => {
         return <Slider lineName={line} instruments={instruments} key={index} />
       }) }
-      <button id="soundon" onClick={() => soundOn('orchestra')} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
-      <button id="marimba" onClick={() => restart("marimba")}>Marimba</button>
-      <button id="orchestra" onClick={() => restart("orchestra")}>Orchestra</button>
-      <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)}>Bakerloo</button>
+      <button id="marimba" onClick={() => changeCurrentInstrument("marimba")}>Marimba</button>
+      <button id="orchestra" onClick={() => changeCurrentInstrument("orchestra")}>Orchestra</button>
+      <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button>
+      {bakerlooControlToggle && <><div className={`mute ${bakerlooControlToggle ? 'open' : ''}`}>
+        <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} />
+        <Slider lineName="Bakerloo" instruments={instruments} key="Bakerloo" />
+      </div>
+      <div className="underline-bakerloo"></div></>}
       <button className='btn-line btn-central' type="button" onClick={() => fadeLine("Central", fadeCentralState, setFadeCentralState)}>Central</button>
       <button className='btn-line btn-circle' type="button" onClick={() => fadeLine("Circle", fadeCircleState, setFadeCircleState)}>Circle</button>
       <button className='btn-line btn-district' type="button" onClick={() => fadeLine("District", fadeDistrictState, setFadeDistrictState)}>District</button>

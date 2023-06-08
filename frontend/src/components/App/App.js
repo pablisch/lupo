@@ -35,30 +35,22 @@ function App() {
   const [fadeNorthernState, setFadeNorthernState] = useState(false);
   const [instruments, setInstruments] = useState(null)
 
-  const fadeElement = (elementId, state, setState) => {
-    const element = document.getElementById(elementId);
+  // const fadeElement = (elementId, state, setState) => {
+  //   const element = document.getElementById(elementId);
     
-    if (state === true) {
-      let currentOpacity = element.style.opacity;
-      console.log(element.style.opacity)
-      if (isNaN(currentOpacity)){ currentOpacity = 1 }
-      changeCSSFadeOut(currentOpacity);
-      element.style.animation = `fade-out ${currentOpacity}s forwards`;
-      setState(false);
-    } else if (state === false) {
-      console.log("Fade In");
-      element.style.animation = "fade-in 1s forwards";
-      setState(true);
-    }
-  }
-
-  const changeCSSFadeOut = (opacity) => {
-    const styleSheet = document.styleSheets[2];
-    const cssRules = styleSheet.cssRules;
-    const fadeOutKeyframes = cssRules[18];
-    fadeOutKeyframes.deleteRule(0);
-    fadeOutKeyframes.appendRule(`from { opacity: ${opacity}; }`);
-  }
+  //   if (state === true) {
+  //     let currentOpacity = element.style.opacity;
+  //     console.log(element.style.opacity)
+  //     if (isNaN(currentOpacity)){ currentOpacity = 1 }
+  //     // changeCSSFadeOut(currentOpacity);
+  //     element.style.animation = `fade-out 1s forwards`;
+  //     setState(false);
+  //   } else if (state === false) {
+  //     console.log("Fade In");
+  //     element.style.animation = "fade-in 1s forwards";
+  //     setState(true);
+  //   }
+  // }
 
   const changeOpacity = (elementId, opacity) => {
     const element = document.getElementById(elementId);
@@ -160,8 +152,8 @@ function App() {
                     return <Slider 
                     lineName={line} 
                     instruments={instruments} 
-                    fadeElement={fadeElement}
-                    setState={setFadeNorthernState}
+                    // fadeElement={fadeElement}
+                    // setState={setFadeNorthernState}
                     changeOpacity={changeOpacity}
                     key={index} />
                   }) }

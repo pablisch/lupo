@@ -1,7 +1,7 @@
 import './Slider.css';
 import { useState } from 'react';
 
-const Slider = ({ instruments, lineName, fadeElement, setState, changeOpacity }) => {
+const Slider = ({ instruments, lineName, changeOpacity }) => {
 
   // console.log('instruments in Slider', instruments)
   // console.log(`lineName inside of handleSliderChage: ${lineName}`)

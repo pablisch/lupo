@@ -134,5 +134,5 @@ function processTubeData(tubeData, dataBlockDuration) {
   return quantisedData;
 }
 
-module.exports = processTubeData;
+export default processTubeData;
   

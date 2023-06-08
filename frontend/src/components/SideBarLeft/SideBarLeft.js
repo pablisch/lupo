@@ -62,6 +62,7 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentIns
       { lineNames.map((line, index) => {
         return <Slider lineName={line} instruments={instruments} key={index} />
       }) }
+      <button id="tubeDrums" onClick={() => changeCurrentInstrument("tubeDrums")}>Tube Drums</button>
       <button id="marimba" onClick={() => changeCurrentInstrument("marimba")}>Marimba</button>
       <button id="orchestra" onClick={() => changeCurrentInstrument("orchestra")}>Orchestra</button>
       <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button>

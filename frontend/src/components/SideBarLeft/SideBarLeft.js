@@ -109,6 +109,7 @@ const SideBarLeft = ({ stop, setTapInVisible ,arrivalEffectsToggle, handleArriva
       <button className="instrumentButton" onClick={() => {stop(); setTapInVisible(true);}}>STOP</button><br /><br />
       <button id="mute" onClick={() => handleMuteButtonClick()}> {muted ? 'Unmute' : 'Mute'} </button>
       <button className="instrumentButton" id="tubeDrums" onClick={() => changeCurrentInstrument("tubeDrums")} disabled={currentInstrument == "tubeDrums"}>Tube Drums</button><br />
+      <button className="instrumentButton" id="strings" onClick={() => changeCurrentInstrument("strings")} disabled={currentInstrument == "strings"}>Strings</button><br />
       <button className="instrumentButton" id="marimba" onClick={() => changeCurrentInstrument("marimba")} disabled={currentInstrument == "marimba"}>Marimba</button><br />
       <button className="instrumentButton" id="orchestra" onClick={() => changeCurrentInstrument("orchestra")} disabled={currentInstrument == "orchestra"}>Orchestra</button><br />
       <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button>

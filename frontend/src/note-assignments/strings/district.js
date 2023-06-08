@@ -23,57 +23,57 @@ const assignNoteForDistrict = (stationName) => {
     case 'UptonPark':
       return 'C3';
     case 'Plaistow':
-      return 'D1';
+      return 'D2';
     case 'WestHam':
-      return 'E1';
+      return 'E2';
     case 'Bromley-by-Bow':
-      return 'G1';
+      return 'G2';
     case 'BowRoad':
-      return 'A1';
+      return 'A2';
     case 'MileEnd':
       return 'C3';
     case 'StepneyGreen':
-      return 'C2';
-    case 'Whitechapel':
-      return 'D2';
-    case 'AldgateEast':
-      return 'E2';
-    case 'TowerHill':
-      return 'G2';
-    case 'Monument':
-      return 'A2';
-    case 'CannonStreet':
       return 'C1';
-    case 'MansionHouse':
+    case 'Whitechapel':
       return 'D1';
-    case 'Blackfriars':
+    case 'AldgateEast':
       return 'E1';
-    case 'Temple':
+    case 'TowerHill':
       return 'G1';
+    case 'Monument':
+      return 'A1';
+    case 'CannonStreet':
+      return 'C2';
+    case 'MansionHouse':
+      return 'D2';
+    case 'Blackfriars':
+      return 'E2';
+    case 'Temple':
+      return 'G2';
     case 'Embankment':
       return 'A2';
     case 'Westminster':
-      return 'C2';
-    case 'StJamessPark':
-      return 'D2';
-    case 'Victoria':
-      return 'E2';
-    case 'SloaneSquare':
-      return 'G2';
-    case 'SouthKensington':
-      return 'A2';
-    case 'GloucesterRoad':
       return 'C3';
-    case 'HighStreetKensington':
-      return 'C1';
-    case 'EarlsCourt':
+    case 'StJamessPark':
       return 'D1';
-    case 'WestKensington':
+    case 'Victoria':
       return 'E1';
-    case 'BaronsCourt':
+    case 'SloaneSquare':
       return 'G1';
-    case 'Hammersmith(Dist&PiccLine)':
+    case 'SouthKensington':
       return 'A1';
+    case 'GloucesterRoad':
+      return 'C2';
+    case 'HighStreetKensington':
+      return 'C2';
+    case 'EarlsCourt':
+      return 'D2';
+    case 'WestKensington':
+      return 'E2';
+    case 'BaronsCourt':
+      return 'G2';
+    case 'Hammersmith(Dist&PiccLine)':
+      return 'A2';
     case 'RavenscourtPark':
       return 'C2';
     case 'StamfordBrook':

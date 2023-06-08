@@ -34,6 +34,18 @@ import tubeDrumsPiccadillyNoteAssignment from './tubeDrums/piccadilly';
 import tubeDrumsVictoriaNoteAssignment from './tubeDrums/victoria';
 import tubeDrumsWaterlooAndCityNoteAssignment from './tubeDrums/waterlooandcity';
 
+import stringsBakerlooNoteAssignment from './strings/bakerloo';
+import stringsCentralNoteAssignment from './strings/central';
+import stringsCircleNoteAssignment from './strings/circle'
+import stringsDistrictNoteAssignment from './strings/district';
+import stringsHammersmithCityNoteAssignment from './strings/hammersmithandcity';
+import stringsJubileeNoteAssignment from './strings/jubilee';
+import stringsMetropolitanNoteAssignment from './strings/metropolitan';
+import stringsNorthernNoteAssignment from './strings/northern';
+import stringsPiccadillyNoteAssignment from './strings/piccadilly';
+import stringsVictoriaNoteAssignment from './strings/victoria';
+import stringsWaterlooAndCityNoteAssignment from './strings/waterlooandcity';
+
 const getNoteAssignFunctions = (instrumentSet) => {
   let noteAssignFunctions = {}
 
@@ -78,6 +90,20 @@ const getNoteAssignFunctions = (instrumentSet) => {
 			Piccadilly: tubeDrumsPiccadillyNoteAssignment,
 			Victoria: tubeDrumsVictoriaNoteAssignment,
 			WaterlooCity: tubeDrumsWaterlooAndCityNoteAssignment
+		}
+	}	else if (instrumentSet === 'strings') {
+		noteAssignFunctions = {
+			Bakerloo: stringsBakerlooNoteAssignment,
+			Central: stringsCentralNoteAssignment,
+			Circle: stringsCircleNoteAssignment,
+			District: stringsDistrictNoteAssignment,
+			HammersmithCity: stringsHammersmithCityNoteAssignment,
+			Jubilee: stringsJubileeNoteAssignment,
+			Metropolitan: stringsMetropolitanNoteAssignment,
+			Northern: stringsNorthernNoteAssignment,
+			Piccadilly: stringsPiccadillyNoteAssignment,
+			Victoria: stringsVictoriaNoteAssignment,
+			WaterlooCity: stringsWaterlooAndCityNoteAssignment
 		}
 	}	
 	return noteAssignFunctions;

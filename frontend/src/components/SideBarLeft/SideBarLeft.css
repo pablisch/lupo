@@ -14,10 +14,27 @@
   border-radius: 2px;
   cursor: pointer;
 }
+:root {
+  --service-1: #b5e9ae;
+  --service-2: #b2e63a;
+} 
 
 #soundon:disabled {
-  background-color: #86ea79;
+  background-color: var(--service-1);
   cursor: not-allowed;
+  animation: colorTransition 2s infinite alternate;
+}
+
+@keyframes colorTransition {
+  0% {
+    background-color: var(--service-1);
+  }
+  50% {
+    background-color: var(--service-2); /* slightly different color */
+  }
+  100% {
+    background-color: var(--service-1);
+  }
 }
 
 .mute-icon {

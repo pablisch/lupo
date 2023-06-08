@@ -10,7 +10,7 @@
 
 .app-nav {
   background-color: #313a4a;
-  margin: 0;
+  margin: 0 0 5px;
   padding: 2px;
 }
 
@@ -56,12 +56,18 @@
   padding-top: 40px;
 }
 .blurb .bottom-text {
-  padding-bottom: 230px;
+  padding-bottom: 1000px;
 }
 
 .blurb p {
   color: #fff;
   font-size: 25px;
-  margin: 15px;
+  margin: 5px;
   padding: 0;
+}
+
+.blue-break {
+  background-color: #042ed7;
+  height: 10px;
+  width: 100%;
 }

@@ -9,6 +9,7 @@ const Landing = ({renderCount, soundOn}) => {
       <div className="app-nav">
         <h2>LONDON UNDERGROUND ORCHESTRA</h2>
       </div>
+      <div className="blue-break"></div>
       <header className="App-header">
         <div className="landing-page">
           {/* <p>{`This Page has rendered ${renderCount.current} times`}</p> */}
@@ -18,6 +19,7 @@ const Landing = ({renderCount, soundOn}) => {
           </Link>
         </div>
       </header>
+      <div className="blue-break"></div>
       <section className='blurb'>
         <div className="landing-page">
           <p className='top-text'>Click on the logo above to enter the London Underground music map.</p>

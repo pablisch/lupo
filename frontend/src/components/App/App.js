@@ -15,6 +15,7 @@ import SideBarRight from '../SideBarRight/SideBarRight';
 import Navbar from '../Navbar/Navbar';
 import Landing from '../Landing/Landing';
 import { InstrumentContext } from '../InstrumentProvider/InstrumentProvider';
+import logo from '../../logo.svg';
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
@@ -30,10 +31,12 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [arrivalEffectsToggle, setArrivalEffectsToggle] = useState(true); // added for data visualiser
   const [instruments, setInstruments] = useState(null);
+  const [tapInVisible, setTapInVisible] = useState(true);
   const renderCount = useRef(1)
 
   const soundOn = async () => {
     console.log('SOUND ON');
+    setTapInVisible(false);
     setIsPlaying(true); // controls the visibility of the soundon button
     fadeAllStations();
     const awaitedInstruments = await audioStartup(currentInstrument);
@@ -113,7 +116,7 @@ function App() {
       setVisualiseEventsOnly(visualiseEventsOnly);
       setDataVisualiserKey((prevKey) => prevKey + 1);
       console.log(visualiseEventsOnly)
-    }, 1000);
+    }, 3000);
   };
 
   // handleArrivalEffectToggle to toggle the value of arrivalEffectsToggle
@@ -146,21 +149,28 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      
       <Routes>
         <Route path='/data' element={<>
-          <button onClick={toggleVisualiseEventsOnly}> {visualiseEventsOnly ? 'Include All intervals' : 'Events Only'} </button>
+          <Navbar />
+          <button id="btn-data" className='btn-data-chart' onClick={toggleVisualiseEventsOnly}> {visualiseEventsOnly ? 'Include second intervals where no events occur' : 'Button will reset in 3 seconds'} </button>
           <DataVisualiser key={dataVisualiserKey} data={visualData} duration={dataBlockDuration} visualiseEventsOnly={visualiseEventsOnly} />
-        </>}/>
-        <Route path='/sounds-of-the-underground' element={
-          <div className="container bars-and-map">
-            <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument}/>
-            <TubeMap/>
-            <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} />
-          </div> 
-        }/>
+        </>} />
+        
+        <Route path='/sounds-of-the-underground' element={<>
+            {tapInVisible && <img src={logo} id="tap-in" className="App-logo" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>}
+            {/* <img src={logo} id="tap-in" className="App-logo" alt="sound on" /> */}
+            <Navbar />
+            <div className="container bars-and-map">
+              <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument}/>
+              <TubeMap/>
+              <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} />
+            </div> 
+          </>
+        } />
+        
         <Route path='/' element={
-          <Landing renderCount={renderCount} soundOn={soundOn} />
+          <Landing renderCount={renderCount} />
         }/>
       </Routes>
     </div>

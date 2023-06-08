@@ -1,24 +1,61 @@
 .sidebar-left {
-  /* flex-basis: 200px; */
-  width: 240px;
-  z-index: 2;
+  z-index: 200;
 }
 
 #soundon {
-  width: 100%;
+  width: 90%;
   margin: 0 auto 20px;
-  background-color: #3b1ec9;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.8rem;
+  padding: 5px 0;
+  background-color: #e48d6a;
+  color: #000;
+  /* font-weight: bold; */
+  font-size: 1.3rem;
   border: 1px solid #999;
   border-radius: 2px;
   cursor: pointer;
 }
+:root {
+  --service-1: #d0f086;
+  --service-2: #b2e63a;
+} 
 
 #soundon:disabled {
-  background-color: #55bd47;
+  background-color: var(--service-1);
   cursor: not-allowed;
+  animation: colorTransition 2s infinite alternate;
+}
+
+@keyframes colorTransition {
+  0% {
+    background-color: var(--service-1);
+  }
+  50% {
+    background-color: var(--service-2); /* slightly different color */
+  }
+  100% {
+    background-color: var(--service-1);
+  }
+}
+
+.mute-icon {
+  height: 25px;
+}
+
+.mute {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 5px 4px;
+  background: #fff;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height 1s ease, opacity 3s ease;
+}
+
+.open {
+  height: auto;
+  opacity: 1;
 }
 
 .btn-temp-left {
@@ -89,4 +126,10 @@
 
 .btn-waterloo-city {
   background-color: rgb(106, 187, 170);
+}
+
+.underline-bakerloo {
+  min-height: 5px;
+  background: rgb(160, 112, 34);
+  margin-bottom: 3px;
 }

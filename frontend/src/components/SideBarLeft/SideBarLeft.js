@@ -105,11 +105,11 @@ const SideBarLeft = ({ stop, setTapInVisible ,arrivalEffectsToggle, handleArriva
     <aside className="sidebar sidebar-left">
       <h2>Line Status</h2>
       <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button><br />
-      <button onClick={() => handleArrivalEffectToggle()}>{arrivalEffectsToggle ? 'Turn Arrival Effects OFF' : 'Turn Arrival Effects ON'}</button><br />
-      <button onClick={() => {stop(); setTapInVisible(true);}}>STOP</button><br />
-      <button id="tubeDrums" onClick={() => changeCurrentInstrument("tubeDrums")} disabled={currentInstrument === "tubeDrums"}>Tube Drums</button><br />
-      <button id="marimba" onClick={() => changeCurrentInstrument("marimba")} disabled={currentInstrument === "marimba"}>Marimba</button><br />
-      <button id="orchestra" onClick={() => changeCurrentInstrument("orchestra")} disabled={currentInstrument === "orchestra"}>Orchestra</button><br />
+      <button className="instrumentButton" onClick={() => handleArrivalEffectToggle()}>{arrivalEffectsToggle ? 'Turn Arrival Effects OFF' : 'Turn Arrival Effects ON'}</button><br />
+      <button className="instrumentButton" onClick={() => {stop(); setTapInVisible(true);}}>STOP</button><br /><br />
+      <button className="instrumentButton" id="tubeDrums" onClick={() => changeCurrentInstrument("tubeDrums")} disabled={currentInstrument == "tubeDrums"}>Tube Drums</button><br />
+      <button className="instrumentButton" id="marimba" onClick={() => changeCurrentInstrument("marimba")} disabled={currentInstrument == "marimba"}>Marimba</button><br />
+      <button className="instrumentButton" id="orchestra" onClick={() => changeCurrentInstrument("orchestra")} disabled={currentInstrument == "orchestra"}>Orchestra</button><br />
       <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button>
       {bakerlooControlToggle && <>
       <div className={`mute ${bakerlooControlToggle ? 'open' : ''}`}>
@@ -190,7 +190,7 @@ const SideBarLeft = ({ stop, setTapInVisible ,arrivalEffectsToggle, handleArriva
       </div>
       </>}
 
-      <button className='btn-line btn-waterloo-city' type="button" onClick={() => handleLineControlToggle("WaterlooCity")}>WaterlooCity</button>
+      <button className='btn-line btn-waterloo-city' type="button" onClick={() => handleLineControlToggle("WaterlooCity")}>Waterloo & City</button>
       {waterlooCityControlToggle && <>
       <div className={`mute ${waterlooCityControlToggle ? 'open' : ''}`}>
         <Slider lineName="WaterlooCity" instruments={instruments} key="WaterlooCity" 

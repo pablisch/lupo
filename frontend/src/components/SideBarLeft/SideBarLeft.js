@@ -22,16 +22,16 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeCurrentIns
   const [fadeWaterlooCityState, setFadeWaterlooCityState] = useState(true);
 
   const [bakerlooControlToggle, setBakerlooControlToggle] = useState(false);
-  const [centralControlToggle, setCentralControlToggle] = useState(false);
-  const [circleControlToggle, setCircleControlToggle] = useState(false);
-  const [districtControlToggle, setDistrictControlToggle] = useState(false);
-  const [hammersmithCityControlToggle, setHammersmithCityControlToggle] = useState(false);
-  const [jubileeControlToggle, setJubileeControlToggle] = useState(false);
-  const [metropolitanControlToggle, setMetropolitanControlToggle] = useState(false);
-  const [northernControlToggle, setNorthernControlToggle] = useState(false);
-  const [piccadillyControlToggle, setPiccadillyControlToggle] = useState(false);
-  const [victoriaControlToggle, setVictoriaControlToggle] = useState(false);
-  const [waterlooCityControlToggle, setWaterlooCityControlToggle] = useState(false);
+  // const [centralControlToggle, setCentralControlToggle] = useState(false);
+  // const [circleControlToggle, setCircleControlToggle] = useState(false);
+  // const [districtControlToggle, setDistrictControlToggle] = useState(false);
+  // const [hammersmithCityControlToggle, setHammersmithCityControlToggle] = useState(false);
+  // const [jubileeControlToggle, setJubileeControlToggle] = useState(false);
+  // const [metropolitanControlToggle, setMetropolitanControlToggle] = useState(false);
+  // const [northernControlToggle, setNorthernControlToggle] = useState(false);
+  // const [piccadillyControlToggle, setPiccadillyControlToggle] = useState(false);
+  // const [victoriaControlToggle, setVictoriaControlToggle] = useState(false);
+  // const [waterlooCityControlToggle, setWaterlooCityControlToggle] = useState(false);
 
   const fadeLine = (elementId, state, setState) => {
     const element = document.getElementById(elementId);

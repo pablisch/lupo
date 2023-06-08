@@ -36,7 +36,7 @@ const Slider = ({ instruments, lineName, maxVolumeScaledUp, sliderValue, setSlid
 
   return (
     <div className="dropdownContainer">
-      <img className='mute-icon' src="./mute.png" alt="mute" onClick={handleButtonClick} />
+      <img className='mute-icon' src={sliderValue===0 ? "./mute.png" : "./unmute.png"} alt="mute" onClick={handleButtonClick} />
       <input 
       type="range" 
       min="0" 

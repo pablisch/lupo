@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SideBarLeft.css'
 import Slider from '../Slider/Slider';
 

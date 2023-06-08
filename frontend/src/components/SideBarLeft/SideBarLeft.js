@@ -22,16 +22,16 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeOpacity, c
   const [fadeWaterlooCityState, setFadeWaterlooCityState] = useState(true);
 
   const [bakerlooControlToggle, setBakerlooControlToggle] = useState(false);
-  // const [centralControlToggle, setCentralControlToggle] = useState(false);
-  // const [circleControlToggle, setCircleControlToggle] = useState(false);
-  // const [districtControlToggle, setDistrictControlToggle] = useState(false);
-  // const [hammersmithCityControlToggle, setHammersmithCityControlToggle] = useState(false);
-  // const [jubileeControlToggle, setJubileeControlToggle] = useState(false);
-  // const [metropolitanControlToggle, setMetropolitanControlToggle] = useState(false);
-  // const [northernControlToggle, setNorthernControlToggle] = useState(false);
-  // const [piccadillyControlToggle, setPiccadillyControlToggle] = useState(false);
-  // const [victoriaControlToggle, setVictoriaControlToggle] = useState(false);
-  // const [waterlooCityControlToggle, setWaterlooCityControlToggle] = useState(false);
+  const [centralControlToggle, setCentralControlToggle] = useState(false);
+  const [circleControlToggle, setCircleControlToggle] = useState(false);
+  const [districtControlToggle, setDistrictControlToggle] = useState(false);
+  const [hammersmithCityControlToggle, setHammersmithCityControlToggle] = useState(false);
+  const [jubileeControlToggle, setJubileeControlToggle] = useState(false);
+  const [metropolitanControlToggle, setMetropolitanControlToggle] = useState(false);
+  const [northernControlToggle, setNorthernControlToggle] = useState(false);
+  const [piccadillyControlToggle, setPiccadillyControlToggle] = useState(false);
+  const [victoriaControlToggle, setVictoriaControlToggle] = useState(false);
+  const [waterlooCityControlToggle, setWaterlooCityControlToggle] = useState(false);
 
   const fadeLine = (elementId, state, setState) => {
     const element = document.getElementById(elementId);
@@ -52,40 +52,150 @@ const SideBarLeft = ({restart, soundOn, isPlaying, instruments, changeOpacity, c
         setBakerlooControlToggle(!bakerlooControlToggle);
         console.log('Bakerloo toggle', bakerlooControlToggle);
         break;
+      case "Central":
+        setCentralControlToggle(!centralControlToggle);
+        console.log('Central toggle', centralControlToggle);
+        break;
+      case "Circle":
+        setCircleControlToggle(!circleControlToggle);
+        console.log('Circle toggle', circleControlToggle);
+        break;
+      case "District":
+        setDistrictControlToggle(!districtControlToggle);
+        console.log('Circle toggle', districtControlToggle);
+        break;
+      case "HammersmithCity":
+        setHammersmithCityControlToggle(!hammersmithCityControlToggle);
+        console.log('HammersmithCity toggle', hammersmithCityControlToggle);
+        break;
+      case "Jubilee":
+        setJubileeControlToggle(!jubileeControlToggle);
+        console.log('Jubilee toggle', hammersmithCityControlToggle);
+        break;
+      case "Metropolitan":
+        setMetropolitanControlToggle(!metropolitanControlToggle);
+        console.log('metropolitan toggle', metropolitanControlToggle);
+        break;
+      case "Northern":
+        setNorthernControlToggle(!northernControlToggle);
+        console.log('Northern toggle', northernControlToggle);
+        break;
+      case "Piccadilly":
+        setPiccadillyControlToggle(!piccadillyControlToggle);
+        console.log('Piccadilly toggle', piccadillyControlToggle);
+        break;
+      case "Victoria":
+        setVictoriaControlToggle(!victoriaControlToggle);
+        console.log('Victoria toggle', victoriaControlToggle);
+        break;
+      case "WaterlooCity":
+        setWaterlooCityControlToggle(!waterlooCityControlToggle);
+        console.log('WaterlooCity toggle', waterlooCityControlToggle);
+        break;
       default:
         break;
     }
   }
-
   return (
     <aside className="sidebar sidebar-left">
       <h2>Line Status</h2>
       <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button>
-      { lineNames.map((line, index) => {
+      {/* { lineNames.map((line, index) => {
                     return <Slider 
                     lineName={line} 
                     instruments={instruments} 
                     changeOpacity={changeOpacity}
                     key={index} />
-                  }) }
+                  }) } */}
       <button id="marimba" onClick={() => changeCurrentInstrument("marimba")}>Marimba</button>
       <button id="strings" onClick={() => changeCurrentInstrument("strings")}>Strings</button>
       <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button>
-      {bakerlooControlToggle && <><div className={`mute ${bakerlooControlToggle ? 'open' : ''}`}>
-        <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} />
-        <Slider lineName="Bakerloo" instruments={instruments} key="Bakerloo" />
+      {bakerlooControlToggle && <>
+      <div className={`mute ${bakerlooControlToggle ? 'open' : ''}`}>
+        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
+        <Slider lineName="Bakerloo" instruments={instruments} changeOpacity={changeOpacity} key="Bakerloo" />
       </div>
-      <div className="underline-bakerloo"></div></>}
-      <button className='btn-line btn-central' type="button" onClick={() => fadeLine("Central", fadeCentralState, setFadeCentralState)}>Central</button>
-      <button className='btn-line btn-circle' type="button" onClick={() => fadeLine("Circle", fadeCircleState, setFadeCircleState)}>Circle</button>
-      <button className='btn-line btn-district' type="button" onClick={() => fadeLine("District", fadeDistrictState, setFadeDistrictState)}>District</button>
-      <button className='btn-line btn-hammersmith-city' type="button" onClick={() => fadeLine("HammersmithCity", fadeHammersmithCityState, setFadeHammersmithCityState)}>Hammersmith & City</button>
-      <button className='btn-line btn-jubilee' type="button" onClick={() => fadeLine("Jubilee", fadeJubileeState, setFadeJubileeState)}>Jubilee</button>
-      <button className='btn-line btn-metropolitan' type="button" onClick={() => fadeLine("Metropolitan", fadeMetropolitanState, setFadeMetropolitanState)}>Metropolitan</button>
-      <button className='btn-line btn-northern' type="button" onClick={() => fadeLine("Northern", fadeNorthernState, setFadeNorthernState)}>Northern</button>
-      <button className='btn-line btn-piccadilly' type="button" onClick={() => fadeLine("Piccadilly", fadePiccadillyState, setFadePiccadillyState)}>Piccadilly</button>
-      <button className='btn-line btn-victoria' type="button" onClick={() => fadeLine("Victoria", fadeVictoriaState, setFadeVictoriaState)}>Victoria</button>
-      <button className='btn-line btn-waterloo-city' type="button" onClick={() => fadeLine("WaterlooCity", fadeWaterlooCityState, setFadeWaterlooCityState)}>Waterloo & City</button>
+      </>}
+
+      <button className='btn-line btn-central' type="button" onClick={() => handleLineControlToggle("Central")}>Central</button>
+      {centralControlToggle && <>
+      <div className={`mute ${centralControlToggle ? 'open' : ''}`}>
+        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
+        <Slider lineName="Central" instruments={instruments} changeOpacity={changeOpacity} key="Central" />
+      </div>
+      </>}
+
+      <button className='btn-line btn-circle' type="button" onClick={() => handleLineControlToggle("Circle")}>Circle</button>
+      {circleControlToggle && <>
+      <div className={`mute ${circleControlToggle ? 'open' : ''}`}>
+        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
+        <Slider lineName="Circle" instruments={instruments} changeOpacity={changeOpacity} key="Circle" />
+      </div>
+      </>}
+
+      <button className='btn-line btn-district' type="button" onClick={() => handleLineControlToggle("District")}>District</button>
+      {districtControlToggle && <>
+      <div className={`mute ${districtControlToggle ? 'open' : ''}`}>
+        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
+        <Slider lineName="District" instruments={instruments} changeOpacity={changeOpacity} key="District" />
+      </div>
+      </>}
+
+      <button className='btn-line btn-hammersmith-city' type="button" onClick={() => handleLineControlToggle("HammersmithCity")}>Hammersmith & City</button>
+      {hammersmithCityControlToggle && <>
+      <div className={`mute ${hammersmithCityControlToggle ? 'open' : ''}`}>
+        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
+        <Slider lineName="HammersmithCity" instruments={instruments} changeOpacity={changeOpacity} key="HammersmithCity" />
+      </div>
+      </>}
+
+      <button className='btn-line btn-jubilee' type="button" onClick={() => handleLineControlToggle("Jubilee")}>Jubilee</button>
+      {jubileeControlToggle && <>
+      <div className={`mute ${jubileeControlToggle ? 'open' : ''}`}>
+        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
+        <Slider lineName="Jubilee" instruments={instruments} changeOpacity={changeOpacity} key="Jubilee" />
+      </div>
+      </>}
+      
+      <button className='btn-line btn-metropolitan' type="button" onClick={() => handleLineControlToggle("Metropolitan")}>Metropolitan</button>
+      {metropolitanControlToggle && <>
+      <div className={`mute ${metropolitanControlToggle ? 'open' : ''}`}>
+        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
+        <Slider lineName="Metropolitan" instruments={instruments} changeOpacity={changeOpacity} key="Metropolitan" />
+      </div>
+      </>}
+
+      <button className='btn-line btn-northern' type="button" onClick={() => handleLineControlToggle("Northern")}>Northern</button>
+      {northernControlToggle && <>
+      <div className={`mute ${northernControlToggle ? 'open' : ''}`}>
+        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
+        <Slider lineName="Northern" instruments={instruments} changeOpacity={changeOpacity} key="Northern" />
+      </div>
+      </>}
+      
+      <button className='btn-line btn-piccadilly' type="button" onClick={() => handleLineControlToggle("Piccadilly")}>Piccadilly</button>
+      {piccadillyControlToggle && <>
+      <div className={`mute ${piccadillyControlToggle ? 'open' : ''}`}>
+        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
+        <Slider lineName="Piccadilly" instruments={instruments} changeOpacity={changeOpacity} key="Piccadilly" />
+      </div>
+      </>}
+      
+      <button className='btn-line btn-victoria' type="button" onClick={() => handleLineControlToggle("Victoria")}>Victoria</button>
+      {victoriaControlToggle && <>
+      <div className={`mute ${victoriaControlToggle ? 'open' : ''}`}>
+        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
+        <Slider lineName="Victoria" instruments={instruments} changeOpacity={changeOpacity} key="Victoria" />
+      </div>
+      </>}
+
+      <button className='btn-line btn-waterloo-city' type="button" onClick={() => handleLineControlToggle("WaterlooCity")}>WaterlooCity</button>
+      {waterlooCityControlToggle && <>
+      <div className={`mute ${waterlooCityControlToggle ? 'open' : ''}`}>
+        {/* <img className='mute-icon' src="./mute.png" alt="mute" onClick={() => fadeLine("Bakerloo", fadeBakerlooState, setFadeBakerlooState)} /> */}
+        <Slider lineName="WaterlooCity" instruments={instruments} changeOpacity={changeOpacity} key="WaterlooCity" />
+      </div>
+      </>}
     </aside>
   );
 }

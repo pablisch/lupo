@@ -52,9 +52,10 @@ const Slider = ({ instruments, lineName, changeOpacity }) => {
       className="slider" 
       onChange={handleSliderChange}>
       </input>
-      <button id='button' className={lineName} onClick={handleButtonClick}>
+      <img className='mute-icon' src="./mute.png" alt="mute" onClick={handleButtonClick} />
+      {/* <button id='button' className={lineName} onClick={handleButtonClick}>
       {lineName === 'HammersmithCity' ? 'Hammersmith & City' : lineName === 'WaterlooCity' ? 'Waterloo & City' : lineName}
-      </button>
+      </button> */}
     </div>
   )
 }

@@ -2,7 +2,11 @@ import './Navbar.css'
 import { Link } from "react-router-dom";
 
 
-const Navbar = () => {
+const Navbar = ({stop, setTapInVisible}) => {
+  const navigateAway = () => {
+    stop();
+    setTapInVisible(true);
+  }
   return (
     <nav>
       <div className="nav-container">
@@ -14,7 +18,7 @@ const Navbar = () => {
         <div className="nav-links">
           {/data/.test(window.location.href) && <Link to="/sounds-of-the-underground">Map</Link>}
           {/sounds/.test(window.location.href) && <Link to="/data">Data</Link>}
-          <Link to="/">Exit</Link>
+          <Link to="/" onClick={navigateAway}>Exit</Link>
         </div>
       </div>
     </nav>

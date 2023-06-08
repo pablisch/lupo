@@ -22,7 +22,7 @@ const assignNoteForVictoria = (stationName) => {
       return 'D3';
     case 'GreenPark':
       return 'C3';
-    case 'Victoria':
+    case 'VictoriaSt':
       return 'A3';
     case 'Pimlico':
       return 'G2';

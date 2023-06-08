@@ -58,7 +58,7 @@ const assignNoteForDistrict = (stationName) => {
       return `C${lowOctave + 1}`;
     case 'StJamessPark':
       return `A${lowOctave + 1}`;
-    case 'Victoria':
+    case 'VictoriaSt':
       return `A${lowOctave + 1}`;
     case 'SloaneSquare':
       return `A${lowOctave + 1}`;

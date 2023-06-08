@@ -1,103 +1,71 @@
 const assignNoteForCentral = (stationName) => {
-  switch(stationName) {
-    // case 'WestRuislip':
-    //   return 'A1';
-    // case 'RuislipGardens':
-    //   return 'A2';
-    // case 'SouthRuislip':
-    //   return 'A3';
-    // case 'Northolt':
-    //   return 'A4';
-    // case 'Greenford':
-    //   return 'A5';
-    // case 'Perivale':
-    //   return 'A6';
-    // case 'HangerLane':
-    //   return 'A7';
-    // case 'NorthActon':
-    //   return 'A8';
-    // case 'EastActon':
-    //   return 'A9';
-    // case 'WhiteCity':
-    //   return 'A10';
-    // case 'ShepherdsBush(Central)':
-    //   return 'A11';
-    // case 'HollandPark':
-    //   return 'A12';
-    // case 'NottingHillGate':
-    //   return 'A13';
-    // case 'Queensway':
-    //   return 'A14';
-    // case 'LancasterGate':
-    //   return 'A15';
-    // case 'MarbleArch':
-    //   return 'A16';
-    // case 'BondStreet':
-    //   return 'A17';
-    // case 'OxfordCircus':
-    //   return 'A18';
-    // case 'TottenhamCourtRoad':
-    //   return 'A19';
-    // case 'Holborn':
-    //   return 'A20';
-    // case 'ChanceryLane':
-    //   return 'A21';
-    // case 'St.Pauls':
-    //   return 'A22';
-    // case 'Bank':
-    //   return 'A23';
-    // case 'LiverpoolStreet':
-    //   return 'A24';
-    // case 'BethnalGreen':
-    //   return 'A25';
-    // case 'MileEnd':
-    //   return 'A26';
-    // case 'Stratford':
-    //   return 'A27';
-    // case 'Leyton':
-    //   return 'A28';
-    // case 'Leytonstone':
-    //   return 'A29';
-    // case 'Wanstead':
-    //   return 'A30';
-    // case 'Redbridge':
-    //   return 'A31';
-    // case 'GantsHill':
-    //   return 'A32';
-    // case 'NewburyPark':
-    //   return 'A33';
-    // case 'Barkingside':
-    //   return 'A34';
-    // case 'Fairlop':
-    //   return 'A35';
-    // case 'Hainault':
-    //   return 'A36';
-    // case 'GrangeHill':
-    //   return 'A37';
-    // case 'Chigwell':
-    //   return 'A38';
-    // case 'RodingValley':
-    //   return 'A39';
-    // case 'Snaresbrook':
-    //   return 'A40';
-    // case 'SouthWoodford':
-    //   return 'A41';
-    // case 'Woodford':
-    //   return 'A42';
-    // case 'BuckhurstHill':
-    //   return 'A43';
-    // case 'Loughton':
-    //   return 'A44';
-    // case 'Debden':
-    //   return 'A45';
-    // case 'TheydonBois ':
-    //   return 'A46';
-    // case 'Epping':
-    //   return 'A47';
+  const lowOctave = 4;
+
+  switch (stationName) {
+    case 'Upminster':
+    case 'UpminsterBridge':
+    case 'Hornchurch':
+      return `G${lowOctave + 2}`;
+    case 'ElmPark':
+    case 'DagenhamEast':
+    case 'DagenhamHeathway':
+      return `E${lowOctave + 2}`;
+    case 'Becontree':
+    case 'Upney':
+    case 'Barking':
+      return `D${lowOctave + 2}`;
+    case 'EastHam':
+    case 'UptonPark':
+    case 'Plaistow':
+      return `C${lowOctave + 2}`;
+    case 'WestHam':
+    case 'Bromley-by-Bow':
+    case 'BowRoad':
+      return `A${lowOctave + 2}`;
+    case 'MileEnd':
+    case 'StepneyGreen':
+    case 'Whitechapel':
+      return `G${lowOctave + 1}`;
+    case 'AldgateEast':
+    case 'TowerHill':
+    case 'Monument':
+      return `E${lowOctave + 1}`;
+    case 'CannonStreet':
+    case 'MansionHouse':
+    case 'Blackfriars':
+      return `D${lowOctave + 1}`;
+    case 'Temple':
+    case 'Embankment':
+    case 'Westminster':
+      return `C${lowOctave + 1}`;
+    case 'StJamessPark':
+    case 'VictoriaSt':
+    case 'SloaneSquare':
+      return `A${lowOctave + 1}`;
+    case 'SouthKensington':
+    case 'GloucesterRoad':
+    case 'HighStreetKensington':
+      return `G${lowOctave}`;
+    case 'EarlsCourt':
+    case 'WestKensington':
+    case 'BaronsCourt':
+      return `E${lowOctave}`;
+    case 'Hammersmith(Dist&PiccLine)':
+    case 'RavenscourtPark':
+    case 'StamfordBrook':
+      return `D${lowOctave}`;
+    case 'TurnhamGreen':
+    case 'Gunnersbury':
+    case 'KewGardens':
+      return `C${lowOctave}`;
+    case 'Richmond':
+    case 'WimbledonPark':
+    case 'Wimbledon':
+    case 'WestBrompton':
+      return `A${lowOctave}`;
     default:
-      return 'C6';
-    }
+      return `A${lowOctave}`;
   }
-  
-  module.exports = assignNoteForCentral;
-  
+};
+
+module.exports = assignNoteForCentral;

@@ -1,39 +1,38 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
-import logo from '../../logo.svg';
 import './App.css';
+import './ArrivalEffects.css';
 import TubeMap from '../TubeMap/TubeMap.js';
 import audioStartup from '../../audioStartup';
 import triggerAudioVisuals from '../../triggerAudioVisuals';
 import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import processTubeData from '../../processTubeData';
-import { arrivalEffectTransform, arrivalEffectCreate } from '../../arrivalEffects';
-import lineNames from '../../lineNames';
-import Slider from '../Slider/Slider';
-
-console.log('lineNames is', lineNames)
+import allStations from '../../stations';
+import TIMEOUTS from '../../timeouts';
+import SideBarLeft from '../SideBarLeft/SideBarLeft';
+import SideBarRight from '../SideBarRight/SideBarRight';
+import Navbar from '../Navbar/Navbar';
+import Landing from '../Landing/Landing';
+import { InstrumentContext } from '../InstrumentProvider/InstrumentProvider';
+import logo from '../../logo.svg';
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
-// let instruments = {}; // object to hold Tone instruments, intialised w global scope
-
-// TEST points for viusal effects including fade and arrival effects
-// const arrivalPoint = "g250238"; // Holborn station (whole station)
-const arrivalPointInner = "path250234"; // white centre of Holborn
-const burntOak = "rect247013"; // Burnt Oak station
-const hendonCentral = "g249286"; // Hendon Central station
+const arrivals = []; // array to hold arrival elements, intialised w global scope
+let mainLooper;
 
 function App() {
+  const {currentInstrument, setCurrentInstrument} = useContext(InstrumentContext)
+
   const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true); // added for data visualiser
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0); // added for data visualiser
   const [visualData, setVisualData] = useState([]); // added for data visualiser
   const [isPlaying, setIsPlaying] = useState(false);
+  const [arrivalEffectsToggle, setArrivalEffectsToggle] = useState(true); // added for data visualiser
+  const [instruments, setInstruments] = useState(null);
+  const [tapInVisible, setTapInVisible] = useState(true);
   const renderCount = useRef(1)
-
-  const [fadeCentralState, setFadeCentralState] = useState(false);
-  const [fadeNorthernState, setFadeNorthernState] = useState(false);
-  const [instruments, setInstruments] = useState(null)
 
   // const fadeElement = (elementId, state, setState) => {
   //   const element = document.getElementById(elementId);
@@ -56,9 +55,45 @@ function App() {
     const element = document.getElementById(elementId);
     element.style.opacity = opacity;
   }
+  const soundOn = async () => {
+    console.log('SOUND ON');
+    setTapInVisible(false);
+    setIsPlaying(true); // controls the visibility of the soundon button
+    fadeAllStations();
+    const awaitedInstruments = await audioStartup(currentInstrument);
+    setInstruments(awaitedInstruments);
+    
+    // Following block provides a looping pedal note:
+    // setInterval(() => {
+    //   instruments.Pedal.triggerAttackRelease('C4', '1n');
+    // }, (dataBlockDuration / 60) * 2000);
+  }
+
+  const fadeAllStations = () => {
+    allStations.forEach((line) => {
+      line.forEach((station) => {
+        // console.log(station);
+        document.getElementById(station
+          .replace(/ *\([^)]*\) */g, "")
+          .replace(/\s|\.''/g, '')
+          .replace(/\./g, '')
+          .replace(/'/g, '')
+          .replace(/UndergroundStation/g, '')
+          .replace(/-Underground/g, '')
+          .replace(/&/g, '_'),)
+        .style.opacity = "0%";
+      });
+    });
+  }
+
+  const restart = async () => {
+    console.log("RESTART");
+    TIMEOUTS.clearAllTimeouts();
+    clearTimeout(mainLooper);
+    soundOn();
+  }
 
   const fetchData = () => {
-    // console.log("fetchdata awaited instruments", awaitedInstruments)
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
       .then(response => {
         const filteredData = response.data
@@ -74,43 +109,25 @@ function App() {
         console.log('processedData =', processedData);
         setVisualData(processedData);
         console.log("fetchdata instruments", instruments)
-        triggerAudioVisuals(processedData, instruments);
-        // triggerAudioVisuals(processedData, awaitedInstruments);
+        triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals);
       })
       .catch(error => {
         console.error('Error fetching tube data:', error);
       });
   };
 
-  // let updateOnInstrumentChange = true;
-
+  // To trigger the first fetch after instruments 
   useEffect(() => {
-    console.log('used effect')
-    // console.log(`firstFetch is ${firstFetch}`)
+    if(!isPlaying) {return;}
+    // console.log('used effect')
 
     if(instruments) { 
-      // console.log('firstFetch was true')
-      // console.log('instruments:', instruments)
+      console.log('instruments:', instruments)
       fetchData()  // initial fetch as setInterval only exectues after first interval
-      setInterval(fetchData, dataBlockDuration * 1000);
+      mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
     }
+  // eslint-disable-next-line
   }, [instruments])
-
-  const soundOn = async () => {
-    setIsPlaying(true);
-    // firstFetch = true;
-    // instruments = await audioStartup();
-    const awaitedInstruments = await audioStartup()
-    // console.log("awaitedInstruments = ", awaitedInstruments)
-    setInstruments(awaitedInstruments);
-    // console.log("instruments after setInstruments call = ", instruments)
-    console.log('tone started')
-    
-    // Following block provides a looping pedal note:
-    // setInterval(() => {
-    //   instruments.Pedal.triggerAttackRelease('C4', '1n');
-    // }, (dataBlockDuration / 60) * 2000);
-  }
 
   const toggleVisualiseEventsOnly = () => {
     setVisualiseEventsOnly(!visualiseEventsOnly);
@@ -120,86 +137,63 @@ function App() {
       setVisualiseEventsOnly(visualiseEventsOnly);
       setDataVisualiserKey((prevKey) => prevKey + 1);
       console.log(visualiseEventsOnly)
-    }, 1000);
+    }, 3000);
   };
-  
+
+  // handleArrivalEffectToggle to toggle the value of arrivalEffectsToggle
+  const handleArrivalEffectToggle = () => {
+    console.log("Helo wrolds")
+    setArrivalEffectsToggle(current => !current);
+    restart();
+    console.log('arrivalEffectsToggle', arrivalEffectsToggle);
+  };
+
   useEffect(() => {
+    if(!isPlaying) {return;}
     renderCount.current = renderCount.current + 1
-    console.log('renderCount', renderCount.current)
-  })     
+    // console.log('renderCount', renderCount.current)
+  })
+
+  useEffect(() => {
+    if(!isPlaying) {return;}
+    (async () => {
+      await restart();
+    })();
+
+    return () => {};
+  }, [currentInstrument])
+  
+  const changeCurrentInstrument = (change) => {
+    console.log("Change Current Instrument to :" + change);
+    setCurrentInstrument(change);
+  }
 
   return (
     <div className="App">
-      {/* <header className="App-header"> */}
-        <h2>LUSO</h2>
-        <Link to="/">Home</Link>
-        <Link to="/data">Data</Link>
-        <Link to="/landing">Logo</Link>
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <Routes>
-          <Route path='/data' element={
-            <>
-              <button onClick={toggleVisualiseEventsOnly}> {visualiseEventsOnly ? 'Include All intervals' : 'Events Only'} </button>
-              <DataVisualiser key={dataVisualiserKey} data={visualData} duration={dataBlockDuration} visualiseEventsOnly={visualiseEventsOnly} />
-            </>
-          }/>
-          <Route path='/' instruments={instruments} element={
+      
+      <Routes>
+        <Route path='/data' element={<>
+          <Navbar />
+          <button id="btn-data" className='btn-data-chart' onClick={toggleVisualiseEventsOnly}> {visualiseEventsOnly ? 'Include second intervals where no events occur' : 'Button will reset in 3 seconds'} </button>
+          <DataVisualiser key={dataVisualiserKey} data={visualData} duration={dataBlockDuration} visualiseEventsOnly={visualiseEventsOnly} />
+        </>} />
+        
+        <Route path='/sounds-of-the-underground' element={<>
+            {tapInVisible && <img src={logo} id="tap-in" className="App-logo" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>}
+            {/* <img src={logo} id="tap-in" className="App-logo" alt="sound on" /> */}
+            <Navbar />
             <div className="container bars-and-map">
-
-              <aside className="sidebar sidebar-left">
-                <h2>Left Sidebar</h2>
-                  { lineNames.map((line, index) => {
-                    return <Slider 
-                    lineName={line} 
-                    instruments={instruments} 
-                    // fadeElement={fadeElement}
-                    // setState={setFadeNorthernState}
-                    changeOpacity={changeOpacity}
-                    key={index} />
-                  }) }
-                <button id="soundon" onClick={soundOn} disabled={isPlaying}>{isPlaying ? 'LUSO Live' : "SOUND ON"}</button>
-                
-                {/* <button className='btn-line btn-bakerloo' type="button" onClick={() => fadeElement("Bakerloo", fadeNorthernState, setFadeNorthernState)}>Bakerloo</button>
-                <button className='btn-line btn-central' type="button" onClick={() => fadeElement("Central", fadeNorthernState, setFadeNorthernState)}>Central</button>
-                <button className='btn-line btn-circle' type="button" onClick={() => fadeElement("Circle", fadeNorthernState, setFadeNorthernState)}>Circle</button>
-                <button className='btn-line btn-district' type="button" onClick={() => fadeElement("District", fadeNorthernState, setFadeNorthernState)}>District</button>
-                <button className='btn-line btn-hammersmith-city' type="button" onClick={() => fadeElement("HammersmithCity", fadeNorthernState, setFadeNorthernState)}>Hammersmith & City</button>
-                <button className='btn-line btn-jubilee' type="button" onClick={() => fadeElement("Jubilee", fadeNorthernState, setFadeNorthernState)}>Jubilee</button>
-                <button className='btn-line btn-metropolitan' type="button" onClick={() => fadeElement("Metropolitan", fadeNorthernState, setFadeNorthernState)}>Metropolitan</button>
-                <button className='btn-line btn-northern' type="button" onClick={() => fadeElement("Northern", fadeNorthernState, setFadeNorthernState)}>Northern</button>
-                <button className='btn-line btn-piccadilly' type="button" onClick={() => fadeElement("Piccadilly", fadeNorthernState, setFadeNorthernState)}>Piccadilly</button>
-                <button className='btn-line btn-victoria' type="button" onClick={() => fadeElement("Victoria", fadeNorthernState, setFadeNorthernState)}>Victoria</button>
-                <button className='btn-line btn-waterloo-city' type="button" onClick={() => fadeElement("WaterlooCity", fadeNorthernState, setFadeNorthernState)}>Waterloo & City</button> */}
-
-              </aside>
-
-              <main>
-                <TubeMap/>
-              </main>
-
-              <aside className="sidebar sidebar-right">
-                <h2>Right Sidebar</h2> 
-                <button className='btn-temp' type="button" onClick={() => arrivalEffectTransform(`${arrivalPointInner}`)}>{`Transform at ${arrivalPointInner}`}</button>
-                <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${arrivalPointInner}`)}>{`Holborn`}</button>
-                <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${burntOak}`)}>{`Burnt Oak`}</button>
-                <button className='btn-temp' type="button" onClick={() => arrivalEffectCreate(`${hendonCentral}`)}>{`Hendon`}</button>
-                {/* <button className='btn-temp' type="button" onClick={() => fadeElement("Central", fadeCentralState, setFadeCentralState)}>{fadeCentralState ? `Destroy Central Line` : `Rebuild Central Line`}</button> */}
-                {/* <button className='btn-temp' type="button" onClick={() => fadeElement("Northern", fadeNorthernState, setFadeNorthernState)}>{fadeNorthernState ? `Destroy Northern Line` : `Rebuild Northern Line`}</button> */}
-              </aside>
-
+              <SideBarLeft restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeOpacity={changeOpacity} changeCurrentInstrument={changeCurrentInstrument}/>
+              <TubeMap/>
+              <SideBarRight arrivals={arrivals} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} />
             </div> 
-          }/>
-          <Route path='/landing' element={
-            <div className="App">
-            <header className="App-header">
-              <h2>LUSO</h2>
-              <img src={logo} className="App-logo" alt="logo" />
-              
-              <p>{`This Page has rendered ${renderCount.current} times`}</p>
-            </header>
-          </div>
-          }/>
-        </Routes>
+          </>
+        } />
+        
+        <Route path='/' element={
+          <Landing renderCount={renderCount} />
+        }/>
+      </Routes>
     </div>
   );
 }

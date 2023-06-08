@@ -33,8 +33,8 @@ const audioStartup = async (instrumentSet) => {
     release: 1,
     baseUrl: "/samples/marimba_hits/",
   }).connect(reverb);
-  marimbaSampler.volume.value = -6;
-  
+  marimbaSampler.maxVolume = -6;
+  marimbaSampler.volume.value = marimbaSampler.maxVolume;
 
   const celloSampler = new Tone.Sampler({
     urls: {

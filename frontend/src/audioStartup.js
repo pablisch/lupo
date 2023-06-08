@@ -84,18 +84,18 @@ const audioStartup = async (instrumentSet) => {
 
   const violaSampler = new Tone.Sampler({
     urls: {
+      "A2": "viola_legato_a2.mp3",
       "A3": "viola_legato_a3.mp3",
       "A4": "viola_legato_a4.mp3",
-      "A5": "viola_legato_a5.mp3",
       "C3": "viola_legato_c3.mp3",
       "C4": "viola_legato_c4.mp3",
       "C5": "viola_legato_c5.mp3",
+      "D2": "viola_legato_d2.mp3",
       "D3": "viola_legato_d3.mp3",
       "D4": "viola_legato_d4.mp3",
-      "D5": "viola_legato_d5.mp3",
+      "E2": "viola_legato_e2.mp3",
       "E3": "viola_legato_e3.mp3",
       "E4": "viola_legato_e4.mp3",
-      "E5": "viola_legato_e5.mp3",
       "G3": "viola_legato_g3.mp3",
       "G4": "viola_legato_g4.mp3"
     },

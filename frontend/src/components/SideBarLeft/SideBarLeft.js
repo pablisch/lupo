@@ -104,9 +104,9 @@ const SideBarLeft = ({ stop, setTapInVisible ,arrivalEffectsToggle, handleArriva
   return (
     <aside className="sidebar sidebar-left">
       <h2>Line Status</h2>
-      <button className='btn-temp-right btn-arrival-effects' type="button" onClick={() => handleArrivalEffectToggle()}>{arrivalEffectsToggle ? 'Turn Arrival Effects OFF' : 'Turn Arrival Effects ON'}</button>
-      <button className='btn-temp-right btn-arrival-effects' type="button" onClick={() => {stop(); setTapInVisible(true);}}>STOP</button>
-      <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button>
+      <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button><br />
+      <button onClick={() => handleArrivalEffectToggle()}>{arrivalEffectsToggle ? 'Turn Arrival Effects OFF' : 'Turn Arrival Effects ON'}</button><br />
+      <button onClick={() => {stop(); setTapInVisible(true);}}>STOP</button><br />
       <button id="tubeDrums" onClick={() => changeCurrentInstrument("tubeDrums")} disabled={currentInstrument === "tubeDrums"}>Tube Drums</button><br />
       <button id="marimba" onClick={() => changeCurrentInstrument("marimba")} disabled={currentInstrument === "marimba"}>Marimba</button><br />
       <button id="orchestra" onClick={() => changeCurrentInstrument("orchestra")} disabled={currentInstrument === "orchestra"}>Orchestra</button><br />

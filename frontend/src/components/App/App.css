@@ -77,7 +77,8 @@ main {
 .sidebar {
   background-color: #f2f1f1;
   padding: 0 20px;
-  width: 200px;
+  width: 210px;
+  overflow: scroll;
 }
 
 .sidebar h2 {

@@ -1,11 +1,11 @@
 :root {
-  --createArrival1Base: rgb(255, 233, 123);
+  --createArrival1Base: rgb(255, 160, 44);
   
   --createArrival1Border: rgb(255, 89, 0);
   --createArrivalAfterShock1Border: rgb(255, 149, 0);
   
-  --createArrival2Border: rgb(255, 136, 0);
-  --createArrivalAfterShock2Border: rgb(255, 0, 0);
+  --createArrival2Border: rgb(255, 159, 50);
+  --createArrivalAfterShock2Border: rgb(255, 100, 17);
   
   --createArrival2BoxShadow: rgba(255, 174, 0, 0.4);
   --createArrivalAfterShock1BoxShadow: rgba(255, 191, 0, 0.4);
@@ -36,15 +36,15 @@
 
   --fx1Transition1: rgb(255, 106, 0);
   --fx1Transition2: rgb(255, 183, 0);
-  /* --fx1Transition3: rgb(255, 233, 123); USE createArrivalBase */
+  /* --fx1Transition3:  USE createArrivalBase */
   
     --fx1ATransition1: rgb(255, 85, 0);
     --fx1ATransition2: rgb(255, 153, 0);
-    /* --fx1ATransition3: rgb(255, 233, 123); USE createArrivalBase */
+    /* --fx1ATransition3:  USE createArrivalBase */
 
-  --fx2Transition1: rgb(255, 77, 0);
+  --fx2Transition1: rgb(255, 166, 0);
   --fx2Transition2: rgb(254, 229, 88);
-  --fx2Transition3: rgb(255, 176, 18);
+  --fx2Transition3: rgb(255, 196, 78);
 
   --fx2ATransition1: rgb(255, 238, 0);
   --fx2ATransition2: rgb(255, 233, 124);

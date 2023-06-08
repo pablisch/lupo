@@ -13,13 +13,12 @@ const flashElement = (elementId) => {
 
 const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffectsToggle, arrivals) => {
   quantisedTubeData.forEach((train) => {
-    // const note = noteAssignFunctions[train.lineName](train.stationName);
     const note = instruments.noteAssignFunctions[train.lineName](train.stationName);
     TIMEOUTS.setTimeout(() => {
       const now = Tone.now(); // the audio context time
-      const minVelocity = 0.4;
+      const minVelocity = 0.5;
       // max velocity is 1 as 1 is max output from Math.random()
-      const randomVelocity = Math.round(((Math.random() * minVelocity) + minVelocity) * 10) / 10 // random velocity between 0.3 and 1
+      const randomVelocity = Math.round(((Math.random() * minVelocity) + minVelocity) * 10) / 10 // result is 1dp
       // console.log(randomVelocity)
       instruments[train.lineName].triggerAttackRelease(note, '4n', now, randomVelocity);
       // console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);

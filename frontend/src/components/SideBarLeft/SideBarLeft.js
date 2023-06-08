@@ -105,7 +105,10 @@ const SideBarLeft = ({ stop, setTapInVisible ,arrivalEffectsToggle, handleArriva
     <aside className="sidebar sidebar-left">
       <h2>Line Status</h2>
       <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button><br />
-      <button className="instrumentButton" onClick={() => handleArrivalEffectToggle()}>{arrivalEffectsToggle ? 'Turn Arrival Effects OFF' : 'Turn Arrival Effects ON'}</button><br />
+      <button className={`instrumentButton arrival-effects ${arrivalEffectsToggle ? 'redButton' : 'greenButton'}`} onClick={() => handleArrivalEffectToggle()}>
+        {arrivalEffectsToggle ? 'Arrival Effects OFF' : 'Arrival Effects ON'}
+      </button>
+
       <button className="instrumentButton" onClick={() => {stop(); setTapInVisible(true);}}>STOP</button><br /><br />
       <button className="instrumentButton" id="tubeDrums" onClick={() => changeCurrentInstrument("tubeDrums")} disabled={currentInstrument == "tubeDrums"}>Tube Drums</button><br />
       <button className="instrumentButton" id="marimba" onClick={() => changeCurrentInstrument("marimba")} disabled={currentInstrument == "marimba"}>Marimba</button><br />

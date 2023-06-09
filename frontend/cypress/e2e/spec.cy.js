@@ -15,5 +15,9 @@ describe('template spec', () => {
     cy.get('.nav-logo > h2').should('have.css', 'color', 'rgb(255, 255, 255)')
     cy.get('.nav-logo > h2').should('have.css', 'font-weight', '700')
     cy.get('.nav-logo > h2').should('have.css', 'text-align', 'center')
+
+    // cy.get the link to data
+    cy.get('#btn-data').should('be.visible')
+    
   })
 })

@@ -327,8 +327,8 @@ const audioStartup = async (instrumentSet) => {
         "E4": "tube_drum_e4.mp3",
         "G2": "tube_drum_g2.mp3",
         "G3": "tube_drum_g3.mp3",
-        "G4": "tube_drum_g4.mp3"
-       },
+      "G4": "tube_drum_g4.mp3"
+    },
       release: 1,
       baseUrl: "samples/tubeDrum_samples/",
     }
@@ -641,13 +641,15 @@ lupoIdentSampler.volume.value = lupoIdentSampler.maxVolume;
   } else if (instrumentSet === 'strings') {
     instruments = {
       Bakerloo: celloMarcSampler,      
-      Central: celloPizzSampler,
+      // Central: celloPizzSampler,
+      Central: doubleBassPizzSampler,
       Circle: doubleBassMarcSampler,
       District: doubleBassPizzSampler,
       HammersmithCity: harpsichordSampler,
       Jubilee: violaMarcSampler,
       Metropolitan: violaPizzSampler,
-      Northern: violinColLegnoSampler,
+      Northern: violinMarcSampler,
+      // Northern: violinColLegnoSampler,
       Piccadilly: violinMarcSampler,
       Victoria: violinPizzSampler, 
       WaterlooCity: lupoIdentSampler,

@@ -8,13 +8,14 @@ import triggerAudioVisuals from '../../triggerAudioVisuals';
 import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
 import { Routes, Route } from "react-router-dom";
 import processTubeData from '../../processTubeData';
-import allStations from '../../stations';
+// import allStations from '../../stations';
 import TIMEOUTS from '../../timeouts';
 import SideBarLeft from '../SideBarLeft/SideBarLeft';
 import Navbar from '../Navbar/Navbar';
 import Landing from '../Landing/Landing';
 import logo from '../../logo.svg';
 import * as Tone from 'tone';
+import fadeAllStations from '../../fadeAllStations';
 
 const dataBlockDuration = 30; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
@@ -23,32 +24,15 @@ let mainLooper;
 
 function App() {
   const [currentInstrument, setCurrentInstrument] = useState("orchestra")
-  const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true); // added for data visualiser
-  const [dataVisualiserKey, setDataVisualiserKey] = useState(0); // added for data visualiser
-  const [visualData, setVisualData] = useState([]); // added for data visualiser
+  const [visualiseEventsOnly, setVisualiseEventsOnly] = useState(true);
+  const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
+  const [visualData, setVisualData] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [arrivalEffectsToggle, setArrivalEffectsToggle] = useState(true); // added for data visualiser
+  const [arrivalEffectsToggle, setArrivalEffectsToggle] = useState(true);
   const [instruments, setInstruments] = useState(null);
   const [tapInVisible, setTapInVisible] = useState(true);
   const [muted, setMuted] = useState(false);
   const renderCount = useRef(1)
-
-  // const fadeElement = (elementId, state, setState) => {
-  //   const element = document.getElementById(elementId);
-    
-  //   if (state === true) {
-  //     let currentOpacity = element.style.opacity;
-  //     console.log(element.style.opacity)
-  //     if (isNaN(currentOpacity)){ currentOpacity = 1 }
-  //     // changeCSSFadeOut(currentOpacity);
-  //     element.style.animation = `fade-out 1s forwards`;
-  //     setState(false);
-  //   } else if (state === false) {
-  //     console.log("Fade In");
-  //     element.style.animation = "fade-in 1s forwards";
-  //     setState(true);
-  //   }
-  // }
 
   const soundOn = async () => {
     console.log('SOUND ON');
@@ -64,22 +48,22 @@ function App() {
     // }, (dataBlockDuration / 60) * 2000);
   }
 
-  const fadeAllStations = () => {
-    allStations.forEach((line) => {
-      line.forEach((station) => {
-        // console.log(station);
-        document.getElementById(station
-          .replace(/ *\([^)]*\) */g, "")
-          .replace(/\s|\.''/g, '')
-          .replace(/\./g, '')
-          .replace(/'/g, '')
-          .replace(/UndergroundStation/g, '')
-          .replace(/-Underground/g, '')
-          .replace(/&/g, '_'),)
-        .style.opacity = "0%";
-      });
-    });
-  }
+  // const fadeAllStations = () => {
+  //   allStations.forEach((line) => {
+  //     line.forEach((station) => {
+  //       // console.log(station);
+  //       document.getElementById(station
+  //         .replace(/ *\([^)]*\) */g, "")
+  //         .replace(/\s|\.''/g, '')
+  //         .replace(/\./g, '')
+  //         .replace(/'/g, '')
+  //         .replace(/UndergroundStation/g, '')
+  //         .replace(/-Underground/g, '')
+  //         .replace(/&/g, '_'),)
+  //       .style.opacity = "0%";
+  //     });
+  //   });
+  // }
 
   const stop = () => {
     console.log("STOP");

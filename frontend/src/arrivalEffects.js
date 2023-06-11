@@ -4,7 +4,7 @@ const arrivalEffectCreate = (elementId, arrivalEffects) => {
   if (arrivalEffects === true) {
     
   
-    const element = document.getElementById(elementId);
+    const element = document.getElementById(elementId.replace(/ *\([^)]*\) */g, ""));
     const rect = element.getBoundingClientRect();
 
     // Get the position and dimensions of section element with a class of "bars-and-map"

@@ -4,7 +4,6 @@ const fadeAllStations = () => {
   console.log('fade all stations')
   allStations.forEach((line) => {
     line.forEach((station) => {
-      console.log('fading ',station);
       document.getElementById(station
         .replace(/ *\([^)]*\) */g, "")
         .replace(/\s|\.''/g, '')

@@ -9,8 +9,9 @@ const Navbar = ({stop, setTapInVisible}) => {
   }
 
   const fadeStationsWhenReturningToMap = () => {
-    console.log('fade stations when returning to map')
-    fadeAllStations();
+    setTimeout(() => {
+      fadeAllStations();
+    }, 0);
   }
 
   return (

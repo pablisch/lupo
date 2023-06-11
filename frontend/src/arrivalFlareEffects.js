@@ -1,7 +1,7 @@
 // Get location of element and create two circle elements at that location with css effects
-const arrivalEffectCreate = (elementId, arrivalEffects) => {
+const arrivalFlareEffectCreate = (elementId, arrivalFlareEffects) => {
 
-  if (arrivalEffects === true) {
+  if (arrivalFlareEffects === true) {
     
   
     const element = document.getElementById(elementId.replace(/ *\([^)]*\) */g, ""));
@@ -67,7 +67,7 @@ const arrivalEffectCreate = (elementId, arrivalEffects) => {
 };
 
 // Apply css effects to the circle elements that exist in the svg already
-const arrivalEffectTransform = (elementId) => {
+const arrivalFlareEffectTransform = (elementId) => {
   const centreEl = document.getElementById(elementId);
   // const outerEl = document.getElementById(arrivalPointOuter);
   //add the class of "active" to the element
@@ -82,4 +82,4 @@ const arrivalEffectTransform = (elementId) => {
   console.log(centreEl.id);
 }
 
-export { arrivalEffectCreate, arrivalEffectTransform };
+export { arrivalFlareEffectCreate, arrivalFlareEffectTransform };

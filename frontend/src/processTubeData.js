@@ -102,6 +102,7 @@ function abridgeData (tubeData) {
             .replace(/UndergroundStation/g, '')
             .replace(/&/g, '_')
             .replace(/BatterseaPowerStation/g, 'MorningtonCrescent')
+            .replace(/NineElms/g, 'Vauxhall')
             .replace(/Victoria/g, 'VictoriaSt'),
       };
     });

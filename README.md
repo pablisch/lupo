@@ -6,7 +6,7 @@ Data is periodically fetched from the TFL [line API](https://api.tfl.gov.uk/swag
 
 [Tone JS](https://tonejs.github.io/) was used to handle audio functionality. Their Sampler instrument class provides the capability to play the [audio samples included in this repo](./frontend/public/samples)
 
-The decision was made during development to 'spread' out the arrival times of trains, since without doing this, [the data provided by TFL](./sampleData/sample2.json) has train arrivals often 'clumped' together, resulting in long periods of inactivity, and intense bursts of audio and visual triggers simultaneously. Train arrivals are spread in intervals of 250 ms, corresponding to quavers at a tempo of 120bpm in terms of musical notation. [Two](./sampleData/quantisedSample1.json) []((./sampleData/quantisedSample2.json)) of the resulting data are included in the repo.
+The decision was made during development to 'spread' out the arrival times of trains, since without doing this, [the data provided by TFL](./sampleData/sample2.json) has train arrivals often 'clumped' together, resulting in long periods of inactivity, and intense bursts of audio and visual triggers simultaneously. Train arrivals are spread in intervals of 250 ms, corresponding to quavers at a tempo of 120bpm in terms of musical notation. [Two](./sampleData/quantisedSample1.json) [examples]((./sampleData/quantisedSample2.json)) of the resulting data are included in the repo.
 
 
 

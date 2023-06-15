@@ -34,53 +34,16 @@ const audioStartup = async (instrumentSet) => {
     baseUrl: "/samples/marimba_hits/",
   }
 
-  const marimbaSampler = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler.maxVolume = -6;
-  marimbaSampler.volume.value = marimbaSampler.maxVolume;
+  const marimbaSamplers = {};
 
-  const marimbaSampler2 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler2.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler2.volume.value = marimbaSampler.maxVolume;
+  for (let i = 1; i < 13; i++) {
+    const sampler = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+    sampler.maxVolume = -6;
+    sampler.volume.value = sampler.maxVolume;
+    marimbaSamplers[`marimbaSampler${i}`] = sampler;
+  }
 
-  const marimbaSampler3 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler3.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler3.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler4 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler4.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler4.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler5 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler5.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler5.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler6 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler6.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler6.volume.value = marimbaSampler6.maxVolume;
-
-  const marimbaSampler7 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler7.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler7.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler8 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler8.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler8.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler9 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler9.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler9.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler10 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler10.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler10.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler11 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler11.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler11.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler12 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler12.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler12.volume.value = marimbaSampler.maxVolume;
+  console.log(marimbaSamplers)
 
   const violaSampler = new Tone.Sampler({
     urls: {
@@ -609,19 +572,18 @@ lupoIdentSampler.volume.value = lupoIdentSampler.maxVolume;
       };
   } else if (instrumentSet === 'marimba') {
     instruments = {
-      Bakerloo: marimbaSampler,
-      Central: marimbaSampler2,
-      Circle: marimbaSampler3,
-      District: marimbaSampler4,
-      HammersmithCity: marimbaSampler5,
-      Jubilee: marimbaSampler6,
-      Metropolitan: marimbaSampler7,
-      Northern: marimbaSampler8,
-      Piccadilly: marimbaSampler9,
-      Victoria: marimbaSampler10, 
-      WaterlooCity: marimbaSampler11,
-      Pedal: marimbaSampler12
-
+      Bakerloo: marimbaSamplers.marimbaSampler1,
+      Central: marimbaSamplers.marimbaSampler2,
+      Circle: marimbaSamplers.marimbaSampler3,
+      District: marimbaSamplers.marimbaSampler4,
+      HammersmithCity: marimbaSamplers.marimbaSampler5,
+      Jubilee: marimbaSamplers.marimbaSampler6,
+      Metropolitan: marimbaSamplers.marimbaSampler7,
+      Northern: marimbaSamplers.marimbaSampler8,
+      Piccadilly: marimbaSamplers.marimbaSampler9,
+      Victoria: marimbaSamplers.marimbaSampler10, 
+      WaterlooCity: marimbaSamplers.marimbaSampler11,
+      Pedal: marimbaSamplers.marimbaSampler12
     };
   } else if (instrumentSet === 'tubeDrums') {
     instruments = {

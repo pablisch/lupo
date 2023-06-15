@@ -1,4 +1,4 @@
-# Notes fof debugging Frontend
+# Notes for debugging Frontend
 
 ### Key console logs
 

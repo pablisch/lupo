@@ -17,7 +17,15 @@ describe('template spec', () => {
     cy.get('.nav-logo > h2').should('have.css', 'text-align', 'center')
 
     // cy.get the link to data
-    cy.get('#btn-data').should('be.visible')
+    cy.get('.link-btn').should('be.visible')
+    cy.get('.exit-link').should('be.visible')
+
+    // click the #tap-in element
+    cy.get('#soundon').should('contain', 'Suspended')
+    cy.get('#tap-in').click()
+
+    // in main screen active
+    cy.get('#soundon').should('contain', 'Good Service')
     
   })
 })

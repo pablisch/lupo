@@ -1,14 +1,24 @@
 # The LONDON UNDERGROUND PHONY ORCHESTRA (LUPO)
 
-This is a audio/visual generative music app powered by the TfL Unified API and a healthy does of curiosity.
+This is a audio/visual generative music app powered by the TfL Unified API and a healthy dose of curiosity.
+
+Data is periodically fetched from the TFL [line API](https://api.tfl.gov.uk/swagger/ui/index.html?url=/swagger/docs/v1#!/Line/Line_Get), and used to schedule the triggering of visual effects on the London Underground tube map, and musical events of different pitches. For the default orchestra setting, arrivals on each line of the tube will trigger a note from a different instrument of the orchestra.
+
+[Tone JS](https://tonejs.github.io/) was used to handle audio functionality. Their Sampler instrument class provides the capability to play the [audio samples included in this repo](./frontend/public/samples)
+
+The decision was made during development to 'spread' out the arrival times of trains, since without doing this, [the data provided by TFL](./sampleData/sample2.json) has train arrivals often 'clumped' together, resulting in long periods of inactivity, and intense bursts of audio and visual triggers simultaneously. Train arrivals are spread in intervals of 250 ms, corresponding to quavers at a tempo of 120bpm in terms of musical notation. [Two](./sampleData/quantisedSample1.json) []((./sampleData/quantisedSample2.json)) of the resulting data are included in the repo.
+
+
+
+
+
 
 ## To view this app
 
-At time of writing, the app can be viewed online at [[Create React App](https://lupo.onrender.com/)](https://lupo.onrender.com/).
+At time of writing, the app can be viewed online at [lupo.onrender.com](https://lupo.onrender.com/).
 
 ## To run this app
 
-<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
 ### In development
 ```bash
 npm install # to install dependencies

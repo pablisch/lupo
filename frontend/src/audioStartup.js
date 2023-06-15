@@ -328,7 +328,7 @@ const audioStartup = async (instrumentSet) => {
         "G2": "tube_drum_g2.mp3",
         "G3": "tube_drum_g3.mp3",
         "G4": "tube_drum_g4.mp3"
-       },
+      },
       release: 1,
       baseUrl: "samples/tubeDrum_samples/",
     }
@@ -639,20 +639,35 @@ lupoIdentSampler.volume.value = lupoIdentSampler.maxVolume;
       Pedal: tubeDrumSampler12
     };
   } else if (instrumentSet === 'strings') {
+    const stringTest = doubleBassMarcSampler;
     instruments = {
-      Bakerloo: celloMarcSampler,      
-      Central: celloPizzSampler,
+      Bakerloo: stringTest,      
+      Central: doubleBassMarcSampler,
       Circle: doubleBassMarcSampler,
       District: doubleBassPizzSampler,
-      HammersmithCity: harpsichordSampler,
+      HammersmithCity: violaMarcSampler,
       Jubilee: violaMarcSampler,
-      Metropolitan: violaPizzSampler,
-      Northern: violinColLegnoSampler,
+      Metropolitan: violaMarcSampler,
+      Northern: violinMarcSampler,
       Piccadilly: violinMarcSampler,
       Victoria: violinPizzSampler, 
-      WaterlooCity: lupoIdentSampler,
-      Pedal: celloMarcSampler
+      WaterlooCity: violinPizzSampler,
+      Pedal: doubleBassMarcSampler
     };
+    // instruments = {
+    //   Bakerloo: celloMarcSampler, // ❌ DOES NOT WORK
+    //   Central: celloPizzSampler, // ❌ DOES NOT WORK
+    //   Circle: doubleBassMarcSampler, // ✅ working
+    //   District: doubleBassPizzSampler, // ✅ working
+    //   HammersmithCity: harpsichordSampler, // ❌ DOES NOT WORK
+    //   Jubilee: violaMarcSampler, // ✅ working
+    //   Metropolitan: violaPizzSampler, // ❌ DOES NOT WORK
+    //   Northern: violinColLegnoSampler, // ❌ DOES NOT WORK
+    //   Piccadilly: violinMarcSampler, // ✅ working
+    //   Victoria: violinPizzSampler, // ✅ working
+    //   WaterlooCity: lupoIdentSampler, // ❌ DOES NOT WORK
+    //   Pedal: celloMarcSampler // ❌ DOES NOT WORK
+    // };
   }
 
   // getNoteAssignFunctions returns an object with line names as keys and note assign functions as values

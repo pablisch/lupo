@@ -41,7 +41,7 @@ npm serve -s build -l 4000 # to serve the static site on port 4000.
 
 ## Available Scripts
 
-In the project directory, you can run:
+### `cd frontend`
 
 ### `npm start`
 

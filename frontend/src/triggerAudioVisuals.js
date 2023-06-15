@@ -16,7 +16,7 @@ const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalEffectsToggl
     const note = instruments.noteAssignFunctions[train.lineName](train.stationName);
     TIMEOUTS.setTimeout(() => {
       const now = Tone.now(); // the audio context time
-      const minVelocity = 0.5;
+      const minVelocity = 0.8;
       // max velocity is 1 as 1 is max output from Math.random()
       const randomVelocity = Math.round(((Math.random() * minVelocity) + minVelocity) * 10) / 10 // result is 1dp
       // console.log(randomVelocity)

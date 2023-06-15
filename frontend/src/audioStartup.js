@@ -328,7 +328,7 @@ const audioStartup = async (instrumentSet) => {
         "G2": "tube_drum_g2.mp3",
         "G3": "tube_drum_g3.mp3",
         "G4": "tube_drum_g4.mp3"
-       },
+      },
       release: 1,
       baseUrl: "samples/tubeDrum_samples/",
     }

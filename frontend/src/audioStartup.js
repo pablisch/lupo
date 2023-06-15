@@ -43,8 +43,6 @@ const audioStartup = async (instrumentSet) => {
     marimbaSamplers[`marimbaSampler${i}`] = sampler;
   }
 
-  console.log(marimbaSamplers)
-
   const violaSampler = new Tone.Sampler({
     urls: {
       "A2": "viola_legato_a2.mp3",
@@ -295,54 +293,15 @@ const audioStartup = async (instrumentSet) => {
       release: 1,
       baseUrl: "samples/tubeDrum_samples/",
     }
-  
-  const tubeDrumSampler = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler.maxVolume = -9;
-  tubeDrumSampler.volume.value = tubeDrumSampler.maxVolume;
 
-  const tubeDrumSampler2 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler2.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler2.volume.value = tubeDrumSampler.maxVolume;
+  const tubeDrumSamplers = {};
 
-  const tubeDrumSampler3 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler3.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler3.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler4 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler4.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler4.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler5 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler5.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler5.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler6 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler6.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler6.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler7 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler7.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler7.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler8 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler8.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler8.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler9 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler9.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler9.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler10 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler10.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler10.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler11 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler11.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler11.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler12 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler12.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler12.volume.value = tubeDrumSampler.maxVolume;
+  for (let i = 1; i < 13; i++) {
+    const sampler = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+    sampler.maxVolume = -10;
+    sampler.volume.value = sampler.maxVolume;
+    tubeDrumSamplers[`tubeDrumSampler${i}`] = sampler;
+  }
 
   const celloMarcSampler = new Tone.Sampler({
     urls: {
@@ -587,18 +546,18 @@ lupoIdentSampler.volume.value = lupoIdentSampler.maxVolume;
     };
   } else if (instrumentSet === 'tubeDrums') {
     instruments = {
-      Bakerloo: tubeDrumSampler,
-      Central: tubeDrumSampler2,
-      Circle: tubeDrumSampler3,
-      District: tubeDrumSampler4,
-      HammersmithCity: tubeDrumSampler5,
-      Jubilee: tubeDrumSampler6,
-      Metropolitan: tubeDrumSampler7,
-      Northern: tubeDrumSampler8,
-      Piccadilly: tubeDrumSampler9,
-      Victoria: tubeDrumSampler10, 
-      WaterlooCity: tubeDrumSampler11,
-      Pedal: tubeDrumSampler12
+      Bakerloo: tubeDrumSamplers.tubeDrumSampler1,
+      Central: tubeDrumSamplers.tubeDrumSampler2,
+      Circle: tubeDrumSamplers.tubeDrumSampler3,
+      District: tubeDrumSamplers.tubeDrumSampler4,
+      HammersmithCity: tubeDrumSamplers.tubeDrumSampler5,
+      Jubilee: tubeDrumSamplers.tubeDrumSampler6,
+      Metropolitan: tubeDrumSamplers.tubeDrumSampler7,
+      Northern: tubeDrumSamplers.tubeDrumSampler8,
+      Piccadilly: tubeDrumSamplers.tubeDrumSampler9,
+      Victoria: tubeDrumSamplers.tubeDrumSampler10, 
+      WaterlooCity: tubeDrumSamplers.tubeDrumSampler11,
+      Pedal: tubeDrumSamplers.tubeDrumSampler12
     };
   } else if (instrumentSet === 'strings') {
     const stringTest = doubleBassMarcSampler;

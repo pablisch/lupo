@@ -16,7 +16,7 @@ import Landing from '../Landing/Landing';
 import logo from '../../logo.svg';
 import * as Tone from 'tone';
 
-const dataBlockDuration = 30; // seconds between fetch from TFL
+const dataBlockDuration = 90; // seconds between fetch from TFL
 const lines = "bakerloo,central,circle,district,hammersmith-city,jubilee,metropolitan,northern,piccadilly,victoria,waterloo-city";
 const arrivals = []; // array to hold arrival elements, intialised w global scope
 let mainLooper;

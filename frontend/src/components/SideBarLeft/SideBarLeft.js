@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './SideBarLeft.css'
 import Slider from '../Slider/Slider';
+import lineNames from '../../lineNames';
 
 
 const SideBarLeft = ({ 
@@ -8,17 +9,27 @@ const SideBarLeft = ({
     isPlaying, instruments, changeCurrentInstrument, muted, handleMuteButtonClick
   }) => {
 
-    const [bakerlooControlToggle, setBakerlooControlToggle] = useState(false);
-    const [centralControlToggle, setCentralControlToggle] = useState(false);
-    const [circleControlToggle, setCircleControlToggle] = useState(false);
-    const [districtControlToggle, setDistrictControlToggle] = useState(false);
-    const [hammersmithCityControlToggle, setHammersmithCityControlToggle] = useState(false);
-    const [jubileeControlToggle, setJubileeControlToggle] = useState(false);
-    const [metropolitanControlToggle, setMetropolitanControlToggle] = useState(false);
-    const [northernControlToggle, setNorthernControlToggle] = useState(false);
-    const [piccadillyControlToggle, setPiccadillyControlToggle] = useState(false);
-    const [victoriaControlToggle, setVictoriaControlToggle] = useState(false);
-    const [waterlooCityControlToggle, setWaterlooCityControlToggle] = useState(false);
+    // const [bakerlooControlToggle, setBakerlooControlToggle] = useState(false);
+    // const [centralControlToggle, setCentralControlToggle] = useState(false);
+    // const [circleControlToggle, setCircleControlToggle] = useState(false);
+    // const [districtControlToggle, setDistrictControlToggle] = useState(false);
+    // const [hammersmithCityControlToggle, setHammersmithCityControlToggle] = useState(false);
+    // const [jubileeControlToggle, setJubileeControlToggle] = useState(false);
+    // const [metropolitanControlToggle, setMetropolitanControlToggle] = useState(false);
+    // const [northernControlToggle, setNorthernControlToggle] = useState(false);
+    // const [piccadillyControlToggle, setPiccadillyControlToggle] = useState(false);
+    // const [victoriaControlToggle, setVictoriaControlToggle] = useState(false);
+    // const [waterlooCityControlToggle, setWaterlooCityControlToggle] = useState(false);
+    
+    const [linesToggled, setlinesToggled] = useState(
+      // Populates an object with each line name and the property false
+      lineNames.reduce((object, lineName) => {
+        object[lineName] = false;
+        return object
+      }, {})
+    );
+
+    console.log(linesToggled)
 
     const bakerlooMaxVolumeScaledUp = instruments ? instruments["Bakerloo"].maxVolume + 100 : 94
     const [bakerlooSliderValue, setBakerlooSliderValue] = useState(bakerlooMaxVolumeScaledUp)
@@ -55,55 +66,62 @@ const SideBarLeft = ({
 
     // handleLineControlToggle takes a line name as an argument and toggles the state of the corresponding line state, e.g. bakerlooControlToggle
     const handleLineControlToggle = (lineName) => {
-      switch (lineName) {
-        case "Bakerloo":
-          setBakerlooControlToggle(!bakerlooControlToggle);
-          console.log('Bakerloo toggle', bakerlooControlToggle);
-          break;
-        case "Central":
-          setCentralControlToggle(!centralControlToggle);
-          console.log('Central toggle', centralControlToggle);
-          break;
-        case "Circle":
-          setCircleControlToggle(!circleControlToggle);
-          console.log('Circle toggle', circleControlToggle);
-          break;
-        case "District":
-          setDistrictControlToggle(!districtControlToggle);
-          console.log('District toggle', districtControlToggle);
-          break;
-        case "HammersmithCity":
-          setHammersmithCityControlToggle(!hammersmithCityControlToggle);
-          console.log('HammersmithCity toggle', hammersmithCityControlToggle);
-          break;
-        case "Jubilee":
-          setJubileeControlToggle(!jubileeControlToggle);
-          console.log('Jubilee toggle', jubileeControlToggle);
-          break;
-        case "Metropolitan":
-          setMetropolitanControlToggle(!metropolitanControlToggle);
-          console.log('metropolitan toggle', metropolitanControlToggle);
-          break;
-        case "Northern":
-          setNorthernControlToggle(!northernControlToggle);
-          console.log('Northern toggle', northernControlToggle);
-          break;
-        case "Piccadilly":
-          setPiccadillyControlToggle(!piccadillyControlToggle);
-          console.log('Piccadilly toggle', piccadillyControlToggle);
-          break;
-        case "Victoria":
-          setVictoriaControlToggle(!victoriaControlToggle);
-          console.log('Victoria toggle', victoriaControlToggle);
-          break;
-        case "WaterlooCity":
-          setWaterlooCityControlToggle(!waterlooCityControlToggle);
-          console.log('WaterlooCity toggle', waterlooCityControlToggle);
-          break;
-        default:
-          break;
-      }
+      // First arg to useState setter function is the previous state of the variable
+      // In our case this is the object containing state for all lines
+      setlinesToggled((prevState) => ({
+        ...prevState,
+        [lineName]: !prevState[lineName]
+      }))
     }
+      // switch (lineName) {
+      //   case "Bakerloo":
+      //     setBakerlooControlToggle(!bakerlooControlToggle);
+      //     console.log('Bakerloo toggle', bakerlooControlToggle);
+      //     break;
+      //   case "Central":
+      //     setCentralControlToggle(!centralControlToggle);
+      //     console.log('Central toggle', centralControlToggle);
+      //     break;
+      //   case "Circle":
+      //     setCircleControlToggle(!circleControlToggle);
+      //     console.log('Circle toggle', circleControlToggle);
+      //     break;
+      //   case "District":
+      //     setDistrictControlToggle(!districtControlToggle);
+      //     console.log('District toggle', districtControlToggle);
+      //     break;
+      //   case "HammersmithCity":
+      //     setHammersmithCityControlToggle(!hammersmithCityControlToggle);
+      //     console.log('HammersmithCity toggle', hammersmithCityControlToggle);
+      //     break;
+      //   case "Jubilee":
+      //     setJubileeControlToggle(!jubileeControlToggle);
+      //     console.log('Jubilee toggle', jubileeControlToggle);
+      //     break;
+      //   case "Metropolitan":
+      //     setMetropolitanControlToggle(!metropolitanControlToggle);
+      //     console.log('metropolitan toggle', metropolitanControlToggle);
+      //     break;
+      //   case "Northern":
+      //     setNorthernControlToggle(!northernControlToggle);
+      //     console.log('Northern toggle', northernControlToggle);
+      //     break;
+      //   case "Piccadilly":
+      //     setPiccadillyControlToggle(!piccadillyControlToggle);
+      //     console.log('Piccadilly toggle', piccadillyControlToggle);
+      //     break;
+      //   case "Victoria":
+      //     setVictoriaControlToggle(!victoriaControlToggle);
+      //     console.log('Victoria toggle', victoriaControlToggle);
+      //     break;
+      //   case "WaterlooCity":
+      //     setWaterlooCityControlToggle(!waterlooCityControlToggle);
+      //     console.log('WaterlooCity toggle', waterlooCityControlToggle);
+      //     break;
+      //   default:
+      //     break;
+      // }
+    // }
     return (
       <aside className="sidebar sidebar-left">
         <h2>Line Status</h2>
@@ -118,8 +136,27 @@ const SideBarLeft = ({
         <button className="instrumentButton" id="strings" onClick={() => changeCurrentInstrument("strings")} disabled={currentInstrument == "strings"}>Strings</button><br />
         <button className="instrumentButton" id="marimba" onClick={() => changeCurrentInstrument("marimba")} disabled={currentInstrument == "marimba"}>Marimba</button><br />
         <button className="instrumentButton" id="orchestra" onClick={() => changeCurrentInstrument("orchestra")} disabled={currentInstrument == "orchestra"}>Orchestra</button><br />
-        <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button>
-        {bakerlooControlToggle && <>
+        
+        {
+          lineNames.map((lineName) => {
+            return (
+              <div key={lineName}> {/* Each child in a list should have a unique "key" prop */}
+                <button className={`btn-line btn-${lineName.toLowerCase()}`} type="button" onClick={() => handleLineControlToggle(lineName)}>{lineName}</button>
+                {linesToggled[lineName] && <>
+                  <div className={`mute ${linesToggled[lineName] ? 'open' : ''}`}>
+                    <Slider lineName={lineName} instruments={instruments} key={lineName} 
+                      maxVolumeScaledUp={instruments ? instruments[lineName].maxVolume + 100 : 94} 
+                      sliderValue={instruments ? instruments[lineName].maxVolume + 100 : 94} 
+                      setSliderValue={setSliderValue}/>
+                  </div>
+                </>}
+              </div>
+            )
+          })
+        }
+        
+        {/* <button className='btn-line btn-bakerloo' type="button" onClick={() => handleLineControlToggle("Bakerloo")}>Bakerloo</button> */}
+        {/* {bakerlooControlToggle && <>
         <div className={`mute ${bakerlooControlToggle ? 'open' : ''}`}>
           <Slider lineName="Bakerloo" instruments={instruments} key="Bakerloo" 
             maxVolumeScaledUp={bakerlooMaxVolumeScaledUp} sliderValue={bakerlooSliderValue} setSliderValue={setBakerlooSliderValue}/>
@@ -203,8 +240,8 @@ const SideBarLeft = ({
         <div className={`mute ${waterlooCityControlToggle ? 'open' : ''}`}>
           <Slider lineName="WaterlooCity" instruments={instruments} key="WaterlooCity" 
           maxVolumeScaledUp={waterlooCityMaxVolumeScaledUp} sliderValue={waterlooCitySliderValue} setSliderValue={setWaterlooCitySliderValue}/>
-        </div>
-        </>}
+        </div> */}
+        {/* </>} */}
       </aside>
     );
   }

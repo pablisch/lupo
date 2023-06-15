@@ -48,23 +48,6 @@ function App() {
     // }, (dataBlockDuration / 60) * 2000);
   }
 
-  // const fadeAllStations = () => {
-  //   allStations.forEach((line) => {
-  //     line.forEach((station) => {
-  //       // console.log(station);
-  //       document.getElementById(station
-  //         .replace(/ *\([^)]*\) */g, "")
-  //         .replace(/\s|\.''/g, '')
-  //         .replace(/\./g, '')
-  //         .replace(/'/g, '')
-  //         .replace(/UndergroundStation/g, '')
-  //         .replace(/-Underground/g, '')
-  //         .replace(/&/g, '_'),)
-  //       .style.opacity = "0%";
-  //     });
-  //   });
-  // }
-
   const stop = () => {
     console.log("STOP");
     TIMEOUTS.clearAllTimeouts();

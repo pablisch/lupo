@@ -39,6 +39,14 @@ You may also use `npm serve` to serve the site on another port, e.g.
 npm serve -s build -l 4000 # to serve the static site on port 4000.
 ```
 
+## To run Cypress e2e tests
+
+```bash
+npx cypress run --spec 'cypress/e2e/landing-page.cy.js' 
+npx cypress run --spec 'cypress/e2e/main-page-structure.cy.js'
+npx cypress run --spec 'cypress/e2e/navigation.cy.js'
+```
+
 ## Available Scripts
 
 ### `cd frontend`

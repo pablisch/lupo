@@ -34,53 +34,14 @@ const audioStartup = async (instrumentSet) => {
     baseUrl: "/samples/marimba_hits/",
   }
 
-  const marimbaSampler = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler.maxVolume = -6;
-  marimbaSampler.volume.value = marimbaSampler.maxVolume;
+  const marimbaSamplers = {};
 
-  const marimbaSampler2 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler2.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler2.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler3 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler3.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler3.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler4 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler4.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler4.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler5 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler5.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler5.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler6 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler6.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler6.volume.value = marimbaSampler6.maxVolume;
-
-  const marimbaSampler7 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler7.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler7.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler8 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler8.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler8.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler9 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler9.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler9.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler10 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler10.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler10.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler11 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler11.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler11.volume.value = marimbaSampler.maxVolume;
-
-  const marimbaSampler12 = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
-  marimbaSampler12.maxVolume = marimbaSampler.maxVolume;
-  marimbaSampler12.volume.value = marimbaSampler.maxVolume;
+  for (let i = 1; i < 13; i++) {
+    const sampler = new Tone.Sampler(marimbaSamplerSetupParams).connect(reverb);
+    sampler.maxVolume = -6;
+    sampler.volume.value = sampler.maxVolume;
+    marimbaSamplers[`marimbaSampler${i}`] = sampler;
+  }
 
   const violaSampler = new Tone.Sampler({
     urls: {
@@ -332,54 +293,15 @@ const audioStartup = async (instrumentSet) => {
       release: 1,
       baseUrl: "samples/tubeDrum_samples/",
     }
-  
-  const tubeDrumSampler = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler.maxVolume = -9;
-  tubeDrumSampler.volume.value = tubeDrumSampler.maxVolume;
 
-  const tubeDrumSampler2 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler2.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler2.volume.value = tubeDrumSampler.maxVolume;
+  const tubeDrumSamplers = {};
 
-  const tubeDrumSampler3 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler3.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler3.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler4 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler4.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler4.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler5 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler5.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler5.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler6 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler6.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler6.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler7 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler7.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler7.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler8 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler8.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler8.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler9 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler9.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler9.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler10 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler10.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler10.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler11 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler11.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler11.volume.value = tubeDrumSampler.maxVolume;
-
-  const tubeDrumSampler12 = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
-  tubeDrumSampler12.maxVolume = tubeDrumSampler.maxVolume;
-  tubeDrumSampler12.volume.value = tubeDrumSampler.maxVolume;
+  for (let i = 1; i < 13; i++) {
+    const sampler = new Tone.Sampler(tubeDrumSamplerSetupParams).toDestination();
+    sampler.maxVolume = -10;
+    sampler.volume.value = sampler.maxVolume;
+    tubeDrumSamplers[`tubeDrumSampler${i}`] = sampler;
+  }
 
   const celloMarcSampler = new Tone.Sampler({
     urls: {
@@ -609,34 +531,33 @@ lupoIdentSampler.volume.value = lupoIdentSampler.maxVolume;
       };
   } else if (instrumentSet === 'marimba') {
     instruments = {
-      Bakerloo: marimbaSampler,
-      Central: marimbaSampler2,
-      Circle: marimbaSampler3,
-      District: marimbaSampler4,
-      HammersmithCity: marimbaSampler5,
-      Jubilee: marimbaSampler6,
-      Metropolitan: marimbaSampler7,
-      Northern: marimbaSampler8,
-      Piccadilly: marimbaSampler9,
-      Victoria: marimbaSampler10, 
-      WaterlooCity: marimbaSampler11,
-      Pedal: marimbaSampler12
-
+      Bakerloo: marimbaSamplers.marimbaSampler1,
+      Central: marimbaSamplers.marimbaSampler2,
+      Circle: marimbaSamplers.marimbaSampler3,
+      District: marimbaSamplers.marimbaSampler4,
+      HammersmithCity: marimbaSamplers.marimbaSampler5,
+      Jubilee: marimbaSamplers.marimbaSampler6,
+      Metropolitan: marimbaSamplers.marimbaSampler7,
+      Northern: marimbaSamplers.marimbaSampler8,
+      Piccadilly: marimbaSamplers.marimbaSampler9,
+      Victoria: marimbaSamplers.marimbaSampler10, 
+      WaterlooCity: marimbaSamplers.marimbaSampler11,
+      Pedal: marimbaSamplers.marimbaSampler12
     };
   } else if (instrumentSet === 'tubeDrums') {
     instruments = {
-      Bakerloo: tubeDrumSampler,
-      Central: tubeDrumSampler2,
-      Circle: tubeDrumSampler3,
-      District: tubeDrumSampler4,
-      HammersmithCity: tubeDrumSampler5,
-      Jubilee: tubeDrumSampler6,
-      Metropolitan: tubeDrumSampler7,
-      Northern: tubeDrumSampler8,
-      Piccadilly: tubeDrumSampler9,
-      Victoria: tubeDrumSampler10, 
-      WaterlooCity: tubeDrumSampler11,
-      Pedal: tubeDrumSampler12
+      Bakerloo: tubeDrumSamplers.tubeDrumSampler1,
+      Central: tubeDrumSamplers.tubeDrumSampler2,
+      Circle: tubeDrumSamplers.tubeDrumSampler3,
+      District: tubeDrumSamplers.tubeDrumSampler4,
+      HammersmithCity: tubeDrumSamplers.tubeDrumSampler5,
+      Jubilee: tubeDrumSamplers.tubeDrumSampler6,
+      Metropolitan: tubeDrumSamplers.tubeDrumSampler7,
+      Northern: tubeDrumSamplers.tubeDrumSampler8,
+      Piccadilly: tubeDrumSamplers.tubeDrumSampler9,
+      Victoria: tubeDrumSamplers.tubeDrumSampler10, 
+      WaterlooCity: tubeDrumSamplers.tubeDrumSampler11,
+      Pedal: tubeDrumSamplers.tubeDrumSampler12
     };
   } else if (instrumentSet === 'strings') {
     const stringTest = doubleBassMarcSampler;

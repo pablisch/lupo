@@ -1,6 +1,6 @@
 import './Slider.css';
 
-const Slider = ({ instruments, lineName, maxVolumeScaledUp, sliderValue, setSliderValue}) => {
+const Slider = ({ instruments, lineName, maxVolumeScaledUp, sliderValue, setLineSliderValues}) => {
 
   const changeOpacity = (elementId, opacity) => {
     const element = document.getElementById(elementId);
@@ -10,7 +10,12 @@ const Slider = ({ instruments, lineName, maxVolumeScaledUp, sliderValue, setSlid
   const handleSliderChange = (event) => {
     let negativeValue = (event.target.value - 100);
     instruments[lineName].volume.value = negativeValue;
-    setSliderValue(event.target.value)
+    setLineSliderValues((prevState) => {
+      return {
+        ...prevState,
+        [lineName]: event.target.value // square brackets are used to evaluate the variable lineName
+      }
+    })
 
     let newOpacity = (event.target.value/100)+0.15
     if (newOpacity > 1) {
@@ -21,15 +26,21 @@ const Slider = ({ instruments, lineName, maxVolumeScaledUp, sliderValue, setSlid
 
   const handleButtonClick = () => {
     if(sliderValue > 0){
-      // fadeElement(lineName, true, setState);
       instruments[lineName].volume.value = -100;
-      setSliderValue(0);
+      setLineSliderValues((prevState) => {
+        return {
+          ...prevState,
+          [lineName]: 0 // set the slider value for this line to 0
+        }})
       changeOpacity(lineName, 0.15);
 
     } else {
-      // fadeElement(lineName, false, setState);
       instruments[lineName].volume.value = -6;
-      setSliderValue(maxVolumeScaledUp);
+      setLineSliderValues((prevState) => {
+        return {
+          ...prevState,
+          [lineName]: maxVolumeScaledUp
+        }})
       changeOpacity(lineName, 1);
     }
   };

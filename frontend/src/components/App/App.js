@@ -62,17 +62,26 @@ function App() {
   }
 
   const fetchData = () => {
-    axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
+    // axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
+    //   .then(response => {
+    //     const filteredData = response.data
+    //       .filter(item => item.timeToStation < dataBlockDuration)
+    //       .map(item => ({
+    //         id: item.id,
+    //         stationName: item.stationName,
+    //         lineName: item.lineName,
+    //         timeToStation: item.timeToStation
+    //       }));
+
+    // get data from frontend/sampleData/sortedDataSample2.json
+    axios.get('./data.json')
       .then(response => {
-        const filteredData = response.data
-          .filter(item => item.timeToStation < dataBlockDuration)
-          .map(item => ({
-            id: item.id,
-            stationName: item.stationName,
-            lineName: item.lineName,
-            timeToStation: item.timeToStation
-          }));
+        const filteredData = response.data;
+        console.log('filteredData =', filteredData);
+          
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
+        // save sortedData to local storage
+        localStorage.setItem('sortedData', JSON.stringify(sortedData));
         const processedData = processTubeData(sortedData, dataBlockDuration);
         console.log('processedData =', processedData);
         setVisualData(processedData);

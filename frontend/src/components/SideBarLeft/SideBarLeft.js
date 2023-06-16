@@ -5,7 +5,7 @@ import lineNames from '../../lineNames';
 
 const SideBarLeft = ({ 
     arrivalEffectsToggle, handleArrivalEffectToggle, currentInstrument, soundOn, 
-    isPlaying, instruments, changeCurrentInstrument, muted, handleMuteButtonClick
+    isPlaying, instruments, changeCurrentInstrument, muted, handleMuteButtonClick, handleSpecialServiceToggle, specialServiceToggle
   }) => {
     
     const [linesToggled, setlinesToggled] = useState(
@@ -38,6 +38,9 @@ const SideBarLeft = ({
       <aside className="sidebar sidebar-left">
         <h2>Line Status</h2>
         <button id="soundon" onClick={() => soundOn()} disabled={isPlaying}>{isPlaying ? 'Good Service' : "Suspended"}</button><br />
+        <button className={`specialServiceButton instrumentButton ${specialServiceToggle ? 'redButton' : 'greenButton'}`} onClick={() => handleSpecialServiceToggle()}>
+          {specialServiceToggle ? 'Normal Service' : 'Special Service'}
+        </button>
         <button className={`instrumentButton arrival-effects ${arrivalEffectsToggle ? 'greenButton' : 'redButton'}`} onClick={() => handleArrivalEffectToggle()}>
           {arrivalEffectsToggle ? 'Turn Flares OFF' : 'Turn Flares ON'}
         </button>

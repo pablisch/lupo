@@ -32,6 +32,7 @@ function App() {
   const [instruments, setInstruments] = useState(null);
   const [tapInVisible, setTapInVisible] = useState(true);
   const [muted, setMuted] = useState(false);
+  const [specialServiceToggle, setSpecialServiceToggle] = useState(false);
   const renderCount = useRef(1)
 
   const soundOn = async () => {
@@ -61,32 +62,52 @@ function App() {
     soundOn();
   }
 
-  const fetchData = () => {
-    // axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
-    //   .then(response => {
-    //     const filteredData = response.data
-    //       .filter(item => item.timeToStation < dataBlockDuration)
-    //       .map(item => ({
-    //         id: item.id,
-    //         stationName: item.stationName,
-    //         lineName: item.lineName,
-    //         timeToStation: item.timeToStation
-    //       }));
+  // const fetchData = () => {
+  //   axios.get('/data.json')
+  //     .then(response => {
+  //       const filteredData = response.data;
+  //       console.log('filteredData =', filteredData);
+  //     })
+  //     .catch(error => {
+  //       console.error("Error fetching TFL's dodgy tube data:", error);
 
-    // get data from frontend/sampleData/sortedDataSample2.json
-    axios.get('./data.json')
+  //     })
+  // }
+
+  const fetchData = () => {
+    axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
       .then(response => {
-        const filteredData = response.data;
-        console.log('filteredData =', filteredData);
-          
+        const filteredData = response.data
+          .filter(item => item.timeToStation < dataBlockDuration)
+          .map(item => ({
+            id: item.id,
+            stationName: item.stationName,
+            lineName: item.lineName,
+            timeToStation: item.timeToStation
+          }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
-        // save sortedData to local storage
         localStorage.setItem('sortedData', JSON.stringify(sortedData));
         const processedData = processTubeData(sortedData, dataBlockDuration);
         console.log('processedData =', processedData);
         setVisualData(processedData);
         console.log("fetchdata instruments", instruments)
-        triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals);
+        triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals)
+      })
+      .catch(error => {
+        console.error("Error fetching TFL's dodgy tube data:", error);
+      });
+  };
+
+  const dontFetchData = () => {
+    axios.get('/sampleData.json')
+      .then(response => {
+        const filteredData = response.data;
+        const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
+        const processedData = processTubeData(sortedData, dataBlockDuration);
+        console.log('processedData =', processedData)
+        console.log('RUNNING SPECIAL SERVICE')
+        setVisualData(processedData);
+        triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals)
       })
       .catch(error => {
         console.error("Error fetching TFL's dodgy tube data:", error);
@@ -100,8 +121,13 @@ function App() {
 
     if(instruments) { 
       console.log('instruments:', instruments)
-      fetchData()  // initial fetch as setInterval only exectues after first interval
-      mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
+      if (specialServiceToggle) {
+        dontFetchData();
+        mainLooper = setInterval(dontFetchData, dataBlockDuration * 1000);
+      } else {
+        fetchData()  // initial fetch as setInterval only exectues after first interval
+        mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
+      }
     }
   // eslint-disable-next-line
   }, [instruments])
@@ -121,6 +147,13 @@ function App() {
   const handleArrivalEffectToggle = () => {
     console.log('arrivalEffectsToggle: '+ arrivalEffectsToggle);
     setArrivalEffectsToggle(current => !current);
+    restart();
+  };
+
+  // handleSpecialServiceToggle to toggle the value of specialServiceToggle
+  const handleSpecialServiceToggle = () => {
+    console.log('specialServiceToggle: '+ specialServiceToggle);
+    setSpecialServiceToggle(current => !current);
     restart();
   };
 
@@ -171,7 +204,7 @@ function App() {
             {/* <img src={logo} id="tap-in" className="App-logo" alt="sound on" /> */}
             <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
             <div className="container bars-and-map">
-              <SideBarLeft setTapInVisible={setTapInVisible} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick}/>
+            <SideBarLeft setTapInVisible={setTapInVisible} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} />
               <TubeMap/>
             </div> 
           </>

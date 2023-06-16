@@ -21,7 +21,7 @@ const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalFlareEffects
       const randomVelocity = Math.round(((Math.random() * minVelocity) + minVelocity) * 10) / 10 // result is 1dp
       // console.log(randomVelocity)
       instruments[train.lineName].triggerAttackRelease(note, '4n', now, randomVelocity);
-      console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);
+      // console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);
       flashElement(train.stationName);
       arrivals.push([train.stationName]);
       if (arrivals.length > 10) {

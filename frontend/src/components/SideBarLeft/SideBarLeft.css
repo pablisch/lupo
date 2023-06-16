@@ -80,6 +80,10 @@
   animation: colorTransition 2s infinite alternate; 
 }
 
+.specialServiceButton {
+  font-size: 1rem;
+}
+
 .redButton {
   background-color: rgb(124, 124, 124);
   color: #fff;

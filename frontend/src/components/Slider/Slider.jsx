@@ -10,7 +10,6 @@ const Slider = ({ instruments, lineName, maxVolumeScaledUp, sliderValue, setLine
   const handleSliderChange = (event) => {
     let negativeValue = (event.target.value - 100);
     instruments[lineName].volume.value = negativeValue;
-    // setSliderValue(event.target.value)
     setLineSliderValues((prevState) => {
       return {
         ...prevState,
@@ -27,15 +26,21 @@ const Slider = ({ instruments, lineName, maxVolumeScaledUp, sliderValue, setLine
 
   const handleButtonClick = () => {
     if(sliderValue > 0){
-      // fadeElement(lineName, true, setState);
       instruments[lineName].volume.value = -100;
-      setSliderValue(0);
+      setLineSliderValues((prevState) => {
+        return {
+          ...prevState,
+          [lineName]: 0 // set the slider value for this line to 0
+        }})
       changeOpacity(lineName, 0.15);
 
     } else {
-      // fadeElement(lineName, false, setState);
       instruments[lineName].volume.value = -6;
-      setSliderValue(maxVolumeScaledUp);
+      setLineSliderValues((prevState) => {
+        return {
+          ...prevState,
+          [lineName]: maxVolumeScaledUp
+        }})
       changeOpacity(lineName, 1);
     }
   };

@@ -1,6 +1,13 @@
 import triggerAudioVisuals from './triggerAudioVisuals';
 import TIMEOUTS from './timeouts';
 
+const mockInstruments = {
+  Piccadilly: jest.fn(),
+  Northern: jest.fn(),
+  Circle: jest.fn(),
+  HammersmithCity: jest.fn()
+}
+
 const mockQuantisedData = [
   {
     "id": "-1372524375",
@@ -23,12 +30,26 @@ const mockQuantisedData = [
   {
     "id": "2056633330",
     "stationName": "Bayswater Underground Station",
-    "lineName": "Hammersmith & City",
+    "lineName": "HammersmithCity",
     "timeToStation": 22
   }
 ]
 
+const mockArrivals = []; // array to hold arrival elements
+
+const [mockArrivalEffectsToggle, setmockArrivalEffectsToggle] = useState(true);
+
+
+const mockArrivalFlareEffectsToggle = {
+
+}
+
 describe('triggerAudioVisuals function', () => {
   // can mock the instruments object and check that .triggerAttackRelease is called with the correct arguments
   // can mock the TIMEOUTS object and check that setTimeout is called on it with the correct arguments
+  it('calls setTimeout() with the correct intervals', () => {
+    triggerAudioVisuals(mockQuantisedData, mockInstruments, mockArrivalFlareEffectsToggle, mockArrivals)
+    
+
+  })
 })

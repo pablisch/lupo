@@ -8,7 +8,6 @@ import triggerAudioVisuals from '../../triggerAudioVisuals';
 import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
 import { Routes, Route } from "react-router-dom";
 import processTubeData from '../../processTubeData';
-// import allStations from '../../stations';
 import TIMEOUTS from '../../timeouts';
 import SideBarLeft from '../SideBarLeft/SideBarLeft';
 import Navbar from '../Navbar/Navbar';
@@ -42,11 +41,6 @@ function App() {
     fadeAllStations();
     const awaitedInstruments = await audioStartup(currentInstrument);
     setInstruments(awaitedInstruments);
-    
-    // Following block provides a looping pedal note:
-    // setInterval(() => {
-    //   instruments.Pedal.triggerAttackRelease('C4', '1n');
-    // }, (dataBlockDuration / 60) * 2000);
   }
 
   const stop = () => {
@@ -61,18 +55,6 @@ function App() {
     stop();
     soundOn();
   }
-
-  // const fetchData = () => {
-  //   axios.get('/data.json')
-  //     .then(response => {
-  //       const filteredData = response.data;
-  //       console.log('filteredData =', filteredData);
-  //     })
-  //     .catch(error => {
-  //       console.error("Error fetching TFL's dodgy tube data:", error);
-
-  //     })
-  // }
 
   const fetchData = () => {
     axios.get(`https://api.tfl.gov.uk/Line/${lines}/Arrivals?`)
@@ -201,7 +183,6 @@ function App() {
         
         <Route path='/sounds-of-the-underground' element={<>
             {tapInVisible && <img src={logo} id="tap-in" className="App-logo" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>}
-            {/* <img src={logo} id="tap-in" className="App-logo" alt="sound on" /> */}
             <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
             <div className="container bars-and-map">
             <SideBarLeft setTapInVisible={setTapInVisible} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} />

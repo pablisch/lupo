@@ -68,7 +68,7 @@ function App() {
             timeToStation: item.timeToStation
           }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
-        if (sortedData.length > 350) {
+        if (sortedData.length > 260) {
           localStorage.setItem('sortedData', JSON.stringify(sortedData));
           console.log(`sortedData.length = ${sortedData.length}, saved to localStorage`)
         } else {
@@ -86,7 +86,7 @@ function App() {
   };
 
   const fetchSpecialServiceData = () => {
-    axios.get('/sampleData.json')
+    axios.get('/sampleData3.json')
       .then(response => {
         const filteredData = response.data;
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);

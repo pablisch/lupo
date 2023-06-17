@@ -68,11 +68,16 @@ function App() {
             timeToStation: item.timeToStation
           }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
-        localStorage.setItem('sortedData', JSON.stringify(sortedData));
+        if (sortedData.length > 350) {
+          localStorage.setItem('sortedData', JSON.stringify(sortedData));
+          console.log(`sortedData.length = ${sortedData.length}, saved to localStorage`)
+        } else {
+          console.log(`sortedData.length = ${sortedData.length}, NOT saved to localStorage`)
+        }
         const processedData = processTubeData(sortedData, dataBlockDuration);
-        console.log('processedData =', processedData);
+        // console.log('processedData =', processedData);
         setVisualData(processedData);
-        console.log("fetchdata instruments", instruments)
+        // console.log("fetchdata instruments", instruments)
         triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals)
       })
       .catch(error => {
@@ -80,12 +85,13 @@ function App() {
       });
   };
 
-  const dontFetchData = () => {
+  const fetchSpecialServiceData = () => {
     axios.get('/sampleData.json')
       .then(response => {
         const filteredData = response.data;
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
         const processedData = processTubeData(sortedData, dataBlockDuration);
+        console.log('sortedData =', sortedData)
         console.log('processedData =', processedData)
         console.log('RUNNING SPECIAL SERVICE')
         setVisualData(processedData);
@@ -104,8 +110,8 @@ function App() {
     if(instruments) { 
       console.log('instruments:', instruments)
       if (specialServiceToggle) {
-        dontFetchData();
-        mainLooper = setInterval(dontFetchData, dataBlockDuration * 1000);
+        fetchSpecialServiceData();
+        mainLooper = setInterval(fetchSpecialServiceData, dataBlockDuration * 1000);
       } else {
         fetchData()  // initial fetch as setInterval only exectues after first interval
         mainLooper = setInterval(fetchData, dataBlockDuration * 1000);

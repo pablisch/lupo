@@ -18,9 +18,9 @@ const Navbar = ({stop, setTapInVisible}) => {
     <nav>
       <div className="nav-container">
         <div className="nav-logo">
-          <img src="./Underground.png" alt="" className="luso-logo" />
+          <img src="./underground.png" alt="" className="luso-logo" />
           <h2>LONDON UNDERGROUND PHONY ORCHESTRA</h2>
-          <img src="./Underground.png" alt="" className="luso-logo second-logo" />
+          <img src="./underground.png" alt="" className="luso-logo second-logo" />
         </div>
         <div className="nav-links">
           {/data/.test(window.location.href) && <div onClick={fadeStationsWhenReturningToMap} className="map-link link-btn"><Link to="/sounds-of-the-underground">Map</Link></div>}

@@ -35,7 +35,7 @@ body > iframe {
 #tap-in {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 55%;
   transform: translate(-50%, -50%);
   font-size: calc(10px + 2vmin);
   color: #fff;
@@ -43,6 +43,7 @@ body > iframe {
   text-shadow: 0 0 5px #000;
   z-index: 1000;
   cursor: url('./oyster-card.png');
+  max-width: 400px;
 }
 
 /* GENERAL PAGE STYLES */
@@ -264,6 +265,27 @@ main {
   }
   to {
     opacity: 0%;
+  }
+}
+
+@media (max-width: 1300px) {
+  #tap-in {
+    left: 55%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 1050px) {
+  #tap-in {
+    left: 60%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 800px) {
+  #tap-in {
+    left: 60%;
+    max-width: 200px;
   }
 }
 

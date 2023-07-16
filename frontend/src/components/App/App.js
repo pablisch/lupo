@@ -188,7 +188,7 @@ function App() {
         </>} />
         
         <Route path='/sounds-of-the-underground' element={<>
-            {tapInVisible && <img src={logo} id="tap-in" className="App-logo" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>}
+            {tapInVisible && <img src={logo} id="tap-in" className="App-logo2" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>}
             <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
             <div className="container bars-and-map">
             <SideBarLeft setTapInVisible={setTapInVisible} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} />

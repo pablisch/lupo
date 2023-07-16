@@ -19,7 +19,8 @@ const Navbar = ({stop, setTapInVisible}) => {
       <div className="nav-container">
         <div className="nav-logo">
           <img src="./underground.png" alt="" className="luso-logo" />
-          <h2>LONDON UNDERGROUND PHONY ORCHESTRA</h2>
+          <h2 id="long-title">LONDON UNDERGROUND PHONY ORCHESTRA</h2>
+          <h2 id="short-title">LUPO</h2>
           <img src="./underground.png" alt="" className="luso-logo second-logo" />
         </div>
         <div className="nav-links">

@@ -110,3 +110,20 @@ nav h2 {
   }
 }
 
+@media (max-height: 750px) {
+  nav {
+    height: 50px;
+  }
+}
+
+@media (max-height: 600px) {
+  nav a {
+    font-size: 1.3rem;
+  }
+  .link-btn {
+    padding: 1px 5px;
+    margin: 0 0 0 15px;
+    width: auto;
+  }
+}
+

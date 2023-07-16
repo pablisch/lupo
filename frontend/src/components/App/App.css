@@ -289,3 +289,41 @@ main {
   }
 }
 
+@media (max-width: 650px) {
+  .sidebar {
+    background-color: #f2f1f1;
+    padding: 0 10px;
+    width: 140px;
+    overflow: scroll;
+  }
+  .sidebar h2 {
+    font-size: 1.4rem;
+    z-index: 100;
+    margin: 5px 0 2px;
+  }
+}
+
+@media (max-width: 550px) {
+  #tap-in {
+    left: 55%;
+    max-width: 150px;
+  }
+  .sidebar {
+    background-color: #f2f1f1;
+    padding: 0 10px;
+    width: 100px;
+    overflow: scroll;
+  }
+  .sidebar h2 {
+    font-size: 0.9rem;
+    z-index: 100;
+    margin: 5px 0 2px;
+  }
+}
+
+@media (max-width: 300px) {
+  #tap-in {
+    left: 65%;
+    max-width: 200px;
+  }
+}

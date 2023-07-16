@@ -8,7 +8,6 @@
   padding: 5px 0;
   background-color: #e48d6a;
   color: #000;
-  /* font-weight: bold; */
   font-size: 1.3rem;
   border: 1px solid #999;
   border-radius: 2px;
@@ -174,3 +173,69 @@
   /* margin-bottom: 3px; */
 }
 
+@media (max-width: 650px) {
+  .btn-line {
+    width: 100%;
+    margin: 1px auto;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    height: 22px;
+  }
+  .btn-waterloocity {
+    font-size: 0.8rem;
+  }
+  .instrumentButton {
+    height: 22px;
+    font-size: 1rem;
+  }
+  #soundon {
+    height: auto;
+    font-size: 0.9rem;
+    margin: 5px auto 10px;
+    padding: 3px 0;
+  }
+  .specialServiceButton, .arrival-effects {
+    height: 22px;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  #mute {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 550px) {
+  .btn-line {
+    width: 100%;
+    margin: 1px auto;
+    font-size: 0.8rem;
+    border: none;
+    cursor: pointer;
+    height: 20px;
+  }
+  .btn-waterloocity {
+    font-size: 0.6rem;
+  }
+  .btn-temp-left {
+    font-size: 0.8rem;
+  }
+  #mute {
+    margin-bottom: 10px;
+  }
+  .instrumentButton {
+    height: 18px;
+    font-size: 0.7rem;
+  }
+  #soundon {
+    height: auto;
+    font-size: 0.6rem;
+    margin: 5px auto 10px;
+    padding: 3px 0;
+  }
+  .specialServiceButton, .arrival-effects {
+    height: 18px;
+    font-size: 0.55rem;
+    text-align: center;
+  }
+}

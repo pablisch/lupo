@@ -315,7 +315,7 @@ main {
     overflow: scroll;
   }
   .sidebar h2 {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     z-index: 100;
     margin: 5px 0 2px;
   }

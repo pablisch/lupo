@@ -197,7 +197,7 @@
   }
   .specialServiceButton, .arrival-effects {
     height: 22px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     text-align: center;
   }
   #mute {
@@ -209,33 +209,34 @@
   .btn-line {
     width: 100%;
     margin: 1px auto;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     border: none;
     cursor: pointer;
-    height: 20px;
+    height: 17px;
   }
   .btn-waterloocity {
-    font-size: 0.6rem;
+    font-size: 0.4rem;
   }
   .btn-temp-left {
     font-size: 0.8rem;
   }
   #mute {
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
   .instrumentButton {
     height: 18px;
-    font-size: 0.7rem;
+    font-size: 0.5rem;
+    margin: 0 auto 3px;
   }
   #soundon {
     height: auto;
     font-size: 0.6rem;
-    margin: 5px auto 10px;
+    margin: 3px auto 5px;
     padding: 3px 0;
   }
   .specialServiceButton, .arrival-effects {
     height: 18px;
-    font-size: 0.55rem;
+    font-size: 0.4rem;
     text-align: center;
   }
 }

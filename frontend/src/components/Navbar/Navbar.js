@@ -2,10 +2,9 @@ import './Navbar.css'
 import { Link } from "react-router-dom";
 import fadeAllStations from '../../fadeAllStations';
 
-const Navbar = ({stop, setTapInVisible}) => {
+const Navbar = ({stop}) => {
   const navigateAway = () => {
     stop();
-    setTapInVisible(true);
   }
 
   const fadeStationsWhenReturningToMap = () => {

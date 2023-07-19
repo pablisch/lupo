@@ -6,7 +6,7 @@ import TubeMap from '../TubeMap/TubeMap.js';
 import audioStartup from '../../audioStartup';
 import triggerAudioVisuals from '../../triggerAudioVisuals';
 import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import processTubeData from '../../processTubeData';
 import TIMEOUTS from '../../timeouts';
 import SideBarLeft from '../SideBarLeft/SideBarLeft';
@@ -29,14 +29,14 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [arrivalEffectsToggle, setArrivalEffectsToggle] = useState(true);
   const [instruments, setInstruments] = useState(null);
-  const [tapInVisible, setTapInVisible] = useState(true);
+  const [tapInVisible, setTapInVisible] = useState(false);
   const [muted, setMuted] = useState(false);
-  const [specialServiceToggle, setSpecialServiceToggle] = useState(false);
+  const [specialServiceToggle, setSpecialServiceToggle] = useState(true);
   const renderCount = useRef(1)
+  const routeLocation = useLocation();
 
   const soundOn = async () => {
     console.log('SOUND ON');
-    setTapInVisible(false);
     setIsPlaying(true); // controls the visibility of the soundon button
     fadeAllStations();
     const awaitedInstruments = await audioStartup(currentInstrument);
@@ -144,6 +144,16 @@ function App() {
     setSpecialServiceToggle(current => !current);
     restart();
   };
+
+  useEffect(() => {
+    if (routeLocation.pathname === "/sounds-of-the-underground") {
+      setTimeout(() => {
+        soundOn();
+        console.log('soundOn called')
+      }, 0);
+    }
+    // eslint-disable-next-line
+  }, [routeLocation.pathname]);
 
   useEffect(() => {
     if(!isPlaying) {return;}

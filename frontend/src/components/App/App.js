@@ -43,6 +43,12 @@ function App() {
     setInstruments(awaitedInstruments);
   }
 
+  const start = () => {
+    setTimeout(() => {
+      soundOn();
+    }, 0)
+  }
+
   const stop = () => {
     console.log("STOP");
     TIMEOUTS.clearAllTimeouts();
@@ -188,7 +194,7 @@ function App() {
         </>} />
         
         <Route path='/sounds-of-the-underground' element={<>
-            {tapInVisible && <img src={logo} id="tap-in" className="App-logo2" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>}
+            {/* {tapInVisible && <img src={logo} id="tap-in" className="App-logo2" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>} */}
             <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
             <div className="container bars-and-map">
             <SideBarLeft setTapInVisible={setTapInVisible} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} />
@@ -198,7 +204,7 @@ function App() {
         } />
         
         <Route path='/' element={
-          <Landing renderCount={renderCount} />
+          <Landing renderCount={renderCount} start={start} />
         }/>
       </Routes>
     </div>

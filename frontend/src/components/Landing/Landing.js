@@ -3,7 +3,7 @@
 import { Link } from "react-router-dom";
 import './Landing.css';
 
-const Landing = ({renderCount, soundOn}) => {
+const Landing = ({renderCount, start}) => {
   return (
     <div className="App">
       <div className="app-nav">
@@ -14,7 +14,7 @@ const Landing = ({renderCount, soundOn}) => {
         <div className="landing-page">
           {/* <p>{`This Page has rendered ${renderCount.current} times`}</p> */}
           <Link to="/sounds-of-the-underground">
-            <img src="./underground-to-trains2.png" className="App-logo" alt="logo"/>
+            <img src="./underground-to-trains2.png" onClick={start} className="App-logo" alt="logo"/>
             {/* <button id="soundon" >Click to listen to the music</button> */}
           </Link>
         </div>

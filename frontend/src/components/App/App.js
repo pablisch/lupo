@@ -31,7 +31,7 @@ function App() {
   const [instruments, setInstruments] = useState(null);
   const [tapInVisible, setTapInVisible] = useState(true);
   const [muted, setMuted] = useState(false);
-  const [specialServiceToggle, setSpecialServiceToggle] = useState(false);
+  const [specialServiceToggle, setSpecialServiceToggle] = useState(true);
   const renderCount = useRef(1)
 
   const soundOn = async () => {

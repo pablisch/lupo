@@ -33,6 +33,7 @@ function App() {
   const [muted, setMuted] = useState(false);
   const [specialServiceToggle, setSpecialServiceToggle] = useState(true);
   const renderCount = useRef(1)
+  const [pageCount, setPageCount] = useState(0);
 
   const soundOn = async () => {
     console.log('SOUND ON');

@@ -8,8 +8,10 @@ const TubeMap = () => {
     <main>
       <TransformWrapper
         disablePadding={false}
-        centerOnInit={true}
-        initialScale={3}>
+        // centerOnInit={false}
+        initialScale={1.7}
+        initialPositionX={-400}
+        initialPositionY={-300}>
         <TransformComponent wrapperStyle={{
             width: "100%",
             height: "100%",
@@ -19,7 +21,6 @@ const TubeMap = () => {
         </TransformComponent>
       </TransformWrapper>
     </main>
-   
   );
 }
 export default TubeMap;

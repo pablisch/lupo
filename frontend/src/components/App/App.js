@@ -27,7 +27,7 @@ function App() {
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
   const [visualData, setVisualData] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [arrivalFlareEffectsToggle, setarrivalFlareEffectsToggle] = useState(true);
+  const [arrivalFlareEffectsToggle, setArrivalFlareEffectsToggle] = useState(true);
   const [instruments, setInstruments] = useState(null);
   const [tapInVisible, setTapInVisible] = useState(true);
   const [muted, setMuted] = useState(false);
@@ -78,7 +78,7 @@ function App() {
         // console.log('processedData =', processedData);
         setVisualData(processedData);
         // console.log("fetchdata instruments", instruments)
-        triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals)
+        triggerAudioVisuals(processedData, instruments, arrivalFlareEffectsToggle, arrivals)
       })
       .catch(error => {
         console.error("Error fetching TFL's dodgy tube data:", error);
@@ -95,7 +95,7 @@ function App() {
         console.log('processedData =', processedData)
         console.log('RUNNING SPECIAL SERVICE')
         setVisualData(processedData);
-        triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals)
+        triggerAudioVisuals(processedData, instruments, arrivalFlareEffectsToggle, arrivals)
       })
       .catch(error => {
         console.error("Error fetching TFL's dodgy tube data:", error);
@@ -135,13 +135,6 @@ function App() {
   const handleArrivalEffectToggle = () => {
     console.log('arrivalFlareEffectsToggle: '+ arrivalFlareEffectsToggle);
     setArrivalFlareEffectsToggle(current => !current);
-    restart();
-  };
-
-  // handleSpecialServiceToggle to toggle the value of specialServiceToggle
-  const handleSpecialServiceToggle = () => {
-    console.log('specialServiceToggle: '+ specialServiceToggle);
-    setSpecialServiceToggle(current => !current);
     restart();
   };
 
@@ -198,7 +191,7 @@ function App() {
             {tapInVisible && <img src={logo} id="tap-in" className="App-logo2" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>}
             <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
             <div className="container bars-and-map">
-            <SideBarLeft setTapInVisible={setTapInVisible} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} />
+            <SideBarLeft setTapInVisible={setTapInVisible} arrivalFlareEffectsToggle={arrivalFlareEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} />
               <TubeMap/>
             </div> 
           </>

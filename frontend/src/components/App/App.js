@@ -27,7 +27,7 @@ function App() {
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
   const [visualData, setVisualData] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [arrivalEffectsToggle, setArrivalEffectsToggle] = useState(true);
+  const [arrivalFlareEffectsToggle, setarrivalFlareEffectsToggle] = useState(true);
   const [instruments, setInstruments] = useState(null);
   const [tapInVisible, setTapInVisible] = useState(true);
   const [muted, setMuted] = useState(false);
@@ -131,10 +131,17 @@ function App() {
     }, 3000);
   };
 
-  // handleArrivalEffectToggle to toggle the value of arrivalEffectsToggle
+  // handleArrivalEffectToggle to toggle the value of arrivalFlareEffectsToggle
   const handleArrivalEffectToggle = () => {
-    console.log('arrivalEffectsToggle: '+ arrivalEffectsToggle);
-    setArrivalEffectsToggle(current => !current);
+    console.log('arrivalFlareEffectsToggle: '+ arrivalFlareEffectsToggle);
+    setArrivalFlareEffectsToggle(current => !current);
+    restart();
+  };
+
+  // handleSpecialServiceToggle to toggle the value of specialServiceToggle
+  const handleSpecialServiceToggle = () => {
+    console.log('specialServiceToggle: '+ specialServiceToggle);
+    setSpecialServiceToggle(current => !current);
     restart();
   };
 

@@ -13,6 +13,7 @@ const flashElement = (elementId) => {
 
 const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalFlareEffectsToggle, arrivals) => {
   quantisedTubeData.forEach((train) => {
+    // console.log(train.stationName, train.lineName)
     const note = instruments.noteAssignFunctions[train.lineName](train.stationName);
     TIMEOUTS.setTimeout(() => {
       const now = Tone.now(); // the audio context time

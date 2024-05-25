@@ -34,6 +34,7 @@ function App() {
   const [specialServiceToggle, setSpecialServiceToggle] = useState(true);
   const renderCount = useRef(1)
 
+  // soundOn => hide tapin, isPlaying to TRUE, fade station names, await audioStartup, setInstruments
   const soundOn = async () => {
     console.log('SOUND ON');
     setTapInVisible(false);

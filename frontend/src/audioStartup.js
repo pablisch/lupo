@@ -318,7 +318,7 @@ const audioStartup = async (instrumentSet) => {
       "G3": "cello_marc_g3.mp3"
     },
     release: 1,
-    baseUrl: "/samples/cello__marcato_samples/",
+    baseUrl: "/samples/cello_marcato_samples/",
   }).toDestination();
   celloMarcSampler.maxVolume = -12;
   celloMarcSampler.volume.value = celloMarcSampler.maxVolume;
@@ -358,7 +358,7 @@ const audioStartup = async (instrumentSet) => {
       "G3": "cello_pizz_g3.mp3"
     },
     release: 1,
-    baseUrl: "/samples/cello__pizz_samples/",
+    baseUrl: "/samples/cello_pizz_samples/",
   }).toDestination();
   celloPizzSampler.maxVolume = -12;
   celloPizzSampler.volume.value = celloPizzSampler.maxVolume;
@@ -434,7 +434,7 @@ const audioStartup = async (instrumentSet) => {
       "G3": "viola_pizz_g3.mp3"
     },
     release: 1,
-    baseUrl: "/samples/violaPizz_samples/",
+    baseUrl: "/samples/viola_pizz_samples/",
   }).toDestination();
   violaPizzSampler.maxVolume = -12;
   violaPizzSampler.volume.value = violaPizzSampler.maxVolume;
@@ -501,7 +501,7 @@ violinPizzSampler.volume.value = violinPizzSampler.maxVolume;
 
 const lupoIdentSampler = new Tone.Sampler({
   urls: {
-    "A4": "LUPO_ident_a3.mp3"
+    "A4": "LUPO_ident.mp3"
   },
   release: 1,
   baseUrl: "/samples/lupo_ident_samples/",
@@ -561,34 +561,34 @@ lupoIdentSampler.volume.value = lupoIdentSampler.maxVolume;
     };
   } else if (instrumentSet === 'strings') {
     const stringTest = doubleBassMarcSampler;
-    instruments = {
-      Bakerloo: stringTest,      
-      Central: doubleBassMarcSampler,
-      Circle: doubleBassMarcSampler,
-      District: doubleBassPizzSampler,
-      HammersmithCity: violaMarcSampler,
-      Jubilee: violaMarcSampler,
-      Metropolitan: violaMarcSampler,
-      Northern: violinMarcSampler,
-      Piccadilly: violinMarcSampler,
-      Victoria: violinPizzSampler, 
-      WaterlooCity: violinPizzSampler,
-      Pedal: doubleBassMarcSampler
-    };
     // instruments = {
-    //   Bakerloo: celloMarcSampler, // ❌ DOES NOT WORK
-    //   Central: celloPizzSampler, // ❌ DOES NOT WORK
-    //   Circle: doubleBassMarcSampler, // ✅ working
-    //   District: doubleBassPizzSampler, // ✅ working
-    //   HammersmithCity: harpsichordSampler, // ❌ DOES NOT WORK
-    //   Jubilee: violaMarcSampler, // ✅ working
-    //   Metropolitan: violaPizzSampler, // ❌ DOES NOT WORK
-    //   Northern: violinColLegnoSampler, // ❌ DOES NOT WORK
-    //   Piccadilly: violinMarcSampler, // ✅ working
-    //   Victoria: violinPizzSampler, // ✅ working
-    //   WaterlooCity: lupoIdentSampler, // ❌ DOES NOT WORK
-    //   Pedal: celloMarcSampler // ❌ DOES NOT WORK
+    //   Bakerloo: stringTest,      
+    //   Central: doubleBassMarcSampler,
+    //   Circle: doubleBassMarcSampler,
+    //   District: doubleBassPizzSampler,
+    //   HammersmithCity: violaMarcSampler,
+    //   Jubilee: violaMarcSampler,
+    //   Metropolitan: violaMarcSampler,
+    //   Northern: violinMarcSampler,
+    //   Piccadilly: violinMarcSampler,
+    //   Victoria: violinPizzSampler, 
+    //   WaterlooCity: violinPizzSampler,
+    //   Pedal: doubleBassMarcSampler
     // };
+    instruments = {
+      Bakerloo: celloMarcSampler, // fixed
+      Central: celloPizzSampler, // fixed
+      Circle: doubleBassMarcSampler, // ✅ working
+      District: doubleBassPizzSampler, // ✅ working
+      HammersmithCity: harpsichordSampler, // fixed
+      Jubilee: violaMarcSampler, // ✅ working
+      Metropolitan: violaPizzSampler, // fixed
+      Northern: violinColLegnoSampler, // fixed
+      Piccadilly: violinMarcSampler, // ✅ working
+      Victoria: violinPizzSampler, // ✅ working
+      WaterlooCity: lupoIdentSampler, // fixed
+      Pedal: celloMarcSampler // fixed
+    };
   }
 
   // getNoteAssignFunctions returns an object with line names as keys and note assign functions as values

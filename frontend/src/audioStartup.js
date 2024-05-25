@@ -4,7 +4,7 @@ import createSamplers from './samplerSetup';
 
 
 
-const audioStartup = async (instrumentSet) => {
+const audioStartup = async (instrumentSet, samplers) => {
   // let marimbaSampler, violaSampler, violinSampler, doublebassSampler, celloSampler, tubaSampler, fhornSampler, trumpetSampler, harpSampler, timpaniSampler, oboeSampler, gongSampler, tubeDrumSampler, celloMarcSampler, doubleBassMarcSampler, celloPizzSampler, doubleBassPizzSampler, harpsichordSampler, violaMarcSampler, violaPizzSampler, violinColLegnoSampler, violinMarcSampler, violinPizzSampler, lupoIdentSampler;
 
   // if (!samplers) {
@@ -13,8 +13,11 @@ const audioStartup = async (instrumentSet) => {
   //   console.log('Reusing existing samplers!');
   //   ({marimbaSampler, violaSampler, violinSampler, doublebassSampler, celloSampler, tubaSampler, fhornSampler, trumpetSampler, harpSampler, timpaniSampler, oboeSampler, gongSampler, tubeDrumSampler, celloMarcSampler, doubleBassMarcSampler, celloPizzSampler, doubleBassPizzSampler, harpsichordSampler, violaMarcSampler, violaPizzSampler, violinColLegnoSampler, violinMarcSampler, violinPizzSampler, lupoIdentSampler} = samplers);
   // }
+  console.log('Samplers:', samplers)
 
-  const {marimbaSampler, violaSampler, violinSampler, doublebassSampler, celloSampler, tubaSampler, fhornSampler, trumpetSampler, harpSampler, timpaniSampler, oboeSampler, gongSampler, tubeDrumSampler, celloMarcSampler, doubleBassMarcSampler, celloPizzSampler, doubleBassPizzSampler, harpsichordSampler, violaMarcSampler, violaPizzSampler, violinColLegnoSampler, violinMarcSampler, violinPizzSampler, lupoIdentSampler} = await createSamplers(instrumentSet);
+  const samplersObject = samplers || await createSamplers(instrumentSet);
+
+  const {marimbaSampler, violaSampler, violinSampler, doublebassSampler, celloSampler, tubaSampler, fhornSampler, trumpetSampler, harpSampler, timpaniSampler, oboeSampler, gongSampler, tubeDrumSampler, celloMarcSampler, doubleBassMarcSampler, celloPizzSampler, doubleBassPizzSampler, harpsichordSampler, violaMarcSampler, violaPizzSampler, violinColLegnoSampler, violinMarcSampler, violinPizzSampler, lupoIdentSampler} = samplersObject;
 
   let instruments = {};
 
@@ -87,7 +90,7 @@ const audioStartup = async (instrumentSet) => {
 
   // return {instruments, samplers: {marimbaSampler, violaSampler, violinSampler, doublebassSampler, celloSampler, tubaSampler, fhornSampler, trumpetSampler, harpSampler, timpaniSampler, oboeSampler, gongSampler, tubeDrumSampler, celloMarcSampler, doubleBassMarcSampler, celloPizzSampler, doubleBassPizzSampler, harpsichordSampler, violaMarcSampler, violaPizzSampler, violinColLegnoSampler, violinMarcSampler, violinPizzSampler, lupoIdentSampler}};
 
-  return instruments;
+  return {awaitedInstruments: instruments, samplersObject};
 };
 
 export default audioStartup;

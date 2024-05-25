@@ -33,15 +33,21 @@ function App() {
   const [muted, setMuted] = useState(false);
   const [specialServiceToggle, setSpecialServiceToggle] = useState(true);
   const renderCount = useRef(1)
+  const [samplers, setSamplers] = useState(null);
 
   // soundOn => hide tapin, isPlaying to TRUE, fade station names, await audioStartup, setInstruments
   const soundOn = async () => {
     console.log('SOUND ON');
-    setTapInVisible(false);
+    if (!isPlaying) { 
+      console.log('samplers not yet set')
+      setTapInVisible(false);
+      fadeAllStations();
+    }
     setIsPlaying(true); // controls the visibility of the soundon button
-    fadeAllStations();
-    const awaitedInstruments = await audioStartup(currentInstrument);
+    const { awaitedInstruments, samplersObject } = await audioStartup(currentInstrument, samplers);
+    console.log("in soundOn, samplersObject:", samplersObject, "instruments:", awaitedInstruments)
     setInstruments(awaitedInstruments);
+    setSamplers(samplersObject);
   }
 
   const stop = () => {
@@ -146,11 +152,11 @@ function App() {
     restart();
   };
 
-  useEffect(() => {
-    if(!isPlaying) {return;}
-    renderCount.current = renderCount.current + 1
-    // console.log('renderCount', renderCount.current)
-  })
+  // useEffect(() => {
+  //   if(!isPlaying) {return;}
+  //   renderCount.current = renderCount.current + 1
+  //   // console.log('renderCount', renderCount.current)
+  // })
 
   useEffect(() => {
     if(!isPlaying) {return;}

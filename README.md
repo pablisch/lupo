@@ -118,4 +118,38 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+## Development notes
+
+### The progression of Sampler creation after initial app project
+
+At the time of the first deployement and the nominal completion of the project, **all** instrument samplers were created when the map section of the app was mounted and then re-created every time the instrument set was changed. Additionally, for the **tube drum** and **marimba** instrument sets, 12 identical samplers were created for each `instrument` (11 lines plus 'pedal') where a single sampler could be assigned to each line and the pedal for the `instrument` object.
+
+The first change was to create a single sampler for the **tube drum** and **marimba** instrument sets.
+
+The next stage was to separate the creation of the samplers from the rest of the `audioSetup` function, and then to return the `samplers` along with `instrument` and pass in into new `state` when the app first mounts. Subsequent changes of the instrument set would not require the re-creation of the smaplers but would simply update the `instrument` object.
+
+Having completed a more efficient way of creating and keeping the samplers which would then not change, the next stage as to refactor the sampler code to be more concise and DRY.
+
+1. The lenghty url assignments were replaced with a `getUrls` function which would return the correct url for the instrument and note.
+2. Since the creation of each sampler was very similar, a `createSampler` function was created which would take the arguments required and return a sampler.
+
+<img src="./frontend/public/images/samples.png" alt="Samples" width="300" style="border: 1px solid #000;" />
+
+Urls reference the samples stored in the `public/samples` directory.
+
+<img src="./frontend/public/images/sampler1.png" alt="Samples" width="650" style="border: 1px solid #000;" />
+
+An example of an original sampler creation with manual url assignments.
+
+<img src="./frontend/public/images/sampler2.png" alt="Samples" width="600" style="border: 1px solid #000;" />
+
+Three samplers created using the `getUrls` function. This clearly revealed the repetition in the creation of the samplers.
+
+<img src="./frontend/public/images/sampler3.png" alt="Samples" width="650" style="border: 1px solid #000;" />
+
+The current `getUrls` and `createSampler` functions currently used to create the samplers.
+
+<img src="./frontend/public/images/sampler5.png" alt="Samples" width="1200" style="border: 1px solid #000;" />
+
+Current creation of the samplers in the `createSamplers` function called in `audioSetup`.
 

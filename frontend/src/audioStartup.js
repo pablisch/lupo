@@ -1,23 +1,37 @@
-import { Tone } from 'tone/build/esm/core/Tone';
 import getNoteAssignFunctions from './note-assignments/getNoteAssignFunctions';
 import createSamplers from './samplerSetup';
 
-
-
 const audioStartup = async (instrumentSet, samplers) => {
-  // let marimbaSampler, violaSampler, violinSampler, doublebassSampler, celloSampler, tubaSampler, fhornSampler, trumpetSampler, harpSampler, timpaniSampler, oboeSampler, gongSampler, tubeDrumSampler, celloMarcSampler, doubleBassMarcSampler, celloPizzSampler, doubleBassPizzSampler, harpsichordSampler, violaMarcSampler, violaPizzSampler, violinColLegnoSampler, violinMarcSampler, violinPizzSampler, lupoIdentSampler;
+  console.log('Samplers:', samplers);
 
-  // if (!samplers) {
-  //   ({marimbaSampler, violaSampler, violinSampler, doublebassSampler, celloSampler, tubaSampler, fhornSampler, trumpetSampler, harpSampler, timpaniSampler, oboeSampler, gongSampler, tubeDrumSampler, celloMarcSampler, doubleBassMarcSampler, celloPizzSampler, doubleBassPizzSampler, harpsichordSampler, violaMarcSampler, violaPizzSampler, violinColLegnoSampler, violinMarcSampler, violinPizzSampler, lupoIdentSampler} = await createSamplers(instrumentSet));
-  // } else {
-  //   console.log('Reusing existing samplers!');
-  //   ({marimbaSampler, violaSampler, violinSampler, doublebassSampler, celloSampler, tubaSampler, fhornSampler, trumpetSampler, harpSampler, timpaniSampler, oboeSampler, gongSampler, tubeDrumSampler, celloMarcSampler, doubleBassMarcSampler, celloPizzSampler, doubleBassPizzSampler, harpsichordSampler, violaMarcSampler, violaPizzSampler, violinColLegnoSampler, violinMarcSampler, violinPizzSampler, lupoIdentSampler} = samplers);
-  // }
-  console.log('Samplers:', samplers)
+  const samplersObject = samplers || (await createSamplers(instrumentSet));
 
-  const samplersObject = samplers || await createSamplers(instrumentSet);
-
-  const {marimbaSampler, violaSampler, violinSampler, doublebassSampler, celloSampler, tubaSampler, fhornSampler, trumpetSampler, harpSampler, timpaniSampler, oboeSampler, gongSampler, tubeDrumSampler, celloMarcSampler, doubleBassMarcSampler, celloPizzSampler, doubleBassPizzSampler, harpsichordSampler, violaMarcSampler, violaPizzSampler, violinColLegnoSampler, violinMarcSampler, violinPizzSampler, lupoIdentSampler} = samplersObject;
+  const {
+    marimbaSampler,
+    violaSampler,
+    violinSampler,
+    doubleBassSampler,
+    celloSampler,
+    tubaSampler,
+    fhornSampler,
+    trumpetSampler,
+    harpSampler,
+    timpaniSampler,
+    oboeSampler,
+    gongSampler,
+    tubeDrumSampler,
+    celloMarcSampler,
+    doubleBassMarcSampler,
+    celloPizzSampler,
+    doubleBassPizzSampler,
+    harpsichordSampler,
+    violaMarcSampler,
+    violaPizzSampler,
+    violinColLegnoSampler,
+    violinMarcSampler,
+    violinPizzSampler,
+    lupoIdentSampler,
+  } = samplersObject;
 
   let instruments = {};
 
@@ -27,7 +41,7 @@ const audioStartup = async (instrumentSet, samplers) => {
     instruments = {
       Bakerloo: violinSampler,
       Central: violaSampler,
-      Circle: doublebassSampler,
+      Circle: doubleBassSampler,
       District: celloSampler,
       HammersmithCity: tubaSampler,
       Jubilee: fhornSampler,
@@ -70,27 +84,25 @@ const audioStartup = async (instrumentSet, samplers) => {
     };
   } else if (instrumentSet === 'strings') {
     instruments = {
-      Bakerloo: celloMarcSampler, 
-      Central: celloPizzSampler, 
-      Circle: doubleBassMarcSampler, 
-      District: doubleBassPizzSampler, 
-      HammersmithCity: harpsichordSampler, 
-      Jubilee: violaMarcSampler, 
-      Metropolitan: violaPizzSampler, 
-      Northern: violinColLegnoSampler, 
-      Piccadilly: violinMarcSampler, 
-      Victoria: violinPizzSampler, 
-      WaterlooCity: lupoIdentSampler, 
-      Pedal: celloMarcSampler, 
+      Bakerloo: celloMarcSampler,
+      Central: celloPizzSampler,
+      Circle: doubleBassMarcSampler,
+      District: doubleBassPizzSampler,
+      HammersmithCity: harpsichordSampler,
+      Jubilee: violaMarcSampler,
+      Metropolitan: violaPizzSampler,
+      Northern: violinColLegnoSampler,
+      Piccadilly: violinMarcSampler,
+      Victoria: violinPizzSampler,
+      WaterlooCity: lupoIdentSampler,
+      Pedal: celloMarcSampler,
     };
   }
 
   // getNoteAssignFunctions returns an object with line names as keys and note assign functions as values
   instruments.noteAssignFunctions = getNoteAssignFunctions(instrumentSet);
 
-  // return {instruments, samplers: {marimbaSampler, violaSampler, violinSampler, doublebassSampler, celloSampler, tubaSampler, fhornSampler, trumpetSampler, harpSampler, timpaniSampler, oboeSampler, gongSampler, tubeDrumSampler, celloMarcSampler, doubleBassMarcSampler, celloPizzSampler, doubleBassPizzSampler, harpsichordSampler, violaMarcSampler, violaPizzSampler, violinColLegnoSampler, violinMarcSampler, violinPizzSampler, lupoIdentSampler}};
-
-  return {awaitedInstruments: instruments, samplersObject};
+  return { awaitedInstruments: instruments, samplersObject };
 };
 
 export default audioStartup;

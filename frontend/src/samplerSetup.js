@@ -77,7 +77,7 @@ const createSamplers = async (instrumentSet) => {
       E5: 'violin_legato_e5.mp3',
       G3: 'violin_legato_g3.mp3',
       G4: 'violin_legato_g4.mp3',
-      G5: 'violin_legato_g5.mp3',
+      // G5: 'violin_legato_g5.mp3',
     },
     release: 1,
     baseUrl: '/samples/violin_samples/',
@@ -221,7 +221,7 @@ const createSamplers = async (instrumentSet) => {
       A2: 'timp_hit_a2.mp3',
       C1: 'timp_hit_c1.mp3',
       C2: 'timp_hit_c2.mp3',
-      C3: 'timp_hit_c3.mp3',
+      // C3: 'timp_hit_c3.mp3',
       D1: 'timp_hit_d1.mp3',
       D2: 'timp_hit_d2.mp3',
       E1: 'timp_hit_e1.mp3',
@@ -332,17 +332,22 @@ const createSamplers = async (instrumentSet) => {
 
   const celloPizzSampler = new Tone.Sampler({
     urls: {
+      A1: 'cello_pizz_a1.mp3', // new
       A2: 'cello_pizz_a2.mp3',
-      A3: 'cello_pizz_a3.mp3',
+      // A3: 'cello_pizz_a3.mp3',
+      C1: 'cello_pizz_c1.mp3', // new
       C2: 'cello_pizz_c2.mp3',
       C3: 'cello_pizz_c3.mp3',
-      C4: 'cello_pizz_c4.mp3',
+      // C4: 'cello_pizz_c4.mp3',
+      D1: 'cello_pizz_d1.mp3', // new
       D2: 'cello_pizz_d2.mp3',
-      D3: 'cello_pizz_d3.mp3',
+      // D3: 'cello_pizz_d3.mp3',
+      E1: 'cello_pizz_e1.mp3', // new
       E2: 'cello_pizz_e2.mp3',
-      E3: 'cello_pizz_e3.mp3',
+      // E3: 'cello_pizz_e3.mp3',
+      G1: 'cello_pizz_g1.mp3', // new
       G2: 'cello_pizz_g2.mp3',
-      G3: 'cello_pizz_g3.mp3',
+      // G3: 'cello_pizz_g3.mp3',
     },
     release: 1,
     baseUrl: '/samples/cello_pizz_samples/',
@@ -393,11 +398,11 @@ const createSamplers = async (instrumentSet) => {
   const violaMarcSampler = new Tone.Sampler({
     urls: {
       A3: 'viola_marc_a3.mp3',
-      C3: 'viola_marc_a4.mp3',
-      C4: 'viola_marc_c3.mp3',
-      D3: 'viola_marc_c4.mp3',
-      E3: 'viola_marc_c5.mp3',
-      G3: 'viola_marc_c5.mp3',
+      C3: 'viola_marc_c3.mp3', // altered from a4  to c3
+      C4: 'viola_marc_c4.mp3', // altered from c3 to c4
+      D3: 'viola_marc_d3.mp3', // altered from c4 to d3
+      E3: 'viola_marc_e3.mp3', // altered from c5 to e3
+      G3: 'viola_marc_g3.mp3', // altered from e3 to g3
     },
     release: 1,
     baseUrl: '/samples/viola_marc_samples/',

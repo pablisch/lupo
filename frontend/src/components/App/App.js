@@ -38,8 +38,8 @@ function App() {
     console.log('SOUND ON');
     if (!isPlaying) { 
       console.log('samplers not yet set')
-      fadeAllStations();
     }
+    fadeAllStations();
     setIsPlaying(true); // controls the visibility of the soundon button
     const { awaitedInstruments, samplersObject } = await audioStartup(currentInstrument, samplers);
     console.log("in soundOn, samplersObject:", samplersObject, "instruments:", awaitedInstruments)

@@ -11,6 +11,13 @@ const flashElement = (elementId) => {
   }, 1500);  
 }
 
+const getRandomVelocity = () => {
+  // A lower minimum velocity results in greater dynamic range / variation
+  const minVelocity = 0.8;
+  // max velocity is 1 as 1 is max output from Math.random()
+  return Math.round(((Math.random() * minVelocity) + minVelocity) * 10) / 10 // result is 1dp
+}
+
 const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalFlareEffectsToggle, arrivals) => {
   quantisedTubeData.forEach((train) => {
     // console.log(train.stationName, train.lineName)

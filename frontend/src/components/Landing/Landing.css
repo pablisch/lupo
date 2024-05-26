@@ -34,13 +34,11 @@
 }
 
 .App-header {
-  /* background-color: #313a4a; */
   background-color: #fff;
   max-height: 450px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: first baseline; */
   font-size: calc(10px + 2vmin);
   color: white;
   max-width: 1000px;
@@ -61,13 +59,59 @@
 
 .blurb p {
   color: #fff;
-  font-size: 25px;
+  font-size: 1.5rem;
   margin: 5px;
-  padding: 0;
 }
 
 .blue-break {
   background-color: #042ed7;
   height: 10px;
   width: 100%;
+}
+
+@media (max-width: 900px) {
+  .App .app-nav h2 {
+    font-size: 2rem;
+  }
+  .App-logo {
+    height: 50vmin;
+    margin: 10px auto;
+  }
+  .landing-page p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .App .app-nav h2 {
+    font-size: 1rem;
+  }
+  .App-logo {
+    height: 60vmin;
+    margin: 0 auto;
+  }
+  .mid-text, .bottom-text {
+    display: none;
+  }
+  .blurb .top-text {
+    padding-bottom: 1000px;
+  }
+}
+
+@media (max-width: 500px) {
+  .App-logo {
+    height: 70vmin;
+  }
+  .landing-page p {
+    font-size: 0.7rem;
+  }
+  .blurb .top-text {
+    padding-top: 10px;
+  }
+}
+
+@media (max-width: 300px) {
+  .App-logo {
+    margin: -10px auto;
+  }
 }

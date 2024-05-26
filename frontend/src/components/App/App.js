@@ -8,7 +8,6 @@ import triggerAudioVisuals from '../../triggerAudioVisuals';
 import DataVisualiser from '../DataVisualiser/DataVisualiser.js';
 import { Routes, Route } from "react-router-dom";
 import processTubeData from '../../processTubeData';
-// import allStations from '../../stations';
 import TIMEOUTS from '../../timeouts';
 import SideBarLeft from '../SideBarLeft/SideBarLeft';
 import Navbar from '../Navbar/Navbar';
@@ -32,20 +31,23 @@ function App() {
   const [instruments, setInstruments] = useState(null);
   const [tapInVisible, setTapInVisible] = useState(true);
   const [muted, setMuted] = useState(false);
+  const [specialServiceToggle, setSpecialServiceToggle] = useState(true);
   const renderCount = useRef(1)
+  const [samplers, setSamplers] = useState(null);
 
+  // soundOn => hide tapin, isPlaying to TRUE, fade station names, await audioStartup, setInstruments
   const soundOn = async () => {
     console.log('SOUND ON');
-    setTapInVisible(false);
+    if (!isPlaying) { 
+      console.log('samplers not yet set')
+      setTapInVisible(false);
+      fadeAllStations();
+    }
     setIsPlaying(true); // controls the visibility of the soundon button
-    fadeAllStations();
-    const awaitedInstruments = await audioStartup(currentInstrument);
+    const { awaitedInstruments, samplersObject } = await audioStartup(currentInstrument, samplers);
+    console.log("in soundOn, samplersObject:", samplersObject, "instruments:", awaitedInstruments)
     setInstruments(awaitedInstruments);
-    
-    // Following block provides a looping pedal note:
-    // setInterval(() => {
-    //   instruments.Pedal.triggerAttackRelease('C4', '1n');
-    // }, (dataBlockDuration / 60) * 2000);
+    setSamplers(samplersObject);
   }
 
   const stop = () => {
@@ -73,8 +75,32 @@ function App() {
             timeToStation: item.timeToStation
           }));
         const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
+        if (sortedData.length > 260) {
+          localStorage.setItem('sortedData', JSON.stringify(sortedData));
+          console.log(`sortedData.length = ${sortedData.length}, saved to localStorage`)
+        } else {
+          console.log(`sortedData.length = ${sortedData.length}, NOT saved to localStorage`)
+        }
         const processedData = processTubeData(sortedData, dataBlockDuration);
-        console.log('processedData =', processedData);
+        // console.log('processedData =', processedData);
+        setVisualData(processedData);
+        // console.log("fetchdata instruments", instruments)
+        triggerAudioVisuals(processedData, instruments, arrivalFlareEffectsToggle, arrivals)
+      })
+      .catch(error => {
+        console.error("Error fetching TFL's dodgy tube data:", error);
+      });
+  };
+
+  const fetchSpecialServiceData = () => {
+    axios.get('/sampleData3.json')
+      .then(response => {
+        const filteredData = response.data;
+        const sortedData = filteredData.sort((a, b) => a.timeToStation - b.timeToStation);
+        const processedData = processTubeData(sortedData, dataBlockDuration);
+        console.log('sortedData =', sortedData)
+        console.log('processedData =', processedData)
+        console.log('RUNNING SPECIAL SERVICE')
         setVisualData(processedData);
         console.log("fetchdata instruments", instruments)
         triggerAudioVisuals(processedData, instruments, arrivalFlareEffectsToggle, arrivals);
@@ -91,8 +117,13 @@ function App() {
 
     if(instruments) { 
       console.log('instruments:', instruments)
-      fetchData()  // initial fetch as setInterval only exectues after first interval
-      mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
+      if (specialServiceToggle) {
+        fetchSpecialServiceData();
+        mainLooper = setInterval(fetchSpecialServiceData, dataBlockDuration * 1000);
+      } else {
+        fetchData()  // initial fetch as setInterval only exectues after first interval
+        mainLooper = setInterval(fetchData, dataBlockDuration * 1000);
+      }
     }
   // eslint-disable-next-line
   }, [instruments])
@@ -114,12 +145,13 @@ function App() {
     setarrivalFlareEffectsToggle(current => !current);
     restart();
   };
-
-  useEffect(() => {
-    if(!isPlaying) {return;}
-    renderCount.current = renderCount.current + 1
-    // console.log('renderCount', renderCount.current)
-  })
+  
+  // handleSpecialServiceToggle to toggle the value of specialServiceToggle
+  const handleSpecialServiceToggle = () => {
+    console.log('specialServiceToggle: '+ specialServiceToggle);
+    setSpecialServiceToggle(current => !current);
+    restart();
+  };
 
   useEffect(() => {
     if(!isPlaying) {return;}
@@ -158,11 +190,10 @@ function App() {
         </>} />
         
         <Route path='/sounds-of-the-underground' element={<>
-            {tapInVisible && <img src={logo} id="tap-in" className="App-logo" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>}
-            {/* <img src={logo} id="tap-in" className="App-logo" alt="sound on" /> */}
+            {tapInVisible && <img src={logo} id="tap-in" className="App-logo2" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>}
             <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
             <div className="container bars-and-map">
-              <SideBarLeft setTapInVisible={setTapInVisible} arrivalFlareEffectsToggle={arrivalFlareEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick}/>
+              <SideBarLeft setTapInVisible={setTapInVisible} arrivalFlareEffectsToggle={arrivalFlareEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} />
               <TubeMap/>
             </div> 
           </>

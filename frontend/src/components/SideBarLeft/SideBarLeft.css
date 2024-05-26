@@ -8,7 +8,6 @@
   padding: 5px 0;
   background-color: #e48d6a;
   color: #000;
-  /* font-weight: bold; */
   font-size: 1.3rem;
   border: 1px solid #999;
   border-radius: 2px;
@@ -78,6 +77,10 @@
   color: #000;
   cursor: not-allowed;
   animation: colorTransition 2s infinite alternate; 
+}
+
+.specialServiceButton {
+  font-size: 1rem;
 }
 
 .redButton {
@@ -170,3 +173,70 @@
   /* margin-bottom: 3px; */
 }
 
+@media (max-width: 650px) {
+  .btn-line {
+    width: 100%;
+    margin: 1px auto;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    height: 22px;
+  }
+  .btn-waterloocity {
+    font-size: 0.8rem;
+  }
+  .instrumentButton {
+    height: 22px;
+    font-size: 1rem;
+  }
+  #soundon {
+    height: auto;
+    font-size: 0.9rem;
+    margin: 5px auto 10px;
+    padding: 3px 0;
+  }
+  .specialServiceButton, .arrival-effects {
+    height: 22px;
+    font-size: 0.7rem;
+    text-align: center;
+  }
+  #mute {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 550px) {
+  .btn-line {
+    width: 100%;
+    margin: 1px auto;
+    font-size: 0.7rem;
+    border: none;
+    cursor: pointer;
+    height: 17px;
+  }
+  .btn-waterloocity {
+    font-size: 0.4rem;
+  }
+  .btn-temp-left {
+    font-size: 0.8rem;
+  }
+  #mute {
+    margin-bottom: 6px;
+  }
+  .instrumentButton {
+    height: 18px;
+    font-size: 0.5rem;
+    margin: 0 auto 3px;
+  }
+  #soundon {
+    height: auto;
+    font-size: 0.6rem;
+    margin: 3px auto 5px;
+    padding: 3px 0;
+  }
+  .specialServiceButton, .arrival-effects {
+    height: 18px;
+    font-size: 0.4rem;
+    text-align: center;
+  }
+}

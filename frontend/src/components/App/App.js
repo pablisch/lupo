@@ -12,7 +12,6 @@ import TIMEOUTS from '../../timeouts';
 import SideBarLeft from '../SideBarLeft/SideBarLeft';
 import Navbar from '../Navbar/Navbar';
 import Landing from '../Landing/Landing';
-import logo from '../../logo.svg';
 import * as Tone from 'tone';
 import fadeAllStations from '../../fadeAllStations';
 
@@ -29,25 +28,29 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [arrivalFlareEffectsToggle, setarrivalFlareEffectsToggle] = useState(true);
   const [instruments, setInstruments] = useState(null);
-  const [tapInVisible, setTapInVisible] = useState(true);
   const [muted, setMuted] = useState(false);
   const [specialServiceToggle, setSpecialServiceToggle] = useState(true);
   const renderCount = useRef(1)
   const [samplers, setSamplers] = useState(null);
 
-  // soundOn => hide tapin, isPlaying to TRUE, fade station names, await audioStartup, setInstruments
+  // soundOn => isPlaying to TRUE, fade station names, await audioStartup, setInstruments
   const soundOn = async () => {
     console.log('SOUND ON');
     if (!isPlaying) { 
       console.log('samplers not yet set')
-      setTapInVisible(false);
-      fadeAllStations();
     }
+    fadeAllStations();
     setIsPlaying(true); // controls the visibility of the soundon button
     const { awaitedInstruments, samplersObject } = await audioStartup(currentInstrument, samplers);
     console.log("in soundOn, samplersObject:", samplersObject, "instruments:", awaitedInstruments)
     setInstruments(awaitedInstruments);
     if (!samplers) setSamplers(samplersObject);
+  }
+
+  const start = () => {
+    setTimeout(() => {
+      soundOn();
+    }, 0)
   }
 
   const stop = () => {
@@ -190,17 +193,16 @@ function App() {
         </>} />
         
         <Route path='/sounds-of-the-underground' element={<>
-            {tapInVisible && <img src={logo} id="tap-in" className="App-logo2" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>}
-            <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
+            <Navbar stop={stop}/>
             <div className="container bars-and-map">
-              <SideBarLeft setTapInVisible={setTapInVisible} arrivalFlareEffectsToggle={arrivalFlareEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} />
+              <SideBarLeft arrivalFlareEffectsToggle={arrivalFlareEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} />
               <TubeMap/>
             </div> 
           </>
         } />
         
         <Route path='/' element={
-          <Landing renderCount={renderCount} />
+          <Landing renderCount={renderCount} start={start} />
         }/>
       </Routes>
     </div>

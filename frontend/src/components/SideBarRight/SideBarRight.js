@@ -2,7 +2,7 @@ import './SideBarRight.css'
 
 
 
-const SideBarRight = ({arrivals, arrivalEffectsToggle, handleArrivalEffectToggle, stop, setTapInVisible}) => {
+const SideBarRight = ({arrivals, arrivalEffectsToggle, handleArrivalEffectToggle, stop}) => {
 
   return (
     <aside className="sidebar sidebar-right">

@@ -1,3 +1,36 @@
+// Bakerloo Line: 25 stations
+// Central Line: 48 stations
+// Circle Line: 36 stations
+// District Line: 60 stations
+
+const bakerloo = [
+  "Harrow&Wealdstone",
+  "Kenton",
+  "SouthKenton",
+  "NorthWembley",
+  "WembleyCentral",
+  "StonebridgePark",
+  "Harlesden",
+  "WillesdenJunction",
+  "KensalGreen",
+  "Queen'sPark",
+  "KilburnPark",
+  "MaidaVale",
+  "WarwickAvenue",
+  "Paddington",
+  "EdgwareRoadB",
+  "Marylebone",
+  "BakerStreet",
+  "Regent'sPark",
+  "OxfordCircus",
+  "PiccadillyCircus",
+  "CharingCross",
+  "Embankment",
+  "Waterloo",
+  "LambethNorth",
+  "Elephant&Castle"
+] // 25
+
 const central = [
   "WestRuislip",
   "RuislipGardens",
@@ -49,33 +82,6 @@ const central = [
   "Wanstead"
 ]; // 48
 
-const bakerloo = [
-  "Harrow&Wealdstone",
-  "Kenton",
-  "SouthKenton",
-  "NorthWembley",
-  "WembleyCentral",
-  "StonebridgePark",
-  "Harlesden",
-  "WillesdenJunction",
-  "KensalGreen",
-  "Queen'sPark",
-  "KilburnPark",
-  "MaidaVale",
-  "WarwickAvenue",
-  "Paddington",
-  "EdgwareRoadB",
-  "Marylebone",
-  "BakerStreet",
-  "Regent'sPark",
-  "OxfordCircus",
-  "PiccadillyCircus",
-  "CharingCross",
-  "Embankment",
-  "Waterloo",
-  "LambethNorth",
-  "Elephant&Castle"
-] // 24
 const circle = [
   "Hammersmith(H&CLine)",
   "GoldhawkRoad",
@@ -113,7 +119,7 @@ const circle = [
   "HighStreetKensington",
   "NottingHillGate",
   "Bayswater"
-]; // 35
+]; // 36
 
 const district = [
   "ActonTown",
@@ -176,7 +182,8 @@ const district = [
   "WestKensington",
   "Whitechapel",
   "Westminster"
-]
+] // 60
+
 const hammersmithcity = [
   "AldgateEast",
   "Bromley-by-Bow",
@@ -207,7 +214,8 @@ const hammersmithcity = [
   "WoodLane",
   "Whitechapel",
   "WestbournePark"
-]
+] // 29
+
 const jubilee = [
   "Bermondsey",
   "BondStreet",
@@ -236,7 +244,8 @@ const jubilee = [
   "Waterloo",
   "Westminster",
   "WembleyPark"
-]
+] // 27
+
 const metropolitan = [
   "Aldgate",
   "Amersham",
@@ -273,7 +282,8 @@ const metropolitan = [
   "WestHarrow",
   "WillesdenGreen",
   "WembleyPark"
-]
+] // 35
+
 const northern = [
   "Archway",
   "Angel",
@@ -325,7 +335,8 @@ const northern = [
   "Waterloo",
   "WoodsidePark",
   "WarrenStreet"
-]
+] // 50
+
 const piccadilly = [
   "ActonTown",
   "Alperton",
@@ -380,7 +391,8 @@ const piccadilly = [
   "TurnpikeLane",
   "Uxbridge",
   "WoodGreen"
-]
+] // 53
+
 const victoria = [
   "BlackhorseRoad",
   "Brixton",
@@ -398,11 +410,12 @@ const victoria = [
   "Vauxhall",
   "WarrenStreet",
   "WalthamstowCentral"
-]
+] // 16
+
 const waterloocity = [
   "Bank",
   "Waterloo"
-]
+] // 2
 
 const allStations = [
   central, bakerloo, circle, district, hammersmithcity, jubilee, metropolitan, northern, piccadilly, victoria, waterloocity

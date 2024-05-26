@@ -35,7 +35,7 @@ const createSamplers = async (instrumentSet) => {
 
   const toDestination = Tone.Destination;
 
-  const celloMarcSampler = createSampler(NOTES.celloMarc, 'cello_marc', '/samples/cello_marcato_samples/', toDestination);
+  const celloMarcSampler = createSampler(NOTES.celloMarc, 'cello_marc', '/samples/cello_marc_samples/', toDestination);
 
   const celloPizzSampler = createSampler(NOTES.celloPizz, 'cello_pizz', '/samples/cello_pizz_samples/', toDestination);
 
@@ -150,7 +150,7 @@ const createSamplers = async (instrumentSet) => {
   const violaMarcSampler = createSampler(
     NOTES.violaMarc,
     'viola_marc',
-    '/samples/viola_marcato_samples/',
+    '/samples/viola_marc_samples/',
     toDestination
   );
   
@@ -179,7 +179,7 @@ const createSamplers = async (instrumentSet) => {
   const violinMarcSampler = createSampler(
     NOTES.violinMarc,
     'violin_marc',
-    '/samples/violin_marcato_samples/',
+    '/samples/violin_marc_samples/',
     toDestination
   );
   

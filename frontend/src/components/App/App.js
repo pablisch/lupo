@@ -27,21 +27,34 @@ function App() {
   const [dataVisualiserKey, setDataVisualiserKey] = useState(0);
   const [visualData, setVisualData] = useState([]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [arrivalEffectsToggle, setArrivalEffectsToggle] = useState(true);
+  const [arrivalFlareEffectsToggle, setarrivalFlareEffectsToggle] = useState(true);
   const [instruments, setInstruments] = useState(null);
   const [tapInVisible, setTapInVisible] = useState(true);
   const [muted, setMuted] = useState(false);
   const [specialServiceToggle, setSpecialServiceToggle] = useState(true);
   const renderCount = useRef(1)
   const [pageCount, setPageCount] = useState(0);
+  const [samplers, setSamplers] = useState(null);
 
+  // soundOn => hide tapin, isPlaying to TRUE, fade station names, await audioStartup, setInstruments
   const soundOn = async () => {
     console.log('SOUND ON');
-    setTapInVisible(false);
+    if (!isPlaying) { 
+      console.log('samplers not yet set')
+      setTapInVisible(false);
+      fadeAllStations();
+    }
     setIsPlaying(true); // controls the visibility of the soundon button
-    fadeAllStations();
-    const awaitedInstruments = await audioStartup(currentInstrument);
+    const { awaitedInstruments, samplersObject } = await audioStartup(currentInstrument, samplers);
+    console.log("in soundOn, samplersObject:", samplersObject, "instruments:", awaitedInstruments)
     setInstruments(awaitedInstruments);
+    setSamplers(samplersObject);
+  }
+
+  const start = () => {
+    setTimeout(() => {
+      soundOn();
+    }, 0)
   }
 
   const start = () => {
@@ -85,7 +98,7 @@ function App() {
         // console.log('processedData =', processedData);
         setVisualData(processedData);
         // console.log("fetchdata instruments", instruments)
-        triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals)
+        triggerAudioVisuals(processedData, instruments, arrivalFlareEffectsToggle, arrivals)
       })
       .catch(error => {
         console.error("Error fetching TFL's dodgy tube data:", error);
@@ -102,7 +115,8 @@ function App() {
         console.log('processedData =', processedData)
         console.log('RUNNING SPECIAL SERVICE')
         setVisualData(processedData);
-        triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals)
+        console.log("fetchdata instruments", instruments)
+        triggerAudioVisuals(processedData, instruments, arrivalFlareEffectsToggle, arrivals);
       })
       .catch(error => {
         console.error("Error fetching TFL's dodgy tube data:", error);
@@ -138,25 +152,19 @@ function App() {
     }, 3000);
   };
 
-  // handleArrivalEffectToggle to toggle the value of arrivalEffectsToggle
+  // handleArrivalEffectToggle to toggle the value of arrivalFlareEffectsToggle
   const handleArrivalEffectToggle = () => {
-    console.log('arrivalEffectsToggle: '+ arrivalEffectsToggle);
-    setArrivalEffectsToggle(current => !current);
+    console.log('arrivalFlareEffectsToggle: '+ arrivalFlareEffectsToggle);
+    setarrivalFlareEffectsToggle(current => !current);
     restart();
   };
-
+  
   // handleSpecialServiceToggle to toggle the value of specialServiceToggle
   const handleSpecialServiceToggle = () => {
     console.log('specialServiceToggle: '+ specialServiceToggle);
     setSpecialServiceToggle(current => !current);
     restart();
   };
-
-  useEffect(() => {
-    if(!isPlaying) {return;}
-    renderCount.current = renderCount.current + 1
-    // console.log('renderCount', renderCount.current)
-  })
 
   useEffect(() => {
     if(!isPlaying) {return;}
@@ -198,7 +206,7 @@ function App() {
             {/* {tapInVisible && <img src={logo} id="tap-in" className="App-logo2" alt="sound on" onClick={soundOn} style={{ cursor: 'pointer' }}/>} */}
             <Navbar stop={stop} setTapInVisible={setTapInVisible}/>
             <div className="container bars-and-map">
-            <SideBarLeft setTapInVisible={setTapInVisible} arrivalEffectsToggle={arrivalEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} />
+              <SideBarLeft setTapInVisible={setTapInVisible} arrivalFlareEffectsToggle={arrivalFlareEffectsToggle} handleArrivalEffectToggle={handleArrivalEffectToggle} currentInstrument={currentInstrument} restart={restart} soundOn={soundOn} isPlaying={isPlaying} instruments={instruments} changeCurrentInstrument={changeCurrentInstrument} muted={muted} handleMuteButtonClick={handleMuteButtonClick} handleSpecialServiceToggle={handleSpecialServiceToggle} specialServiceToggle={specialServiceToggle} />
               <TubeMap/>
             </div> 
           </>

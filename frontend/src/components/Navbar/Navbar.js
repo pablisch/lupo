@@ -26,7 +26,10 @@ const Navbar = ({stop, setTapInVisible}) => {
         <div className="nav-links">
           {/data/.test(window.location.href) && <div onClick={fadeStationsWhenReturningToMap} className="map-link link-btn"><Link to="/sounds-of-the-underground">Map</Link></div>}
           {/sounds/.test(window.location.href) && <div className="data-link link-btn"><Link to="/data">Data</Link></div>}
-          <div className="exit-link link-btn"><Link to="/" onClick={navigateAway}>Exit</Link></div>
+          <div className="exit-link link-btn">
+            <Link to="/" onClick={navigateAway}>Exit
+            </Link>
+          </div>
         </div>
       </div>
     </nav>

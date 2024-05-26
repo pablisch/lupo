@@ -85,7 +85,7 @@ function App() {
         // console.log('processedData =', processedData);
         setVisualData(processedData);
         // console.log("fetchdata instruments", instruments)
-        triggerAudioVisuals(processedData, instruments, arrivalEffectsToggle, arrivals)
+        triggerAudioVisuals(processedData, instruments, arrivalFlareEffectsToggle, arrivals)
       })
       .catch(error => {
         console.error("Error fetching TFL's dodgy tube data:", error);

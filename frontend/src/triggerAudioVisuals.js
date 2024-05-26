@@ -14,7 +14,6 @@ const flashElement = (elementId) => {
 const getRandomVelocity = () => {
   // A lower minimum velocity results in greater dynamic range / variation
   const minVelocity = 0.8;
-  // max velocity is 1 as 1 is max output from Math.random()
   return Math.round(((Math.random() * minVelocity) + minVelocity) * 10) / 10 // result is 1dp
 }
 
@@ -24,10 +23,7 @@ const triggerAudioVisuals = (quantisedTubeData, instruments, arrivalFlareEffects
     const note = instruments.noteAssignFunctions[train.lineName](train.stationName);
     TIMEOUTS.setTimeout(() => {
       const now = Tone.now(); // the audio context time
-      const minVelocity = 0.8;
-      // max velocity is 1 as 1 is max output from Math.random()
-      const randomVelocity = Math.round(((Math.random() * minVelocity) + minVelocity) * 10) / 10 // result is 1dp
-      // console.log(randomVelocity)
+      const randomVelocity = getRandomVelocity();
       instruments[train.lineName].triggerAttackRelease(note, '4n', now, randomVelocity);
       // console.log(`${train.stationName} - ${train.lineName} line. Time To Station: ${train.timeToStation}`);
       flashElement(train.stationName);

@@ -47,7 +47,7 @@ function App() {
     const { awaitedInstruments, samplersObject } = await audioStartup(currentInstrument, samplers);
     console.log("in soundOn, samplersObject:", samplersObject, "instruments:", awaitedInstruments)
     setInstruments(awaitedInstruments);
-    setSamplers(samplersObject);
+    if (!samplers) setSamplers(samplersObject);
   }
 
   const stop = () => {

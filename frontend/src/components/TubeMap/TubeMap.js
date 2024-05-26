@@ -1,8 +1,12 @@
 import { ReactComponent as Map } from '../../assets/Tube.svg';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import './TubeMap.css';
+import fadeAllStations from '../../fadeAllStations';
+import { useEffect } from 'react';
 
 const TubeMap = () => {
+  useEffect(() => { fadeAllStations() }, []);
+
   return (
     <main>
       <div className="map-wrapper">

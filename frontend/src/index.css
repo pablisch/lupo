@@ -19,5 +19,5 @@ code {
 }
 
 .fade-out {
-  transition: opacity 2.5s ease-out;
+  transition: opacity 1.5s ease-out;
 }

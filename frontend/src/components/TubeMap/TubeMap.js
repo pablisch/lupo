@@ -1,8 +1,10 @@
 import { ReactComponent as Map } from '../../assets/Tube.svg';
+import SvgTube from './SvgTube';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import './TubeMap.css';
 import fadeAllStations from '../../fadeAllStations';
 import { useEffect } from 'react';
+import TubeSvg from './TubeSvg';
 
 const TubeMap = () => {
   useEffect(() => { fadeAllStations() }, []);
@@ -29,7 +31,9 @@ const TubeMap = () => {
             transformOrigin: "center",
             position: "absolute"
           }}>
-            <Map />
+            {/* <Map /> */}
+            {/* <SvgTube /> */}
+            <TubeSvg />
           </TransformComponent>
         </TransformWrapper>
       </div>

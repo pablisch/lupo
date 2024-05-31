@@ -13,20 +13,20 @@ const TubeMap = () => {
         <TransformWrapper
           disablePadding={false}
           initialScale={1.7}
-          initialPositionX={0}
-          initialPositionY={0}
+          initialPositionX={-370}
+          initialPositionY={-320}
         >
           <TransformComponent wrapperStyle={{
             width: "100%",
             height: "100%",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center"
+            alignItems: "center",
           }}
           contentStyle={{
             width: "100%",
             height: "100%",
-            transformOrigin: "center",
+            // transformOrigin: "center",
             position: "absolute"
           }}>
             <Map />

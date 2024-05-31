@@ -153,3 +153,9 @@ The current `getUrls` and `createSampler` functions currently used to create the
 
 Current creation of the samplers in the `createSamplers` function called in `audioSetup`.
 
+## Station Name and Line Name usage
+
+**stations.js** contains an array of stations for each line with the stations vaguely in order (runngin west to east) but prioritising line branches over west to east orientation.
+The stations are named inconsistently with some having the name of the line that they are on but again quite inconsistently. 
+Spaces are absent. 
+Ampersands are included
